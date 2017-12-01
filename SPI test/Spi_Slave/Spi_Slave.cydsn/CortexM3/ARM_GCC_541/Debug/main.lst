@@ -1,0 +1,951 @@
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ISR_SPI,"ax",%progbits
+  20              		.align	2
+  21              		.global	ISR_SPI
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	ISR_SPI, %function
+  25              	ISR_SPI:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** 
+   2:main.c        **** #include "project.h"
+   3:main.c        **** #include <stdlib.h>
+   4:main.c        **** #include <stdio.h>
+   5:main.c        **** volatile uint8 received = 0; //Varaible to store received data
+   6:main.c        **** volatile uint8 intFlag = 0; //Variable to indicate if there have been an interrupt
+   7:main.c        **** volatile uint8 numberPrinted = 0;
+   8:main.c        **** 
+   9:main.c        **** CY_ISR_PROTO(ISR_SPI); //Interrupt prototype
+  10:main.c        **** CY_ISR(ISR_SPI) //Interrupt service routine
+  11:main.c        **** {
+  28              		.loc 1 11 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  12:main.c        ****     received = SPI_Slave_ReadRxData(); //Storing the received data
+  36              		.loc 1 12 0
+  37 0002 FFF7FEFF 		bl	SPI_Slave_ReadRxData
+  38              	.LVL0:
+  39 0006 044B     		ldr	r3, .L3
+  40 0008 1870     		strb	r0, [r3]
+  13:main.c        ****     intFlag = 1; //Indicating that an interrupt has occurred
+  41              		.loc 1 13 0
+  42 000a 0122     		movs	r2, #1
+  43 000c 5A70     		strb	r2, [r3, #1]
+  14:main.c        ****     SPI_Slave_ClearRxBuffer(); //Clearing the RX buffer
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 2
+
+
+  44              		.loc 1 14 0
+  45 000e FFF7FEFF 		bl	SPI_Slave_ClearRxBuffer
+  46              	.LVL1:
+  15:main.c        ****     SPI_Slave_ClearFIFO(); //Clearing the FIFO register
+  47              		.loc 1 15 0
+  48 0012 FFF7FEFF 		bl	SPI_Slave_ClearFIFO
+  49              	.LVL2:
+  50 0016 08BD     		pop	{r3, pc}
+  51              	.L4:
+  52              		.align	2
+  53              	.L3:
+  54 0018 00000000 		.word	.LANCHOR0
+  55              		.cfi_endproc
+  56              	.LFE64:
+  57              		.size	ISR_SPI, .-ISR_SPI
+  58              		.section	.text.main,"ax",%progbits
+  59              		.align	2
+  60              		.global	main
+  61              		.thumb
+  62              		.thumb_func
+  63              		.type	main, %function
+  64              	main:
+  65              	.LFB65:
+  16:main.c        **** }
+  17:main.c        **** 
+  18:main.c        **** int main(void)
+  19:main.c        **** {
+  66              		.loc 1 19 0
+  67              		.cfi_startproc
+  68              		@ Volatile: function does not return.
+  69              		@ args = 0, pretend = 0, frame = 0
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+  71 0000 08B5     		push	{r3, lr}
+  72              		.cfi_def_cfa_offset 8
+  73              		.cfi_offset 3, -8
+  74              		.cfi_offset 14, -4
+  20:main.c        ****     CyGlobalIntEnable; //Enable global interrupts. 
+  75              		.loc 1 20 0
+  76              		.syntax unified
+  77              	@ 20 "main.c" 1
+  78 0002 62B6     		CPSIE   i
+  79              	@ 0 "" 2
+  21:main.c        **** 
+  22:main.c        ****     UART_Slave_Start(); //Starting UART on the slave
+  80              		.loc 1 22 0
+  81              		.thumb
+  82              		.syntax unified
+  83 0004 FFF7FEFF 		bl	UART_Slave_Start
+  84              	.LVL3:
+  23:main.c        ****     
+  24:main.c        ****     UART_Slave_PutString("\r\n\r\n ---------- Connection Established ---------- \r\n\r\n"); //Print
+  85              		.loc 1 24 0
+  86 0008 0748     		ldr	r0, .L8
+  87 000a FFF7FEFF 		bl	UART_Slave_PutString
+  88              	.LVL4:
+  25:main.c        ****     
+  26:main.c        ****     ISR_SPI_StartEx(ISR_SPI); //Initialising the ISR
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 3
+
+
+  89              		.loc 1 26 0
+  90 000e 0748     		ldr	r0, .L8+4
+  91 0010 FFF7FEFF 		bl	ISR_SPI_StartEx
+  92              	.LVL5:
+  27:main.c        ****     
+  28:main.c        ****     SPI_Slave_Start(); // Starting the SPI Slave
+  93              		.loc 1 28 0
+  94 0014 FFF7FEFF 		bl	SPI_Slave_Start
+  95              	.LVL6:
+  96              	.L6:
+  29:main.c        ****     char test[100];
+  30:main.c        ****     //char testchar[1];
+  31:main.c        ****     
+  32:main.c        ****     for(;;)
+  33:main.c        ****     {
+  34:main.c        ****         SPI_Slave_WriteTxData('a');
+  97              		.loc 1 34 0 discriminator 1
+  98 0018 6120     		movs	r0, #97
+  99 001a FFF7FEFF 		bl	SPI_Slave_WriteTxData
+ 100              	.LVL7:
+  35:main.c        ****         CyDelay(200);
+ 101              		.loc 1 35 0 discriminator 1
+ 102 001e C820     		movs	r0, #200
+ 103 0020 FFF7FEFF 		bl	CyDelay
+ 104              	.LVL8:
+ 105 0024 F8E7     		b	.L6
+ 106              	.L9:
+ 107 0026 00BF     		.align	2
+ 108              	.L8:
+ 109 0028 00000000 		.word	.LC0
+ 110 002c 00000000 		.word	ISR_SPI
+ 111              		.cfi_endproc
+ 112              	.LFE65:
+ 113              		.size	main, .-main
+ 114              		.global	numberPrinted
+ 115              		.global	intFlag
+ 116              		.global	received
+ 117              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 118              		.align	2
+ 119              	.LC0:
+ 120 0000 0D0A0D0A 		.ascii	"\015\012\015\012 ---------- Connection Established "
+ 120      202D2D2D 
+ 120      2D2D2D2D 
+ 120      2D2D2D20 
+ 120      436F6E6E 
+ 121 0027 2D2D2D2D 		.ascii	"---------- \015\012\015\012\000"
+ 121      2D2D2D2D 
+ 121      2D2D200D 
+ 121      0A0D0A00 
+ 122              		.bss
+ 123              		.set	.LANCHOR0,. + 0
+ 124              		.type	received, %object
+ 125              		.size	received, 1
+ 126              	received:
+ 127 0000 00       		.space	1
+ 128              		.type	intFlag, %object
+ 129              		.size	intFlag, 1
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 4
+
+
+ 130              	intFlag:
+ 131 0001 00       		.space	1
+ 132              		.type	numberPrinted, %object
+ 133              		.size	numberPrinted, 1
+ 134              	numberPrinted:
+ 135 0002 00       		.space	1
+ 136              		.text
+ 137              	.Letext0:
+ 138              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 139              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 140              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 141              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 142              		.file 6 "Generated_Source\\PSoC5/SPI_Slave.h"
+ 143              		.file 7 "Generated_Source\\PSoC5/UART_Slave.h"
+ 144              		.file 8 "Generated_Source\\PSoC5/ISR_SPI.h"
+ 145              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
+ 146              		.section	.debug_info,"",%progbits
+ 147              	.Ldebug_info0:
+ 148 0000 23020000 		.4byte	0x223
+ 149 0004 0400     		.2byte	0x4
+ 150 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 151 000a 04       		.byte	0x4
+ 152 000b 01       		.uleb128 0x1
+ 153 000c 6B000000 		.4byte	.LASF30
+ 154 0010 0C       		.byte	0xc
+ 155 0011 CB010000 		.4byte	.LASF31
+ 156 0015 ED010000 		.4byte	.LASF32
+ 157 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 158 001d 00000000 		.4byte	0
+ 159 0021 00000000 		.4byte	.Ldebug_line0
+ 160 0025 02       		.uleb128 0x2
+ 161 0026 01       		.byte	0x1
+ 162 0027 06       		.byte	0x6
+ 163 0028 61020000 		.4byte	.LASF0
+ 164 002c 02       		.uleb128 0x2
+ 165 002d 01       		.byte	0x1
+ 166 002e 08       		.byte	0x8
+ 167 002f 5D000000 		.4byte	.LASF1
+ 168 0033 02       		.uleb128 0x2
+ 169 0034 02       		.byte	0x2
+ 170 0035 05       		.byte	0x5
+ 171 0036 27020000 		.4byte	.LASF2
+ 172 003a 02       		.uleb128 0x2
+ 173 003b 02       		.byte	0x2
+ 174 003c 07       		.byte	0x7
+ 175 003d 0B010000 		.4byte	.LASF3
+ 176 0041 03       		.uleb128 0x3
+ 177 0042 24000000 		.4byte	.LASF9
+ 178 0046 02       		.byte	0x2
+ 179 0047 3F       		.byte	0x3f
+ 180 0048 4C000000 		.4byte	0x4c
+ 181 004c 02       		.uleb128 0x2
+ 182 004d 04       		.byte	0x4
+ 183 004e 05       		.byte	0x5
+ 184 004f 37020000 		.4byte	.LASF4
+ 185 0053 02       		.uleb128 0x2
+ 186 0054 04       		.byte	0x4
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 5
+
+
+ 187 0055 07       		.byte	0x7
+ 188 0056 F9000000 		.4byte	.LASF5
+ 189 005a 02       		.uleb128 0x2
+ 190 005b 08       		.byte	0x8
+ 191 005c 05       		.byte	0x5
+ 192 005d BD010000 		.4byte	.LASF6
+ 193 0061 02       		.uleb128 0x2
+ 194 0062 08       		.byte	0x8
+ 195 0063 07       		.byte	0x7
+ 196 0064 6A010000 		.4byte	.LASF7
+ 197 0068 04       		.uleb128 0x4
+ 198 0069 04       		.byte	0x4
+ 199 006a 05       		.byte	0x5
+ 200 006b 696E7400 		.ascii	"int\000"
+ 201 006f 02       		.uleb128 0x2
+ 202 0070 04       		.byte	0x4
+ 203 0071 07       		.byte	0x7
+ 204 0072 5D010000 		.4byte	.LASF8
+ 205 0076 03       		.uleb128 0x3
+ 206 0077 4F000000 		.4byte	.LASF10
+ 207 007b 03       		.byte	0x3
+ 208 007c 2C       		.byte	0x2c
+ 209 007d 41000000 		.4byte	0x41
+ 210 0081 05       		.uleb128 0x5
+ 211 0082 31020000 		.4byte	.LASF11
+ 212 0086 04       		.byte	0x4
+ 213 0087 9201     		.2byte	0x192
+ 214 0089 2C000000 		.4byte	0x2c
+ 215 008d 02       		.uleb128 0x2
+ 216 008e 04       		.byte	0x4
+ 217 008f 04       		.byte	0x4
+ 218 0090 57000000 		.4byte	.LASF12
+ 219 0094 02       		.uleb128 0x2
+ 220 0095 08       		.byte	0x8
+ 221 0096 04       		.byte	0x4
+ 222 0097 3F010000 		.4byte	.LASF13
+ 223 009b 02       		.uleb128 0x2
+ 224 009c 01       		.byte	0x1
+ 225 009d 08       		.byte	0x8
+ 226 009e D2010000 		.4byte	.LASF14
+ 227 00a2 06       		.uleb128 0x6
+ 228 00a3 81000000 		.4byte	0x81
+ 229 00a7 02       		.uleb128 0x2
+ 230 00a8 08       		.byte	0x8
+ 231 00a9 04       		.byte	0x4
+ 232 00aa 55020000 		.4byte	.LASF15
+ 233 00ae 02       		.uleb128 0x2
+ 234 00af 04       		.byte	0x4
+ 235 00b0 07       		.byte	0x7
+ 236 00b1 B4010000 		.4byte	.LASF16
+ 237 00b5 07       		.uleb128 0x7
+ 238 00b6 81010000 		.4byte	.LASF33
+ 239 00ba 01       		.byte	0x1
+ 240 00bb 0A       		.byte	0xa
+ 241 00bc 00000000 		.4byte	.LFB64
+ 242 00c0 1C000000 		.4byte	.LFE64-.LFB64
+ 243 00c4 01       		.uleb128 0x1
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 6
+
+
+ 244 00c5 9C       		.byte	0x9c
+ 245 00c6 E6000000 		.4byte	0xe6
+ 246 00ca 08       		.uleb128 0x8
+ 247 00cb 06000000 		.4byte	.LVL0
+ 248 00cf C3010000 		.4byte	0x1c3
+ 249 00d3 08       		.uleb128 0x8
+ 250 00d4 12000000 		.4byte	.LVL1
+ 251 00d8 CE010000 		.4byte	0x1ce
+ 252 00dc 08       		.uleb128 0x8
+ 253 00dd 16000000 		.4byte	.LVL2
+ 254 00e1 D9010000 		.4byte	0x1d9
+ 255 00e5 00       		.byte	0
+ 256 00e6 09       		.uleb128 0x9
+ 257 00e7 46010000 		.4byte	.LASF34
+ 258 00eb 01       		.byte	0x1
+ 259 00ec 12       		.byte	0x12
+ 260 00ed 68000000 		.4byte	0x68
+ 261 00f1 00000000 		.4byte	.LFB65
+ 262 00f5 30000000 		.4byte	.LFE65-.LFB65
+ 263 00f9 01       		.uleb128 0x1
+ 264 00fa 9C       		.byte	0x9c
+ 265 00fb 6F010000 		.4byte	0x16f
+ 266 00ff 0A       		.uleb128 0xa
+ 267 0100 58010000 		.4byte	.LASF35
+ 268 0104 01       		.byte	0x1
+ 269 0105 1D       		.byte	0x1d
+ 270 0106 6F010000 		.4byte	0x16f
+ 271 010a 08       		.uleb128 0x8
+ 272 010b 08000000 		.4byte	.LVL3
+ 273 010f E4010000 		.4byte	0x1e4
+ 274 0113 0B       		.uleb128 0xb
+ 275 0114 0E000000 		.4byte	.LVL4
+ 276 0118 EF010000 		.4byte	0x1ef
+ 277 011c 2A010000 		.4byte	0x12a
+ 278 0120 0C       		.uleb128 0xc
+ 279 0121 01       		.uleb128 0x1
+ 280 0122 50       		.byte	0x50
+ 281 0123 05       		.uleb128 0x5
+ 282 0124 03       		.byte	0x3
+ 283 0125 00000000 		.4byte	.LC0
+ 284 0129 00       		.byte	0
+ 285 012a 0B       		.uleb128 0xb
+ 286 012b 14000000 		.4byte	.LVL5
+ 287 012f FA010000 		.4byte	0x1fa
+ 288 0133 41010000 		.4byte	0x141
+ 289 0137 0C       		.uleb128 0xc
+ 290 0138 01       		.uleb128 0x1
+ 291 0139 50       		.byte	0x50
+ 292 013a 05       		.uleb128 0x5
+ 293 013b 03       		.byte	0x3
+ 294 013c 00000000 		.4byte	ISR_SPI
+ 295 0140 00       		.byte	0
+ 296 0141 08       		.uleb128 0x8
+ 297 0142 18000000 		.4byte	.LVL6
+ 298 0146 05020000 		.4byte	0x205
+ 299 014a 0B       		.uleb128 0xb
+ 300 014b 1E000000 		.4byte	.LVL7
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 7
+
+
+ 301 014f 10020000 		.4byte	0x210
+ 302 0153 5E010000 		.4byte	0x15e
+ 303 0157 0C       		.uleb128 0xc
+ 304 0158 01       		.uleb128 0x1
+ 305 0159 50       		.byte	0x50
+ 306 015a 02       		.uleb128 0x2
+ 307 015b 08       		.byte	0x8
+ 308 015c 61       		.byte	0x61
+ 309 015d 00       		.byte	0
+ 310 015e 0D       		.uleb128 0xd
+ 311 015f 24000000 		.4byte	.LVL8
+ 312 0163 1B020000 		.4byte	0x21b
+ 313 0167 0C       		.uleb128 0xc
+ 314 0168 01       		.uleb128 0x1
+ 315 0169 50       		.byte	0x50
+ 316 016a 02       		.uleb128 0x2
+ 317 016b 08       		.byte	0x8
+ 318 016c C8       		.byte	0xc8
+ 319 016d 00       		.byte	0
+ 320 016e 00       		.byte	0
+ 321 016f 0E       		.uleb128 0xe
+ 322 0170 9B000000 		.4byte	0x9b
+ 323 0174 7F010000 		.4byte	0x17f
+ 324 0178 0F       		.uleb128 0xf
+ 325 0179 AE000000 		.4byte	0xae
+ 326 017d 63       		.byte	0x63
+ 327 017e 00       		.byte	0
+ 328 017f 10       		.uleb128 0x10
+ 329 0180 4B010000 		.4byte	.LASF17
+ 330 0184 05       		.byte	0x5
+ 331 0185 1207     		.2byte	0x712
+ 332 0187 8B010000 		.4byte	0x18b
+ 333 018b 06       		.uleb128 0x6
+ 334 018c 76000000 		.4byte	0x76
+ 335 0190 11       		.uleb128 0x11
+ 336 0191 2E000000 		.4byte	.LASF18
+ 337 0195 01       		.byte	0x1
+ 338 0196 05       		.byte	0x5
+ 339 0197 A2000000 		.4byte	0xa2
+ 340 019b 05       		.uleb128 0x5
+ 341 019c 03       		.byte	0x3
+ 342 019d 00000000 		.4byte	received
+ 343 01a1 11       		.uleb128 0x11
+ 344 01a2 E5010000 		.4byte	.LASF19
+ 345 01a6 01       		.byte	0x1
+ 346 01a7 06       		.byte	0x6
+ 347 01a8 A2000000 		.4byte	0xa2
+ 348 01ac 05       		.uleb128 0x5
+ 349 01ad 03       		.byte	0x3
+ 350 01ae 00000000 		.4byte	intFlag
+ 351 01b2 11       		.uleb128 0x11
+ 352 01b3 D7010000 		.4byte	.LASF20
+ 353 01b7 01       		.byte	0x1
+ 354 01b8 07       		.byte	0x7
+ 355 01b9 A2000000 		.4byte	0xa2
+ 356 01bd 05       		.uleb128 0x5
+ 357 01be 03       		.byte	0x3
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 8
+
+
+ 358 01bf 00000000 		.4byte	numberPrinted
+ 359 01c3 12       		.uleb128 0x12
+ 360 01c4 9F010000 		.4byte	.LASF21
+ 361 01c8 9F010000 		.4byte	.LASF21
+ 362 01cc 06       		.byte	0x6
+ 363 01cd 57       		.byte	0x57
+ 364 01ce 12       		.uleb128 0x12
+ 365 01cf 37000000 		.4byte	.LASF22
+ 366 01d3 37000000 		.4byte	.LASF22
+ 367 01d7 06       		.byte	0x6
+ 368 01d8 5A       		.byte	0x5a
+ 369 01d9 12       		.uleb128 0x12
+ 370 01da 00000000 		.4byte	.LASF23
+ 371 01de 00000000 		.4byte	.LASF23
+ 372 01e2 06       		.byte	0x6
+ 373 01e3 63       		.byte	0x63
+ 374 01e4 12       		.uleb128 0x12
+ 375 01e5 1E010000 		.4byte	.LASF24
+ 376 01e9 1E010000 		.4byte	.LASF24
+ 377 01ed 07       		.byte	0x7
+ 378 01ee 54       		.byte	0x54
+ 379 01ef 12       		.uleb128 0x12
+ 380 01f0 40020000 		.4byte	.LASF25
+ 381 01f4 40020000 		.4byte	.LASF25
+ 382 01f8 07       		.byte	0x7
+ 383 01f9 8B       		.byte	0x8b
+ 384 01fa 12       		.uleb128 0x12
+ 385 01fb 14000000 		.4byte	.LASF26
+ 386 01ff 14000000 		.4byte	.LASF26
+ 387 0203 08       		.byte	0x8
+ 388 0204 18       		.byte	0x18
+ 389 0205 12       		.uleb128 0x12
+ 390 0206 2F010000 		.4byte	.LASF27
+ 391 020a 2F010000 		.4byte	.LASF27
+ 392 020e 06       		.byte	0x6
+ 393 020f 46       		.byte	0x46
+ 394 0210 12       		.uleb128 0x12
+ 395 0211 89010000 		.4byte	.LASF28
+ 396 0215 89010000 		.4byte	.LASF28
+ 397 0219 06       		.byte	0x6
+ 398 021a 50       		.byte	0x50
+ 399 021b 12       		.uleb128 0x12
+ 400 021c 6D020000 		.4byte	.LASF29
+ 401 0220 6D020000 		.4byte	.LASF29
+ 402 0224 09       		.byte	0x9
+ 403 0225 76       		.byte	0x76
+ 404 0226 00       		.byte	0
+ 405              		.section	.debug_abbrev,"",%progbits
+ 406              	.Ldebug_abbrev0:
+ 407 0000 01       		.uleb128 0x1
+ 408 0001 11       		.uleb128 0x11
+ 409 0002 01       		.byte	0x1
+ 410 0003 25       		.uleb128 0x25
+ 411 0004 0E       		.uleb128 0xe
+ 412 0005 13       		.uleb128 0x13
+ 413 0006 0B       		.uleb128 0xb
+ 414 0007 03       		.uleb128 0x3
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 9
+
+
+ 415 0008 0E       		.uleb128 0xe
+ 416 0009 1B       		.uleb128 0x1b
+ 417 000a 0E       		.uleb128 0xe
+ 418 000b 55       		.uleb128 0x55
+ 419 000c 17       		.uleb128 0x17
+ 420 000d 11       		.uleb128 0x11
+ 421 000e 01       		.uleb128 0x1
+ 422 000f 10       		.uleb128 0x10
+ 423 0010 17       		.uleb128 0x17
+ 424 0011 00       		.byte	0
+ 425 0012 00       		.byte	0
+ 426 0013 02       		.uleb128 0x2
+ 427 0014 24       		.uleb128 0x24
+ 428 0015 00       		.byte	0
+ 429 0016 0B       		.uleb128 0xb
+ 430 0017 0B       		.uleb128 0xb
+ 431 0018 3E       		.uleb128 0x3e
+ 432 0019 0B       		.uleb128 0xb
+ 433 001a 03       		.uleb128 0x3
+ 434 001b 0E       		.uleb128 0xe
+ 435 001c 00       		.byte	0
+ 436 001d 00       		.byte	0
+ 437 001e 03       		.uleb128 0x3
+ 438 001f 16       		.uleb128 0x16
+ 439 0020 00       		.byte	0
+ 440 0021 03       		.uleb128 0x3
+ 441 0022 0E       		.uleb128 0xe
+ 442 0023 3A       		.uleb128 0x3a
+ 443 0024 0B       		.uleb128 0xb
+ 444 0025 3B       		.uleb128 0x3b
+ 445 0026 0B       		.uleb128 0xb
+ 446 0027 49       		.uleb128 0x49
+ 447 0028 13       		.uleb128 0x13
+ 448 0029 00       		.byte	0
+ 449 002a 00       		.byte	0
+ 450 002b 04       		.uleb128 0x4
+ 451 002c 24       		.uleb128 0x24
+ 452 002d 00       		.byte	0
+ 453 002e 0B       		.uleb128 0xb
+ 454 002f 0B       		.uleb128 0xb
+ 455 0030 3E       		.uleb128 0x3e
+ 456 0031 0B       		.uleb128 0xb
+ 457 0032 03       		.uleb128 0x3
+ 458 0033 08       		.uleb128 0x8
+ 459 0034 00       		.byte	0
+ 460 0035 00       		.byte	0
+ 461 0036 05       		.uleb128 0x5
+ 462 0037 16       		.uleb128 0x16
+ 463 0038 00       		.byte	0
+ 464 0039 03       		.uleb128 0x3
+ 465 003a 0E       		.uleb128 0xe
+ 466 003b 3A       		.uleb128 0x3a
+ 467 003c 0B       		.uleb128 0xb
+ 468 003d 3B       		.uleb128 0x3b
+ 469 003e 05       		.uleb128 0x5
+ 470 003f 49       		.uleb128 0x49
+ 471 0040 13       		.uleb128 0x13
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 10
+
+
+ 472 0041 00       		.byte	0
+ 473 0042 00       		.byte	0
+ 474 0043 06       		.uleb128 0x6
+ 475 0044 35       		.uleb128 0x35
+ 476 0045 00       		.byte	0
+ 477 0046 49       		.uleb128 0x49
+ 478 0047 13       		.uleb128 0x13
+ 479 0048 00       		.byte	0
+ 480 0049 00       		.byte	0
+ 481 004a 07       		.uleb128 0x7
+ 482 004b 2E       		.uleb128 0x2e
+ 483 004c 01       		.byte	0x1
+ 484 004d 3F       		.uleb128 0x3f
+ 485 004e 19       		.uleb128 0x19
+ 486 004f 03       		.uleb128 0x3
+ 487 0050 0E       		.uleb128 0xe
+ 488 0051 3A       		.uleb128 0x3a
+ 489 0052 0B       		.uleb128 0xb
+ 490 0053 3B       		.uleb128 0x3b
+ 491 0054 0B       		.uleb128 0xb
+ 492 0055 27       		.uleb128 0x27
+ 493 0056 19       		.uleb128 0x19
+ 494 0057 11       		.uleb128 0x11
+ 495 0058 01       		.uleb128 0x1
+ 496 0059 12       		.uleb128 0x12
+ 497 005a 06       		.uleb128 0x6
+ 498 005b 40       		.uleb128 0x40
+ 499 005c 18       		.uleb128 0x18
+ 500 005d 9742     		.uleb128 0x2117
+ 501 005f 19       		.uleb128 0x19
+ 502 0060 01       		.uleb128 0x1
+ 503 0061 13       		.uleb128 0x13
+ 504 0062 00       		.byte	0
+ 505 0063 00       		.byte	0
+ 506 0064 08       		.uleb128 0x8
+ 507 0065 898201   		.uleb128 0x4109
+ 508 0068 00       		.byte	0
+ 509 0069 11       		.uleb128 0x11
+ 510 006a 01       		.uleb128 0x1
+ 511 006b 31       		.uleb128 0x31
+ 512 006c 13       		.uleb128 0x13
+ 513 006d 00       		.byte	0
+ 514 006e 00       		.byte	0
+ 515 006f 09       		.uleb128 0x9
+ 516 0070 2E       		.uleb128 0x2e
+ 517 0071 01       		.byte	0x1
+ 518 0072 3F       		.uleb128 0x3f
+ 519 0073 19       		.uleb128 0x19
+ 520 0074 03       		.uleb128 0x3
+ 521 0075 0E       		.uleb128 0xe
+ 522 0076 3A       		.uleb128 0x3a
+ 523 0077 0B       		.uleb128 0xb
+ 524 0078 3B       		.uleb128 0x3b
+ 525 0079 0B       		.uleb128 0xb
+ 526 007a 27       		.uleb128 0x27
+ 527 007b 19       		.uleb128 0x19
+ 528 007c 49       		.uleb128 0x49
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 11
+
+
+ 529 007d 13       		.uleb128 0x13
+ 530 007e 8701     		.uleb128 0x87
+ 531 0080 19       		.uleb128 0x19
+ 532 0081 11       		.uleb128 0x11
+ 533 0082 01       		.uleb128 0x1
+ 534 0083 12       		.uleb128 0x12
+ 535 0084 06       		.uleb128 0x6
+ 536 0085 40       		.uleb128 0x40
+ 537 0086 18       		.uleb128 0x18
+ 538 0087 9742     		.uleb128 0x2117
+ 539 0089 19       		.uleb128 0x19
+ 540 008a 01       		.uleb128 0x1
+ 541 008b 13       		.uleb128 0x13
+ 542 008c 00       		.byte	0
+ 543 008d 00       		.byte	0
+ 544 008e 0A       		.uleb128 0xa
+ 545 008f 34       		.uleb128 0x34
+ 546 0090 00       		.byte	0
+ 547 0091 03       		.uleb128 0x3
+ 548 0092 0E       		.uleb128 0xe
+ 549 0093 3A       		.uleb128 0x3a
+ 550 0094 0B       		.uleb128 0xb
+ 551 0095 3B       		.uleb128 0x3b
+ 552 0096 0B       		.uleb128 0xb
+ 553 0097 49       		.uleb128 0x49
+ 554 0098 13       		.uleb128 0x13
+ 555 0099 00       		.byte	0
+ 556 009a 00       		.byte	0
+ 557 009b 0B       		.uleb128 0xb
+ 558 009c 898201   		.uleb128 0x4109
+ 559 009f 01       		.byte	0x1
+ 560 00a0 11       		.uleb128 0x11
+ 561 00a1 01       		.uleb128 0x1
+ 562 00a2 31       		.uleb128 0x31
+ 563 00a3 13       		.uleb128 0x13
+ 564 00a4 01       		.uleb128 0x1
+ 565 00a5 13       		.uleb128 0x13
+ 566 00a6 00       		.byte	0
+ 567 00a7 00       		.byte	0
+ 568 00a8 0C       		.uleb128 0xc
+ 569 00a9 8A8201   		.uleb128 0x410a
+ 570 00ac 00       		.byte	0
+ 571 00ad 02       		.uleb128 0x2
+ 572 00ae 18       		.uleb128 0x18
+ 573 00af 9142     		.uleb128 0x2111
+ 574 00b1 18       		.uleb128 0x18
+ 575 00b2 00       		.byte	0
+ 576 00b3 00       		.byte	0
+ 577 00b4 0D       		.uleb128 0xd
+ 578 00b5 898201   		.uleb128 0x4109
+ 579 00b8 01       		.byte	0x1
+ 580 00b9 11       		.uleb128 0x11
+ 581 00ba 01       		.uleb128 0x1
+ 582 00bb 31       		.uleb128 0x31
+ 583 00bc 13       		.uleb128 0x13
+ 584 00bd 00       		.byte	0
+ 585 00be 00       		.byte	0
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 12
+
+
+ 586 00bf 0E       		.uleb128 0xe
+ 587 00c0 01       		.uleb128 0x1
+ 588 00c1 01       		.byte	0x1
+ 589 00c2 49       		.uleb128 0x49
+ 590 00c3 13       		.uleb128 0x13
+ 591 00c4 01       		.uleb128 0x1
+ 592 00c5 13       		.uleb128 0x13
+ 593 00c6 00       		.byte	0
+ 594 00c7 00       		.byte	0
+ 595 00c8 0F       		.uleb128 0xf
+ 596 00c9 21       		.uleb128 0x21
+ 597 00ca 00       		.byte	0
+ 598 00cb 49       		.uleb128 0x49
+ 599 00cc 13       		.uleb128 0x13
+ 600 00cd 2F       		.uleb128 0x2f
+ 601 00ce 0B       		.uleb128 0xb
+ 602 00cf 00       		.byte	0
+ 603 00d0 00       		.byte	0
+ 604 00d1 10       		.uleb128 0x10
+ 605 00d2 34       		.uleb128 0x34
+ 606 00d3 00       		.byte	0
+ 607 00d4 03       		.uleb128 0x3
+ 608 00d5 0E       		.uleb128 0xe
+ 609 00d6 3A       		.uleb128 0x3a
+ 610 00d7 0B       		.uleb128 0xb
+ 611 00d8 3B       		.uleb128 0x3b
+ 612 00d9 05       		.uleb128 0x5
+ 613 00da 49       		.uleb128 0x49
+ 614 00db 13       		.uleb128 0x13
+ 615 00dc 3F       		.uleb128 0x3f
+ 616 00dd 19       		.uleb128 0x19
+ 617 00de 3C       		.uleb128 0x3c
+ 618 00df 19       		.uleb128 0x19
+ 619 00e0 00       		.byte	0
+ 620 00e1 00       		.byte	0
+ 621 00e2 11       		.uleb128 0x11
+ 622 00e3 34       		.uleb128 0x34
+ 623 00e4 00       		.byte	0
+ 624 00e5 03       		.uleb128 0x3
+ 625 00e6 0E       		.uleb128 0xe
+ 626 00e7 3A       		.uleb128 0x3a
+ 627 00e8 0B       		.uleb128 0xb
+ 628 00e9 3B       		.uleb128 0x3b
+ 629 00ea 0B       		.uleb128 0xb
+ 630 00eb 49       		.uleb128 0x49
+ 631 00ec 13       		.uleb128 0x13
+ 632 00ed 3F       		.uleb128 0x3f
+ 633 00ee 19       		.uleb128 0x19
+ 634 00ef 02       		.uleb128 0x2
+ 635 00f0 18       		.uleb128 0x18
+ 636 00f1 00       		.byte	0
+ 637 00f2 00       		.byte	0
+ 638 00f3 12       		.uleb128 0x12
+ 639 00f4 2E       		.uleb128 0x2e
+ 640 00f5 00       		.byte	0
+ 641 00f6 3F       		.uleb128 0x3f
+ 642 00f7 19       		.uleb128 0x19
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 13
+
+
+ 643 00f8 3C       		.uleb128 0x3c
+ 644 00f9 19       		.uleb128 0x19
+ 645 00fa 6E       		.uleb128 0x6e
+ 646 00fb 0E       		.uleb128 0xe
+ 647 00fc 03       		.uleb128 0x3
+ 648 00fd 0E       		.uleb128 0xe
+ 649 00fe 3A       		.uleb128 0x3a
+ 650 00ff 0B       		.uleb128 0xb
+ 651 0100 3B       		.uleb128 0x3b
+ 652 0101 0B       		.uleb128 0xb
+ 653 0102 00       		.byte	0
+ 654 0103 00       		.byte	0
+ 655 0104 00       		.byte	0
+ 656              		.section	.debug_aranges,"",%progbits
+ 657 0000 24000000 		.4byte	0x24
+ 658 0004 0200     		.2byte	0x2
+ 659 0006 00000000 		.4byte	.Ldebug_info0
+ 660 000a 04       		.byte	0x4
+ 661 000b 00       		.byte	0
+ 662 000c 0000     		.2byte	0
+ 663 000e 0000     		.2byte	0
+ 664 0010 00000000 		.4byte	.LFB64
+ 665 0014 1C000000 		.4byte	.LFE64-.LFB64
+ 666 0018 00000000 		.4byte	.LFB65
+ 667 001c 30000000 		.4byte	.LFE65-.LFB65
+ 668 0020 00000000 		.4byte	0
+ 669 0024 00000000 		.4byte	0
+ 670              		.section	.debug_ranges,"",%progbits
+ 671              	.Ldebug_ranges0:
+ 672 0000 00000000 		.4byte	.LFB64
+ 673 0004 1C000000 		.4byte	.LFE64
+ 674 0008 00000000 		.4byte	.LFB65
+ 675 000c 30000000 		.4byte	.LFE65
+ 676 0010 00000000 		.4byte	0
+ 677 0014 00000000 		.4byte	0
+ 678              		.section	.debug_line,"",%progbits
+ 679              	.Ldebug_line0:
+ 680 0000 BA010000 		.section	.debug_str,"MS",%progbits,1
+ 680      02008301 
+ 680      00000201 
+ 680      FB0E0D00 
+ 680      01010101 
+ 681              	.LASF23:
+ 682 0000 5350495F 		.ascii	"SPI_Slave_ClearFIFO\000"
+ 682      536C6176 
+ 682      655F436C 
+ 682      65617246 
+ 682      49464F00 
+ 683              	.LASF26:
+ 684 0014 4953525F 		.ascii	"ISR_SPI_StartEx\000"
+ 684      5350495F 
+ 684      53746172 
+ 684      74457800 
+ 685              	.LASF9:
+ 686 0024 5F5F696E 		.ascii	"__int32_t\000"
+ 686      7433325F 
+ 686      7400
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 14
+
+
+ 687              	.LASF18:
+ 688 002e 72656365 		.ascii	"received\000"
+ 688      69766564 
+ 688      00
+ 689              	.LASF22:
+ 690 0037 5350495F 		.ascii	"SPI_Slave_ClearRxBuffer\000"
+ 690      536C6176 
+ 690      655F436C 
+ 690      65617252 
+ 690      78427566 
+ 691              	.LASF10:
+ 692 004f 696E7433 		.ascii	"int32_t\000"
+ 692      325F7400 
+ 693              	.LASF12:
+ 694 0057 666C6F61 		.ascii	"float\000"
+ 694      7400
+ 695              	.LASF1:
+ 696 005d 756E7369 		.ascii	"unsigned char\000"
+ 696      676E6564 
+ 696      20636861 
+ 696      7200
+ 697              	.LASF30:
+ 698 006b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 698      43313120 
+ 698      352E342E 
+ 698      31203230 
+ 698      31363036 
+ 699 009e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 699      20726576 
+ 699      6973696F 
+ 699      6E203233 
+ 699      37373135 
+ 700 00d1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 700      66756E63 
+ 700      74696F6E 
+ 700      2D736563 
+ 700      74696F6E 
+ 701              	.LASF5:
+ 702 00f9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 702      20756E73 
+ 702      69676E65 
+ 702      6420696E 
+ 702      7400
+ 703              	.LASF3:
+ 704 010b 73686F72 		.ascii	"short unsigned int\000"
+ 704      7420756E 
+ 704      7369676E 
+ 704      65642069 
+ 704      6E7400
+ 705              	.LASF24:
+ 706 011e 55415254 		.ascii	"UART_Slave_Start\000"
+ 706      5F536C61 
+ 706      76655F53 
+ 706      74617274 
+ 706      00
+ 707              	.LASF27:
+ 708 012f 5350495F 		.ascii	"SPI_Slave_Start\000"
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 15
+
+
+ 708      536C6176 
+ 708      655F5374 
+ 708      61727400 
+ 709              	.LASF13:
+ 710 013f 646F7562 		.ascii	"double\000"
+ 710      6C6500
+ 711              	.LASF34:
+ 712 0146 6D61696E 		.ascii	"main\000"
+ 712      00
+ 713              	.LASF17:
+ 714 014b 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 714      52784275 
+ 714      66666572 
+ 714      00
+ 715              	.LASF35:
+ 716 0158 74657374 		.ascii	"test\000"
+ 716      00
+ 717              	.LASF8:
+ 718 015d 756E7369 		.ascii	"unsigned int\000"
+ 718      676E6564 
+ 718      20696E74 
+ 718      00
+ 719              	.LASF7:
+ 720 016a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 720      206C6F6E 
+ 720      6720756E 
+ 720      7369676E 
+ 720      65642069 
+ 721              	.LASF33:
+ 722 0181 4953525F 		.ascii	"ISR_SPI\000"
+ 722      53504900 
+ 723              	.LASF28:
+ 724 0189 5350495F 		.ascii	"SPI_Slave_WriteTxData\000"
+ 724      536C6176 
+ 724      655F5772 
+ 724      69746554 
+ 724      78446174 
+ 725              	.LASF21:
+ 726 019f 5350495F 		.ascii	"SPI_Slave_ReadRxData\000"
+ 726      536C6176 
+ 726      655F5265 
+ 726      61645278 
+ 726      44617461 
+ 727              	.LASF16:
+ 728 01b4 73697A65 		.ascii	"sizetype\000"
+ 728      74797065 
+ 728      00
+ 729              	.LASF6:
+ 730 01bd 6C6F6E67 		.ascii	"long long int\000"
+ 730      206C6F6E 
+ 730      6720696E 
+ 730      7400
+ 731              	.LASF31:
+ 732 01cb 6D61696E 		.ascii	"main.c\000"
+ 732      2E6300
+ 733              	.LASF14:
+ 734 01d2 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\chris\AppData\Local\Temp\cck5Gkuu.s 			page 16
+
+
+ 734      00
+ 735              	.LASF20:
+ 736 01d7 6E756D62 		.ascii	"numberPrinted\000"
+ 736      65725072 
+ 736      696E7465 
+ 736      6400
+ 737              	.LASF19:
+ 738 01e5 696E7446 		.ascii	"intFlag\000"
+ 738      6C616700 
+ 739              	.LASF32:
+ 740 01ed 433A5C55 		.ascii	"C:\\Users\\chris\\Desktop\\SPI test\\Spi_Slave\\Spi"
+ 740      73657273 
+ 740      5C636872 
+ 740      69735C44 
+ 740      65736B74 
+ 741 021a 5F536C61 		.ascii	"_Slave.cydsn\000"
+ 741      76652E63 
+ 741      7964736E 
+ 741      00
+ 742              	.LASF2:
+ 743 0227 73686F72 		.ascii	"short int\000"
+ 743      7420696E 
+ 743      7400
+ 744              	.LASF11:
+ 745 0231 75696E74 		.ascii	"uint8\000"
+ 745      3800
+ 746              	.LASF4:
+ 747 0237 6C6F6E67 		.ascii	"long int\000"
+ 747      20696E74 
+ 747      00
+ 748              	.LASF25:
+ 749 0240 55415254 		.ascii	"UART_Slave_PutString\000"
+ 749      5F536C61 
+ 749      76655F50 
+ 749      75745374 
+ 749      72696E67 
+ 750              	.LASF15:
+ 751 0255 6C6F6E67 		.ascii	"long double\000"
+ 751      20646F75 
+ 751      626C6500 
+ 752              	.LASF0:
+ 753 0261 7369676E 		.ascii	"signed char\000"
+ 753      65642063 
+ 753      68617200 
+ 754              	.LASF29:
+ 755 026d 43794465 		.ascii	"CyDelay\000"
+ 755      6C617900 
+ 756              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,3727 @@
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"SPI_Slave.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SPI_Slave_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	SPI_Slave_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	SPI_Slave_Enable, %function
+  25              	SPI_Slave_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\SPI_Slave.c"
+   1:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/SPI_Slave.c **** * File Name: SPI_Slave.c
+   3:Generated_Source\PSoC5/SPI_Slave.c **** * Version 2.70
+   4:Generated_Source\PSoC5/SPI_Slave.c **** *
+   5:Generated_Source\PSoC5/SPI_Slave.c **** * Description:
+   6:Generated_Source\PSoC5/SPI_Slave.c **** *  This file provides all API functionality of the SPI Slave component.
+   7:Generated_Source\PSoC5/SPI_Slave.c **** *
+   8:Generated_Source\PSoC5/SPI_Slave.c **** * Note:
+   9:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+  10:Generated_Source\PSoC5/SPI_Slave.c **** *
+  11:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/SPI_Slave.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/SPI_Slave.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/SPI_Slave.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/SPI_Slave.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/SPI_Slave.c **** 
+  18:Generated_Source\PSoC5/SPI_Slave.c **** #include "SPI_Slave_PVT.h"
+  19:Generated_Source\PSoC5/SPI_Slave.c **** 
+  20:Generated_Source\PSoC5/SPI_Slave.c **** #if (SPI_Slave_TX_SOFTWARE_BUF_ENABLED)
+  21:Generated_Source\PSoC5/SPI_Slave.c **** 
+  22:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_txBuffer[SPI_Slave_TX_BUFFER_SIZE];
+  23:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_txBufferRead;
+  24:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_txBufferWrite;
+  25:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_txBufferFull;
+  26:Generated_Source\PSoC5/SPI_Slave.c **** 
+  27:Generated_Source\PSoC5/SPI_Slave.c **** #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED*/
+  28:Generated_Source\PSoC5/SPI_Slave.c **** 
+  29:Generated_Source\PSoC5/SPI_Slave.c **** #if (SPI_Slave_RX_SOFTWARE_BUF_ENABLED)
+  30:Generated_Source\PSoC5/SPI_Slave.c **** 
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 2
+
+
+  31:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_rxBuffer[SPI_Slave_RX_BUFFER_SIZE];
+  32:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_rxBufferRead;
+  33:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_rxBufferWrite;
+  34:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_rxBufferFull;
+  35:Generated_Source\PSoC5/SPI_Slave.c **** 
+  36:Generated_Source\PSoC5/SPI_Slave.c **** #endif /* SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
+  37:Generated_Source\PSoC5/SPI_Slave.c **** 
+  38:Generated_Source\PSoC5/SPI_Slave.c **** uint8 SPI_Slave_initVar = 0u;
+  39:Generated_Source\PSoC5/SPI_Slave.c **** 
+  40:Generated_Source\PSoC5/SPI_Slave.c **** volatile uint8 SPI_Slave_swStatusTx;
+  41:Generated_Source\PSoC5/SPI_Slave.c **** volatile uint8 SPI_Slave_swStatusRx;
+  42:Generated_Source\PSoC5/SPI_Slave.c **** 
+  43:Generated_Source\PSoC5/SPI_Slave.c **** 
+  44:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+  45:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_Init
+  46:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+  47:Generated_Source\PSoC5/SPI_Slave.c **** *
+  48:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+  49:Generated_Source\PSoC5/SPI_Slave.c **** *  Inits/Restores default SPIS configuration provided with customizer.
+  50:Generated_Source\PSoC5/SPI_Slave.c **** *
+  51:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+  52:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+  53:Generated_Source\PSoC5/SPI_Slave.c **** *
+  54:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+  55:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+  56:Generated_Source\PSoC5/SPI_Slave.c **** *
+  57:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+  58:Generated_Source\PSoC5/SPI_Slave.c **** *  When this function is called it initializes all of the necessary parameters
+  59:Generated_Source\PSoC5/SPI_Slave.c **** *  for execution. i.e. setting the initial interrupt mask, configuring the
+  60:Generated_Source\PSoC5/SPI_Slave.c **** *  interrupt service routine, configuring the bit-counter parameters and
+  61:Generated_Source\PSoC5/SPI_Slave.c **** *  clearing the FIFO and Status Register.
+  62:Generated_Source\PSoC5/SPI_Slave.c **** *
+  63:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+  64:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+  65:Generated_Source\PSoC5/SPI_Slave.c **** *
+  66:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+  67:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_Init(void) 
+  68:Generated_Source\PSoC5/SPI_Slave.c **** {
+  69:Generated_Source\PSoC5/SPI_Slave.c ****     /*Initialize the Bit counter */
+  70:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_COUNTER_PERIOD_REG = SPI_Slave_BITCTR_INIT;
+  71:Generated_Source\PSoC5/SPI_Slave.c **** 
+  72:Generated_Source\PSoC5/SPI_Slave.c ****     /* ISR initialization */
+  73:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
+  74:Generated_Source\PSoC5/SPI_Slave.c **** 
+  75:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_TX_ISR_NUMBER);
+  76:Generated_Source\PSoC5/SPI_Slave.c **** 
+  77:Generated_Source\PSoC5/SPI_Slave.c ****         /* Set the ISR to point to the SPI_Slave_isr Interrupt. */
+  78:Generated_Source\PSoC5/SPI_Slave.c ****         (void)CyIntSetVector(SPI_Slave_TX_ISR_NUMBER, &SPI_Slave_TX_ISR);
+  79:Generated_Source\PSoC5/SPI_Slave.c **** 
+  80:Generated_Source\PSoC5/SPI_Slave.c ****         /* Set the priority. */
+  81:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntSetPriority(SPI_Slave_TX_ISR_NUMBER, SPI_Slave_TX_ISR_PRIORITY);
+  82:Generated_Source\PSoC5/SPI_Slave.c **** 
+  83:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
+  84:Generated_Source\PSoC5/SPI_Slave.c **** 
+  85:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
+  86:Generated_Source\PSoC5/SPI_Slave.c **** 
+  87:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_RX_ISR_NUMBER);
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 3
+
+
+  88:Generated_Source\PSoC5/SPI_Slave.c **** 
+  89:Generated_Source\PSoC5/SPI_Slave.c ****         /* Set the ISR to point to the SPI_Slave_isr Interrupt. */
+  90:Generated_Source\PSoC5/SPI_Slave.c ****         (void)CyIntSetVector(SPI_Slave_RX_ISR_NUMBER, &SPI_Slave_RX_ISR);
+  91:Generated_Source\PSoC5/SPI_Slave.c **** 
+  92:Generated_Source\PSoC5/SPI_Slave.c ****         /* Set the priority. */
+  93:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntSetPriority(SPI_Slave_RX_ISR_NUMBER, SPI_Slave_RX_ISR_PRIORITY);
+  94:Generated_Source\PSoC5/SPI_Slave.c **** 
+  95:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
+  96:Generated_Source\PSoC5/SPI_Slave.c **** 
+  97:Generated_Source\PSoC5/SPI_Slave.c ****     /* Clear any stray data from the RX and TX FIFO */
+  98:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_ClearFIFO();
+  99:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 100:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_RX_SOFTWARE_BUF_ENABLED)
+ 101:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_rxBufferFull = 0u;
+ 102:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_rxBufferRead = 0u;
+ 103:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_rxBufferWrite = 0u;
+ 104:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
+ 105:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 106:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_TX_SOFTWARE_BUF_ENABLED)
+ 107:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_txBufferFull = 0u;
+ 108:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_txBufferRead = 0u;
+ 109:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_txBufferWrite = 0u;
+ 110:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 111:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 112:Generated_Source\PSoC5/SPI_Slave.c ****     (void) SPI_Slave_ReadTxStatus(); /* Clear any pending status bits */
+ 113:Generated_Source\PSoC5/SPI_Slave.c ****     (void) SPI_Slave_ReadRxStatus(); /* Clear any pending status bits */
+ 114:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 115:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 116:Generated_Source\PSoC5/SPI_Slave.c ****     /* Configure the Initial interrupt mask */
+ 117:Generated_Source\PSoC5/SPI_Slave.c ****     #if (SPI_Slave_TX_SOFTWARE_BUF_ENABLED)
+ 118:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_STATUS_MASK_REG  = (SPI_Slave_TX_INIT_INTERRUPTS_MASK &
+ 119:Generated_Source\PSoC5/SPI_Slave.c ****                                                 (uint8)~SPI_Slave_STS_TX_FIFO_NOT_FULL);
+ 120:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 121:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_STATUS_MASK_REG  = SPI_Slave_TX_INIT_INTERRUPTS_MASK;
+ 122:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 123:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 124:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_RX_STATUS_MASK_REG  = SPI_Slave_RX_INIT_INTERRUPTS_MASK;
+ 125:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 126:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 127:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 128:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 129:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_Enable
+ 130:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 131:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 132:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 133:Generated_Source\PSoC5/SPI_Slave.c **** *  Enable SPIS component.
+ 134:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 135:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 136:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 137:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 138:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 139:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 140:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 141:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 142:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_Enable(void) 
+ 143:Generated_Source\PSoC5/SPI_Slave.c **** {
+  28              		.loc 1 143 0
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 4
+
+
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+ 144:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 enableInterrupts;
+ 145:Generated_Source\PSoC5/SPI_Slave.c ****     enableInterrupts = CyEnterCriticalSection();
+  36              		.loc 1 145 0
+  37 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  38              	.LVL0:
+ 146:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 147:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_COUNTER_CONTROL_REG |= SPI_Slave_CNTR_ENABLE;
+  39              		.loc 1 147 0
+  40 0006 0A4A     		ldr	r2, .L3
+  41 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  42 000a 43F02003 		orr	r3, r3, #32
+  43 000e 1370     		strb	r3, [r2]
+ 148:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_TX_STATUS_ACTL_REG |= SPI_Slave_INT_ENABLE;
+  44              		.loc 1 148 0
+  45 0010 0132     		adds	r2, r2, #1
+  46 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  47 0014 43F01003 		orr	r3, r3, #16
+  48 0018 1370     		strb	r3, [r2]
+ 149:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_RX_STATUS_ACTL_REG |= SPI_Slave_INT_ENABLE;
+  49              		.loc 1 149 0
+  50 001a FF3A     		subs	r2, r2, #255
+  51 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  52 001e 43F01003 		orr	r3, r3, #16
+  53 0022 1370     		strb	r3, [r2]
+ 150:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 151:Generated_Source\PSoC5/SPI_Slave.c ****     CyExitCriticalSection(enableInterrupts);
+  54              		.loc 1 151 0
+  55 0024 FFF7FEFF 		bl	CyExitCriticalSection
+  56              	.LVL1:
+ 152:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 153:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
+ 154:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_TX_ISR_NUMBER);
+ 155:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
+ 156:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 157:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
+ 158:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_RX_ISR_NUMBER);
+  57              		.loc 1 158 0
+  58 0028 0222     		movs	r2, #2
+  59 002a 024B     		ldr	r3, .L3+4
+  60 002c 1A60     		str	r2, [r3]
+  61 002e 08BD     		pop	{r3, pc}
+  62              	.L4:
+  63              		.align	2
+  64              	.L3:
+  65 0030 98650040 		.word	1073767832
+  66 0034 00E100E0 		.word	-536813312
+  67              		.cfi_endproc
+  68              	.LFE1:
+  69              		.size	SPI_Slave_Enable, .-SPI_Slave_Enable
+  70              		.section	.text.SPI_Slave_Stop,"ax",%progbits
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 5
+
+
+  71              		.align	2
+  72              		.global	SPI_Slave_Stop
+  73              		.thumb
+  74              		.thumb_func
+  75              		.type	SPI_Slave_Stop, %function
+  76              	SPI_Slave_Stop:
+  77              	.LFB3:
+ 159:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
+ 160:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 161:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 162:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 163:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 164:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_Start
+ 165:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 166:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 167:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 168:Generated_Source\PSoC5/SPI_Slave.c **** *  Initialize and Enable the SPI Slave component.
+ 169:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 170:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 171:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 172:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 173:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 174:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 175:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 176:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ 177:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_initVar - used to check initial configuration, modified on
+ 178:Generated_Source\PSoC5/SPI_Slave.c **** *  first function call.
+ 179:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 180:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 181:Generated_Source\PSoC5/SPI_Slave.c **** *  Enable the clock input to enable operation.
+ 182:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 183:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+ 184:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+ 185:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 186:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 187:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_Start(void) 
+ 188:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 189:Generated_Source\PSoC5/SPI_Slave.c ****     if(SPI_Slave_initVar == 0u)
+ 190:Generated_Source\PSoC5/SPI_Slave.c ****     {
+ 191:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_Init();
+ 192:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_initVar = 1u;
+ 193:Generated_Source\PSoC5/SPI_Slave.c ****     }
+ 194:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 195:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_Enable();
+ 196:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 197:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 198:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 199:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 200:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_Stop
+ 201:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 202:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 203:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 204:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable the SPI Slave component.
+ 205:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 206:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 207:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 208:Generated_Source\PSoC5/SPI_Slave.c **** *
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 6
+
+
+ 209:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 210:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 211:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 212:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 213:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable the internal interrupt if one is used.
+ 214:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 215:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 216:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_Stop(void) 
+ 217:Generated_Source\PSoC5/SPI_Slave.c **** {
+  78              		.loc 1 217 0
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82 0000 08B5     		push	{r3, lr}
+  83              		.cfi_def_cfa_offset 8
+  84              		.cfi_offset 3, -8
+  85              		.cfi_offset 14, -4
+ 218:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 enableInterrupts;
+ 219:Generated_Source\PSoC5/SPI_Slave.c ****     enableInterrupts = CyEnterCriticalSection();
+  86              		.loc 1 219 0
+  87 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  88              	.LVL2:
+ 220:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 221:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_TX_STATUS_ACTL_REG &= (uint8)~SPI_Slave_INT_ENABLE;
+  89              		.loc 1 221 0
+  90 0006 084A     		ldr	r2, .L7
+  91 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  92 000a 03F0EF03 		and	r3, r3, #239
+  93 000e 1370     		strb	r3, [r2]
+ 222:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_RX_STATUS_ACTL_REG &= (uint8)~SPI_Slave_INT_ENABLE;
+  94              		.loc 1 222 0
+  95 0010 FF3A     		subs	r2, r2, #255
+  96 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  97 0014 03F0EF03 		and	r3, r3, #239
+  98 0018 1370     		strb	r3, [r2]
+ 223:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 224:Generated_Source\PSoC5/SPI_Slave.c ****     CyExitCriticalSection(enableInterrupts);
+  99              		.loc 1 224 0
+ 100 001a FFF7FEFF 		bl	CyExitCriticalSection
+ 101              	.LVL3:
+ 225:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 226:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
+ 227:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_TX_ISR_NUMBER);
+ 228:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
+ 229:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 230:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
+ 231:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_RX_ISR_NUMBER);
+ 102              		.loc 1 231 0
+ 103 001e 0222     		movs	r2, #2
+ 104 0020 024B     		ldr	r3, .L7+4
+ 105 0022 1A60     		str	r2, [r3]
+ 106 0024 08BD     		pop	{r3, pc}
+ 107              	.L8:
+ 108 0026 00BF     		.align	2
+ 109              	.L7:
+ 110 0028 99650040 		.word	1073767833
+ 111 002c 80E100E0 		.word	-536813184
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 7
+
+
+ 112              		.cfi_endproc
+ 113              	.LFE3:
+ 114              		.size	SPI_Slave_Stop, .-SPI_Slave_Stop
+ 115              		.section	.text.SPI_Slave_EnableTxInt,"ax",%progbits
+ 116              		.align	2
+ 117              		.global	SPI_Slave_EnableTxInt
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.type	SPI_Slave_EnableTxInt, %function
+ 121              	SPI_Slave_EnableTxInt:
+ 122              	.LFB4:
+ 232:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
+ 233:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 234:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 235:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 236:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 237:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_EnableTxInt
+ 238:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 239:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 240:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 241:Generated_Source\PSoC5/SPI_Slave.c **** *  Enable internal Tx interrupt generation.
+ 242:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 243:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 244:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 245:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 246:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 247:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 248:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 249:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 250:Generated_Source\PSoC5/SPI_Slave.c **** *  Enable the internal Tx interrupt output -or- the interrupt component itself.
+ 251:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 252:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 253:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_EnableTxInt(void) 
+ 254:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 123              		.loc 1 254 0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127              		@ link register save eliminated.
+ 128 0000 7047     		bx	lr
+ 129              		.cfi_endproc
+ 130              	.LFE4:
+ 131              		.size	SPI_Slave_EnableTxInt, .-SPI_Slave_EnableTxInt
+ 132 0002 00BF     		.section	.text.SPI_Slave_EnableRxInt,"ax",%progbits
+ 133              		.align	2
+ 134              		.global	SPI_Slave_EnableRxInt
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.type	SPI_Slave_EnableRxInt, %function
+ 138              	SPI_Slave_EnableRxInt:
+ 139              	.LFB5:
+ 255:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
+ 256:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_TX_ISR_NUMBER);
+ 257:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
+ 258:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 259:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 260:Generated_Source\PSoC5/SPI_Slave.c **** 
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 8
+
+
+ 261:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 262:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_EnableRxInt
+ 263:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 264:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 265:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 266:Generated_Source\PSoC5/SPI_Slave.c **** *  Enable internal Rx interrupt generation.
+ 267:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 268:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 269:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 270:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 271:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 272:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 273:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 274:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 275:Generated_Source\PSoC5/SPI_Slave.c **** *  Enable the internal Rx interrupt output -or- the interrupt component itself.
+ 276:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 277:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 278:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_EnableRxInt(void) 
+ 279:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 140              		.loc 1 279 0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144              		@ link register save eliminated.
+ 280:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
+ 281:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_RX_ISR_NUMBER);
+ 145              		.loc 1 281 0
+ 146 0000 0222     		movs	r2, #2
+ 147 0002 014B     		ldr	r3, .L11
+ 148 0004 1A60     		str	r2, [r3]
+ 149 0006 7047     		bx	lr
+ 150              	.L12:
+ 151              		.align	2
+ 152              	.L11:
+ 153 0008 00E100E0 		.word	-536813312
+ 154              		.cfi_endproc
+ 155              	.LFE5:
+ 156              		.size	SPI_Slave_EnableRxInt, .-SPI_Slave_EnableRxInt
+ 157              		.section	.text.SPI_Slave_DisableTxInt,"ax",%progbits
+ 158              		.align	2
+ 159              		.global	SPI_Slave_DisableTxInt
+ 160              		.thumb
+ 161              		.thumb_func
+ 162              		.type	SPI_Slave_DisableTxInt, %function
+ 163              	SPI_Slave_DisableTxInt:
+ 164              	.LFB6:
+ 282:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
+ 283:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 284:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 285:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 286:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 287:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_DisableTxInt
+ 288:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 289:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 290:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 291:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable internal Tx interrupt generation.
+ 292:Generated_Source\PSoC5/SPI_Slave.c **** *
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 9
+
+
+ 293:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 294:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 295:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 296:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 297:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 298:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 299:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 300:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable the internal Tx interrupt output -or- the interrupt component itself.
+ 301:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 302:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 303:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_DisableTxInt(void) 
+ 304:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 165              		.loc 1 304 0
+ 166              		.cfi_startproc
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 169              		@ link register save eliminated.
+ 170 0000 7047     		bx	lr
+ 171              		.cfi_endproc
+ 172              	.LFE6:
+ 173              		.size	SPI_Slave_DisableTxInt, .-SPI_Slave_DisableTxInt
+ 174 0002 00BF     		.section	.text.SPI_Slave_DisableRxInt,"ax",%progbits
+ 175              		.align	2
+ 176              		.global	SPI_Slave_DisableRxInt
+ 177              		.thumb
+ 178              		.thumb_func
+ 179              		.type	SPI_Slave_DisableRxInt, %function
+ 180              	SPI_Slave_DisableRxInt:
+ 181              	.LFB7:
+ 305:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
+ 306:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_TX_ISR_NUMBER);
+ 307:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
+ 308:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 309:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 310:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 311:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 312:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_DisableRxInt
+ 313:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 314:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 315:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 316:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable internal Rx interrupt generation.
+ 317:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 318:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 319:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 320:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 321:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 322:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 323:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 324:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 325:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable the internal Rx interrupt output -or- the interrupt component itself.
+ 326:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 327:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 328:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_DisableRxInt(void) 
+ 329:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 182              		.loc 1 329 0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 10
+
+
+ 185              		@ frame_needed = 0, uses_anonymous_args = 0
+ 186              		@ link register save eliminated.
+ 330:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
+ 331:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_RX_ISR_NUMBER);
+ 187              		.loc 1 331 0
+ 188 0000 0222     		movs	r2, #2
+ 189 0002 014B     		ldr	r3, .L15
+ 190 0004 1A60     		str	r2, [r3]
+ 191 0006 7047     		bx	lr
+ 192              	.L16:
+ 193              		.align	2
+ 194              	.L15:
+ 195 0008 80E100E0 		.word	-536813184
+ 196              		.cfi_endproc
+ 197              	.LFE7:
+ 198              		.size	SPI_Slave_DisableRxInt, .-SPI_Slave_DisableRxInt
+ 199              		.section	.text.SPI_Slave_SetTxInterruptMode,"ax",%progbits
+ 200              		.align	2
+ 201              		.global	SPI_Slave_SetTxInterruptMode
+ 202              		.thumb
+ 203              		.thumb_func
+ 204              		.type	SPI_Slave_SetTxInterruptMode, %function
+ 205              	SPI_Slave_SetTxInterruptMode:
+ 206              	.LFB8:
+ 332:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
+ 333:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 334:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 335:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 336:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 337:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_SetTxInterruptMode
+ 338:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 339:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 340:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 341:Generated_Source\PSoC5/SPI_Slave.c **** *  Configure which status bits trigger an interrupt event.
+ 342:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 343:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 344:Generated_Source\PSoC5/SPI_Slave.c **** *  intSrc: An or'd combination of the desired status bit masks (defined in the
+ 345:Generated_Source\PSoC5/SPI_Slave.c **** *  header file).
+ 346:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 347:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 348:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 349:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 350:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 351:Generated_Source\PSoC5/SPI_Slave.c **** *  Enables the output of specific status bits to the interrupt controller.
+ 352:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 353:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 354:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_SetTxInterruptMode(uint8 intSrc) 
+ 355:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 207              		.loc 1 355 0
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 211              		@ link register save eliminated.
+ 212              	.LVL4:
+ 356:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_TX_STATUS_MASK_REG  = intSrc;
+ 213              		.loc 1 356 0
+ 214 0000 014B     		ldr	r3, .L18
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 11
+
+
+ 215 0002 1870     		strb	r0, [r3]
+ 216 0004 7047     		bx	lr
+ 217              	.L19:
+ 218 0006 00BF     		.align	2
+ 219              	.L18:
+ 220 0008 89650040 		.word	1073767817
+ 221              		.cfi_endproc
+ 222              	.LFE8:
+ 223              		.size	SPI_Slave_SetTxInterruptMode, .-SPI_Slave_SetTxInterruptMode
+ 224              		.section	.text.SPI_Slave_SetRxInterruptMode,"ax",%progbits
+ 225              		.align	2
+ 226              		.global	SPI_Slave_SetRxInterruptMode
+ 227              		.thumb
+ 228              		.thumb_func
+ 229              		.type	SPI_Slave_SetRxInterruptMode, %function
+ 230              	SPI_Slave_SetRxInterruptMode:
+ 231              	.LFB9:
+ 357:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 358:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 359:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 360:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 361:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_SetRxInterruptMode
+ 362:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 363:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 364:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 365:Generated_Source\PSoC5/SPI_Slave.c **** *  Configure which status bits trigger an interrupt event.
+ 366:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 367:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 368:Generated_Source\PSoC5/SPI_Slave.c **** *  intSrc: An or'd combination of the desired status bit masks (defined in the
+ 369:Generated_Source\PSoC5/SPI_Slave.c **** *  header file).
+ 370:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 371:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 372:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 373:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 374:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 375:Generated_Source\PSoC5/SPI_Slave.c **** *  Enables the output of specific status bits to the interrupt controller.
+ 376:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 377:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 378:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_SetRxInterruptMode(uint8 intSrc) 
+ 379:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 232              		.loc 1 379 0
+ 233              		.cfi_startproc
+ 234              		@ args = 0, pretend = 0, frame = 0
+ 235              		@ frame_needed = 0, uses_anonymous_args = 0
+ 236              		@ link register save eliminated.
+ 237              	.LVL5:
+ 380:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_RX_STATUS_MASK_REG  = intSrc;
+ 238              		.loc 1 380 0
+ 239 0000 014B     		ldr	r3, .L21
+ 240 0002 1870     		strb	r0, [r3]
+ 241 0004 7047     		bx	lr
+ 242              	.L22:
+ 243 0006 00BF     		.align	2
+ 244              	.L21:
+ 245 0008 8A640040 		.word	1073767562
+ 246              		.cfi_endproc
+ 247              	.LFE9:
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 12
+
+
+ 248              		.size	SPI_Slave_SetRxInterruptMode, .-SPI_Slave_SetRxInterruptMode
+ 249              		.section	.text.SPI_Slave_ReadTxStatus,"ax",%progbits
+ 250              		.align	2
+ 251              		.global	SPI_Slave_ReadTxStatus
+ 252              		.thumb
+ 253              		.thumb_func
+ 254              		.type	SPI_Slave_ReadTxStatus, %function
+ 255              	SPI_Slave_ReadTxStatus:
+ 256              	.LFB10:
+ 381:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 382:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 383:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 384:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 385:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_ReadTxStatus
+ 386:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 387:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 388:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 389:Generated_Source\PSoC5/SPI_Slave.c **** *  Read the Tx status register for the component.
+ 390:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 391:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 392:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 393:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 394:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 395:Generated_Source\PSoC5/SPI_Slave.c **** *  Contents of the Tx status register.
+ 396:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 397:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ 398:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_swStatusTx - used to store in software status register,
+ 399:Generated_Source\PSoC5/SPI_Slave.c **** *  modified every function call - resets to zero.
+ 400:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 401:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 402:Generated_Source\PSoC5/SPI_Slave.c **** *  Allows the user and the API to read the Tx status register for error
+ 403:Generated_Source\PSoC5/SPI_Slave.c **** *  detection and flow control.
+ 404:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 405:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+ 406:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear Tx status register of the component.
+ 407:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 408:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+ 409:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+ 410:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 411:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 412:Generated_Source\PSoC5/SPI_Slave.c **** uint8 SPI_Slave_ReadTxStatus(void) 
+ 413:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 257              		.loc 1 413 0
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 0, uses_anonymous_args = 0
+ 261              		@ link register save eliminated.
+ 414:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 tmpStatus;
+ 415:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 416:Generated_Source\PSoC5/SPI_Slave.c ****     #if (SPI_Slave_TX_SOFTWARE_BUF_ENABLED)
+ 417:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 418:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableTxInt();
+ 419:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 420:Generated_Source\PSoC5/SPI_Slave.c ****         tmpStatus = SPI_Slave_GET_STATUS_TX(SPI_Slave_swStatusTx);
+ 421:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 422:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_swStatusTx = 0u;
+ 423:Generated_Source\PSoC5/SPI_Slave.c **** 
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 13
+
+
+ 424:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable Interrupts */
+ 425:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableTxInt();
+ 426:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 427:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* !SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 428:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 429:Generated_Source\PSoC5/SPI_Slave.c ****         tmpStatus = SPI_Slave_TX_STATUS_REG;
+ 262              		.loc 1 429 0
+ 263 0000 014B     		ldr	r3, .L24
+ 264 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 265              	.LVL6:
+ 430:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 431:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 432:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 433:Generated_Source\PSoC5/SPI_Slave.c ****     return(tmpStatus);
+ 434:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 266              		.loc 1 434 0
+ 267 0004 7047     		bx	lr
+ 268              	.L25:
+ 269 0006 00BF     		.align	2
+ 270              	.L24:
+ 271 0008 69650040 		.word	1073767785
+ 272              		.cfi_endproc
+ 273              	.LFE10:
+ 274              		.size	SPI_Slave_ReadTxStatus, .-SPI_Slave_ReadTxStatus
+ 275              		.section	.text.SPI_Slave_ReadRxStatus,"ax",%progbits
+ 276              		.align	2
+ 277              		.global	SPI_Slave_ReadRxStatus
+ 278              		.thumb
+ 279              		.thumb_func
+ 280              		.type	SPI_Slave_ReadRxStatus, %function
+ 281              	SPI_Slave_ReadRxStatus:
+ 282              	.LFB11:
+ 435:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 436:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 437:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 438:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_ReadRxStatus
+ 439:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 440:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 441:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 442:Generated_Source\PSoC5/SPI_Slave.c **** *  Read the Rx status register for the component.
+ 443:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 444:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 445:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 446:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 447:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 448:Generated_Source\PSoC5/SPI_Slave.c **** *  Contents of the Rx status register.
+ 449:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 450:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ 451:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_swStatusRx - used to store in software Rx status register,
+ 452:Generated_Source\PSoC5/SPI_Slave.c **** *  modified every function call - resets to zero.
+ 453:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 454:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 455:Generated_Source\PSoC5/SPI_Slave.c **** *  Allows the user and the API to read the Rx status register for error
+ 456:Generated_Source\PSoC5/SPI_Slave.c **** *  detection and flow control.
+ 457:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 458:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+ 459:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear Rx status register of the component.
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 14
+
+
+ 460:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 461:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+ 462:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+ 463:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 464:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC5/SPI_Slave.c **** uint8 SPI_Slave_ReadRxStatus(void) 
+ 466:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 283              		.loc 1 466 0
+ 284              		.cfi_startproc
+ 285              		@ args = 0, pretend = 0, frame = 0
+ 286              		@ frame_needed = 0, uses_anonymous_args = 0
+ 287              		@ link register save eliminated.
+ 467:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 tmpStatus;
+ 468:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 469:Generated_Source\PSoC5/SPI_Slave.c ****     #if (SPI_Slave_RX_SOFTWARE_BUF_ENABLED)
+ 470:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 471:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableRxInt();
+ 472:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 473:Generated_Source\PSoC5/SPI_Slave.c ****         tmpStatus = SPI_Slave_GET_STATUS_RX(SPI_Slave_swStatusRx);
+ 474:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 475:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_swStatusRx = 0u;
+ 476:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 477:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable Interrupts */
+ 478:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableRxInt();
+ 479:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 480:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* !SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
+ 481:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 482:Generated_Source\PSoC5/SPI_Slave.c ****         tmpStatus = SPI_Slave_RX_STATUS_REG;
+ 288              		.loc 1 482 0
+ 289 0000 014B     		ldr	r3, .L27
+ 290 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 291              	.LVL7:
+ 483:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 484:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
+ 485:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 486:Generated_Source\PSoC5/SPI_Slave.c ****     return(tmpStatus);
+ 487:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 292              		.loc 1 487 0
+ 293 0004 7047     		bx	lr
+ 294              	.L28:
+ 295 0006 00BF     		.align	2
+ 296              	.L27:
+ 297 0008 6A640040 		.word	1073767530
+ 298              		.cfi_endproc
+ 299              	.LFE11:
+ 300              		.size	SPI_Slave_ReadRxStatus, .-SPI_Slave_ReadRxStatus
+ 301              		.section	.text.SPI_Slave_WriteTxData,"ax",%progbits
+ 302              		.align	2
+ 303              		.global	SPI_Slave_WriteTxData
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.type	SPI_Slave_WriteTxData, %function
+ 307              	SPI_Slave_WriteTxData:
+ 308              	.LFB12:
+ 488:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 489:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 490:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 15
+
+
+ 491:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_WriteTxData
+ 492:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 493:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 494:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 495:Generated_Source\PSoC5/SPI_Slave.c **** *  Write a byte of data to be sent across the SPI.
+ 496:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 497:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 498:Generated_Source\PSoC5/SPI_Slave.c **** *  txDataByte: The data value to send across the SPI.
+ 499:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 500:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 501:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 502:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 503:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ 504:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_txBufferWrite - used for the account of the bytes which
+ 505:Generated_Source\PSoC5/SPI_Slave.c **** *  have been written down in the TX software buffer, modified every function
+ 506:Generated_Source\PSoC5/SPI_Slave.c **** *  call if TX Software Buffer is used.
+ 507:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_txBufferRead - used for the account of the bytes which
+ 508:Generated_Source\PSoC5/SPI_Slave.c **** *  have been read from the TX software buffer.
+ 509:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_txBuffer[SPI_Slave_TX_BUFFER_SIZE] - used to store
+ 510:Generated_Source\PSoC5/SPI_Slave.c **** *  data to sending, modified every function call if TX Software Buffer is used.
+ 511:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 512:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 513:Generated_Source\PSoC5/SPI_Slave.c **** *  Allows the user to transmit any byte of data in a single transfer.
+ 514:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 515:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+ 516:Generated_Source\PSoC5/SPI_Slave.c **** *  If this function is called again before the previous byte is finished then
+ 517:Generated_Source\PSoC5/SPI_Slave.c **** *  the next byte will be appended to the transfer with no time between
+ 518:Generated_Source\PSoC5/SPI_Slave.c **** *  the byte transfers. Clear Tx status register of the component.
+ 519:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 520:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+ 521:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+ 522:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 523:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 524:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_WriteTxData(uint8 txData) 
+ 525:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 309              		.loc 1 525 0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 0
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313              		@ link register save eliminated.
+ 314              	.LVL8:
+ 315              	.L30:
+ 526:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_TX_SOFTWARE_BUF_ENABLED)
+ 527:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 528:Generated_Source\PSoC5/SPI_Slave.c ****         uint8 tempStatus;
+ 529:Generated_Source\PSoC5/SPI_Slave.c ****         uint8 tmpTxBufferRead;
+ 530:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 531:Generated_Source\PSoC5/SPI_Slave.c ****         /* Block if buffer is full, so we don't overwrite. */
+ 532:Generated_Source\PSoC5/SPI_Slave.c ****         do
+ 533:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 534:Generated_Source\PSoC5/SPI_Slave.c ****             tmpTxBufferRead = SPI_Slave_txBufferRead;
+ 535:Generated_Source\PSoC5/SPI_Slave.c ****             if (0u == tmpTxBufferRead)
+ 536:Generated_Source\PSoC5/SPI_Slave.c ****             {
+ 537:Generated_Source\PSoC5/SPI_Slave.c ****                 tmpTxBufferRead = SPI_Slave_TX_BUFFER_SIZE - 1u;
+ 538:Generated_Source\PSoC5/SPI_Slave.c ****             }
+ 539:Generated_Source\PSoC5/SPI_Slave.c ****             else
+ 540:Generated_Source\PSoC5/SPI_Slave.c ****             {
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 16
+
+
+ 541:Generated_Source\PSoC5/SPI_Slave.c ****                 tmpTxBufferRead--;
+ 542:Generated_Source\PSoC5/SPI_Slave.c ****             }
+ 543:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 544:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 545:Generated_Source\PSoC5/SPI_Slave.c ****         while(tmpTxBufferRead == SPI_Slave_txBufferWrite);
+ 546:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 547:Generated_Source\PSoC5/SPI_Slave.c ****         /* Disable Interrupt to protect variables that could change on interrupt. */
+ 548:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableTxInt();
+ 549:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 550:Generated_Source\PSoC5/SPI_Slave.c ****         tempStatus = SPI_Slave_GET_STATUS_TX(SPI_Slave_swStatusTx);
+ 551:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_swStatusTx = tempStatus;
+ 552:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 553:Generated_Source\PSoC5/SPI_Slave.c ****         if((SPI_Slave_txBufferRead == SPI_Slave_txBufferWrite) &&
+ 554:Generated_Source\PSoC5/SPI_Slave.c ****             (0u != (SPI_Slave_swStatusTx & SPI_Slave_STS_TX_FIFO_NOT_FULL)))
+ 555:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 556:Generated_Source\PSoC5/SPI_Slave.c ****             /* Put data element into the TX FIFO */
+ 557:Generated_Source\PSoC5/SPI_Slave.c ****             CY_SET_REG8(SPI_Slave_TXDATA_PTR, txData);
+ 558:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 559:Generated_Source\PSoC5/SPI_Slave.c ****         else
+ 560:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 561:Generated_Source\PSoC5/SPI_Slave.c ****             /* Put data element into the software buffer */
+ 562:Generated_Source\PSoC5/SPI_Slave.c ****             SPI_Slave_txBufferWrite++;
+ 563:Generated_Source\PSoC5/SPI_Slave.c ****             if(SPI_Slave_txBufferWrite >= SPI_Slave_TX_BUFFER_SIZE)
+ 564:Generated_Source\PSoC5/SPI_Slave.c ****             {
+ 565:Generated_Source\PSoC5/SPI_Slave.c ****                 SPI_Slave_txBufferWrite = 0u;
+ 566:Generated_Source\PSoC5/SPI_Slave.c ****             }
+ 567:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 568:Generated_Source\PSoC5/SPI_Slave.c ****             if(SPI_Slave_txBufferWrite == SPI_Slave_txBufferRead)
+ 569:Generated_Source\PSoC5/SPI_Slave.c ****             {
+ 570:Generated_Source\PSoC5/SPI_Slave.c ****                 SPI_Slave_txBufferRead++;
+ 571:Generated_Source\PSoC5/SPI_Slave.c ****                 if(SPI_Slave_txBufferRead >= SPI_Slave_RX_BUFFER_SIZE)
+ 572:Generated_Source\PSoC5/SPI_Slave.c ****                 {
+ 573:Generated_Source\PSoC5/SPI_Slave.c ****                     SPI_Slave_txBufferRead = 0u;
+ 574:Generated_Source\PSoC5/SPI_Slave.c ****                 }
+ 575:Generated_Source\PSoC5/SPI_Slave.c ****                 SPI_Slave_txBufferFull = 1u;
+ 576:Generated_Source\PSoC5/SPI_Slave.c ****             }
+ 577:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 578:Generated_Source\PSoC5/SPI_Slave.c ****             SPI_Slave_txBuffer[SPI_Slave_txBufferWrite] = txData;
+ 579:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 580:Generated_Source\PSoC5/SPI_Slave.c ****             SPI_Slave_TX_STATUS_MASK_REG |= SPI_Slave_STS_TX_FIFO_NOT_FULL;
+ 581:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 582:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 583:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable Interrupt. */
+ 584:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableTxInt();
+ 585:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 586:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* !SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 587:Generated_Source\PSoC5/SPI_Slave.c ****         /* Wait until TX FIFO has a place */
+ 588:Generated_Source\PSoC5/SPI_Slave.c ****         while(0u == (SPI_Slave_TX_STATUS_REG & SPI_Slave_STS_TX_FIFO_NOT_FULL))
+ 316              		.loc 1 588 0 discriminator 1
+ 317 0000 034B     		ldr	r3, .L31
+ 318 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 319 0004 13F0020F 		tst	r3, #2
+ 320 0008 FAD0     		beq	.L30
+ 589:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 590:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 591:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 592:Generated_Source\PSoC5/SPI_Slave.c ****         /* Put data element into the TX FIFO */
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 17
+
+
+ 593:Generated_Source\PSoC5/SPI_Slave.c ****         CY_SET_REG8(SPI_Slave_TXDATA_PTR, txData);
+ 321              		.loc 1 593 0
+ 322 000a 024B     		ldr	r3, .L31+4
+ 323 000c 1870     		strb	r0, [r3]
+ 324 000e 7047     		bx	lr
+ 325              	.L32:
+ 326              		.align	2
+ 327              	.L31:
+ 328 0010 69650040 		.word	1073767785
+ 329 0014 48640040 		.word	1073767496
+ 330              		.cfi_endproc
+ 331              	.LFE12:
+ 332              		.size	SPI_Slave_WriteTxData, .-SPI_Slave_WriteTxData
+ 333              		.section	.text.SPI_Slave_ReadRxData,"ax",%progbits
+ 334              		.align	2
+ 335              		.global	SPI_Slave_ReadRxData
+ 336              		.thumb
+ 337              		.thumb_func
+ 338              		.type	SPI_Slave_ReadRxData, %function
+ 339              	SPI_Slave_ReadRxData:
+ 340              	.LFB13:
+ 594:Generated_Source\PSoC5/SPI_Slave.c ****         
+ 595:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 596:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 597:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 598:Generated_Source\PSoC5/SPI_Slave.c **** #if(SPI_Slave_MODE_USE_ZERO != 0u)
+ 599:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 600:Generated_Source\PSoC5/SPI_Slave.c ****     /*******************************************************************************
+ 601:Generated_Source\PSoC5/SPI_Slave.c ****     * Function Name: SPI_Slave_WriteTxDataZero
+ 602:Generated_Source\PSoC5/SPI_Slave.c ****     ********************************************************************************
+ 603:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 604:Generated_Source\PSoC5/SPI_Slave.c ****     * Summary:
+ 605:Generated_Source\PSoC5/SPI_Slave.c ****     *  Write a byte zero of data to be sent across the SPI. This must be used in
+ 606:Generated_Source\PSoC5/SPI_Slave.c ****     *  Mode 00 and 01 if the FIFO is empty and data is not being sent.
+ 607:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 608:Generated_Source\PSoC5/SPI_Slave.c ****     * Parameters:
+ 609:Generated_Source\PSoC5/SPI_Slave.c ****     *  txDataByte: The data value to send across the SPI.
+ 610:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 611:Generated_Source\PSoC5/SPI_Slave.c ****     * Return:
+ 612:Generated_Source\PSoC5/SPI_Slave.c ****     *  None.
+ 613:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 614:Generated_Source\PSoC5/SPI_Slave.c ****     * Theory:
+ 615:Generated_Source\PSoC5/SPI_Slave.c ****     *  Allows the user to transmit any byte of data in a single transfer. Clear
+ 616:Generated_Source\PSoC5/SPI_Slave.c ****     *  status register of the component.
+ 617:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 618:Generated_Source\PSoC5/SPI_Slave.c ****     *******************************************************************************/
+ 619:Generated_Source\PSoC5/SPI_Slave.c ****     void SPI_Slave_WriteTxDataZero(uint8 txDataByte)
+ 620:Generated_Source\PSoC5/SPI_Slave.c ****                                         
+ 621:Generated_Source\PSoC5/SPI_Slave.c ****     {
+ 622:Generated_Source\PSoC5/SPI_Slave.c ****         CY_SET_REG8(SPI_Slave_TXDATA_ZERO_PTR, txDataByte);
+ 623:Generated_Source\PSoC5/SPI_Slave.c ****     }
+ 624:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 625:Generated_Source\PSoC5/SPI_Slave.c **** #endif /* (SPI_Slave_MODE_USE_ZERO != 0u) */
+ 626:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 627:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 628:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 629:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_ReadRxData
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 18
+
+
+ 630:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 631:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 632:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 633:Generated_Source\PSoC5/SPI_Slave.c **** *  Read the next byte of data received across the SPI.
+ 634:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 635:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 636:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 637:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 638:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 639:Generated_Source\PSoC5/SPI_Slave.c **** *  The next byte of data read from the FIFO.
+ 640:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 641:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ 642:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_rxBufferWrite - used for the account of the bytes which
+ 643:Generated_Source\PSoC5/SPI_Slave.c **** *  have been written down in the RX software buffer.
+ 644:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_rxBufferRead - used for the account of the bytes which
+ 645:Generated_Source\PSoC5/SPI_Slave.c **** *  have been read from the RX software buffer, modified every function
+ 646:Generated_Source\PSoC5/SPI_Slave.c **** *  call if RX Software Buffer is used.
+ 647:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_rxBuffer[SPI_Slave_RX_BUFFER_SIZE] - used to store
+ 648:Generated_Source\PSoC5/SPI_Slave.c **** *  received data.
+ 649:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 650:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 651:Generated_Source\PSoC5/SPI_Slave.c **** *  Allows the user to read a byte of data received.
+ 652:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 653:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+ 654:Generated_Source\PSoC5/SPI_Slave.c **** *  Will return invalid data if the FIFO is empty.  User should poll for FIFO
+ 655:Generated_Source\PSoC5/SPI_Slave.c **** *  empty status before calling Read function.
+ 656:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 657:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+ 658:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+ 659:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 660:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 661:Generated_Source\PSoC5/SPI_Slave.c **** uint8 SPI_Slave_ReadRxData(void) 
+ 662:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 341              		.loc 1 662 0
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              		@ link register save eliminated.
+ 663:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 rxData;
+ 664:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 665:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_RX_SOFTWARE_BUF_ENABLED)
+ 666:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 667:Generated_Source\PSoC5/SPI_Slave.c ****         /* Disable Interrupt to protect variables that could change on interrupt. */
+ 668:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableRxInt();
+ 669:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 670:Generated_Source\PSoC5/SPI_Slave.c ****         if(SPI_Slave_rxBufferRead != SPI_Slave_rxBufferWrite)
+ 671:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 672:Generated_Source\PSoC5/SPI_Slave.c ****             if(SPI_Slave_rxBufferFull == 0u)
+ 673:Generated_Source\PSoC5/SPI_Slave.c ****             {
+ 674:Generated_Source\PSoC5/SPI_Slave.c ****                 SPI_Slave_rxBufferRead++;
+ 675:Generated_Source\PSoC5/SPI_Slave.c ****                 if(SPI_Slave_rxBufferRead >= SPI_Slave_RX_BUFFER_SIZE)
+ 676:Generated_Source\PSoC5/SPI_Slave.c ****                 {
+ 677:Generated_Source\PSoC5/SPI_Slave.c ****                     SPI_Slave_rxBufferRead = 0u;
+ 678:Generated_Source\PSoC5/SPI_Slave.c ****                 }
+ 679:Generated_Source\PSoC5/SPI_Slave.c ****             }
+ 680:Generated_Source\PSoC5/SPI_Slave.c ****             else
+ 681:Generated_Source\PSoC5/SPI_Slave.c ****             {
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 19
+
+
+ 682:Generated_Source\PSoC5/SPI_Slave.c ****                 SPI_Slave_rxBufferFull = 0u;
+ 683:Generated_Source\PSoC5/SPI_Slave.c ****             }
+ 684:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 685:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 686:Generated_Source\PSoC5/SPI_Slave.c ****         rxData = SPI_Slave_rxBuffer[SPI_Slave_rxBufferRead];
+ 687:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 688:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable Interrupt. */
+ 689:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableRxInt();
+ 690:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 691:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* !SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
+ 692:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 693:Generated_Source\PSoC5/SPI_Slave.c ****         rxData = CY_GET_REG8(SPI_Slave_RXDATA_PTR);
+ 346              		.loc 1 693 0
+ 347 0000 014B     		ldr	r3, .L34
+ 348 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 349              	.LVL9:
+ 694:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 695:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
+ 696:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 697:Generated_Source\PSoC5/SPI_Slave.c ****     return (rxData);
+ 698:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 699:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 350              		.loc 1 699 0
+ 351 0004 7047     		bx	lr
+ 352              	.L35:
+ 353 0006 00BF     		.align	2
+ 354              	.L34:
+ 355 0008 58640040 		.word	1073767512
+ 356              		.cfi_endproc
+ 357              	.LFE13:
+ 358              		.size	SPI_Slave_ReadRxData, .-SPI_Slave_ReadRxData
+ 359              		.section	.text.SPI_Slave_GetRxBufferSize,"ax",%progbits
+ 360              		.align	2
+ 361              		.global	SPI_Slave_GetRxBufferSize
+ 362              		.thumb
+ 363              		.thumb_func
+ 364              		.type	SPI_Slave_GetRxBufferSize, %function
+ 365              	SPI_Slave_GetRxBufferSize:
+ 366              	.LFB14:
+ 700:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 701:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 702:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 703:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_GetRxBufferSize
+ 704:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 705:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 706:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 707:Generated_Source\PSoC5/SPI_Slave.c **** *  Returns the number of bytes/words of data currently held in the RX buffer.
+ 708:Generated_Source\PSoC5/SPI_Slave.c **** *  If RX Software Buffer not used then function return 0 if FIFO empty or 1 if
+ 709:Generated_Source\PSoC5/SPI_Slave.c **** *  FIFO not empty. In another case function return size of RX Software Buffer.
+ 710:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 711:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 712:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 713:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 714:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 715:Generated_Source\PSoC5/SPI_Slave.c **** *  Integer count of the number of bytes/words in the RX buffer.
+ 716:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 717:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 20
+
+
+ 718:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_rxBufferWrite - used for the account of the bytes which
+ 719:Generated_Source\PSoC5/SPI_Slave.c **** *  have been written down in the RX software buffer.
+ 720:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_rxBufferRead - used for the account of the bytes which
+ 721:Generated_Source\PSoC5/SPI_Slave.c **** *  have been read from the RX software buffer.
+ 722:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 723:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 724:Generated_Source\PSoC5/SPI_Slave.c **** *  Allows the user to find out how full the RX Buffer is.
+ 725:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 726:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 727:Generated_Source\PSoC5/SPI_Slave.c **** uint8 SPI_Slave_GetRxBufferSize(void) 
+ 728:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 367              		.loc 1 728 0
+ 368              		.cfi_startproc
+ 369              		@ args = 0, pretend = 0, frame = 0
+ 370              		@ frame_needed = 0, uses_anonymous_args = 0
+ 371              		@ link register save eliminated.
+ 729:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 size;
+ 730:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 731:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_RX_SOFTWARE_BUF_ENABLED)
+ 732:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 733:Generated_Source\PSoC5/SPI_Slave.c ****         /* Disable Interrupt to protect variables that could change on interrupt. */
+ 734:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableRxInt();
+ 735:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 736:Generated_Source\PSoC5/SPI_Slave.c ****         if(SPI_Slave_rxBufferRead == SPI_Slave_rxBufferWrite)
+ 737:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 738:Generated_Source\PSoC5/SPI_Slave.c ****             size = 0u; /* No data in RX buffer */
+ 739:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 740:Generated_Source\PSoC5/SPI_Slave.c ****         else if(SPI_Slave_rxBufferRead < SPI_Slave_rxBufferWrite)
+ 741:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 742:Generated_Source\PSoC5/SPI_Slave.c ****             size = (SPI_Slave_rxBufferWrite - SPI_Slave_rxBufferRead);
+ 743:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 744:Generated_Source\PSoC5/SPI_Slave.c ****         else
+ 745:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 746:Generated_Source\PSoC5/SPI_Slave.c ****             size = (SPI_Slave_RX_BUFFER_SIZE - SPI_Slave_rxBufferRead) + SPI_Slave_rxBufferWrite;
+ 747:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 748:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 749:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable interrupt. */
+ 750:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableRxInt();
+ 751:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 752:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* !SPI_Slave_RX_SOFTWARE_BUF_ENABLED*/
+ 753:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 754:Generated_Source\PSoC5/SPI_Slave.c ****         /* We can only know if there is data in the fifo. */
+ 755:Generated_Source\PSoC5/SPI_Slave.c ****         size = ((SPI_Slave_RX_STATUS_REG & SPI_Slave_STS_RX_FIFO_NOT_EMPTY) != 0u) ? 1u : 0u;
+ 372              		.loc 1 755 0
+ 373 0000 044B     		ldr	r3, .L39
+ 374 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 375 0004 13F0080F 		tst	r3, #8
+ 376 0008 01D0     		beq	.L38
+ 377 000a 0120     		movs	r0, #1
+ 378 000c 7047     		bx	lr
+ 379              	.L38:
+ 380 000e 0020     		movs	r0, #0
+ 381              	.LVL10:
+ 756:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 757:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
+ 758:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 759:Generated_Source\PSoC5/SPI_Slave.c ****     return (size);
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 21
+
+
+ 760:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 382              		.loc 1 760 0
+ 383 0010 7047     		bx	lr
+ 384              	.L40:
+ 385 0012 00BF     		.align	2
+ 386              	.L39:
+ 387 0014 6A640040 		.word	1073767530
+ 388              		.cfi_endproc
+ 389              	.LFE14:
+ 390              		.size	SPI_Slave_GetRxBufferSize, .-SPI_Slave_GetRxBufferSize
+ 391              		.section	.text.SPI_Slave_GetTxBufferSize,"ax",%progbits
+ 392              		.align	2
+ 393              		.global	SPI_Slave_GetTxBufferSize
+ 394              		.thumb
+ 395              		.thumb_func
+ 396              		.type	SPI_Slave_GetTxBufferSize, %function
+ 397              	SPI_Slave_GetTxBufferSize:
+ 398              	.LFB15:
+ 761:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 762:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 763:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 764:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_GetTxBufferSize
+ 765:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 766:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 767:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 768:Generated_Source\PSoC5/SPI_Slave.c **** *  Returns the number of bytes/words of data currently held in the TX buffer.
+ 769:Generated_Source\PSoC5/SPI_Slave.c **** *  If TX Software Buffer not used then function return 0 - if FIFO empty, 1 - if
+ 770:Generated_Source\PSoC5/SPI_Slave.c **** *  FIFO not full, 4 - if FIFO full. In another case function return size of TX
+ 771:Generated_Source\PSoC5/SPI_Slave.c **** *  Software Buffer.
+ 772:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 773:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 774:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 775:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 776:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 777:Generated_Source\PSoC5/SPI_Slave.c **** *  Integer count of the number of bytes/words in the TX buffer.
+ 778:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 779:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ 780:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_txBufferWrite - used for the account of the bytes which
+ 781:Generated_Source\PSoC5/SPI_Slave.c **** *  have been written down in the TX software buffer.
+ 782:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_txBufferRead - used for the account of the bytes which
+ 783:Generated_Source\PSoC5/SPI_Slave.c **** *  have been read from the TX software buffer.
+ 784:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 785:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 786:Generated_Source\PSoC5/SPI_Slave.c **** *  Allows the user to find out how full the TX Buffer is.
+ 787:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 788:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+ 789:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear status register of the component.
+ 790:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 791:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 792:Generated_Source\PSoC5/SPI_Slave.c **** uint8  SPI_Slave_GetTxBufferSize(void) 
+ 793:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 399              		.loc 1 793 0
+ 400              		.cfi_startproc
+ 401              		@ args = 0, pretend = 0, frame = 0
+ 402              		@ frame_needed = 0, uses_anonymous_args = 0
+ 403              		@ link register save eliminated.
+ 794:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 size;
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 22
+
+
+ 795:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 796:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_TX_SOFTWARE_BUF_ENABLED)
+ 797:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 798:Generated_Source\PSoC5/SPI_Slave.c ****         /* Disable Interrupt to protect variables that could change on interrupt. */
+ 799:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableTxInt();
+ 800:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 801:Generated_Source\PSoC5/SPI_Slave.c ****         if(SPI_Slave_txBufferRead == SPI_Slave_txBufferWrite)
+ 802:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 803:Generated_Source\PSoC5/SPI_Slave.c ****             size = 0u;
+ 804:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 805:Generated_Source\PSoC5/SPI_Slave.c ****         else if(SPI_Slave_txBufferRead < SPI_Slave_txBufferWrite)
+ 806:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 807:Generated_Source\PSoC5/SPI_Slave.c ****             size = (SPI_Slave_txBufferWrite - SPI_Slave_txBufferRead);
+ 808:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 809:Generated_Source\PSoC5/SPI_Slave.c ****         else
+ 810:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 811:Generated_Source\PSoC5/SPI_Slave.c ****             size = (SPI_Slave_TX_BUFFER_SIZE - SPI_Slave_txBufferRead) + SPI_Slave_txBufferWrite;
+ 812:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 813:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 814:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable Interrupt. */
+ 815:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableTxInt();
+ 816:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 817:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* !SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 818:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 819:Generated_Source\PSoC5/SPI_Slave.c ****         size = SPI_Slave_TX_STATUS_REG;
+ 404              		.loc 1 819 0
+ 405 0000 074B     		ldr	r3, .L45
+ 406 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 407 0004 DBB2     		uxtb	r3, r3
+ 408              	.LVL11:
+ 820:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 821:Generated_Source\PSoC5/SPI_Slave.c ****         /* Is the fifo is full. */
+ 822:Generated_Source\PSoC5/SPI_Slave.c ****         if((size & SPI_Slave_STS_TX_FIFO_EMPTY) != 0u)
+ 409              		.loc 1 822 0
+ 410 0006 13F0040F 		tst	r3, #4
+ 411 000a 04D1     		bne	.L43
+ 823:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 824:Generated_Source\PSoC5/SPI_Slave.c ****             size = 0u;
+ 825:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 826:Generated_Source\PSoC5/SPI_Slave.c ****         else if((size & SPI_Slave_STS_TX_FIFO_NOT_FULL) != 0u)
+ 412              		.loc 1 826 0
+ 413 000c 13F0020F 		tst	r3, #2
+ 414 0010 03D0     		beq	.L44
+ 827:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ 828:Generated_Source\PSoC5/SPI_Slave.c ****             size = 1u;
+ 415              		.loc 1 828 0
+ 416 0012 0120     		movs	r0, #1
+ 417 0014 7047     		bx	lr
+ 418              	.L43:
+ 824:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 419              		.loc 1 824 0
+ 420 0016 0020     		movs	r0, #0
+ 421 0018 7047     		bx	lr
+ 422              	.L44:
+ 829:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 830:Generated_Source\PSoC5/SPI_Slave.c ****         else
+ 831:Generated_Source\PSoC5/SPI_Slave.c ****         {
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 23
+
+
+ 832:Generated_Source\PSoC5/SPI_Slave.c ****             size = 4u;
+ 423              		.loc 1 832 0
+ 424 001a 0420     		movs	r0, #4
+ 425              	.LVL12:
+ 833:Generated_Source\PSoC5/SPI_Slave.c ****         }
+ 834:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 835:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 836:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 837:Generated_Source\PSoC5/SPI_Slave.c ****     return (size);
+ 838:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 426              		.loc 1 838 0
+ 427 001c 7047     		bx	lr
+ 428              	.L46:
+ 429 001e 00BF     		.align	2
+ 430              	.L45:
+ 431 0020 69650040 		.word	1073767785
+ 432              		.cfi_endproc
+ 433              	.LFE15:
+ 434              		.size	SPI_Slave_GetTxBufferSize, .-SPI_Slave_GetTxBufferSize
+ 435              		.section	.text.SPI_Slave_ClearRxBuffer,"ax",%progbits
+ 436              		.align	2
+ 437              		.global	SPI_Slave_ClearRxBuffer
+ 438              		.thumb
+ 439              		.thumb_func
+ 440              		.type	SPI_Slave_ClearRxBuffer, %function
+ 441              	SPI_Slave_ClearRxBuffer:
+ 442              	.LFB16:
+ 839:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 840:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 841:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 842:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_ClearRxBuffer
+ 843:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 844:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 845:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 846:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear the RX RAM buffer by setting the read and write pointers both to zero.
+ 847:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 848:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 849:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 850:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 851:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 852:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 853:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 854:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ 855:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_rxBufferWrite - used for the account of the bytes which
+ 856:Generated_Source\PSoC5/SPI_Slave.c **** *  have been written down in the RX software buffer, modified every function
+ 857:Generated_Source\PSoC5/SPI_Slave.c **** *  call - resets to zero.
+ 858:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_rxBufferRead - used for the account of the bytes which
+ 859:Generated_Source\PSoC5/SPI_Slave.c **** *  have been read from the RX software buffer, modified every function call -
+ 860:Generated_Source\PSoC5/SPI_Slave.c **** *  resets to zero.
+ 861:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 862:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 863:Generated_Source\PSoC5/SPI_Slave.c **** *  Setting the pointers to zero makes the system believe there is no data to
+ 864:Generated_Source\PSoC5/SPI_Slave.c **** *  read and writing will resume at address 0 overwriting any data that may have
+ 865:Generated_Source\PSoC5/SPI_Slave.c **** *  remained in the RAM.
+ 866:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 867:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+ 868:Generated_Source\PSoC5/SPI_Slave.c **** *  Any received data not read from the RAM buffer will be lost when overwritten.
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 24
+
+
+ 869:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 870:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+ 871:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+ 872:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 873:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 874:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_ClearRxBuffer(void) 
+ 875:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 443              		.loc 1 875 0
+ 444              		.cfi_startproc
+ 445              		@ args = 0, pretend = 0, frame = 0
+ 446              		@ frame_needed = 0, uses_anonymous_args = 0
+ 447              		@ link register save eliminated.
+ 876:Generated_Source\PSoC5/SPI_Slave.c ****     /* Clear Hardware RX FIFO */
+ 877:Generated_Source\PSoC5/SPI_Slave.c ****     while((SPI_Slave_RX_STATUS_REG & SPI_Slave_STS_RX_FIFO_NOT_EMPTY) != 0u)
+ 448              		.loc 1 877 0
+ 449 0000 01E0     		b	.L48
+ 450              	.L49:
+ 878:Generated_Source\PSoC5/SPI_Slave.c ****     {
+ 879:Generated_Source\PSoC5/SPI_Slave.c ****         CY_GET_REG8(SPI_Slave_RXDATA_PTR);
+ 451              		.loc 1 879 0
+ 452 0002 044B     		ldr	r3, .L50
+ 453 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 454              	.L48:
+ 877:Generated_Source\PSoC5/SPI_Slave.c ****     {
+ 455              		.loc 1 877 0
+ 456 0006 044B     		ldr	r3, .L50+4
+ 457 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 458 000a 13F0080F 		tst	r3, #8
+ 459 000e F8D1     		bne	.L49
+ 880:Generated_Source\PSoC5/SPI_Slave.c ****     }
+ 881:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 882:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_RX_SOFTWARE_BUF_ENABLED)
+ 883:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 884:Generated_Source\PSoC5/SPI_Slave.c ****         /* Disable interrupt to protect variables that could change on interrupt. */
+ 885:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableRxInt();
+ 886:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 887:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_rxBufferRead  = 0u;
+ 888:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_rxBufferWrite = 0u;
+ 889:Generated_Source\PSoC5/SPI_Slave.c **** 		SPI_Slave_rxBufferFull  = 0u;
+ 890:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable interrupt. */
+ 891:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableRxInt();
+ 892:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 893:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
+ 894:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 460              		.loc 1 894 0
+ 461 0010 7047     		bx	lr
+ 462              	.L51:
+ 463 0012 00BF     		.align	2
+ 464              	.L50:
+ 465 0014 58640040 		.word	1073767512
+ 466 0018 6A640040 		.word	1073767530
+ 467              		.cfi_endproc
+ 468              	.LFE16:
+ 469              		.size	SPI_Slave_ClearRxBuffer, .-SPI_Slave_ClearRxBuffer
+ 470              		.section	.text.SPI_Slave_ClearTxBuffer,"ax",%progbits
+ 471              		.align	2
+ 472              		.global	SPI_Slave_ClearTxBuffer
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 25
+
+
+ 473              		.thumb
+ 474              		.thumb_func
+ 475              		.type	SPI_Slave_ClearTxBuffer, %function
+ 476              	SPI_Slave_ClearTxBuffer:
+ 477              	.LFB17:
+ 895:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 896:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 897:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ 898:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_ClearTxBuffer
+ 899:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+ 900:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 901:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+ 902:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear the TX RAM buffer by setting the read and write pointers both to zero.
+ 903:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 904:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+ 905:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 906:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 907:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+ 908:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+ 909:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 910:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+ 911:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_txBufferWrite - used for the account of the bytes which
+ 912:Generated_Source\PSoC5/SPI_Slave.c **** *  have been written down in the TX software buffer, modified every function
+ 913:Generated_Source\PSoC5/SPI_Slave.c **** *  call - resets to zero.
+ 914:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_txBufferRead - used for the account of the bytes which
+ 915:Generated_Source\PSoC5/SPI_Slave.c **** *  have been read from the TX software buffer, modified every function call -
+ 916:Generated_Source\PSoC5/SPI_Slave.c **** *  resets to zero.
+ 917:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 918:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+ 919:Generated_Source\PSoC5/SPI_Slave.c **** *  Setting the pointers to zero makes the system believe there is no data to
+ 920:Generated_Source\PSoC5/SPI_Slave.c **** *  read and writing will resume at address 0 overwriting any data that may have
+ 921:Generated_Source\PSoC5/SPI_Slave.c **** *  remained in the RAM.
+ 922:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 923:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+ 924:Generated_Source\PSoC5/SPI_Slave.c **** *  Any data not yet transmitted from the RAM buffer will be lost when
+ 925:Generated_Source\PSoC5/SPI_Slave.c **** *  overwritten.
+ 926:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 927:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+ 928:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+ 929:Generated_Source\PSoC5/SPI_Slave.c **** *
+ 930:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+ 931:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_ClearTxBuffer(void) 
+ 932:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 478              		.loc 1 932 0
+ 479              		.cfi_startproc
+ 480              		@ args = 0, pretend = 0, frame = 0
+ 481              		@ frame_needed = 0, uses_anonymous_args = 0
+ 482 0000 08B5     		push	{r3, lr}
+ 483              		.cfi_def_cfa_offset 8
+ 484              		.cfi_offset 3, -8
+ 485              		.cfi_offset 14, -4
+ 933:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 enableInterrupts;
+ 934:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 935:Generated_Source\PSoC5/SPI_Slave.c ****     /* Clear Hardware TX FIFO */
+ 936:Generated_Source\PSoC5/SPI_Slave.c ****     enableInterrupts = CyEnterCriticalSection();
+ 486              		.loc 1 936 0
+ 487 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 26
+
+
+ 488              	.LVL13:
+ 937:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 938:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_DATA_WIDTH <= 8u)
+ 939:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 940:Generated_Source\PSoC5/SPI_Slave.c ****         /* Clear TX FIFO */
+ 941:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP0_REG |= (uint8)SPI_Slave_FIFO_CLR;
+ 489              		.loc 1 941 0
+ 490 0006 064B     		ldr	r3, .L54
+ 491 0008 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 492 000a 42F00302 		orr	r2, r2, #3
+ 493 000e 1A70     		strb	r2, [r3]
+ 942:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP0_REG &= (uint8)~SPI_Slave_FIFO_CLR;
+ 494              		.loc 1 942 0
+ 495 0010 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 496 0012 02F0FC02 		and	r2, r2, #252
+ 497 0016 1A70     		strb	r2, [r3]
+ 943:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 944:Generated_Source\PSoC5/SPI_Slave.c ****     #else
+ 945:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 946:Generated_Source\PSoC5/SPI_Slave.c ****         /* Clear TX FIFO */
+ 947:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP0_REG |= (uint8)SPI_Slave_FIFO_CLR;
+ 948:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP0_REG &= (uint8)~SPI_Slave_FIFO_CLR;
+ 949:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP1_REG |= (uint8)SPI_Slave_FIFO_CLR;
+ 950:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP1_REG &= (uint8)~SPI_Slave_FIFO_CLR;
+ 951:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 952:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_DATA_WIDTH > 8u */
+ 953:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 954:Generated_Source\PSoC5/SPI_Slave.c ****     CyExitCriticalSection(enableInterrupts);
+ 498              		.loc 1 954 0
+ 499 0018 FFF7FEFF 		bl	CyExitCriticalSection
+ 500              	.LVL14:
+ 501 001c 08BD     		pop	{r3, pc}
+ 502              	.L55:
+ 503 001e 00BF     		.align	2
+ 504              	.L54:
+ 505 0020 98640040 		.word	1073767576
+ 506              		.cfi_endproc
+ 507              	.LFE17:
+ 508              		.size	SPI_Slave_ClearTxBuffer, .-SPI_Slave_ClearTxBuffer
+ 509              		.section	.text.SPI_Slave_PutArray,"ax",%progbits
+ 510              		.align	2
+ 511              		.global	SPI_Slave_PutArray
+ 512              		.thumb
+ 513              		.thumb_func
+ 514              		.type	SPI_Slave_PutArray, %function
+ 515              	SPI_Slave_PutArray:
+ 516              	.LFB18:
+ 955:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 956:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_TX_SOFTWARE_BUF_ENABLED)
+ 957:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 958:Generated_Source\PSoC5/SPI_Slave.c ****         /* Disable Interrupt to protect variables that could change on interrupt. */
+ 959:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableTxInt();
+ 960:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 961:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_txBufferRead  = 0u;
+ 962:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_txBufferWrite = 0u;
+ 963:Generated_Source\PSoC5/SPI_Slave.c **** 		SPI_Slave_txBufferFull  = 0u;
+ 964:Generated_Source\PSoC5/SPI_Slave.c **** 		
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 27
+
+
+ 965:Generated_Source\PSoC5/SPI_Slave.c ****         /* If Buffer is empty then disable TX FIFO status interrupt */
+ 966:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_STATUS_MASK_REG &= (uint8)~SPI_Slave_STS_TX_FIFO_NOT_FULL;
+ 967:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 968:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable Interrupt. */
+ 969:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableTxInt();
+ 970:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 971:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 972:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 973:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 974:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 975:Generated_Source\PSoC5/SPI_Slave.c **** #if (SPI_Slave_BIDIRECTIONAL_MODE != 0u)
+ 976:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 977:Generated_Source\PSoC5/SPI_Slave.c ****     /*******************************************************************************
+ 978:Generated_Source\PSoC5/SPI_Slave.c ****     * Function Name: SPI_Slave_TxEnable
+ 979:Generated_Source\PSoC5/SPI_Slave.c ****     ********************************************************************************
+ 980:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 981:Generated_Source\PSoC5/SPI_Slave.c ****     * Summary:
+ 982:Generated_Source\PSoC5/SPI_Slave.c ****     *  If the SPI Slave is configured to use a single bi-directional pin then this
+ 983:Generated_Source\PSoC5/SPI_Slave.c ****     *  will set the bi-directional pin to transmit.
+ 984:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 985:Generated_Source\PSoC5/SPI_Slave.c ****     * Parameters:
+ 986:Generated_Source\PSoC5/SPI_Slave.c ****     *  None.
+ 987:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 988:Generated_Source\PSoC5/SPI_Slave.c ****     * Return:
+ 989:Generated_Source\PSoC5/SPI_Slave.c ****     *  None.
+ 990:Generated_Source\PSoC5/SPI_Slave.c ****     *
+ 991:Generated_Source\PSoC5/SPI_Slave.c ****     *******************************************************************************/
+ 992:Generated_Source\PSoC5/SPI_Slave.c ****     void SPI_Slave_TxEnable(void) 
+ 993:Generated_Source\PSoC5/SPI_Slave.c ****     {
+ 994:Generated_Source\PSoC5/SPI_Slave.c ****             SPI_Slave_CONTROL_REG |= SPI_Slave_CTRL_TX_SIGNAL_EN;
+ 995:Generated_Source\PSoC5/SPI_Slave.c ****     }
+ 996:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 997:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 998:Generated_Source\PSoC5/SPI_Slave.c ****     /*******************************************************************************
+ 999:Generated_Source\PSoC5/SPI_Slave.c ****     * Function Name: SPI_Slave_TxDisable
+1000:Generated_Source\PSoC5/SPI_Slave.c ****     ********************************************************************************
+1001:Generated_Source\PSoC5/SPI_Slave.c ****     *
+1002:Generated_Source\PSoC5/SPI_Slave.c ****     * Summary:
+1003:Generated_Source\PSoC5/SPI_Slave.c ****     *  If the SPI Slave is configured to use a single bi-directional pin then this
+1004:Generated_Source\PSoC5/SPI_Slave.c ****     *  will set the bi-directional pin to receive.
+1005:Generated_Source\PSoC5/SPI_Slave.c ****     *
+1006:Generated_Source\PSoC5/SPI_Slave.c ****     * Parameters:
+1007:Generated_Source\PSoC5/SPI_Slave.c ****     *  None.
+1008:Generated_Source\PSoC5/SPI_Slave.c ****     *
+1009:Generated_Source\PSoC5/SPI_Slave.c ****     * Return:
+1010:Generated_Source\PSoC5/SPI_Slave.c ****     *  None.
+1011:Generated_Source\PSoC5/SPI_Slave.c ****     *
+1012:Generated_Source\PSoC5/SPI_Slave.c ****     *******************************************************************************/
+1013:Generated_Source\PSoC5/SPI_Slave.c ****     void SPI_Slave_TxDisable(void) 
+1014:Generated_Source\PSoC5/SPI_Slave.c ****     {
+1015:Generated_Source\PSoC5/SPI_Slave.c ****             SPI_Slave_CONTROL_REG &= (uint8)~SPI_Slave_CTRL_TX_SIGNAL_EN;
+1016:Generated_Source\PSoC5/SPI_Slave.c ****     }
+1017:Generated_Source\PSoC5/SPI_Slave.c **** 
+1018:Generated_Source\PSoC5/SPI_Slave.c **** #endif /* SPI_Slave_BIDIRECTIONAL_MODE != 0u */
+1019:Generated_Source\PSoC5/SPI_Slave.c **** 
+1020:Generated_Source\PSoC5/SPI_Slave.c **** 
+1021:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 28
+
+
+1022:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_PutArray
+1023:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+1024:Generated_Source\PSoC5/SPI_Slave.c **** *
+1025:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+1026:Generated_Source\PSoC5/SPI_Slave.c **** *  Write available data from RAM/ROM to the TX buffer while space is available
+1027:Generated_Source\PSoC5/SPI_Slave.c **** *  in the TX buffer. Keep trying until all data is passed to the TX buffer. If
+1028:Generated_Source\PSoC5/SPI_Slave.c **** *  used Mode 00 or 01 before PutArray() function should be called
+1029:Generated_Source\PSoC5/SPI_Slave.c **** *  WriteTxDataZero() function.
+1030:Generated_Source\PSoC5/SPI_Slave.c **** *
+1031:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+1032:Generated_Source\PSoC5/SPI_Slave.c **** *  *buffer: Pointer to the location in RAM containing the data to send
+1033:Generated_Source\PSoC5/SPI_Slave.c **** *  byteCount: The number of bytes to move to the transmit buffer.
+1034:Generated_Source\PSoC5/SPI_Slave.c **** *
+1035:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+1036:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1037:Generated_Source\PSoC5/SPI_Slave.c **** *
+1038:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+1039:Generated_Source\PSoC5/SPI_Slave.c **** *  Will stay in this routine until all data has been sent.  May get locked in
+1040:Generated_Source\PSoC5/SPI_Slave.c **** *  this loop if data is not being initiated by the master if there is not
+1041:Generated_Source\PSoC5/SPI_Slave.c **** *  enough room in the TX FIFO.
+1042:Generated_Source\PSoC5/SPI_Slave.c **** *
+1043:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+1044:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+1045:Generated_Source\PSoC5/SPI_Slave.c **** *
+1046:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+1047:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_PutArray(const uint8 buffer[], uint8 byteCount)
+1048:Generated_Source\PSoC5/SPI_Slave.c ****                                                                     
+1049:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 517              		.loc 1 1049 0
+ 518              		.cfi_startproc
+ 519              		@ args = 0, pretend = 0, frame = 0
+ 520              		@ frame_needed = 0, uses_anonymous_args = 0
+ 521              	.LVL15:
+ 522 0000 70B5     		push	{r4, r5, r6, lr}
+ 523              		.cfi_def_cfa_offset 16
+ 524              		.cfi_offset 4, -16
+ 525              		.cfi_offset 5, -12
+ 526              		.cfi_offset 6, -8
+ 527              		.cfi_offset 14, -4
+ 528 0002 0646     		mov	r6, r0
+ 529 0004 0C46     		mov	r4, r1
+ 530              	.LVL16:
+1050:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 bufIndex;
+1051:Generated_Source\PSoC5/SPI_Slave.c ****     bufIndex = 0u;
+ 531              		.loc 1 1051 0
+ 532 0006 0025     		movs	r5, #0
+1052:Generated_Source\PSoC5/SPI_Slave.c **** 
+1053:Generated_Source\PSoC5/SPI_Slave.c ****     while(byteCount > 0u)
+ 533              		.loc 1 1053 0
+ 534 0008 06E0     		b	.L57
+ 535              	.LVL17:
+ 536              	.L58:
+1054:Generated_Source\PSoC5/SPI_Slave.c ****     {
+1055:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_WriteTxData(buffer[bufIndex]);
+ 537              		.loc 1 1055 0
+ 538 000a 705D     		ldrb	r0, [r6, r5]	@ zero_extendqisi2
+ 539 000c FFF7FEFF 		bl	SPI_Slave_WriteTxData
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 29
+
+
+ 540              	.LVL18:
+1056:Generated_Source\PSoC5/SPI_Slave.c ****         bufIndex++;
+ 541              		.loc 1 1056 0
+ 542 0010 0135     		adds	r5, r5, #1
+ 543              	.LVL19:
+ 544 0012 EDB2     		uxtb	r5, r5
+ 545              	.LVL20:
+1057:Generated_Source\PSoC5/SPI_Slave.c ****         byteCount--;
+ 546              		.loc 1 1057 0
+ 547 0014 013C     		subs	r4, r4, #1
+ 548              	.LVL21:
+ 549 0016 E4B2     		uxtb	r4, r4
+ 550              	.LVL22:
+ 551              	.L57:
+1053:Generated_Source\PSoC5/SPI_Slave.c ****     {
+ 552              		.loc 1 1053 0
+ 553 0018 002C     		cmp	r4, #0
+ 554 001a F6D1     		bne	.L58
+1058:Generated_Source\PSoC5/SPI_Slave.c ****     }
+1059:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 555              		.loc 1 1059 0
+ 556 001c 70BD     		pop	{r4, r5, r6, pc}
+ 557              		.cfi_endproc
+ 558              	.LFE18:
+ 559              		.size	SPI_Slave_PutArray, .-SPI_Slave_PutArray
+ 560 001e 00BF     		.section	.text.SPI_Slave_ClearFIFO,"ax",%progbits
+ 561              		.align	2
+ 562              		.global	SPI_Slave_ClearFIFO
+ 563              		.thumb
+ 564              		.thumb_func
+ 565              		.type	SPI_Slave_ClearFIFO, %function
+ 566              	SPI_Slave_ClearFIFO:
+ 567              	.LFB19:
+1060:Generated_Source\PSoC5/SPI_Slave.c **** 
+1061:Generated_Source\PSoC5/SPI_Slave.c **** 
+1062:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+1063:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_ClearFIFO
+1064:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+1065:Generated_Source\PSoC5/SPI_Slave.c **** *
+1066:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+1067:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear the RX and TX FIFO's of all data for a fresh start.
+1068:Generated_Source\PSoC5/SPI_Slave.c **** *
+1069:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+1070:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1071:Generated_Source\PSoC5/SPI_Slave.c **** *
+1072:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+1073:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1074:Generated_Source\PSoC5/SPI_Slave.c **** *
+1075:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+1076:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear status register of the component.
+1077:Generated_Source\PSoC5/SPI_Slave.c **** *
+1078:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+1079:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_ClearFIFO(void) 
+1080:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 568              		.loc 1 1080 0
+ 569              		.cfi_startproc
+ 570              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 30
+
+
+ 571              		@ frame_needed = 0, uses_anonymous_args = 0
+ 572 0000 08B5     		push	{r3, lr}
+ 573              		.cfi_def_cfa_offset 8
+ 574              		.cfi_offset 3, -8
+ 575              		.cfi_offset 14, -4
+1081:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 enableInterrupts;
+1082:Generated_Source\PSoC5/SPI_Slave.c **** 
+1083:Generated_Source\PSoC5/SPI_Slave.c ****     while((SPI_Slave_RX_STATUS_REG & SPI_Slave_STS_RX_FIFO_NOT_EMPTY) != 0u)
+ 576              		.loc 1 1083 0
+ 577 0002 01E0     		b	.L61
+ 578              	.L62:
+1084:Generated_Source\PSoC5/SPI_Slave.c ****     {
+1085:Generated_Source\PSoC5/SPI_Slave.c ****         CY_GET_REG8(SPI_Slave_RXDATA_PTR);
+ 579              		.loc 1 1085 0
+ 580 0004 0A4B     		ldr	r3, .L64
+ 581 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 582              	.L61:
+1083:Generated_Source\PSoC5/SPI_Slave.c ****     {
+ 583              		.loc 1 1083 0
+ 584 0008 0A4B     		ldr	r3, .L64+4
+ 585 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 586 000c 13F0080F 		tst	r3, #8
+ 587 0010 F8D1     		bne	.L62
+1086:Generated_Source\PSoC5/SPI_Slave.c ****     }
+1087:Generated_Source\PSoC5/SPI_Slave.c **** 
+1088:Generated_Source\PSoC5/SPI_Slave.c ****     enableInterrupts = CyEnterCriticalSection();
+ 588              		.loc 1 1088 0
+ 589 0012 FFF7FEFF 		bl	CyEnterCriticalSection
+ 590              	.LVL23:
+1089:Generated_Source\PSoC5/SPI_Slave.c **** 
+1090:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_DATA_WIDTH <= 8u)
+1091:Generated_Source\PSoC5/SPI_Slave.c **** 
+1092:Generated_Source\PSoC5/SPI_Slave.c ****         /* Clear TX FIFO */
+1093:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP0_REG |= (uint8)SPI_Slave_FIFO_CLR;
+ 591              		.loc 1 1093 0
+ 592 0016 084B     		ldr	r3, .L64+8
+ 593 0018 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 594 001a 42F00302 		orr	r2, r2, #3
+ 595 001e 1A70     		strb	r2, [r3]
+1094:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP0_REG &= (uint8)~SPI_Slave_FIFO_CLR;
+ 596              		.loc 1 1094 0
+ 597 0020 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 598 0022 02F0FC02 		and	r2, r2, #252
+ 599 0026 1A70     		strb	r2, [r3]
+1095:Generated_Source\PSoC5/SPI_Slave.c **** 
+1096:Generated_Source\PSoC5/SPI_Slave.c ****     #else
+1097:Generated_Source\PSoC5/SPI_Slave.c **** 
+1098:Generated_Source\PSoC5/SPI_Slave.c ****         /* Clear TX FIFO */
+1099:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP0_REG |= (uint8)SPI_Slave_FIFO_CLR;
+1100:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP0_REG &= (uint8)~SPI_Slave_FIFO_CLR;
+1101:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP1_REG |= (uint8)SPI_Slave_FIFO_CLR;
+1102:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_TX_AUX_CONTROL_DP1_REG &= (uint8)~SPI_Slave_FIFO_CLR;
+1103:Generated_Source\PSoC5/SPI_Slave.c **** 
+1104:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_DATA_WIDTH <= 8u */
+1105:Generated_Source\PSoC5/SPI_Slave.c **** 
+1106:Generated_Source\PSoC5/SPI_Slave.c ****     CyExitCriticalSection(enableInterrupts);
+ 600              		.loc 1 1106 0
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 31
+
+
+ 601 0028 FFF7FEFF 		bl	CyExitCriticalSection
+ 602              	.LVL24:
+ 603 002c 08BD     		pop	{r3, pc}
+ 604              	.L65:
+ 605 002e 00BF     		.align	2
+ 606              	.L64:
+ 607 0030 58640040 		.word	1073767512
+ 608 0034 6A640040 		.word	1073767530
+ 609 0038 98640040 		.word	1073767576
+ 610              		.cfi_endproc
+ 611              	.LFE19:
+ 612              		.size	SPI_Slave_ClearFIFO, .-SPI_Slave_ClearFIFO
+ 613              		.section	.text.SPI_Slave_Init,"ax",%progbits
+ 614              		.align	2
+ 615              		.global	SPI_Slave_Init
+ 616              		.thumb
+ 617              		.thumb_func
+ 618              		.type	SPI_Slave_Init, %function
+ 619              	SPI_Slave_Init:
+ 620              	.LFB0:
+  68:Generated_Source\PSoC5/SPI_Slave.c ****     /*Initialize the Bit counter */
+ 621              		.loc 1 68 0
+ 622              		.cfi_startproc
+ 623              		@ args = 0, pretend = 0, frame = 0
+ 624              		@ frame_needed = 0, uses_anonymous_args = 0
+ 625 0000 10B5     		push	{r4, lr}
+ 626              		.cfi_def_cfa_offset 8
+ 627              		.cfi_offset 4, -8
+ 628              		.cfi_offset 14, -4
+  70:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 629              		.loc 1 70 0
+ 630 0002 0724     		movs	r4, #7
+ 631 0004 0C4B     		ldr	r3, .L68
+ 632 0006 1C70     		strb	r4, [r3]
+  87:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 633              		.loc 1 87 0
+ 634 0008 0222     		movs	r2, #2
+ 635 000a 0C4B     		ldr	r3, .L68+4
+ 636 000c 1A60     		str	r2, [r3]
+  90:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 637              		.loc 1 90 0
+ 638 000e 0C49     		ldr	r1, .L68+8
+ 639 0010 0120     		movs	r0, #1
+ 640 0012 FFF7FEFF 		bl	CyIntSetVector
+ 641              	.LVL25:
+  93:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 642              		.loc 1 93 0
+ 643 0016 2146     		mov	r1, r4
+ 644 0018 0120     		movs	r0, #1
+ 645 001a FFF7FEFF 		bl	CyIntSetPriority
+ 646              	.LVL26:
+  98:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 647              		.loc 1 98 0
+ 648 001e FFF7FEFF 		bl	SPI_Slave_ClearFIFO
+ 649              	.LVL27:
+ 112:Generated_Source\PSoC5/SPI_Slave.c ****     (void) SPI_Slave_ReadRxStatus(); /* Clear any pending status bits */
+ 650              		.loc 1 112 0
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 32
+
+
+ 651 0022 FFF7FEFF 		bl	SPI_Slave_ReadTxStatus
+ 652              	.LVL28:
+ 113:Generated_Source\PSoC5/SPI_Slave.c **** 
+ 653              		.loc 1 113 0
+ 654 0026 FFF7FEFF 		bl	SPI_Slave_ReadRxStatus
+ 655              	.LVL29:
+ 121:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
+ 656              		.loc 1 121 0
+ 657 002a 0022     		movs	r2, #0
+ 658 002c 054B     		ldr	r3, .L68+12
+ 659 002e 1A70     		strb	r2, [r3]
+ 124:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 660              		.loc 1 124 0
+ 661 0030 0822     		movs	r2, #8
+ 662 0032 FF3B     		subs	r3, r3, #255
+ 663 0034 1A70     		strb	r2, [r3]
+ 664 0036 10BD     		pop	{r4, pc}
+ 665              	.L69:
+ 666              		.align	2
+ 667              	.L68:
+ 668 0038 88650040 		.word	1073767816
+ 669 003c 80E100E0 		.word	-536813184
+ 670 0040 00000000 		.word	SPI_Slave_RX_ISR
+ 671 0044 89650040 		.word	1073767817
+ 672              		.cfi_endproc
+ 673              	.LFE0:
+ 674              		.size	SPI_Slave_Init, .-SPI_Slave_Init
+ 675              		.section	.text.SPI_Slave_Start,"ax",%progbits
+ 676              		.align	2
+ 677              		.global	SPI_Slave_Start
+ 678              		.thumb
+ 679              		.thumb_func
+ 680              		.type	SPI_Slave_Start, %function
+ 681              	SPI_Slave_Start:
+ 682              	.LFB2:
+ 188:Generated_Source\PSoC5/SPI_Slave.c ****     if(SPI_Slave_initVar == 0u)
+ 683              		.loc 1 188 0
+ 684              		.cfi_startproc
+ 685              		@ args = 0, pretend = 0, frame = 0
+ 686              		@ frame_needed = 0, uses_anonymous_args = 0
+ 687 0000 08B5     		push	{r3, lr}
+ 688              		.cfi_def_cfa_offset 8
+ 689              		.cfi_offset 3, -8
+ 690              		.cfi_offset 14, -4
+ 189:Generated_Source\PSoC5/SPI_Slave.c ****     {
+ 691              		.loc 1 189 0
+ 692 0002 054B     		ldr	r3, .L73
+ 693 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 694 0006 23B9     		cbnz	r3, .L71
+ 191:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_initVar = 1u;
+ 695              		.loc 1 191 0
+ 696 0008 FFF7FEFF 		bl	SPI_Slave_Init
+ 697              	.LVL30:
+ 192:Generated_Source\PSoC5/SPI_Slave.c ****     }
+ 698              		.loc 1 192 0
+ 699 000c 0122     		movs	r2, #1
+ 700 000e 024B     		ldr	r3, .L73
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 33
+
+
+ 701 0010 1A70     		strb	r2, [r3]
+ 702              	.L71:
+ 195:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 703              		.loc 1 195 0
+ 704 0012 FFF7FEFF 		bl	SPI_Slave_Enable
+ 705              	.LVL31:
+ 706 0016 08BD     		pop	{r3, pc}
+ 707              	.L74:
+ 708              		.align	2
+ 709              	.L73:
+ 710 0018 00000000 		.word	.LANCHOR0
+ 711              		.cfi_endproc
+ 712              	.LFE2:
+ 713              		.size	SPI_Slave_Start, .-SPI_Slave_Start
+ 714              		.section	.text.SPI_Slave_EnableInt,"ax",%progbits
+ 715              		.align	2
+ 716              		.global	SPI_Slave_EnableInt
+ 717              		.thumb
+ 718              		.thumb_func
+ 719              		.type	SPI_Slave_EnableInt, %function
+ 720              	SPI_Slave_EnableInt:
+ 721              	.LFB20:
+1107:Generated_Source\PSoC5/SPI_Slave.c **** }
+1108:Generated_Source\PSoC5/SPI_Slave.c **** 
+1109:Generated_Source\PSoC5/SPI_Slave.c **** 
+1110:Generated_Source\PSoC5/SPI_Slave.c **** /* Following functions are for version Compatibility, they are obsolete.
+1111:Generated_Source\PSoC5/SPI_Slave.c **** *  Please do not use it in new projects.
+1112:Generated_Source\PSoC5/SPI_Slave.c **** */
+1113:Generated_Source\PSoC5/SPI_Slave.c **** 
+1114:Generated_Source\PSoC5/SPI_Slave.c **** 
+1115:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+1116:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_EnableInt
+1117:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+1118:Generated_Source\PSoC5/SPI_Slave.c **** *
+1119:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+1120:Generated_Source\PSoC5/SPI_Slave.c **** *  Enable internal interrupt generation.
+1121:Generated_Source\PSoC5/SPI_Slave.c **** *
+1122:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+1123:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1124:Generated_Source\PSoC5/SPI_Slave.c **** *
+1125:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+1126:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1127:Generated_Source\PSoC5/SPI_Slave.c **** *
+1128:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+1129:Generated_Source\PSoC5/SPI_Slave.c **** *  Enable the internal interrupt output -or- the interrupt component itself.
+1130:Generated_Source\PSoC5/SPI_Slave.c **** *
+1131:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+1132:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_EnableInt(void) 
+1133:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 722              		.loc 1 1133 0
+ 723              		.cfi_startproc
+ 724              		@ args = 0, pretend = 0, frame = 0
+ 725              		@ frame_needed = 0, uses_anonymous_args = 0
+ 726              		@ link register save eliminated.
+1134:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
+1135:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_TX_ISR_NUMBER);
+1136:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 34
+
+
+1137:Generated_Source\PSoC5/SPI_Slave.c **** 
+1138:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
+1139:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_RX_ISR_NUMBER);
+ 727              		.loc 1 1139 0
+ 728 0000 0222     		movs	r2, #2
+ 729 0002 014B     		ldr	r3, .L76
+ 730 0004 1A60     		str	r2, [r3]
+ 731 0006 7047     		bx	lr
+ 732              	.L77:
+ 733              		.align	2
+ 734              	.L76:
+ 735 0008 00E100E0 		.word	-536813312
+ 736              		.cfi_endproc
+ 737              	.LFE20:
+ 738              		.size	SPI_Slave_EnableInt, .-SPI_Slave_EnableInt
+ 739              		.section	.text.SPI_Slave_DisableInt,"ax",%progbits
+ 740              		.align	2
+ 741              		.global	SPI_Slave_DisableInt
+ 742              		.thumb
+ 743              		.thumb_func
+ 744              		.type	SPI_Slave_DisableInt, %function
+ 745              	SPI_Slave_DisableInt:
+ 746              	.LFB21:
+1140:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
+1141:Generated_Source\PSoC5/SPI_Slave.c **** }
+1142:Generated_Source\PSoC5/SPI_Slave.c **** 
+1143:Generated_Source\PSoC5/SPI_Slave.c **** 
+1144:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+1145:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_DisableInt
+1146:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+1147:Generated_Source\PSoC5/SPI_Slave.c **** *
+1148:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+1149:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable internal interrupt generation.
+1150:Generated_Source\PSoC5/SPI_Slave.c **** *
+1151:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+1152:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1153:Generated_Source\PSoC5/SPI_Slave.c **** *
+1154:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+1155:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1156:Generated_Source\PSoC5/SPI_Slave.c **** *
+1157:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+1158:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable the internal interrupt output -or- the interrupt component itself.
+1159:Generated_Source\PSoC5/SPI_Slave.c **** *
+1160:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+1161:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_DisableInt(void) 
+1162:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 747              		.loc 1 1162 0
+ 748              		.cfi_startproc
+ 749              		@ args = 0, pretend = 0, frame = 0
+ 750              		@ frame_needed = 0, uses_anonymous_args = 0
+ 751              		@ link register save eliminated.
+1163:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
+1164:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_TX_ISR_NUMBER);
+1165:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
+1166:Generated_Source\PSoC5/SPI_Slave.c **** 
+1167:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
+1168:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_RX_ISR_NUMBER);
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 35
+
+
+ 752              		.loc 1 1168 0
+ 753 0000 0222     		movs	r2, #2
+ 754 0002 014B     		ldr	r3, .L79
+ 755 0004 1A60     		str	r2, [r3]
+ 756 0006 7047     		bx	lr
+ 757              	.L80:
+ 758              		.align	2
+ 759              	.L79:
+ 760 0008 80E100E0 		.word	-536813184
+ 761              		.cfi_endproc
+ 762              	.LFE21:
+ 763              		.size	SPI_Slave_DisableInt, .-SPI_Slave_DisableInt
+ 764              		.section	.text.SPI_Slave_SetInterruptMode,"ax",%progbits
+ 765              		.align	2
+ 766              		.global	SPI_Slave_SetInterruptMode
+ 767              		.thumb
+ 768              		.thumb_func
+ 769              		.type	SPI_Slave_SetInterruptMode, %function
+ 770              	SPI_Slave_SetInterruptMode:
+ 771              	.LFB22:
+1169:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
+1170:Generated_Source\PSoC5/SPI_Slave.c **** }
+1171:Generated_Source\PSoC5/SPI_Slave.c **** 
+1172:Generated_Source\PSoC5/SPI_Slave.c **** 
+1173:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+1174:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_SetInterruptMode
+1175:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+1176:Generated_Source\PSoC5/SPI_Slave.c **** *
+1177:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+1178:Generated_Source\PSoC5/SPI_Slave.c **** *  Configure which status bits trigger an interrupt event.
+1179:Generated_Source\PSoC5/SPI_Slave.c **** *
+1180:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+1181:Generated_Source\PSoC5/SPI_Slave.c **** *  intSrc: An or'd combination of the desired status bit masks (defined in the
+1182:Generated_Source\PSoC5/SPI_Slave.c **** *  header file).
+1183:Generated_Source\PSoC5/SPI_Slave.c **** *
+1184:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+1185:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1186:Generated_Source\PSoC5/SPI_Slave.c **** *
+1187:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+1188:Generated_Source\PSoC5/SPI_Slave.c **** *  Enables the output of specific status bits to the interrupt controller.
+1189:Generated_Source\PSoC5/SPI_Slave.c **** *
+1190:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+1191:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_SetInterruptMode(uint8 intSrc) 
+1192:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 772              		.loc 1 1192 0
+ 773              		.cfi_startproc
+ 774              		@ args = 0, pretend = 0, frame = 0
+ 775              		@ frame_needed = 0, uses_anonymous_args = 0
+ 776              		@ link register save eliminated.
+ 777              	.LVL32:
+1193:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_TX_STATUS_MASK_REG  = intSrc;
+ 778              		.loc 1 1193 0
+ 779 0000 024B     		ldr	r3, .L82
+ 780 0002 1870     		strb	r0, [r3]
+1194:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_RX_STATUS_MASK_REG  = intSrc;
+ 781              		.loc 1 1194 0
+ 782 0004 FF3B     		subs	r3, r3, #255
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 36
+
+
+ 783 0006 1870     		strb	r0, [r3]
+ 784 0008 7047     		bx	lr
+ 785              	.L83:
+ 786 000a 00BF     		.align	2
+ 787              	.L82:
+ 788 000c 89650040 		.word	1073767817
+ 789              		.cfi_endproc
+ 790              	.LFE22:
+ 791              		.size	SPI_Slave_SetInterruptMode, .-SPI_Slave_SetInterruptMode
+ 792              		.section	.text.SPI_Slave_ReadStatus,"ax",%progbits
+ 793              		.align	2
+ 794              		.global	SPI_Slave_ReadStatus
+ 795              		.thumb
+ 796              		.thumb_func
+ 797              		.type	SPI_Slave_ReadStatus, %function
+ 798              	SPI_Slave_ReadStatus:
+ 799              	.LFB23:
+1195:Generated_Source\PSoC5/SPI_Slave.c **** }
+1196:Generated_Source\PSoC5/SPI_Slave.c **** 
+1197:Generated_Source\PSoC5/SPI_Slave.c **** 
+1198:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
+1199:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_ReadStatus
+1200:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
+1201:Generated_Source\PSoC5/SPI_Slave.c **** *
+1202:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
+1203:Generated_Source\PSoC5/SPI_Slave.c **** *  Read the status register for the component.
+1204:Generated_Source\PSoC5/SPI_Slave.c **** *
+1205:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
+1206:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
+1207:Generated_Source\PSoC5/SPI_Slave.c **** *
+1208:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
+1209:Generated_Source\PSoC5/SPI_Slave.c **** *  Contents of the status register.
+1210:Generated_Source\PSoC5/SPI_Slave.c **** *
+1211:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
+1212:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_swStatus - used to store in software status register,
+1213:Generated_Source\PSoC5/SPI_Slave.c **** *  modified every function call - resets to zero.
+1214:Generated_Source\PSoC5/SPI_Slave.c **** *
+1215:Generated_Source\PSoC5/SPI_Slave.c **** * Theory:
+1216:Generated_Source\PSoC5/SPI_Slave.c **** *  Allows the user and the API to read the status register for error detection
+1217:Generated_Source\PSoC5/SPI_Slave.c **** *  and flow control.
+1218:Generated_Source\PSoC5/SPI_Slave.c **** *
+1219:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
+1220:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear status register of the component.
+1221:Generated_Source\PSoC5/SPI_Slave.c **** *
+1222:Generated_Source\PSoC5/SPI_Slave.c **** * Reentrant:
+1223:Generated_Source\PSoC5/SPI_Slave.c **** *  No.
+1224:Generated_Source\PSoC5/SPI_Slave.c **** *
+1225:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
+1226:Generated_Source\PSoC5/SPI_Slave.c **** uint8 SPI_Slave_ReadStatus(void) 
+1227:Generated_Source\PSoC5/SPI_Slave.c **** {
+ 800              		.loc 1 1227 0
+ 801              		.cfi_startproc
+ 802              		@ args = 0, pretend = 0, frame = 0
+ 803              		@ frame_needed = 0, uses_anonymous_args = 0
+ 804              		@ link register save eliminated.
+1228:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 tmpStatus;
+1229:Generated_Source\PSoC5/SPI_Slave.c **** 
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 37
+
+
+1230:Generated_Source\PSoC5/SPI_Slave.c ****     #if ((SPI_Slave_TX_SOFTWARE_BUF_ENABLED) || (SPI_Slave_RX_SOFTWARE_BUF_ENABLED))
+1231:Generated_Source\PSoC5/SPI_Slave.c **** 
+1232:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableInt();
+1233:Generated_Source\PSoC5/SPI_Slave.c **** 
+1234:Generated_Source\PSoC5/SPI_Slave.c ****         tmpStatus = SPI_Slave_GET_STATUS_TX(SPI_Slave_swStatusTx) |
+1235:Generated_Source\PSoC5/SPI_Slave.c ****               (SPI_Slave_GET_STATUS_RX(SPI_Slave_swStatusRx) & (uint8)~SPI_Slave_STS_RX_FIFO_FULL);
+1236:Generated_Source\PSoC5/SPI_Slave.c **** 
+1237:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_swStatusTx = 0u;
+1238:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_swStatusRx = 0u;
+1239:Generated_Source\PSoC5/SPI_Slave.c **** 
+1240:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable Interrupts */
+1241:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_EnableInt();
+1242:Generated_Source\PSoC5/SPI_Slave.c **** 
+1243:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* !((SPI_Slave_TX_SOFTWARE_BUF_ENABLED) || (SPI_Slave_RX_SOFTWARE_BUF_ENABLED)) */
+1244:Generated_Source\PSoC5/SPI_Slave.c **** 
+1245:Generated_Source\PSoC5/SPI_Slave.c ****         tmpStatus = SPI_Slave_TX_STATUS_REG | (SPI_Slave_RX_STATUS_REG &
+ 805              		.loc 1 1245 0
+ 806 0000 034B     		ldr	r3, .L85
+ 807 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 808 0004 FF3B     		subs	r3, r3, #255
+ 809 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 810 0008 03F0BF03 		and	r3, r3, #191
+ 811              	.LVL33:
+1246:Generated_Source\PSoC5/SPI_Slave.c ****                                                       (uint8)~SPI_Slave_STS_RX_FIFO_FULL);
+1247:Generated_Source\PSoC5/SPI_Slave.c **** 
+1248:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* (SPI_Slave_TX_SOFTWARE_BUF_ENABLED) || (SPI_Slave_RX_SOFTWARE_BUF_ENABLED) */
+1249:Generated_Source\PSoC5/SPI_Slave.c **** 
+1250:Generated_Source\PSoC5/SPI_Slave.c ****     return(tmpStatus);
+1251:Generated_Source\PSoC5/SPI_Slave.c **** }
+ 812              		.loc 1 1251 0
+ 813 000c 1843     		orrs	r0, r0, r3
+ 814              	.LVL34:
+ 815 000e 7047     		bx	lr
+ 816              	.L86:
+ 817              		.align	2
+ 818              	.L85:
+ 819 0010 69650040 		.word	1073767785
+ 820              		.cfi_endproc
+ 821              	.LFE23:
+ 822              		.size	SPI_Slave_ReadStatus, .-SPI_Slave_ReadStatus
+ 823              		.comm	SPI_Slave_swStatusRx,1,1
+ 824              		.comm	SPI_Slave_swStatusTx,1,1
+ 825              		.global	SPI_Slave_initVar
+ 826              		.bss
+ 827              		.set	.LANCHOR0,. + 0
+ 828              		.type	SPI_Slave_initVar, %object
+ 829              		.size	SPI_Slave_initVar, 1
+ 830              	SPI_Slave_initVar:
+ 831 0000 00       		.space	1
+ 832              		.text
+ 833              	.Letext0:
+ 834              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 835              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 836              		.section	.debug_info,"",%progbits
+ 837              	.Ldebug_info0:
+ 838 0000 EF040000 		.4byte	0x4ef
+ 839 0004 0400     		.2byte	0x4
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 38
+
+
+ 840 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 841 000a 04       		.byte	0x4
+ 842 000b 01       		.uleb128 0x1
+ 843 000c 06010000 		.4byte	.LASF58
+ 844 0010 0C       		.byte	0xc
+ 845 0011 8C000000 		.4byte	.LASF59
+ 846 0015 95030000 		.4byte	.LASF60
+ 847 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 848 001d 00000000 		.4byte	0
+ 849 0021 00000000 		.4byte	.Ldebug_line0
+ 850 0025 02       		.uleb128 0x2
+ 851 0026 01       		.byte	0x1
+ 852 0027 06       		.byte	0x6
+ 853 0028 49040000 		.4byte	.LASF0
+ 854 002c 02       		.uleb128 0x2
+ 855 002d 01       		.byte	0x1
+ 856 002e 08       		.byte	0x8
+ 857 002f 35020000 		.4byte	.LASF1
+ 858 0033 02       		.uleb128 0x2
+ 859 0034 02       		.byte	0x2
+ 860 0035 05       		.byte	0x5
+ 861 0036 E4030000 		.4byte	.LASF2
+ 862 003a 02       		.uleb128 0x2
+ 863 003b 02       		.byte	0x2
+ 864 003c 07       		.byte	0x7
+ 865 003d 79000000 		.4byte	.LASF3
+ 866 0041 02       		.uleb128 0x2
+ 867 0042 04       		.byte	0x4
+ 868 0043 05       		.byte	0x5
+ 869 0044 24040000 		.4byte	.LASF4
+ 870 0048 02       		.uleb128 0x2
+ 871 0049 04       		.byte	0x4
+ 872 004a 07       		.byte	0x7
+ 873 004b D1010000 		.4byte	.LASF5
+ 874 004f 02       		.uleb128 0x2
+ 875 0050 08       		.byte	0x8
+ 876 0051 05       		.byte	0x5
+ 877 0052 58030000 		.4byte	.LASF6
+ 878 0056 02       		.uleb128 0x2
+ 879 0057 08       		.byte	0x8
+ 880 0058 07       		.byte	0x7
+ 881 0059 EA000000 		.4byte	.LASF7
+ 882 005d 03       		.uleb128 0x3
+ 883 005e 04       		.byte	0x4
+ 884 005f 05       		.byte	0x5
+ 885 0060 696E7400 		.ascii	"int\000"
+ 886 0064 02       		.uleb128 0x2
+ 887 0065 04       		.byte	0x4
+ 888 0066 07       		.byte	0x7
+ 889 0067 9A020000 		.4byte	.LASF8
+ 890 006b 04       		.uleb128 0x4
+ 891 006c F5010000 		.4byte	.LASF9
+ 892 0070 02       		.byte	0x2
+ 893 0071 9201     		.2byte	0x192
+ 894 0073 2C000000 		.4byte	0x2c
+ 895 0077 04       		.uleb128 0x4
+ 896 0078 7C020000 		.4byte	.LASF10
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 39
+
+
+ 897 007c 02       		.byte	0x2
+ 898 007d 9401     		.2byte	0x194
+ 899 007f 48000000 		.4byte	0x48
+ 900 0083 02       		.uleb128 0x2
+ 901 0084 04       		.byte	0x4
+ 902 0085 04       		.byte	0x4
+ 903 0086 43040000 		.4byte	.LASF11
+ 904 008a 02       		.uleb128 0x2
+ 905 008b 08       		.byte	0x8
+ 906 008c 04       		.byte	0x4
+ 907 008d 43020000 		.4byte	.LASF12
+ 908 0091 02       		.uleb128 0x2
+ 909 0092 01       		.byte	0x1
+ 910 0093 08       		.byte	0x8
+ 911 0094 AF000000 		.4byte	.LASF13
+ 912 0098 04       		.uleb128 0x4
+ 913 0099 1B030000 		.4byte	.LASF14
+ 914 009d 02       		.byte	0x2
+ 915 009e 3C02     		.2byte	0x23c
+ 916 00a0 A4000000 		.4byte	0xa4
+ 917 00a4 05       		.uleb128 0x5
+ 918 00a5 6B000000 		.4byte	0x6b
+ 919 00a9 04       		.uleb128 0x4
+ 920 00aa 14000000 		.4byte	.LASF15
+ 921 00ae 02       		.byte	0x2
+ 922 00af 3E02     		.2byte	0x23e
+ 923 00b1 B5000000 		.4byte	0xb5
+ 924 00b5 05       		.uleb128 0x5
+ 925 00b6 77000000 		.4byte	0x77
+ 926 00ba 02       		.uleb128 0x2
+ 927 00bb 08       		.byte	0x8
+ 928 00bc 04       		.byte	0x4
+ 929 00bd 37040000 		.4byte	.LASF16
+ 930 00c1 02       		.uleb128 0x2
+ 931 00c2 04       		.byte	0x4
+ 932 00c3 07       		.byte	0x7
+ 933 00c4 35030000 		.4byte	.LASF17
+ 934 00c8 06       		.uleb128 0x6
+ 935 00c9 AB010000 		.4byte	.LASF18
+ 936 00cd 01       		.byte	0x1
+ 937 00ce 8E       		.byte	0x8e
+ 938 00cf 00000000 		.4byte	.LFB1
+ 939 00d3 38000000 		.4byte	.LFE1-.LFB1
+ 940 00d7 01       		.uleb128 0x1
+ 941 00d8 9C       		.byte	0x9c
+ 942 00d9 FF000000 		.4byte	0xff
+ 943 00dd 07       		.uleb128 0x7
+ 944 00de 14020000 		.4byte	.LASF20
+ 945 00e2 01       		.byte	0x1
+ 946 00e3 90       		.byte	0x90
+ 947 00e4 6B000000 		.4byte	0x6b
+ 948 00e8 00000000 		.4byte	.LLST0
+ 949 00ec 08       		.uleb128 0x8
+ 950 00ed 06000000 		.4byte	.LVL0
+ 951 00f1 C6040000 		.4byte	0x4c6
+ 952 00f5 08       		.uleb128 0x8
+ 953 00f6 28000000 		.4byte	.LVL1
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 40
+
+
+ 954 00fa D1040000 		.4byte	0x4d1
+ 955 00fe 00       		.byte	0
+ 956 00ff 06       		.uleb128 0x6
+ 957 0100 FB010000 		.4byte	.LASF19
+ 958 0104 01       		.byte	0x1
+ 959 0105 D8       		.byte	0xd8
+ 960 0106 00000000 		.4byte	.LFB3
+ 961 010a 30000000 		.4byte	.LFE3-.LFB3
+ 962 010e 01       		.uleb128 0x1
+ 963 010f 9C       		.byte	0x9c
+ 964 0110 36010000 		.4byte	0x136
+ 965 0114 07       		.uleb128 0x7
+ 966 0115 14020000 		.4byte	.LASF20
+ 967 0119 01       		.byte	0x1
+ 968 011a DA       		.byte	0xda
+ 969 011b 6B000000 		.4byte	0x6b
+ 970 011f 13000000 		.4byte	.LLST1
+ 971 0123 08       		.uleb128 0x8
+ 972 0124 06000000 		.4byte	.LVL2
+ 973 0128 C6040000 		.4byte	0x4c6
+ 974 012c 08       		.uleb128 0x8
+ 975 012d 1E000000 		.4byte	.LVL3
+ 976 0131 D1040000 		.4byte	0x4d1
+ 977 0135 00       		.byte	0
+ 978 0136 09       		.uleb128 0x9
+ 979 0137 80040000 		.4byte	.LASF21
+ 980 013b 01       		.byte	0x1
+ 981 013c FD       		.byte	0xfd
+ 982 013d 00000000 		.4byte	.LFB4
+ 983 0141 02000000 		.4byte	.LFE4-.LFB4
+ 984 0145 01       		.uleb128 0x1
+ 985 0146 9C       		.byte	0x9c
+ 986 0147 0A       		.uleb128 0xa
+ 987 0148 66020000 		.4byte	.LASF22
+ 988 014c 01       		.byte	0x1
+ 989 014d 1601     		.2byte	0x116
+ 990 014f 00000000 		.4byte	.LFB5
+ 991 0153 0C000000 		.4byte	.LFE5-.LFB5
+ 992 0157 01       		.uleb128 0x1
+ 993 0158 9C       		.byte	0x9c
+ 994 0159 0A       		.uleb128 0xa
+ 995 015a D3000000 		.4byte	.LASF23
+ 996 015e 01       		.byte	0x1
+ 997 015f 2F01     		.2byte	0x12f
+ 998 0161 00000000 		.4byte	.LFB6
+ 999 0165 02000000 		.4byte	.LFE6-.LFB6
+ 1000 0169 01       		.uleb128 0x1
+ 1001 016a 9C       		.byte	0x9c
+ 1002 016b 0A       		.uleb128 0xa
+ 1003 016c 69040000 		.4byte	.LASF24
+ 1004 0170 01       		.byte	0x1
+ 1005 0171 4801     		.2byte	0x148
+ 1006 0173 00000000 		.4byte	.LFB7
+ 1007 0177 0C000000 		.4byte	.LFE7-.LFB7
+ 1008 017b 01       		.uleb128 0x1
+ 1009 017c 9C       		.byte	0x9c
+ 1010 017d 0B       		.uleb128 0xb
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 41
+
+
+ 1011 017e 3F000000 		.4byte	.LASF25
+ 1012 0182 01       		.byte	0x1
+ 1013 0183 6201     		.2byte	0x162
+ 1014 0185 00000000 		.4byte	.LFB8
+ 1015 0189 0C000000 		.4byte	.LFE8-.LFB8
+ 1016 018d 01       		.uleb128 0x1
+ 1017 018e 9C       		.byte	0x9c
+ 1018 018f A2010000 		.4byte	0x1a2
+ 1019 0193 0C       		.uleb128 0xc
+ 1020 0194 4A020000 		.4byte	.LASF27
+ 1021 0198 01       		.byte	0x1
+ 1022 0199 6201     		.2byte	0x162
+ 1023 019b 6B000000 		.4byte	0x6b
+ 1024 019f 01       		.uleb128 0x1
+ 1025 01a0 50       		.byte	0x50
+ 1026 01a1 00       		.byte	0
+ 1027 01a2 0B       		.uleb128 0xb
+ 1028 01a3 5C000000 		.4byte	.LASF26
+ 1029 01a7 01       		.byte	0x1
+ 1030 01a8 7A01     		.2byte	0x17a
+ 1031 01aa 00000000 		.4byte	.LFB9
+ 1032 01ae 0C000000 		.4byte	.LFE9-.LFB9
+ 1033 01b2 01       		.uleb128 0x1
+ 1034 01b3 9C       		.byte	0x9c
+ 1035 01b4 C7010000 		.4byte	0x1c7
+ 1036 01b8 0C       		.uleb128 0xc
+ 1037 01b9 4A020000 		.4byte	.LASF27
+ 1038 01bd 01       		.byte	0x1
+ 1039 01be 7A01     		.2byte	0x17a
+ 1040 01c0 6B000000 		.4byte	0x6b
+ 1041 01c4 01       		.uleb128 0x1
+ 1042 01c5 50       		.byte	0x50
+ 1043 01c6 00       		.byte	0
+ 1044 01c7 0D       		.uleb128 0xd
+ 1045 01c8 0D040000 		.4byte	.LASF29
+ 1046 01cc 01       		.byte	0x1
+ 1047 01cd 9C01     		.2byte	0x19c
+ 1048 01cf 6B000000 		.4byte	0x6b
+ 1049 01d3 00000000 		.4byte	.LFB10
+ 1050 01d7 0C000000 		.4byte	.LFE10-.LFB10
+ 1051 01db 01       		.uleb128 0x1
+ 1052 01dc 9C       		.byte	0x9c
+ 1053 01dd F0010000 		.4byte	0x1f0
+ 1054 01e1 0E       		.uleb128 0xe
+ 1055 01e2 2D040000 		.4byte	.LASF28
+ 1056 01e6 01       		.byte	0x1
+ 1057 01e7 9E01     		.2byte	0x19e
+ 1058 01e9 6B000000 		.4byte	0x6b
+ 1059 01ed 01       		.uleb128 0x1
+ 1060 01ee 50       		.byte	0x50
+ 1061 01ef 00       		.byte	0
+ 1062 01f0 0D       		.uleb128 0xd
+ 1063 01f1 94010000 		.4byte	.LASF30
+ 1064 01f5 01       		.byte	0x1
+ 1065 01f6 D101     		.2byte	0x1d1
+ 1066 01f8 6B000000 		.4byte	0x6b
+ 1067 01fc 00000000 		.4byte	.LFB11
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 42
+
+
+ 1068 0200 0C000000 		.4byte	.LFE11-.LFB11
+ 1069 0204 01       		.uleb128 0x1
+ 1070 0205 9C       		.byte	0x9c
+ 1071 0206 19020000 		.4byte	0x219
+ 1072 020a 0E       		.uleb128 0xe
+ 1073 020b 2D040000 		.4byte	.LASF28
+ 1074 020f 01       		.byte	0x1
+ 1075 0210 D301     		.2byte	0x1d3
+ 1076 0212 6B000000 		.4byte	0x6b
+ 1077 0216 01       		.uleb128 0x1
+ 1078 0217 50       		.byte	0x50
+ 1079 0218 00       		.byte	0
+ 1080 0219 0B       		.uleb128 0xb
+ 1081 021a EA020000 		.4byte	.LASF31
+ 1082 021e 01       		.byte	0x1
+ 1083 021f 0C02     		.2byte	0x20c
+ 1084 0221 00000000 		.4byte	.LFB12
+ 1085 0225 18000000 		.4byte	.LFE12-.LFB12
+ 1086 0229 01       		.uleb128 0x1
+ 1087 022a 9C       		.byte	0x9c
+ 1088 022b 3E020000 		.4byte	0x23e
+ 1089 022f 0C       		.uleb128 0xc
+ 1090 0230 38000000 		.4byte	.LASF32
+ 1091 0234 01       		.byte	0x1
+ 1092 0235 0C02     		.2byte	0x20c
+ 1093 0237 6B000000 		.4byte	0x6b
+ 1094 023b 01       		.uleb128 0x1
+ 1095 023c 50       		.byte	0x50
+ 1096 023d 00       		.byte	0
+ 1097 023e 0D       		.uleb128 0xd
+ 1098 023f 20030000 		.4byte	.LASF33
+ 1099 0243 01       		.byte	0x1
+ 1100 0244 9502     		.2byte	0x295
+ 1101 0246 6B000000 		.4byte	0x6b
+ 1102 024a 00000000 		.4byte	.LFB13
+ 1103 024e 0C000000 		.4byte	.LFE13-.LFB13
+ 1104 0252 01       		.uleb128 0x1
+ 1105 0253 9C       		.byte	0x9c
+ 1106 0254 67020000 		.4byte	0x267
+ 1107 0258 0E       		.uleb128 0xe
+ 1108 0259 CC000000 		.4byte	.LASF34
+ 1109 025d 01       		.byte	0x1
+ 1110 025e 9702     		.2byte	0x297
+ 1111 0260 6B000000 		.4byte	0x6b
+ 1112 0264 01       		.uleb128 0x1
+ 1113 0265 50       		.byte	0x50
+ 1114 0266 00       		.byte	0
+ 1115 0267 0D       		.uleb128 0xd
+ 1116 0268 7B030000 		.4byte	.LASF35
+ 1117 026c 01       		.byte	0x1
+ 1118 026d D702     		.2byte	0x2d7
+ 1119 026f 6B000000 		.4byte	0x6b
+ 1120 0273 00000000 		.4byte	.LFB14
+ 1121 0277 18000000 		.4byte	.LFE14-.LFB14
+ 1122 027b 01       		.uleb128 0x1
+ 1123 027c 9C       		.byte	0x9c
+ 1124 027d 90020000 		.4byte	0x290
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 43
+
+
+ 1125 0281 0E       		.uleb128 0xe
+ 1126 0282 01010000 		.4byte	.LASF36
+ 1127 0286 01       		.byte	0x1
+ 1128 0287 D902     		.2byte	0x2d9
+ 1129 0289 6B000000 		.4byte	0x6b
+ 1130 028d 01       		.uleb128 0x1
+ 1131 028e 50       		.byte	0x50
+ 1132 028f 00       		.byte	0
+ 1133 0290 0D       		.uleb128 0xd
+ 1134 0291 3E030000 		.4byte	.LASF37
+ 1135 0295 01       		.byte	0x1
+ 1136 0296 1803     		.2byte	0x318
+ 1137 0298 6B000000 		.4byte	0x6b
+ 1138 029c 00000000 		.4byte	.LFB15
+ 1139 02a0 24000000 		.4byte	.LFE15-.LFB15
+ 1140 02a4 01       		.uleb128 0x1
+ 1141 02a5 9C       		.byte	0x9c
+ 1142 02a6 BB020000 		.4byte	0x2bb
+ 1143 02aa 0F       		.uleb128 0xf
+ 1144 02ab 01010000 		.4byte	.LASF36
+ 1145 02af 01       		.byte	0x1
+ 1146 02b0 1A03     		.2byte	0x31a
+ 1147 02b2 6B000000 		.4byte	0x6b
+ 1148 02b6 26000000 		.4byte	.LLST2
+ 1149 02ba 00       		.byte	0
+ 1150 02bb 0A       		.uleb128 0xa
+ 1151 02bc B4000000 		.4byte	.LASF38
+ 1152 02c0 01       		.byte	0x1
+ 1153 02c1 6A03     		.2byte	0x36a
+ 1154 02c3 00000000 		.4byte	.LFB16
+ 1155 02c7 1C000000 		.4byte	.LFE16-.LFB16
+ 1156 02cb 01       		.uleb128 0x1
+ 1157 02cc 9C       		.byte	0x9c
+ 1158 02cd 0B       		.uleb128 0xb
+ 1159 02ce F5030000 		.4byte	.LASF39
+ 1160 02d2 01       		.byte	0x1
+ 1161 02d3 A303     		.2byte	0x3a3
+ 1162 02d5 00000000 		.4byte	.LFB17
+ 1163 02d9 24000000 		.4byte	.LFE17-.LFB17
+ 1164 02dd 01       		.uleb128 0x1
+ 1165 02de 9C       		.byte	0x9c
+ 1166 02df 06030000 		.4byte	0x306
+ 1167 02e3 0F       		.uleb128 0xf
+ 1168 02e4 14020000 		.4byte	.LASF20
+ 1169 02e8 01       		.byte	0x1
+ 1170 02e9 A503     		.2byte	0x3a5
+ 1171 02eb 6B000000 		.4byte	0x6b
+ 1172 02ef 44000000 		.4byte	.LLST3
+ 1173 02f3 08       		.uleb128 0x8
+ 1174 02f4 06000000 		.4byte	.LVL13
+ 1175 02f8 C6040000 		.4byte	0x4c6
+ 1176 02fc 08       		.uleb128 0x8
+ 1177 02fd 1C000000 		.4byte	.LVL14
+ 1178 0301 D1040000 		.4byte	0x4d1
+ 1179 0305 00       		.byte	0
+ 1180 0306 0B       		.uleb128 0xb
+ 1181 0307 A7020000 		.4byte	.LASF40
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 44
+
+
+ 1182 030b 01       		.byte	0x1
+ 1183 030c 1704     		.2byte	0x417
+ 1184 030e 00000000 		.4byte	.LFB18
+ 1185 0312 1E000000 		.4byte	.LFE18-.LFB18
+ 1186 0316 01       		.uleb128 0x1
+ 1187 0317 9C       		.byte	0x9c
+ 1188 0318 56030000 		.4byte	0x356
+ 1189 031c 10       		.uleb128 0x10
+ 1190 031d EE030000 		.4byte	.LASF41
+ 1191 0321 01       		.byte	0x1
+ 1192 0322 1704     		.2byte	0x417
+ 1193 0324 56030000 		.4byte	0x356
+ 1194 0328 57000000 		.4byte	.LLST4
+ 1195 032c 10       		.uleb128 0x10
+ 1196 032d 0A020000 		.4byte	.LASF42
+ 1197 0331 01       		.byte	0x1
+ 1198 0332 1704     		.2byte	0x417
+ 1199 0334 6B000000 		.4byte	0x6b
+ 1200 0338 75000000 		.4byte	.LLST5
+ 1201 033c 0F       		.uleb128 0xf
+ 1202 033d E1020000 		.4byte	.LASF43
+ 1203 0341 01       		.byte	0x1
+ 1204 0342 1A04     		.2byte	0x41a
+ 1205 0344 6B000000 		.4byte	0x6b
+ 1206 0348 9E000000 		.4byte	.LLST6
+ 1207 034c 08       		.uleb128 0x8
+ 1208 034d 10000000 		.4byte	.LVL18
+ 1209 0351 19020000 		.4byte	0x219
+ 1210 0355 00       		.byte	0
+ 1211 0356 11       		.uleb128 0x11
+ 1212 0357 04       		.byte	0x4
+ 1213 0358 5C030000 		.4byte	0x35c
+ 1214 035c 12       		.uleb128 0x12
+ 1215 035d 6B000000 		.4byte	0x6b
+ 1216 0361 0B       		.uleb128 0xb
+ 1217 0362 00000000 		.4byte	.LASF44
+ 1218 0366 01       		.byte	0x1
+ 1219 0367 3704     		.2byte	0x437
+ 1220 0369 00000000 		.4byte	.LFB19
+ 1221 036d 3C000000 		.4byte	.LFE19-.LFB19
+ 1222 0371 01       		.uleb128 0x1
+ 1223 0372 9C       		.byte	0x9c
+ 1224 0373 9A030000 		.4byte	0x39a
+ 1225 0377 0F       		.uleb128 0xf
+ 1226 0378 14020000 		.4byte	.LASF20
+ 1227 037c 01       		.byte	0x1
+ 1228 037d 3904     		.2byte	0x439
+ 1229 037f 6B000000 		.4byte	0x6b
+ 1230 0383 C8000000 		.4byte	.LLST7
+ 1231 0387 08       		.uleb128 0x8
+ 1232 0388 16000000 		.4byte	.LVL23
+ 1233 038c C6040000 		.4byte	0x4c6
+ 1234 0390 08       		.uleb128 0x8
+ 1235 0391 2C000000 		.4byte	.LVL24
+ 1236 0395 D1040000 		.4byte	0x4d1
+ 1237 0399 00       		.byte	0
+ 1238 039a 06       		.uleb128 0x6
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 45
+
+
+ 1239 039b 1A000000 		.4byte	.LASF45
+ 1240 039f 01       		.byte	0x1
+ 1241 03a0 43       		.byte	0x43
+ 1242 03a1 00000000 		.4byte	.LFB0
+ 1243 03a5 48000000 		.4byte	.LFE0-.LFB0
+ 1244 03a9 01       		.uleb128 0x1
+ 1245 03aa 9C       		.byte	0x9c
+ 1246 03ab F7030000 		.4byte	0x3f7
+ 1247 03af 13       		.uleb128 0x13
+ 1248 03b0 16000000 		.4byte	.LVL25
+ 1249 03b4 DC040000 		.4byte	0x4dc
+ 1250 03b8 C2030000 		.4byte	0x3c2
+ 1251 03bc 14       		.uleb128 0x14
+ 1252 03bd 01       		.uleb128 0x1
+ 1253 03be 50       		.byte	0x50
+ 1254 03bf 01       		.uleb128 0x1
+ 1255 03c0 31       		.byte	0x31
+ 1256 03c1 00       		.byte	0
+ 1257 03c2 13       		.uleb128 0x13
+ 1258 03c3 1E000000 		.4byte	.LVL26
+ 1259 03c7 E7040000 		.4byte	0x4e7
+ 1260 03cb DB030000 		.4byte	0x3db
+ 1261 03cf 14       		.uleb128 0x14
+ 1262 03d0 01       		.uleb128 0x1
+ 1263 03d1 50       		.byte	0x50
+ 1264 03d2 01       		.uleb128 0x1
+ 1265 03d3 31       		.byte	0x31
+ 1266 03d4 14       		.uleb128 0x14
+ 1267 03d5 01       		.uleb128 0x1
+ 1268 03d6 51       		.byte	0x51
+ 1269 03d7 02       		.uleb128 0x2
+ 1270 03d8 74       		.byte	0x74
+ 1271 03d9 00       		.sleb128 0
+ 1272 03da 00       		.byte	0
+ 1273 03db 08       		.uleb128 0x8
+ 1274 03dc 22000000 		.4byte	.LVL27
+ 1275 03e0 61030000 		.4byte	0x361
+ 1276 03e4 08       		.uleb128 0x8
+ 1277 03e5 26000000 		.4byte	.LVL28
+ 1278 03e9 C7010000 		.4byte	0x1c7
+ 1279 03ed 08       		.uleb128 0x8
+ 1280 03ee 2A000000 		.4byte	.LVL29
+ 1281 03f2 F0010000 		.4byte	0x1f0
+ 1282 03f6 00       		.byte	0
+ 1283 03f7 06       		.uleb128 0x6
+ 1284 03f8 25020000 		.4byte	.LASF46
+ 1285 03fc 01       		.byte	0x1
+ 1286 03fd BB       		.byte	0xbb
+ 1287 03fe 00000000 		.4byte	.LFB2
+ 1288 0402 1C000000 		.4byte	.LFE2-.LFB2
+ 1289 0406 01       		.uleb128 0x1
+ 1290 0407 9C       		.byte	0x9c
+ 1291 0408 1F040000 		.4byte	0x41f
+ 1292 040c 08       		.uleb128 0x8
+ 1293 040d 0C000000 		.4byte	.LVL30
+ 1294 0411 9A030000 		.4byte	0x39a
+ 1295 0415 08       		.uleb128 0x8
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 46
+
+
+ 1296 0416 16000000 		.4byte	.LVL31
+ 1297 041a C8000000 		.4byte	0xc8
+ 1298 041e 00       		.byte	0
+ 1299 041f 0A       		.uleb128 0xa
+ 1300 0420 55040000 		.4byte	.LASF47
+ 1301 0424 01       		.byte	0x1
+ 1302 0425 6C04     		.2byte	0x46c
+ 1303 0427 00000000 		.4byte	.LFB20
+ 1304 042b 0C000000 		.4byte	.LFE20-.LFB20
+ 1305 042f 01       		.uleb128 0x1
+ 1306 0430 9C       		.byte	0x9c
+ 1307 0431 0A       		.uleb128 0xa
+ 1308 0432 BC010000 		.4byte	.LASF48
+ 1309 0436 01       		.byte	0x1
+ 1310 0437 8904     		.2byte	0x489
+ 1311 0439 00000000 		.4byte	.LFB21
+ 1312 043d 0C000000 		.4byte	.LFE21-.LFB21
+ 1313 0441 01       		.uleb128 0x1
+ 1314 0442 9C       		.byte	0x9c
+ 1315 0443 0B       		.uleb128 0xb
+ 1316 0444 00030000 		.4byte	.LASF49
+ 1317 0448 01       		.byte	0x1
+ 1318 0449 A704     		.2byte	0x4a7
+ 1319 044b 00000000 		.4byte	.LFB22
+ 1320 044f 10000000 		.4byte	.LFE22-.LFB22
+ 1321 0453 01       		.uleb128 0x1
+ 1322 0454 9C       		.byte	0x9c
+ 1323 0455 68040000 		.4byte	0x468
+ 1324 0459 0C       		.uleb128 0xc
+ 1325 045a 4A020000 		.4byte	.LASF27
+ 1326 045e 01       		.byte	0x1
+ 1327 045f A704     		.2byte	0x4a7
+ 1328 0461 6B000000 		.4byte	0x6b
+ 1329 0465 01       		.uleb128 0x1
+ 1330 0466 50       		.byte	0x50
+ 1331 0467 00       		.byte	0
+ 1332 0468 0D       		.uleb128 0xd
+ 1333 0469 51020000 		.4byte	.LASF50
+ 1334 046d 01       		.byte	0x1
+ 1335 046e CA04     		.2byte	0x4ca
+ 1336 0470 6B000000 		.4byte	0x6b
+ 1337 0474 00000000 		.4byte	.LFB23
+ 1338 0478 14000000 		.4byte	.LFE23-.LFB23
+ 1339 047c 01       		.uleb128 0x1
+ 1340 047d 9C       		.byte	0x9c
+ 1341 047e 93040000 		.4byte	0x493
+ 1342 0482 0F       		.uleb128 0xf
+ 1343 0483 2D040000 		.4byte	.LASF28
+ 1344 0487 01       		.byte	0x1
+ 1345 0488 CC04     		.2byte	0x4cc
+ 1346 048a 6B000000 		.4byte	0x6b
+ 1347 048e DB000000 		.4byte	.LLST8
+ 1348 0492 00       		.byte	0
+ 1349 0493 15       		.uleb128 0x15
+ 1350 0494 E3010000 		.4byte	.LASF51
+ 1351 0498 01       		.byte	0x1
+ 1352 0499 26       		.byte	0x26
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 47
+
+
+ 1353 049a 6B000000 		.4byte	0x6b
+ 1354 049e 05       		.uleb128 0x5
+ 1355 049f 03       		.byte	0x3
+ 1356 04a0 00000000 		.4byte	SPI_Slave_initVar
+ 1357 04a4 15       		.uleb128 0x15
+ 1358 04a5 CF030000 		.4byte	.LASF52
+ 1359 04a9 01       		.byte	0x1
+ 1360 04aa 28       		.byte	0x28
+ 1361 04ab A4000000 		.4byte	0xa4
+ 1362 04af 05       		.uleb128 0x5
+ 1363 04b0 03       		.byte	0x3
+ 1364 04b1 00000000 		.4byte	SPI_Slave_swStatusTx
+ 1365 04b5 15       		.uleb128 0x15
+ 1366 04b6 66030000 		.4byte	.LASF53
+ 1367 04ba 01       		.byte	0x1
+ 1368 04bb 29       		.byte	0x29
+ 1369 04bc A4000000 		.4byte	0xa4
+ 1370 04c0 05       		.uleb128 0x5
+ 1371 04c1 03       		.byte	0x3
+ 1372 04c2 00000000 		.4byte	SPI_Slave_swStatusRx
+ 1373 04c6 16       		.uleb128 0x16
+ 1374 04c7 83020000 		.4byte	.LASF54
+ 1375 04cb 83020000 		.4byte	.LASF54
+ 1376 04cf 03       		.byte	0x3
+ 1377 04d0 7D       		.byte	0x7d
+ 1378 04d1 16       		.uleb128 0x16
+ 1379 04d2 BA020000 		.4byte	.LASF55
+ 1380 04d6 BA020000 		.4byte	.LASF55
+ 1381 04da 03       		.byte	0x3
+ 1382 04db 7E       		.byte	0x7e
+ 1383 04dc 16       		.uleb128 0x16
+ 1384 04dd 29000000 		.4byte	.LASF56
+ 1385 04e1 29000000 		.4byte	.LASF56
+ 1386 04e5 03       		.byte	0x3
+ 1387 04e6 88       		.byte	0x88
+ 1388 04e7 16       		.uleb128 0x16
+ 1389 04e8 D0020000 		.4byte	.LASF57
+ 1390 04ec D0020000 		.4byte	.LASF57
+ 1391 04f0 03       		.byte	0x3
+ 1392 04f1 8B       		.byte	0x8b
+ 1393 04f2 00       		.byte	0
+ 1394              		.section	.debug_abbrev,"",%progbits
+ 1395              	.Ldebug_abbrev0:
+ 1396 0000 01       		.uleb128 0x1
+ 1397 0001 11       		.uleb128 0x11
+ 1398 0002 01       		.byte	0x1
+ 1399 0003 25       		.uleb128 0x25
+ 1400 0004 0E       		.uleb128 0xe
+ 1401 0005 13       		.uleb128 0x13
+ 1402 0006 0B       		.uleb128 0xb
+ 1403 0007 03       		.uleb128 0x3
+ 1404 0008 0E       		.uleb128 0xe
+ 1405 0009 1B       		.uleb128 0x1b
+ 1406 000a 0E       		.uleb128 0xe
+ 1407 000b 55       		.uleb128 0x55
+ 1408 000c 17       		.uleb128 0x17
+ 1409 000d 11       		.uleb128 0x11
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 48
+
+
+ 1410 000e 01       		.uleb128 0x1
+ 1411 000f 10       		.uleb128 0x10
+ 1412 0010 17       		.uleb128 0x17
+ 1413 0011 00       		.byte	0
+ 1414 0012 00       		.byte	0
+ 1415 0013 02       		.uleb128 0x2
+ 1416 0014 24       		.uleb128 0x24
+ 1417 0015 00       		.byte	0
+ 1418 0016 0B       		.uleb128 0xb
+ 1419 0017 0B       		.uleb128 0xb
+ 1420 0018 3E       		.uleb128 0x3e
+ 1421 0019 0B       		.uleb128 0xb
+ 1422 001a 03       		.uleb128 0x3
+ 1423 001b 0E       		.uleb128 0xe
+ 1424 001c 00       		.byte	0
+ 1425 001d 00       		.byte	0
+ 1426 001e 03       		.uleb128 0x3
+ 1427 001f 24       		.uleb128 0x24
+ 1428 0020 00       		.byte	0
+ 1429 0021 0B       		.uleb128 0xb
+ 1430 0022 0B       		.uleb128 0xb
+ 1431 0023 3E       		.uleb128 0x3e
+ 1432 0024 0B       		.uleb128 0xb
+ 1433 0025 03       		.uleb128 0x3
+ 1434 0026 08       		.uleb128 0x8
+ 1435 0027 00       		.byte	0
+ 1436 0028 00       		.byte	0
+ 1437 0029 04       		.uleb128 0x4
+ 1438 002a 16       		.uleb128 0x16
+ 1439 002b 00       		.byte	0
+ 1440 002c 03       		.uleb128 0x3
+ 1441 002d 0E       		.uleb128 0xe
+ 1442 002e 3A       		.uleb128 0x3a
+ 1443 002f 0B       		.uleb128 0xb
+ 1444 0030 3B       		.uleb128 0x3b
+ 1445 0031 05       		.uleb128 0x5
+ 1446 0032 49       		.uleb128 0x49
+ 1447 0033 13       		.uleb128 0x13
+ 1448 0034 00       		.byte	0
+ 1449 0035 00       		.byte	0
+ 1450 0036 05       		.uleb128 0x5
+ 1451 0037 35       		.uleb128 0x35
+ 1452 0038 00       		.byte	0
+ 1453 0039 49       		.uleb128 0x49
+ 1454 003a 13       		.uleb128 0x13
+ 1455 003b 00       		.byte	0
+ 1456 003c 00       		.byte	0
+ 1457 003d 06       		.uleb128 0x6
+ 1458 003e 2E       		.uleb128 0x2e
+ 1459 003f 01       		.byte	0x1
+ 1460 0040 3F       		.uleb128 0x3f
+ 1461 0041 19       		.uleb128 0x19
+ 1462 0042 03       		.uleb128 0x3
+ 1463 0043 0E       		.uleb128 0xe
+ 1464 0044 3A       		.uleb128 0x3a
+ 1465 0045 0B       		.uleb128 0xb
+ 1466 0046 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 49
+
+
+ 1467 0047 0B       		.uleb128 0xb
+ 1468 0048 27       		.uleb128 0x27
+ 1469 0049 19       		.uleb128 0x19
+ 1470 004a 11       		.uleb128 0x11
+ 1471 004b 01       		.uleb128 0x1
+ 1472 004c 12       		.uleb128 0x12
+ 1473 004d 06       		.uleb128 0x6
+ 1474 004e 40       		.uleb128 0x40
+ 1475 004f 18       		.uleb128 0x18
+ 1476 0050 9742     		.uleb128 0x2117
+ 1477 0052 19       		.uleb128 0x19
+ 1478 0053 01       		.uleb128 0x1
+ 1479 0054 13       		.uleb128 0x13
+ 1480 0055 00       		.byte	0
+ 1481 0056 00       		.byte	0
+ 1482 0057 07       		.uleb128 0x7
+ 1483 0058 34       		.uleb128 0x34
+ 1484 0059 00       		.byte	0
+ 1485 005a 03       		.uleb128 0x3
+ 1486 005b 0E       		.uleb128 0xe
+ 1487 005c 3A       		.uleb128 0x3a
+ 1488 005d 0B       		.uleb128 0xb
+ 1489 005e 3B       		.uleb128 0x3b
+ 1490 005f 0B       		.uleb128 0xb
+ 1491 0060 49       		.uleb128 0x49
+ 1492 0061 13       		.uleb128 0x13
+ 1493 0062 02       		.uleb128 0x2
+ 1494 0063 17       		.uleb128 0x17
+ 1495 0064 00       		.byte	0
+ 1496 0065 00       		.byte	0
+ 1497 0066 08       		.uleb128 0x8
+ 1498 0067 898201   		.uleb128 0x4109
+ 1499 006a 00       		.byte	0
+ 1500 006b 11       		.uleb128 0x11
+ 1501 006c 01       		.uleb128 0x1
+ 1502 006d 31       		.uleb128 0x31
+ 1503 006e 13       		.uleb128 0x13
+ 1504 006f 00       		.byte	0
+ 1505 0070 00       		.byte	0
+ 1506 0071 09       		.uleb128 0x9
+ 1507 0072 2E       		.uleb128 0x2e
+ 1508 0073 00       		.byte	0
+ 1509 0074 3F       		.uleb128 0x3f
+ 1510 0075 19       		.uleb128 0x19
+ 1511 0076 03       		.uleb128 0x3
+ 1512 0077 0E       		.uleb128 0xe
+ 1513 0078 3A       		.uleb128 0x3a
+ 1514 0079 0B       		.uleb128 0xb
+ 1515 007a 3B       		.uleb128 0x3b
+ 1516 007b 0B       		.uleb128 0xb
+ 1517 007c 27       		.uleb128 0x27
+ 1518 007d 19       		.uleb128 0x19
+ 1519 007e 11       		.uleb128 0x11
+ 1520 007f 01       		.uleb128 0x1
+ 1521 0080 12       		.uleb128 0x12
+ 1522 0081 06       		.uleb128 0x6
+ 1523 0082 40       		.uleb128 0x40
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 50
+
+
+ 1524 0083 18       		.uleb128 0x18
+ 1525 0084 9742     		.uleb128 0x2117
+ 1526 0086 19       		.uleb128 0x19
+ 1527 0087 00       		.byte	0
+ 1528 0088 00       		.byte	0
+ 1529 0089 0A       		.uleb128 0xa
+ 1530 008a 2E       		.uleb128 0x2e
+ 1531 008b 00       		.byte	0
+ 1532 008c 3F       		.uleb128 0x3f
+ 1533 008d 19       		.uleb128 0x19
+ 1534 008e 03       		.uleb128 0x3
+ 1535 008f 0E       		.uleb128 0xe
+ 1536 0090 3A       		.uleb128 0x3a
+ 1537 0091 0B       		.uleb128 0xb
+ 1538 0092 3B       		.uleb128 0x3b
+ 1539 0093 05       		.uleb128 0x5
+ 1540 0094 27       		.uleb128 0x27
+ 1541 0095 19       		.uleb128 0x19
+ 1542 0096 11       		.uleb128 0x11
+ 1543 0097 01       		.uleb128 0x1
+ 1544 0098 12       		.uleb128 0x12
+ 1545 0099 06       		.uleb128 0x6
+ 1546 009a 40       		.uleb128 0x40
+ 1547 009b 18       		.uleb128 0x18
+ 1548 009c 9742     		.uleb128 0x2117
+ 1549 009e 19       		.uleb128 0x19
+ 1550 009f 00       		.byte	0
+ 1551 00a0 00       		.byte	0
+ 1552 00a1 0B       		.uleb128 0xb
+ 1553 00a2 2E       		.uleb128 0x2e
+ 1554 00a3 01       		.byte	0x1
+ 1555 00a4 3F       		.uleb128 0x3f
+ 1556 00a5 19       		.uleb128 0x19
+ 1557 00a6 03       		.uleb128 0x3
+ 1558 00a7 0E       		.uleb128 0xe
+ 1559 00a8 3A       		.uleb128 0x3a
+ 1560 00a9 0B       		.uleb128 0xb
+ 1561 00aa 3B       		.uleb128 0x3b
+ 1562 00ab 05       		.uleb128 0x5
+ 1563 00ac 27       		.uleb128 0x27
+ 1564 00ad 19       		.uleb128 0x19
+ 1565 00ae 11       		.uleb128 0x11
+ 1566 00af 01       		.uleb128 0x1
+ 1567 00b0 12       		.uleb128 0x12
+ 1568 00b1 06       		.uleb128 0x6
+ 1569 00b2 40       		.uleb128 0x40
+ 1570 00b3 18       		.uleb128 0x18
+ 1571 00b4 9742     		.uleb128 0x2117
+ 1572 00b6 19       		.uleb128 0x19
+ 1573 00b7 01       		.uleb128 0x1
+ 1574 00b8 13       		.uleb128 0x13
+ 1575 00b9 00       		.byte	0
+ 1576 00ba 00       		.byte	0
+ 1577 00bb 0C       		.uleb128 0xc
+ 1578 00bc 05       		.uleb128 0x5
+ 1579 00bd 00       		.byte	0
+ 1580 00be 03       		.uleb128 0x3
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 51
+
+
+ 1581 00bf 0E       		.uleb128 0xe
+ 1582 00c0 3A       		.uleb128 0x3a
+ 1583 00c1 0B       		.uleb128 0xb
+ 1584 00c2 3B       		.uleb128 0x3b
+ 1585 00c3 05       		.uleb128 0x5
+ 1586 00c4 49       		.uleb128 0x49
+ 1587 00c5 13       		.uleb128 0x13
+ 1588 00c6 02       		.uleb128 0x2
+ 1589 00c7 18       		.uleb128 0x18
+ 1590 00c8 00       		.byte	0
+ 1591 00c9 00       		.byte	0
+ 1592 00ca 0D       		.uleb128 0xd
+ 1593 00cb 2E       		.uleb128 0x2e
+ 1594 00cc 01       		.byte	0x1
+ 1595 00cd 3F       		.uleb128 0x3f
+ 1596 00ce 19       		.uleb128 0x19
+ 1597 00cf 03       		.uleb128 0x3
+ 1598 00d0 0E       		.uleb128 0xe
+ 1599 00d1 3A       		.uleb128 0x3a
+ 1600 00d2 0B       		.uleb128 0xb
+ 1601 00d3 3B       		.uleb128 0x3b
+ 1602 00d4 05       		.uleb128 0x5
+ 1603 00d5 27       		.uleb128 0x27
+ 1604 00d6 19       		.uleb128 0x19
+ 1605 00d7 49       		.uleb128 0x49
+ 1606 00d8 13       		.uleb128 0x13
+ 1607 00d9 11       		.uleb128 0x11
+ 1608 00da 01       		.uleb128 0x1
+ 1609 00db 12       		.uleb128 0x12
+ 1610 00dc 06       		.uleb128 0x6
+ 1611 00dd 40       		.uleb128 0x40
+ 1612 00de 18       		.uleb128 0x18
+ 1613 00df 9742     		.uleb128 0x2117
+ 1614 00e1 19       		.uleb128 0x19
+ 1615 00e2 01       		.uleb128 0x1
+ 1616 00e3 13       		.uleb128 0x13
+ 1617 00e4 00       		.byte	0
+ 1618 00e5 00       		.byte	0
+ 1619 00e6 0E       		.uleb128 0xe
+ 1620 00e7 34       		.uleb128 0x34
+ 1621 00e8 00       		.byte	0
+ 1622 00e9 03       		.uleb128 0x3
+ 1623 00ea 0E       		.uleb128 0xe
+ 1624 00eb 3A       		.uleb128 0x3a
+ 1625 00ec 0B       		.uleb128 0xb
+ 1626 00ed 3B       		.uleb128 0x3b
+ 1627 00ee 05       		.uleb128 0x5
+ 1628 00ef 49       		.uleb128 0x49
+ 1629 00f0 13       		.uleb128 0x13
+ 1630 00f1 02       		.uleb128 0x2
+ 1631 00f2 18       		.uleb128 0x18
+ 1632 00f3 00       		.byte	0
+ 1633 00f4 00       		.byte	0
+ 1634 00f5 0F       		.uleb128 0xf
+ 1635 00f6 34       		.uleb128 0x34
+ 1636 00f7 00       		.byte	0
+ 1637 00f8 03       		.uleb128 0x3
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 52
+
+
+ 1638 00f9 0E       		.uleb128 0xe
+ 1639 00fa 3A       		.uleb128 0x3a
+ 1640 00fb 0B       		.uleb128 0xb
+ 1641 00fc 3B       		.uleb128 0x3b
+ 1642 00fd 05       		.uleb128 0x5
+ 1643 00fe 49       		.uleb128 0x49
+ 1644 00ff 13       		.uleb128 0x13
+ 1645 0100 02       		.uleb128 0x2
+ 1646 0101 17       		.uleb128 0x17
+ 1647 0102 00       		.byte	0
+ 1648 0103 00       		.byte	0
+ 1649 0104 10       		.uleb128 0x10
+ 1650 0105 05       		.uleb128 0x5
+ 1651 0106 00       		.byte	0
+ 1652 0107 03       		.uleb128 0x3
+ 1653 0108 0E       		.uleb128 0xe
+ 1654 0109 3A       		.uleb128 0x3a
+ 1655 010a 0B       		.uleb128 0xb
+ 1656 010b 3B       		.uleb128 0x3b
+ 1657 010c 05       		.uleb128 0x5
+ 1658 010d 49       		.uleb128 0x49
+ 1659 010e 13       		.uleb128 0x13
+ 1660 010f 02       		.uleb128 0x2
+ 1661 0110 17       		.uleb128 0x17
+ 1662 0111 00       		.byte	0
+ 1663 0112 00       		.byte	0
+ 1664 0113 11       		.uleb128 0x11
+ 1665 0114 0F       		.uleb128 0xf
+ 1666 0115 00       		.byte	0
+ 1667 0116 0B       		.uleb128 0xb
+ 1668 0117 0B       		.uleb128 0xb
+ 1669 0118 49       		.uleb128 0x49
+ 1670 0119 13       		.uleb128 0x13
+ 1671 011a 00       		.byte	0
+ 1672 011b 00       		.byte	0
+ 1673 011c 12       		.uleb128 0x12
+ 1674 011d 26       		.uleb128 0x26
+ 1675 011e 00       		.byte	0
+ 1676 011f 49       		.uleb128 0x49
+ 1677 0120 13       		.uleb128 0x13
+ 1678 0121 00       		.byte	0
+ 1679 0122 00       		.byte	0
+ 1680 0123 13       		.uleb128 0x13
+ 1681 0124 898201   		.uleb128 0x4109
+ 1682 0127 01       		.byte	0x1
+ 1683 0128 11       		.uleb128 0x11
+ 1684 0129 01       		.uleb128 0x1
+ 1685 012a 31       		.uleb128 0x31
+ 1686 012b 13       		.uleb128 0x13
+ 1687 012c 01       		.uleb128 0x1
+ 1688 012d 13       		.uleb128 0x13
+ 1689 012e 00       		.byte	0
+ 1690 012f 00       		.byte	0
+ 1691 0130 14       		.uleb128 0x14
+ 1692 0131 8A8201   		.uleb128 0x410a
+ 1693 0134 00       		.byte	0
+ 1694 0135 02       		.uleb128 0x2
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 53
+
+
+ 1695 0136 18       		.uleb128 0x18
+ 1696 0137 9142     		.uleb128 0x2111
+ 1697 0139 18       		.uleb128 0x18
+ 1698 013a 00       		.byte	0
+ 1699 013b 00       		.byte	0
+ 1700 013c 15       		.uleb128 0x15
+ 1701 013d 34       		.uleb128 0x34
+ 1702 013e 00       		.byte	0
+ 1703 013f 03       		.uleb128 0x3
+ 1704 0140 0E       		.uleb128 0xe
+ 1705 0141 3A       		.uleb128 0x3a
+ 1706 0142 0B       		.uleb128 0xb
+ 1707 0143 3B       		.uleb128 0x3b
+ 1708 0144 0B       		.uleb128 0xb
+ 1709 0145 49       		.uleb128 0x49
+ 1710 0146 13       		.uleb128 0x13
+ 1711 0147 3F       		.uleb128 0x3f
+ 1712 0148 19       		.uleb128 0x19
+ 1713 0149 02       		.uleb128 0x2
+ 1714 014a 18       		.uleb128 0x18
+ 1715 014b 00       		.byte	0
+ 1716 014c 00       		.byte	0
+ 1717 014d 16       		.uleb128 0x16
+ 1718 014e 2E       		.uleb128 0x2e
+ 1719 014f 00       		.byte	0
+ 1720 0150 3F       		.uleb128 0x3f
+ 1721 0151 19       		.uleb128 0x19
+ 1722 0152 3C       		.uleb128 0x3c
+ 1723 0153 19       		.uleb128 0x19
+ 1724 0154 6E       		.uleb128 0x6e
+ 1725 0155 0E       		.uleb128 0xe
+ 1726 0156 03       		.uleb128 0x3
+ 1727 0157 0E       		.uleb128 0xe
+ 1728 0158 3A       		.uleb128 0x3a
+ 1729 0159 0B       		.uleb128 0xb
+ 1730 015a 3B       		.uleb128 0x3b
+ 1731 015b 0B       		.uleb128 0xb
+ 1732 015c 00       		.byte	0
+ 1733 015d 00       		.byte	0
+ 1734 015e 00       		.byte	0
+ 1735              		.section	.debug_loc,"",%progbits
+ 1736              	.Ldebug_loc0:
+ 1737              	.LLST0:
+ 1738 0000 06000000 		.4byte	.LVL0
+ 1739 0004 27000000 		.4byte	.LVL1-1
+ 1740 0008 0100     		.2byte	0x1
+ 1741 000a 50       		.byte	0x50
+ 1742 000b 00000000 		.4byte	0
+ 1743 000f 00000000 		.4byte	0
+ 1744              	.LLST1:
+ 1745 0013 06000000 		.4byte	.LVL2
+ 1746 0017 1D000000 		.4byte	.LVL3-1
+ 1747 001b 0100     		.2byte	0x1
+ 1748 001d 50       		.byte	0x50
+ 1749 001e 00000000 		.4byte	0
+ 1750 0022 00000000 		.4byte	0
+ 1751              	.LLST2:
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 54
+
+
+ 1752 0026 06000000 		.4byte	.LVL11
+ 1753 002a 1C000000 		.4byte	.LVL12
+ 1754 002e 0100     		.2byte	0x1
+ 1755 0030 53       		.byte	0x53
+ 1756 0031 1C000000 		.4byte	.LVL12
+ 1757 0035 24000000 		.4byte	.LFE15
+ 1758 0039 0100     		.2byte	0x1
+ 1759 003b 50       		.byte	0x50
+ 1760 003c 00000000 		.4byte	0
+ 1761 0040 00000000 		.4byte	0
+ 1762              	.LLST3:
+ 1763 0044 06000000 		.4byte	.LVL13
+ 1764 0048 1B000000 		.4byte	.LVL14-1
+ 1765 004c 0100     		.2byte	0x1
+ 1766 004e 50       		.byte	0x50
+ 1767 004f 00000000 		.4byte	0
+ 1768 0053 00000000 		.4byte	0
+ 1769              	.LLST4:
+ 1770 0057 00000000 		.4byte	.LVL15
+ 1771 005b 0A000000 		.4byte	.LVL17
+ 1772 005f 0100     		.2byte	0x1
+ 1773 0061 50       		.byte	0x50
+ 1774 0062 0A000000 		.4byte	.LVL17
+ 1775 0066 1E000000 		.4byte	.LFE18
+ 1776 006a 0100     		.2byte	0x1
+ 1777 006c 56       		.byte	0x56
+ 1778 006d 00000000 		.4byte	0
+ 1779 0071 00000000 		.4byte	0
+ 1780              	.LLST5:
+ 1781 0075 00000000 		.4byte	.LVL15
+ 1782 0079 0A000000 		.4byte	.LVL17
+ 1783 007d 0100     		.2byte	0x1
+ 1784 007f 51       		.byte	0x51
+ 1785 0080 0A000000 		.4byte	.LVL17
+ 1786 0084 16000000 		.4byte	.LVL21
+ 1787 0088 0100     		.2byte	0x1
+ 1788 008a 54       		.byte	0x54
+ 1789 008b 18000000 		.4byte	.LVL22
+ 1790 008f 1E000000 		.4byte	.LFE18
+ 1791 0093 0100     		.2byte	0x1
+ 1792 0095 54       		.byte	0x54
+ 1793 0096 00000000 		.4byte	0
+ 1794 009a 00000000 		.4byte	0
+ 1795              	.LLST6:
+ 1796 009e 06000000 		.4byte	.LVL16
+ 1797 00a2 0A000000 		.4byte	.LVL17
+ 1798 00a6 0200     		.2byte	0x2
+ 1799 00a8 30       		.byte	0x30
+ 1800 00a9 9F       		.byte	0x9f
+ 1801 00aa 0A000000 		.4byte	.LVL17
+ 1802 00ae 12000000 		.4byte	.LVL19
+ 1803 00b2 0100     		.2byte	0x1
+ 1804 00b4 55       		.byte	0x55
+ 1805 00b5 14000000 		.4byte	.LVL20
+ 1806 00b9 1E000000 		.4byte	.LFE18
+ 1807 00bd 0100     		.2byte	0x1
+ 1808 00bf 55       		.byte	0x55
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 55
+
+
+ 1809 00c0 00000000 		.4byte	0
+ 1810 00c4 00000000 		.4byte	0
+ 1811              	.LLST7:
+ 1812 00c8 16000000 		.4byte	.LVL23
+ 1813 00cc 2B000000 		.4byte	.LVL24-1
+ 1814 00d0 0100     		.2byte	0x1
+ 1815 00d2 50       		.byte	0x50
+ 1816 00d3 00000000 		.4byte	0
+ 1817 00d7 00000000 		.4byte	0
+ 1818              	.LLST8:
+ 1819 00db 0C000000 		.4byte	.LVL33
+ 1820 00df 0E000000 		.4byte	.LVL34
+ 1821 00e3 0600     		.2byte	0x6
+ 1822 00e5 70       		.byte	0x70
+ 1823 00e6 00       		.sleb128 0
+ 1824 00e7 73       		.byte	0x73
+ 1825 00e8 00       		.sleb128 0
+ 1826 00e9 21       		.byte	0x21
+ 1827 00ea 9F       		.byte	0x9f
+ 1828 00eb 00000000 		.4byte	0
+ 1829 00ef 00000000 		.4byte	0
+ 1830              		.section	.debug_aranges,"",%progbits
+ 1831 0000 D4000000 		.4byte	0xd4
+ 1832 0004 0200     		.2byte	0x2
+ 1833 0006 00000000 		.4byte	.Ldebug_info0
+ 1834 000a 04       		.byte	0x4
+ 1835 000b 00       		.byte	0
+ 1836 000c 0000     		.2byte	0
+ 1837 000e 0000     		.2byte	0
+ 1838 0010 00000000 		.4byte	.LFB1
+ 1839 0014 38000000 		.4byte	.LFE1-.LFB1
+ 1840 0018 00000000 		.4byte	.LFB3
+ 1841 001c 30000000 		.4byte	.LFE3-.LFB3
+ 1842 0020 00000000 		.4byte	.LFB4
+ 1843 0024 02000000 		.4byte	.LFE4-.LFB4
+ 1844 0028 00000000 		.4byte	.LFB5
+ 1845 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1846 0030 00000000 		.4byte	.LFB6
+ 1847 0034 02000000 		.4byte	.LFE6-.LFB6
+ 1848 0038 00000000 		.4byte	.LFB7
+ 1849 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1850 0040 00000000 		.4byte	.LFB8
+ 1851 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1852 0048 00000000 		.4byte	.LFB9
+ 1853 004c 0C000000 		.4byte	.LFE9-.LFB9
+ 1854 0050 00000000 		.4byte	.LFB10
+ 1855 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1856 0058 00000000 		.4byte	.LFB11
+ 1857 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1858 0060 00000000 		.4byte	.LFB12
+ 1859 0064 18000000 		.4byte	.LFE12-.LFB12
+ 1860 0068 00000000 		.4byte	.LFB13
+ 1861 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 1862 0070 00000000 		.4byte	.LFB14
+ 1863 0074 18000000 		.4byte	.LFE14-.LFB14
+ 1864 0078 00000000 		.4byte	.LFB15
+ 1865 007c 24000000 		.4byte	.LFE15-.LFB15
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 56
+
+
+ 1866 0080 00000000 		.4byte	.LFB16
+ 1867 0084 1C000000 		.4byte	.LFE16-.LFB16
+ 1868 0088 00000000 		.4byte	.LFB17
+ 1869 008c 24000000 		.4byte	.LFE17-.LFB17
+ 1870 0090 00000000 		.4byte	.LFB18
+ 1871 0094 1E000000 		.4byte	.LFE18-.LFB18
+ 1872 0098 00000000 		.4byte	.LFB19
+ 1873 009c 3C000000 		.4byte	.LFE19-.LFB19
+ 1874 00a0 00000000 		.4byte	.LFB0
+ 1875 00a4 48000000 		.4byte	.LFE0-.LFB0
+ 1876 00a8 00000000 		.4byte	.LFB2
+ 1877 00ac 1C000000 		.4byte	.LFE2-.LFB2
+ 1878 00b0 00000000 		.4byte	.LFB20
+ 1879 00b4 0C000000 		.4byte	.LFE20-.LFB20
+ 1880 00b8 00000000 		.4byte	.LFB21
+ 1881 00bc 0C000000 		.4byte	.LFE21-.LFB21
+ 1882 00c0 00000000 		.4byte	.LFB22
+ 1883 00c4 10000000 		.4byte	.LFE22-.LFB22
+ 1884 00c8 00000000 		.4byte	.LFB23
+ 1885 00cc 14000000 		.4byte	.LFE23-.LFB23
+ 1886 00d0 00000000 		.4byte	0
+ 1887 00d4 00000000 		.4byte	0
+ 1888              		.section	.debug_ranges,"",%progbits
+ 1889              	.Ldebug_ranges0:
+ 1890 0000 00000000 		.4byte	.LFB1
+ 1891 0004 38000000 		.4byte	.LFE1
+ 1892 0008 00000000 		.4byte	.LFB3
+ 1893 000c 30000000 		.4byte	.LFE3
+ 1894 0010 00000000 		.4byte	.LFB4
+ 1895 0014 02000000 		.4byte	.LFE4
+ 1896 0018 00000000 		.4byte	.LFB5
+ 1897 001c 0C000000 		.4byte	.LFE5
+ 1898 0020 00000000 		.4byte	.LFB6
+ 1899 0024 02000000 		.4byte	.LFE6
+ 1900 0028 00000000 		.4byte	.LFB7
+ 1901 002c 0C000000 		.4byte	.LFE7
+ 1902 0030 00000000 		.4byte	.LFB8
+ 1903 0034 0C000000 		.4byte	.LFE8
+ 1904 0038 00000000 		.4byte	.LFB9
+ 1905 003c 0C000000 		.4byte	.LFE9
+ 1906 0040 00000000 		.4byte	.LFB10
+ 1907 0044 0C000000 		.4byte	.LFE10
+ 1908 0048 00000000 		.4byte	.LFB11
+ 1909 004c 0C000000 		.4byte	.LFE11
+ 1910 0050 00000000 		.4byte	.LFB12
+ 1911 0054 18000000 		.4byte	.LFE12
+ 1912 0058 00000000 		.4byte	.LFB13
+ 1913 005c 0C000000 		.4byte	.LFE13
+ 1914 0060 00000000 		.4byte	.LFB14
+ 1915 0064 18000000 		.4byte	.LFE14
+ 1916 0068 00000000 		.4byte	.LFB15
+ 1917 006c 24000000 		.4byte	.LFE15
+ 1918 0070 00000000 		.4byte	.LFB16
+ 1919 0074 1C000000 		.4byte	.LFE16
+ 1920 0078 00000000 		.4byte	.LFB17
+ 1921 007c 24000000 		.4byte	.LFE17
+ 1922 0080 00000000 		.4byte	.LFB18
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 57
+
+
+ 1923 0084 1E000000 		.4byte	.LFE18
+ 1924 0088 00000000 		.4byte	.LFB19
+ 1925 008c 3C000000 		.4byte	.LFE19
+ 1926 0090 00000000 		.4byte	.LFB0
+ 1927 0094 48000000 		.4byte	.LFE0
+ 1928 0098 00000000 		.4byte	.LFB2
+ 1929 009c 1C000000 		.4byte	.LFE2
+ 1930 00a0 00000000 		.4byte	.LFB20
+ 1931 00a4 0C000000 		.4byte	.LFE20
+ 1932 00a8 00000000 		.4byte	.LFB21
+ 1933 00ac 0C000000 		.4byte	.LFE21
+ 1934 00b0 00000000 		.4byte	.LFB22
+ 1935 00b4 10000000 		.4byte	.LFE22
+ 1936 00b8 00000000 		.4byte	.LFB23
+ 1937 00bc 14000000 		.4byte	.LFE23
+ 1938 00c0 00000000 		.4byte	0
+ 1939 00c4 00000000 		.4byte	0
+ 1940              		.section	.debug_line,"",%progbits
+ 1941              	.Ldebug_line0:
+ 1942 0000 3C020000 		.section	.debug_str,"MS",%progbits,1
+ 1942      02005100 
+ 1942      00000201 
+ 1942      FB0E0D00 
+ 1942      01010101 
+ 1943              	.LASF44:
+ 1944 0000 5350495F 		.ascii	"SPI_Slave_ClearFIFO\000"
+ 1944      536C6176 
+ 1944      655F436C 
+ 1944      65617246 
+ 1944      49464F00 
+ 1945              	.LASF15:
+ 1946 0014 72656733 		.ascii	"reg32\000"
+ 1946      3200
+ 1947              	.LASF45:
+ 1948 001a 5350495F 		.ascii	"SPI_Slave_Init\000"
+ 1948      536C6176 
+ 1948      655F496E 
+ 1948      697400
+ 1949              	.LASF56:
+ 1950 0029 4379496E 		.ascii	"CyIntSetVector\000"
+ 1950      74536574 
+ 1950      56656374 
+ 1950      6F7200
+ 1951              	.LASF32:
+ 1952 0038 74784461 		.ascii	"txData\000"
+ 1952      746100
+ 1953              	.LASF25:
+ 1954 003f 5350495F 		.ascii	"SPI_Slave_SetTxInterruptMode\000"
+ 1954      536C6176 
+ 1954      655F5365 
+ 1954      74547849 
+ 1954      6E746572 
+ 1955              	.LASF26:
+ 1956 005c 5350495F 		.ascii	"SPI_Slave_SetRxInterruptMode\000"
+ 1956      536C6176 
+ 1956      655F5365 
+ 1956      74527849 
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 58
+
+
+ 1956      6E746572 
+ 1957              	.LASF3:
+ 1958 0079 73686F72 		.ascii	"short unsigned int\000"
+ 1958      7420756E 
+ 1958      7369676E 
+ 1958      65642069 
+ 1958      6E7400
+ 1959              	.LASF59:
+ 1960 008c 47656E65 		.ascii	"Generated_Source\\PSoC5\\SPI_Slave.c\000"
+ 1960      72617465 
+ 1960      645F536F 
+ 1960      75726365 
+ 1960      5C50536F 
+ 1961              	.LASF13:
+ 1962 00af 63686172 		.ascii	"char\000"
+ 1962      00
+ 1963              	.LASF38:
+ 1964 00b4 5350495F 		.ascii	"SPI_Slave_ClearRxBuffer\000"
+ 1964      536C6176 
+ 1964      655F436C 
+ 1964      65617252 
+ 1964      78427566 
+ 1965              	.LASF34:
+ 1966 00cc 72784461 		.ascii	"rxData\000"
+ 1966      746100
+ 1967              	.LASF23:
+ 1968 00d3 5350495F 		.ascii	"SPI_Slave_DisableTxInt\000"
+ 1968      536C6176 
+ 1968      655F4469 
+ 1968      7361626C 
+ 1968      65547849 
+ 1969              	.LASF7:
+ 1970 00ea 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1970      206C6F6E 
+ 1970      6720756E 
+ 1970      7369676E 
+ 1970      65642069 
+ 1971              	.LASF36:
+ 1972 0101 73697A65 		.ascii	"size\000"
+ 1972      00
+ 1973              	.LASF58:
+ 1974 0106 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1974      43313120 
+ 1974      352E342E 
+ 1974      31203230 
+ 1974      31363036 
+ 1975 0139 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1975      20726576 
+ 1975      6973696F 
+ 1975      6E203233 
+ 1975      37373135 
+ 1976 016c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1976      66756E63 
+ 1976      74696F6E 
+ 1976      2D736563 
+ 1976      74696F6E 
+ 1977              	.LASF30:
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 59
+
+
+ 1978 0194 5350495F 		.ascii	"SPI_Slave_ReadRxStatus\000"
+ 1978      536C6176 
+ 1978      655F5265 
+ 1978      61645278 
+ 1978      53746174 
+ 1979              	.LASF18:
+ 1980 01ab 5350495F 		.ascii	"SPI_Slave_Enable\000"
+ 1980      536C6176 
+ 1980      655F456E 
+ 1980      61626C65 
+ 1980      00
+ 1981              	.LASF48:
+ 1982 01bc 5350495F 		.ascii	"SPI_Slave_DisableInt\000"
+ 1982      536C6176 
+ 1982      655F4469 
+ 1982      7361626C 
+ 1982      65496E74 
+ 1983              	.LASF5:
+ 1984 01d1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1984      20756E73 
+ 1984      69676E65 
+ 1984      6420696E 
+ 1984      7400
+ 1985              	.LASF51:
+ 1986 01e3 5350495F 		.ascii	"SPI_Slave_initVar\000"
+ 1986      536C6176 
+ 1986      655F696E 
+ 1986      69745661 
+ 1986      7200
+ 1987              	.LASF9:
+ 1988 01f5 75696E74 		.ascii	"uint8\000"
+ 1988      3800
+ 1989              	.LASF19:
+ 1990 01fb 5350495F 		.ascii	"SPI_Slave_Stop\000"
+ 1990      536C6176 
+ 1990      655F5374 
+ 1990      6F7000
+ 1991              	.LASF42:
+ 1992 020a 62797465 		.ascii	"byteCount\000"
+ 1992      436F756E 
+ 1992      7400
+ 1993              	.LASF20:
+ 1994 0214 656E6162 		.ascii	"enableInterrupts\000"
+ 1994      6C65496E 
+ 1994      74657272 
+ 1994      75707473 
+ 1994      00
+ 1995              	.LASF46:
+ 1996 0225 5350495F 		.ascii	"SPI_Slave_Start\000"
+ 1996      536C6176 
+ 1996      655F5374 
+ 1996      61727400 
+ 1997              	.LASF1:
+ 1998 0235 756E7369 		.ascii	"unsigned char\000"
+ 1998      676E6564 
+ 1998      20636861 
+ 1998      7200
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 60
+
+
+ 1999              	.LASF12:
+ 2000 0243 646F7562 		.ascii	"double\000"
+ 2000      6C6500
+ 2001              	.LASF27:
+ 2002 024a 696E7453 		.ascii	"intSrc\000"
+ 2002      726300
+ 2003              	.LASF50:
+ 2004 0251 5350495F 		.ascii	"SPI_Slave_ReadStatus\000"
+ 2004      536C6176 
+ 2004      655F5265 
+ 2004      61645374 
+ 2004      61747573 
+ 2005              	.LASF22:
+ 2006 0266 5350495F 		.ascii	"SPI_Slave_EnableRxInt\000"
+ 2006      536C6176 
+ 2006      655F456E 
+ 2006      61626C65 
+ 2006      5278496E 
+ 2007              	.LASF10:
+ 2008 027c 75696E74 		.ascii	"uint32\000"
+ 2008      333200
+ 2009              	.LASF54:
+ 2010 0283 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2010      74657243 
+ 2010      72697469 
+ 2010      63616C53 
+ 2010      65637469 
+ 2011              	.LASF8:
+ 2012 029a 756E7369 		.ascii	"unsigned int\000"
+ 2012      676E6564 
+ 2012      20696E74 
+ 2012      00
+ 2013              	.LASF40:
+ 2014 02a7 5350495F 		.ascii	"SPI_Slave_PutArray\000"
+ 2014      536C6176 
+ 2014      655F5075 
+ 2014      74417272 
+ 2014      617900
+ 2015              	.LASF55:
+ 2016 02ba 43794578 		.ascii	"CyExitCriticalSection\000"
+ 2016      69744372 
+ 2016      69746963 
+ 2016      616C5365 
+ 2016      6374696F 
+ 2017              	.LASF57:
+ 2018 02d0 4379496E 		.ascii	"CyIntSetPriority\000"
+ 2018      74536574 
+ 2018      5072696F 
+ 2018      72697479 
+ 2018      00
+ 2019              	.LASF43:
+ 2020 02e1 62756649 		.ascii	"bufIndex\000"
+ 2020      6E646578 
+ 2020      00
+ 2021              	.LASF31:
+ 2022 02ea 5350495F 		.ascii	"SPI_Slave_WriteTxData\000"
+ 2022      536C6176 
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 61
+
+
+ 2022      655F5772 
+ 2022      69746554 
+ 2022      78446174 
+ 2023              	.LASF49:
+ 2024 0300 5350495F 		.ascii	"SPI_Slave_SetInterruptMode\000"
+ 2024      536C6176 
+ 2024      655F5365 
+ 2024      74496E74 
+ 2024      65727275 
+ 2025              	.LASF14:
+ 2026 031b 72656738 		.ascii	"reg8\000"
+ 2026      00
+ 2027              	.LASF33:
+ 2028 0320 5350495F 		.ascii	"SPI_Slave_ReadRxData\000"
+ 2028      536C6176 
+ 2028      655F5265 
+ 2028      61645278 
+ 2028      44617461 
+ 2029              	.LASF17:
+ 2030 0335 73697A65 		.ascii	"sizetype\000"
+ 2030      74797065 
+ 2030      00
+ 2031              	.LASF37:
+ 2032 033e 5350495F 		.ascii	"SPI_Slave_GetTxBufferSize\000"
+ 2032      536C6176 
+ 2032      655F4765 
+ 2032      74547842 
+ 2032      75666665 
+ 2033              	.LASF6:
+ 2034 0358 6C6F6E67 		.ascii	"long long int\000"
+ 2034      206C6F6E 
+ 2034      6720696E 
+ 2034      7400
+ 2035              	.LASF53:
+ 2036 0366 5350495F 		.ascii	"SPI_Slave_swStatusRx\000"
+ 2036      536C6176 
+ 2036      655F7377 
+ 2036      53746174 
+ 2036      75735278 
+ 2037              	.LASF35:
+ 2038 037b 5350495F 		.ascii	"SPI_Slave_GetRxBufferSize\000"
+ 2038      536C6176 
+ 2038      655F4765 
+ 2038      74527842 
+ 2038      75666665 
+ 2039              	.LASF60:
+ 2040 0395 433A5C55 		.ascii	"C:\\Users\\chris\\Desktop\\SPI test\\Spi_Slave\\Spi"
+ 2040      73657273 
+ 2040      5C636872 
+ 2040      69735C44 
+ 2040      65736B74 
+ 2041 03c2 5F536C61 		.ascii	"_Slave.cydsn\000"
+ 2041      76652E63 
+ 2041      7964736E 
+ 2041      00
+ 2042              	.LASF52:
+ 2043 03cf 5350495F 		.ascii	"SPI_Slave_swStatusTx\000"
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 62
+
+
+ 2043      536C6176 
+ 2043      655F7377 
+ 2043      53746174 
+ 2043      75735478 
+ 2044              	.LASF2:
+ 2045 03e4 73686F72 		.ascii	"short int\000"
+ 2045      7420696E 
+ 2045      7400
+ 2046              	.LASF41:
+ 2047 03ee 62756666 		.ascii	"buffer\000"
+ 2047      657200
+ 2048              	.LASF39:
+ 2049 03f5 5350495F 		.ascii	"SPI_Slave_ClearTxBuffer\000"
+ 2049      536C6176 
+ 2049      655F436C 
+ 2049      65617254 
+ 2049      78427566 
+ 2050              	.LASF29:
+ 2051 040d 5350495F 		.ascii	"SPI_Slave_ReadTxStatus\000"
+ 2051      536C6176 
+ 2051      655F5265 
+ 2051      61645478 
+ 2051      53746174 
+ 2052              	.LASF4:
+ 2053 0424 6C6F6E67 		.ascii	"long int\000"
+ 2053      20696E74 
+ 2053      00
+ 2054              	.LASF28:
+ 2055 042d 746D7053 		.ascii	"tmpStatus\000"
+ 2055      74617475 
+ 2055      7300
+ 2056              	.LASF16:
+ 2057 0437 6C6F6E67 		.ascii	"long double\000"
+ 2057      20646F75 
+ 2057      626C6500 
+ 2058              	.LASF11:
+ 2059 0443 666C6F61 		.ascii	"float\000"
+ 2059      7400
+ 2060              	.LASF0:
+ 2061 0449 7369676E 		.ascii	"signed char\000"
+ 2061      65642063 
+ 2061      68617200 
+ 2062              	.LASF47:
+ 2063 0455 5350495F 		.ascii	"SPI_Slave_EnableInt\000"
+ 2063      536C6176 
+ 2063      655F456E 
+ 2063      61626C65 
+ 2063      496E7400 
+ 2064              	.LASF24:
+ 2065 0469 5350495F 		.ascii	"SPI_Slave_DisableRxInt\000"
+ 2065      536C6176 
+ 2065      655F4469 
+ 2065      7361626C 
+ 2065      65527849 
+ 2066              	.LASF21:
+ 2067 0480 5350495F 		.ascii	"SPI_Slave_EnableTxInt\000"
+ 2067      536C6176 
+ARM GAS  C:\Users\chris\AppData\Local\Temp\ccyaJOhZ.s 			page 63
+
+
+ 2067      655F456E 
+ 2067      61626C65 
+ 2067      5478496E 
+ 2068              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
