@@ -32,7 +32,7 @@ int main(void)
     
     for(;;)
     {
-        SPI_Slave_WriteTxData('a');
+        SPI_Slave_WriteTxData('B');
         CyDelay(200);
         //itoa(received,testchar,10);
         //If an interrupt has occurred

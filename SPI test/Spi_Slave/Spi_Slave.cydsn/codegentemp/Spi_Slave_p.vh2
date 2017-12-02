@@ -1,5 +1,5 @@
 -- Project:   Spi_Slave
--- Generated: 11/17/2017 13:00:24
+-- Generated: 12/01/2017 12:19:57
 -- PSoC Creator  4.1 Update 1
 
 ENTITY Spi_Slave IS

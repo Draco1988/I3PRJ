@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
   28:Generated_Source\PSoC5/UART_Slave.c **** 
   29:Generated_Source\PSoC5/UART_Slave.c **** #if (UART_Slave_TX_INTERRUPT_ENABLED && UART_Slave_TX_ENABLED)
   30:Generated_Source\PSoC5/UART_Slave.c ****     volatile uint8 UART_Slave_txBuffer[UART_Slave_TX_BUFFER_SIZE];
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 2
 
 
   31:Generated_Source\PSoC5/UART_Slave.c ****     volatile uint8 UART_Slave_txBufferRead = 0u;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
   85:Generated_Source\PSoC5/UART_Slave.c ****     UART_Slave_Enable();
   86:Generated_Source\PSoC5/UART_Slave.c **** }
   87:Generated_Source\PSoC5/UART_Slave.c **** 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 3
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 3
 
 
   88:Generated_Source\PSoC5/UART_Slave.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  129:Generated_Source\PSoC5/UART_Slave.c ****     #if(UART_Slave_TX_ENABLED)
  130:Generated_Source\PSoC5/UART_Slave.c ****         #if (UART_Slave_TX_INTERRUPT_ENABLED)
  131:Generated_Source\PSoC5/UART_Slave.c ****             /* Set TX interrupt vector and priority */
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 4
 
 
  132:Generated_Source\PSoC5/UART_Slave.c ****             (void) CyIntSetVector(UART_Slave_TX_VECT_NUM, &UART_Slave_TXISR);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  158:Generated_Source\PSoC5/UART_Slave.c ****             (uint8)(UART_Slave_PARITY_TYPE << UART_Slave_CTRL_PARITY_TYPE0_SHIFT) );
  159:Generated_Source\PSoC5/UART_Slave.c ****     #endif /* End UART_Slave_PARITY_TYPE_SW */
  160:Generated_Source\PSoC5/UART_Slave.c **** }
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 5
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 5
 
 
  161:Generated_Source\PSoC5/UART_Slave.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
   90 0018 43F01003 		orr	r3, r3, #16
   91 001c 1370     		strb	r3, [r2]
  194:Generated_Source\PSoC5/UART_Slave.c **** 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 6
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 6
 
 
  195:Generated_Source\PSoC5/UART_Slave.c ****         #if (UART_Slave_RX_INTERRUPT_ENABLED)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  118              		.type	UART_Slave_Start, %function
  119              	UART_Slave_Start:
  120              	.LFB0:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 7
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 7
 
 
   77:Generated_Source\PSoC5/UART_Slave.c ****     /* If not initialized then initialize all required hardware and software */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  233:Generated_Source\PSoC5/UART_Slave.c **** * Parameters:
  234:Generated_Source\PSoC5/UART_Slave.c **** *  None.
  235:Generated_Source\PSoC5/UART_Slave.c **** *
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 8
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 8
 
 
  236:Generated_Source\PSoC5/UART_Slave.c **** * Return:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  264:Generated_Source\PSoC5/UART_Slave.c ****         #if (UART_Slave_RX_INTERRUPT_ENABLED)
  265:Generated_Source\PSoC5/UART_Slave.c ****             UART_Slave_DisableRxInt();
  266:Generated_Source\PSoC5/UART_Slave.c ****         #endif /* (UART_Slave_RX_INTERRUPT_ENABLED) */
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 9
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 9
 
 
  267:Generated_Source\PSoC5/UART_Slave.c ****     #endif /* (UART_Slave_RX_ENABLED || UART_Slave_HD_ENABLED) */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  294:Generated_Source\PSoC5/UART_Slave.c **** *******************************************************************************/
  295:Generated_Source\PSoC5/UART_Slave.c **** uint8 UART_Slave_ReadControlRegister(void) 
  296:Generated_Source\PSoC5/UART_Slave.c **** {
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 10
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 10
 
 
  213              		.loc 1 296 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  243              		.align	2
  244              		.global	UART_Slave_SetRxInterruptMode
  245              		.thumb
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 11
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 11
 
 
  246              		.thumb_func
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  259 0004 7047     		bx	lr
  260              	.L21:
  261 0006 00BF     		.align	2
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 12
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 12
 
 
  262              	.L20:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  398:Generated_Source\PSoC5/UART_Slave.c ****         uint8 locRxBufferRead;
  399:Generated_Source\PSoC5/UART_Slave.c ****         uint8 locRxBufferWrite;
  400:Generated_Source\PSoC5/UART_Slave.c **** 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 13
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 13
 
 
  401:Generated_Source\PSoC5/UART_Slave.c ****         /* Protect variables that could change on interrupt */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  451:Generated_Source\PSoC5/UART_Slave.c **** 
  452:Generated_Source\PSoC5/UART_Slave.c ****         return(rxData);
  453:Generated_Source\PSoC5/UART_Slave.c ****     }
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 14
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 14
 
 
  284              		.loc 1 453 0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  305              		@ link register save eliminated.
  487:Generated_Source\PSoC5/UART_Slave.c ****         uint8 status;
  488:Generated_Source\PSoC5/UART_Slave.c **** 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 15
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 15
 
 
  489:Generated_Source\PSoC5/UART_Slave.c ****         status = UART_Slave_RXSTATUS_REG & UART_Slave_RX_HW_MASK;
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  520:Generated_Source\PSoC5/UART_Slave.c ****     *  UART_Slave_rxBuffer - RAM buffer pointer for save received data.
  521:Generated_Source\PSoC5/UART_Slave.c ****     *  UART_Slave_rxBufferWrite - cyclic index for write to rxBuffer,
  522:Generated_Source\PSoC5/UART_Slave.c ****     *     checked to identify new data.
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 16
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 16
 
 
  523:Generated_Source\PSoC5/UART_Slave.c ****     *  UART_Slave_rxBufferRead - cyclic index for read from rxBuffer,
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  571:Generated_Source\PSoC5/UART_Slave.c ****                     #else
  572:Generated_Source\PSoC5/UART_Slave.c ****                         UART_Slave_RXSTATUS_MASK_REG |= UART_Slave_RX_STS_FIFO_NOTEMPTY;
  573:Generated_Source\PSoC5/UART_Slave.c ****                     #endif /* end UART_Slave_HD_ENABLED */
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 17
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 17
 
 
  574:Generated_Source\PSoC5/UART_Slave.c ****                 #endif /* UART_Slave_RX_INTERRUPT_ENABLED and Hardware flow control*/
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  358              	.L31:
  604:Generated_Source\PSoC5/UART_Slave.c ****                             UART_Slave_RX_STS_STOP_ERROR | UART_Slave_RX_STS_OVERRUN)) != 0u)
  605:Generated_Source\PSoC5/UART_Slave.c ****             {
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 18
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 18
 
 
  606:Generated_Source\PSoC5/UART_Slave.c ****                 rxData = 0u;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  383              		@ frame_needed = 0, uses_anonymous_args = 0
  384 0000 10B5     		push	{r4, lr}
  385              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 19
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 19
 
 
  386              		.cfi_offset 4, -8
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  667:Generated_Source\PSoC5/UART_Slave.c ****     * Return:
  668:Generated_Source\PSoC5/UART_Slave.c ****     *  uint8: Number of bytes in the RX buffer. 
  669:Generated_Source\PSoC5/UART_Slave.c ****     *    Return value type depends on RX Buffer Size parameter.
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 20
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 20
 
 
  670:Generated_Source\PSoC5/UART_Slave.c ****     *
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  414              		.loc 1 718 0
  415 0000 044B     		ldr	r3, .L39
  416 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 21
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 21
 
 
  417 0004 13F0200F 		tst	r3, #32
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  749:Generated_Source\PSoC5/UART_Slave.c ****     *  Setting the pointers to zero makes the system believe there is no data to
  750:Generated_Source\PSoC5/UART_Slave.c ****     *  read and writing will resume at address 0 overwriting any data that may
  751:Generated_Source\PSoC5/UART_Slave.c ****     *  have remained in the RAM.
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 22
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 22
 
 
  752:Generated_Source\PSoC5/UART_Slave.c ****     *
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  767:Generated_Source\PSoC5/UART_Slave.c ****     #if (UART_Slave_RX_INTERRUPT_ENABLED)
  768:Generated_Source\PSoC5/UART_Slave.c **** 
  769:Generated_Source\PSoC5/UART_Slave.c ****         /* Protect variables that could change on interrupt. */
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 23
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 23
 
 
  770:Generated_Source\PSoC5/UART_Slave.c ****         UART_Slave_DisableRxInt();
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  488              	.LFE13:
  489              		.size	UART_Slave_SetRxAddressMode, .-UART_Slave_SetRxAddressMode
  490 0002 00BF     		.section	.text.UART_Slave_SetRxAddress1,"ax",%progbits
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 24
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 24
 
 
  491              		.align	2
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  502              		@ link register save eliminated.
  503              	.LVL29:
  859:Generated_Source\PSoC5/UART_Slave.c ****         UART_Slave_RXADDRESS1_REG = address;
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 25
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 25
 
 
  504              		.loc 1 859 0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  538              	.LFE15:
  539              		.size	UART_Slave_SetRxAddress2, .-UART_Slave_SetRxAddress2
  540              		.section	.text.UART_Slave_SetTxInterruptMode,"ax",%progbits
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 26
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 26
 
 
  541              		.align	2
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  564              		.size	UART_Slave_SetTxInterruptMode, .-UART_Slave_SetTxInterruptMode
  565              		.section	.text.UART_Slave_WriteTxData,"ax",%progbits
  566              		.align	2
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 27
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 27
 
 
  567              		.global	UART_Slave_WriteTxData
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  949:Generated_Source\PSoC5/UART_Slave.c ****             /* Protect variables that could change on interrupt. */
  950:Generated_Source\PSoC5/UART_Slave.c ****             UART_Slave_DisableTxInt();
  951:Generated_Source\PSoC5/UART_Slave.c **** 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 28
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 28
 
 
  952:Generated_Source\PSoC5/UART_Slave.c ****             if( (UART_Slave_txBufferRead == UART_Slave_txBufferWrite) &&
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  985:Generated_Source\PSoC5/UART_Slave.c ****     ********************************************************************************
  986:Generated_Source\PSoC5/UART_Slave.c ****     *
  987:Generated_Source\PSoC5/UART_Slave.c ****     * Summary:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 29
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 29
 
 
  988:Generated_Source\PSoC5/UART_Slave.c ****     *  Reads the status register for the TX portion of the UART.
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1017:Generated_Source\PSoC5/UART_Slave.c ****     *
 1018:Generated_Source\PSoC5/UART_Slave.c ****     * Parameters:
 1019:Generated_Source\PSoC5/UART_Slave.c ****     *  txDataByte: Byte containing the data to transmit
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 30
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 30
 
 
 1020:Generated_Source\PSoC5/UART_Slave.c ****     *
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1067:Generated_Source\PSoC5/UART_Slave.c ****         while( (locTxBufferWrite < locTxBufferRead) ? (locTxBufferWrite == (locTxBufferRead - 1u)) 
 1068:Generated_Source\PSoC5/UART_Slave.c ****                                 ((locTxBufferWrite - locTxBufferRead) ==
 1069:Generated_Source\PSoC5/UART_Slave.c ****                                 (uint8)(UART_Slave_TX_BUFFER_SIZE - 1u)) );
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 31
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 31
 
 
 1070:Generated_Source\PSoC5/UART_Slave.c **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  646              		.align	2
  647              	.L64:
  648 0010 69640040 		.word	1073767529
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 32
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 32
 
 
  649 0014 4A650040 		.word	1073767754
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  670              		.cfi_offset 5, -8
  671              		.cfi_offset 14, -4
  672              	.LVL35:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 33
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 33
 
 
 1147:Generated_Source\PSoC5/UART_Slave.c ****         uint16 bufIndex = 0u;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1157:Generated_Source\PSoC5/UART_Slave.c ****             }
 1158:Generated_Source\PSoC5/UART_Slave.c ****         }
 1159:Generated_Source\PSoC5/UART_Slave.c ****     }
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 34
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 34
 
 
 1160:Generated_Source\PSoC5/UART_Slave.c **** 
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  732              		.cfi_offset 14, -4
 1198:Generated_Source\PSoC5/UART_Slave.c ****         {
 1199:Generated_Source\PSoC5/UART_Slave.c ****             while(bufIndex < byteCount)
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 35
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 35
 
 
 1200:Generated_Source\PSoC5/UART_Slave.c ****             {
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1203:Generated_Source\PSoC5/UART_Slave.c ****             }
 1204:Generated_Source\PSoC5/UART_Slave.c ****         }
 1205:Generated_Source\PSoC5/UART_Slave.c ****     }
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 36
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 36
 
 
 1206:Generated_Source\PSoC5/UART_Slave.c **** 
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  804 0014 FFF7FEFF 		bl	UART_Slave_PutChar
  805              	.LVL54:
  806              	.L82:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 37
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 37
 
 
  807 0018 08BD     		pop	{r3, pc}
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  823              		.loc 1 1275 0
  824              		.cfi_startproc
  825              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 38
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 38
 
 
  826              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  844 0016 0420     		movs	r0, #4
  845 0018 7047     		bx	lr
  846              	.L90:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 39
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 39
 
 
 1311:Generated_Source\PSoC5/UART_Slave.c ****         }
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1345:Generated_Source\PSoC5/UART_Slave.c ****     *  Setting the pointers to zero makes the system believe there is no data to
 1346:Generated_Source\PSoC5/UART_Slave.c ****     *  read and writing will resume at address 0 overwriting any data that may have
 1347:Generated_Source\PSoC5/UART_Slave.c ****     *  remained in the RAM.
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 40
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 40
 
 
 1348:Generated_Source\PSoC5/UART_Slave.c ****     *
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1363:Generated_Source\PSoC5/UART_Slave.c **** 
 1364:Generated_Source\PSoC5/UART_Slave.c ****     #if (UART_Slave_TX_INTERRUPT_ENABLED)
 1365:Generated_Source\PSoC5/UART_Slave.c **** 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 41
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 41
 
 
 1366:Generated_Source\PSoC5/UART_Slave.c ****         /* Protect variables that could change on interrupt. */
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1420:Generated_Source\PSoC5/UART_Slave.c ****     *     SendBreak(0);     - initialize Break signal transmission
 1421:Generated_Source\PSoC5/UART_Slave.c ****     *         Add your code here to use CPU time
 1422:Generated_Source\PSoC5/UART_Slave.c ****     *     SendBreak(1);     - complete Break operation
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 42
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 42
 
 
 1423:Generated_Source\PSoC5/UART_Slave.c ****     *  3) Same to 2) but user may want to initialize and use the interrupt to
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1466:Generated_Source\PSoC5/UART_Slave.c ****             }
 1467:Generated_Source\PSoC5/UART_Slave.c **** 
 1468:Generated_Source\PSoC5/UART_Slave.c ****             if( (retMode == UART_Slave_WAIT_FOR_COMPLETE_REINIT) ||
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 43
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 43
 
 
 1469:Generated_Source\PSoC5/UART_Slave.c ****                 (retMode == UART_Slave_SEND_WAIT_REINIT) )
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1509:Generated_Source\PSoC5/UART_Slave.c ****                 UART_Slave_TXDATA_REG = 0u;
  931              		.loc 1 1509 0
  932 0018 0022     		movs	r2, #0
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 44
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 44
 
 
  933 001a 03F58873 		add	r3, r3, #272
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  966 0040 0228     		cmp	r0, #2
  967 0042 03D8     		bhi	.L97
 1530:Generated_Source\PSoC5/UART_Slave.c ****                 (retMode == UART_Slave_SEND_WAIT_REINIT) )
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 45
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 45
 
 
 1531:Generated_Source\PSoC5/UART_Slave.c ****             {
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
 1560:Generated_Source\PSoC5/UART_Slave.c ****     *                                    byte as a data.
 1561:Generated_Source\PSoC5/UART_Slave.c ****     *       UART_Slave_SET_MARK  - Configure the transmitter to send the next
 1562:Generated_Source\PSoC5/UART_Slave.c ****     *                                    byte as an address.
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 46
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 46
 
 
 1563:Generated_Source\PSoC5/UART_Slave.c ****     *
@@ -2745,10 +2745,10 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1023 0006 00000000 		.4byte	.Ldebug_abbrev0
  1024 000a 04       		.byte	0x4
  1025 000b 01       		.uleb128 0x1
- 1026 000c 65030000 		.4byte	.LASF64
+ 1026 000c 4A030000 		.4byte	.LASF64
  1027 0010 0C       		.byte	0xc
- 1028 0011 41030000 		.4byte	.LASF65
- 1029 0015 64020000 		.4byte	.LASF66
+ 1028 0011 26030000 		.4byte	.LASF65
+ 1029 0015 ED040000 		.4byte	.LASF66
  1030 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1031 001d 00000000 		.4byte	0
  1032 0021 00000000 		.4byte	.Ldebug_line0
@@ -2758,15 +2758,15 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1036 0028 A0000000 		.4byte	.LASF0
  1037 002c 02       		.uleb128 0x2
  1038 002d 01       		.byte	0x1
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 47
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 47
 
 
  1039 002e 08       		.byte	0x8
- 1040 002f FB020000 		.4byte	.LASF1
+ 1040 002f E0020000 		.4byte	.LASF1
  1041 0033 02       		.uleb128 0x2
  1042 0034 02       		.byte	0x2
  1043 0035 05       		.byte	0x5
- 1044 0036 22030000 		.4byte	.LASF2
+ 1044 0036 07030000 		.4byte	.LASF2
  1045 003a 02       		.uleb128 0x2
  1046 003b 02       		.byte	0x2
  1047 003c 07       		.byte	0x7
@@ -2808,25 +2808,25 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1083 0083 02       		.uleb128 0x2
  1084 0084 04       		.byte	0x4
  1085 0085 04       		.byte	0x4
- 1086 0086 B9020000 		.4byte	.LASF11
+ 1086 0086 9E020000 		.4byte	.LASF11
  1087 008a 02       		.uleb128 0x2
  1088 008b 08       		.byte	0x8
  1089 008c 04       		.byte	0x4
  1090 008d F5000000 		.4byte	.LASF12
  1091 0091 04       		.uleb128 0x4
- 1092 0092 57040000 		.4byte	.LASF13
+ 1092 0092 1D040000 		.4byte	.LASF13
  1093 0096 02       		.byte	0x2
  1094 0097 A301     		.2byte	0x1a3
  1095 0099 9D000000 		.4byte	0x9d
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 48
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 48
 
 
  1096 009d 02       		.uleb128 0x2
  1097 009e 01       		.byte	0x1
  1098 009f 08       		.byte	0x8
- 1099 00a0 33040000 		.4byte	.LASF14
+ 1099 00a0 18040000 		.4byte	.LASF14
  1100 00a4 04       		.uleb128 0x4
- 1101 00a5 D8020000 		.4byte	.LASF15
+ 1101 00a5 BD020000 		.4byte	.LASF15
  1102 00a9 02       		.byte	0x2
  1103 00aa 3C02     		.2byte	0x23c
  1104 00ac B0000000 		.4byte	0xb0
@@ -2841,7 +2841,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1113 00be 07       		.byte	0x7
  1114 00bf F5010000 		.4byte	.LASF17
  1115 00c3 06       		.uleb128 0x6
- 1116 00c4 F9040000 		.4byte	.LASF67
+ 1116 00c4 BF040000 		.4byte	.LASF67
  1117 00c8 01       		.byte	0x1
  1118 00c9 6A       		.byte	0x6a
  1119 00ca 00000000 		.4byte	.LFB1
@@ -2858,7 +2858,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1130 00e4 9C       		.byte	0x9c
  1131 00e5 1B010000 		.4byte	0x11b
  1132 00e9 08       		.uleb128 0x8
- 1133 00ea B5040000 		.4byte	.LASF21
+ 1133 00ea 7B040000 		.4byte	.LASF21
  1134 00ee 01       		.byte	0x1
  1135 00ef B9       		.byte	0xb9
  1136 00f0 6B000000 		.4byte	0x6b
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1150 0116 02       		.uleb128 0x2
  1151 0117 74       		.byte	0x74
  1152 0118 00       		.sleb128 0
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 49
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 49
 
 
  1153 0119 00       		.byte	0
@@ -2909,7 +2909,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1178 0153 9C       		.byte	0x9c
  1179 0154 8A010000 		.4byte	0x18a
  1180 0158 08       		.uleb128 0x8
- 1181 0159 B5040000 		.4byte	.LASF21
+ 1181 0159 7B040000 		.4byte	.LASF21
  1182 015d 01       		.byte	0x1
  1183 015e F2       		.byte	0xf2
  1184 015f 6B000000 		.4byte	0x6b
@@ -2932,13 +2932,13 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1201 0188 00       		.byte	0
  1202 0189 00       		.byte	0
  1203 018a 0C       		.uleb128 0xc
- 1204 018b 38040000 		.4byte	.LASF44
+ 1204 018b 64020000 		.4byte	.LASF44
  1205 018f 01       		.byte	0x1
  1206 0190 2701     		.2byte	0x127
  1207 0192 6B000000 		.4byte	0x6b
  1208 0196 00000000 		.4byte	.LFB4
  1209 019a 04000000 		.4byte	.LFE4-.LFB4
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 50
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 50
 
 
  1210 019e 01       		.uleb128 0x1
@@ -2961,7 +2961,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1227 01c3 50       		.byte	0x50
  1228 01c4 00       		.byte	0
  1229 01c5 0D       		.uleb128 0xd
- 1230 01c6 DD020000 		.4byte	.LASF23
+ 1230 01c6 C2020000 		.4byte	.LASF23
  1231 01ca 01       		.byte	0x1
  1232 01cb 6701     		.2byte	0x167
  1233 01cd 00000000 		.4byte	.LFB6
@@ -2988,7 +2988,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1254 01ff 9C       		.byte	0x9c
  1255 0200 13020000 		.4byte	0x213
  1256 0204 10       		.uleb128 0x10
- 1257 0205 2C040000 		.4byte	.LASF26
+ 1257 0205 11040000 		.4byte	.LASF26
  1258 0209 01       		.byte	0x1
  1259 020a 8A01     		.2byte	0x18a
  1260 020c 6B000000 		.4byte	0x6b
@@ -2996,9 +2996,9 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1262 0211 50       		.byte	0x50
  1263 0212 00       		.byte	0
  1264 0213 0F       		.uleb128 0xf
- 1265 0214 CD040000 		.4byte	.LASF28
+ 1265 0214 93040000 		.4byte	.LASF28
  1266 0218 01       		.byte	0x1
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 51
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 51
 
 
  1267 0219 E501     		.2byte	0x1e5
@@ -3009,7 +3009,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1272 0228 9C       		.byte	0x9c
  1273 0229 3E020000 		.4byte	0x23e
  1274 022d 11       		.uleb128 0x11
- 1275 022e C6040000 		.4byte	.LASF29
+ 1275 022e 8C040000 		.4byte	.LASF29
  1276 0232 01       		.byte	0x1
  1277 0233 E701     		.2byte	0x1e7
  1278 0235 6B000000 		.4byte	0x6b
@@ -3026,7 +3026,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1289 0253 9C       		.byte	0x9c
  1290 0254 77020000 		.4byte	0x277
  1291 0258 11       		.uleb128 0x11
- 1292 0259 2C040000 		.4byte	.LASF26
+ 1292 0259 11040000 		.4byte	.LASF26
  1293 025d 01       		.byte	0x1
  1294 025e 1602     		.2byte	0x216
  1295 0260 6B000000 		.4byte	0x6b
@@ -3040,7 +3040,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1303 0275 53       		.byte	0x53
  1304 0276 00       		.byte	0
  1305 0277 0F       		.uleb128 0xf
- 1306 0278 5D040000 		.4byte	.LASF32
+ 1306 0278 23040000 		.4byte	.LASF32
  1307 027c 01       		.byte	0x1
  1308 027d 7A02     		.2byte	0x27a
  1309 027f 77000000 		.4byte	0x77
@@ -3057,8 +3057,8 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1320 029f EA010000 		.4byte	0x1ea
  1321 02a3 00       		.byte	0
  1322 02a4 0F       		.uleb128 0xf
- 1323 02a5 9E020000 		.4byte	.LASF33
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 52
+ 1323 02a5 83020000 		.4byte	.LASF33
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 52
 
 
  1324 02a9 01       		.byte	0x1
@@ -3087,7 +3087,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1347 02de 9C       		.byte	0x9c
  1348 02df 06030000 		.4byte	0x306
  1349 02e3 11       		.uleb128 0x11
- 1350 02e4 B5040000 		.4byte	.LASF21
+ 1350 02e4 7B040000 		.4byte	.LASF21
  1351 02e8 01       		.byte	0x1
  1352 02e9 F702     		.2byte	0x2f7
  1353 02eb 6B000000 		.4byte	0x6b
@@ -3100,7 +3100,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1360 0301 F5050000 		.4byte	0x5f5
  1361 0305 00       		.byte	0
  1362 0306 0D       		.uleb128 0xd
- 1363 0307 FD030000 		.4byte	.LASF36
+ 1363 0307 E2030000 		.4byte	.LASF36
  1364 030b 01       		.byte	0x1
  1365 030c 2D03     		.2byte	0x32d
  1366 030e 00000000 		.4byte	.LFB13
@@ -3117,8 +3117,8 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1377 0329 50       		.byte	0x50
  1378 032a 00       		.byte	0
  1379 032b 0D       		.uleb128 0xd
- 1380 032c 83040000 		.4byte	.LASF38
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 53
+ 1380 032c 49040000 		.4byte	.LASF38
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 53
 
 
  1381 0330 01       		.byte	0x1
@@ -3137,7 +3137,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1394 034e 50       		.byte	0x50
  1395 034f 00       		.byte	0
  1396 0350 0D       		.uleb128 0xd
- 1397 0351 9C040000 		.4byte	.LASF40
+ 1397 0351 62040000 		.4byte	.LASF40
  1398 0355 01       		.byte	0x1
  1399 0356 6D03     		.2byte	0x36d
  1400 0358 00000000 		.4byte	.LFB15
@@ -3154,7 +3154,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1411 0373 50       		.byte	0x50
  1412 0374 00       		.byte	0
  1413 0375 0D       		.uleb128 0xd
- 1414 0376 09050000 		.4byte	.LASF41
+ 1414 0376 CF040000 		.4byte	.LASF41
  1415 037a 01       		.byte	0x1
  1416 037b 8C03     		.2byte	0x38c
  1417 037d 00000000 		.4byte	.LFB16
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1435 03a6 14000000 		.4byte	.LFE17-.LFB17
  1436 03aa 01       		.uleb128 0x1
  1437 03ab 9C       		.byte	0x9c
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 54
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 54
 
 
  1438 03ac BF030000 		.4byte	0x3bf
@@ -3200,7 +3200,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1454 03d3 01       		.uleb128 0x1
  1455 03d4 9C       		.byte	0x9c
  1456 03d5 0D       		.uleb128 0xd
- 1457 03d6 19040000 		.4byte	.LASF46
+ 1457 03d6 FE030000 		.4byte	.LASF46
  1458 03da 01       		.byte	0x1
  1459 03db 1104     		.2byte	0x411
  1460 03dd 00000000 		.4byte	.LFB19
@@ -3217,7 +3217,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1471 03f8 50       		.byte	0x50
  1472 03f9 00       		.byte	0
  1473 03fa 0D       		.uleb128 0xd
- 1474 03fb 2C030000 		.4byte	.LASF47
+ 1474 03fb 11030000 		.4byte	.LASF47
  1475 03ff 01       		.byte	0x1
  1476 0400 7904     		.2byte	0x479
  1477 0402 00000000 		.4byte	.LFB20
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1492 0428 77000000 		.4byte	0x77
  1493 042c C9000000 		.4byte	.LLST6
  1494 0430 09       		.uleb128 0x9
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 55
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 55
 
 
  1495 0431 0E000000 		.4byte	.LVL37
@@ -3250,7 +3250,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1501 0440 14       		.uleb128 0x14
  1502 0441 91000000 		.4byte	0x91
  1503 0445 0D       		.uleb128 0xd
- 1504 0446 E5040000 		.4byte	.LASF50
+ 1504 0446 AB040000 		.4byte	.LASF50
  1505 044a 01       		.byte	0x1
  1506 044b A704     		.2byte	0x4a7
  1507 044d 00000000 		.4byte	.LFB21
@@ -3265,7 +3265,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1516 0463 95040000 		.4byte	0x495
  1517 0467 0A010000 		.4byte	.LLST7
  1518 046b 12       		.uleb128 0x12
- 1519 046c F3030000 		.4byte	.LASF51
+ 1519 046c D8030000 		.4byte	.LASF51
  1520 0470 01       		.byte	0x1
  1521 0471 A704     		.2byte	0x4a7
  1522 0473 6B000000 		.4byte	0x6b
@@ -3286,7 +3286,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1537 049b 14       		.uleb128 0x14
  1538 049c 6B000000 		.4byte	0x6b
  1539 04a0 0D       		.uleb128 0xd
- 1540 04a1 70040000 		.4byte	.LASF52
+ 1540 04a1 36040000 		.4byte	.LASF52
  1541 04a5 01       		.byte	0x1
  1542 04a6 CE04     		.2byte	0x4ce
  1543 04a8 00000000 		.4byte	.LFB22
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1549 04b7 38000000 		.4byte	.LASF43
  1550 04bb 01       		.byte	0x1
  1551 04bc CE04     		.2byte	0x4ce
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 56
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 56
 
 
  1552 04be 6B000000 		.4byte	0x6b
@@ -3344,7 +3344,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1592 0518 E8010000 		.4byte	.LLST11
  1593 051c 00       		.byte	0
  1594 051d 0D       		.uleb128 0xd
- 1595 051e 09030000 		.4byte	.LASF54
+ 1595 051e EE020000 		.4byte	.LASF54
  1596 0522 01       		.byte	0x1
  1597 0523 4A05     		.2byte	0x54a
  1598 0525 00000000 		.4byte	.LFB24
@@ -3353,12 +3353,12 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1601 052e 9C       		.byte	0x9c
  1602 052f 56050000 		.4byte	0x556
  1603 0533 11       		.uleb128 0x11
- 1604 0534 B5040000 		.4byte	.LASF21
+ 1604 0534 7B040000 		.4byte	.LASF21
  1605 0538 01       		.byte	0x1
  1606 0539 4C05     		.2byte	0x54c
  1607 053b 6B000000 		.4byte	0x6b
  1608 053f 06020000 		.4byte	.LLST12
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 57
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 57
 
 
  1609 0543 09       		.uleb128 0x9
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1663 05c7 6B000000 		.4byte	0x6b
  1664 05cb 01       		.uleb128 0x1
  1665 05cc 50       		.byte	0x50
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 58
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 58
 
 
  1666 05cd 00       		.byte	0
@@ -3446,8 +3446,8 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1688 05fe 03       		.byte	0x3
  1689 05ff 7E       		.byte	0x7e
  1690 0600 18       		.uleb128 0x18
- 1691 0601 BF020000 		.4byte	.LASF63
- 1692 0605 BF020000 		.4byte	.LASF63
+ 1691 0601 A4020000 		.4byte	.LASF63
+ 1692 0605 A4020000 		.4byte	.LASF63
  1693 0609 04       		.byte	0x4
  1694 060a 28       		.byte	0x28
  1695 060b 00       		.byte	0
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1720 0016 0B       		.uleb128 0xb
  1721 0017 0B       		.uleb128 0xb
  1722 0018 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 59
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 59
 
 
  1723 0019 0B       		.uleb128 0xb
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1777 004f 18       		.uleb128 0x18
  1778 0050 9742     		.uleb128 0x2117
  1779 0052 19       		.uleb128 0x19
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 60
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 60
 
 
  1780 0053 00       		.byte	0
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1834 008e 11       		.uleb128 0x11
  1835 008f 01       		.uleb128 0x1
  1836 0090 31       		.uleb128 0x31
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 61
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 61
 
 
  1837 0091 13       		.uleb128 0x13
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1891 00cb 40       		.uleb128 0x40
  1892 00cc 18       		.uleb128 0x18
  1893 00cd 9742     		.uleb128 0x2117
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 62
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 62
 
 
  1894 00cf 19       		.uleb128 0x19
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  1948 0106 3B       		.uleb128 0x3b
  1949 0107 05       		.uleb128 0x5
  1950 0108 49       		.uleb128 0x49
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 63
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 63
 
 
  1951 0109 13       		.uleb128 0x13
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2005 0141 11       		.uleb128 0x11
  2006 0142 01       		.uleb128 0x1
  2007 0143 31       		.uleb128 0x31
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 64
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 64
 
 
  2008 0144 13       		.uleb128 0x13
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2062 0008 0100     		.2byte	0x1
  2063 000a 54       		.byte	0x54
  2064 000b 00000000 		.4byte	0
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 65
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 65
 
 
  2065 000f 00000000 		.4byte	0
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2119 0096 14000000 		.4byte	.LVL40
  2120 009a 0100     		.2byte	0x1
  2121 009c 55       		.byte	0x55
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 66
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 66
 
 
  2122 009d 14000000 		.4byte	.LVL40
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2176 012a 50       		.byte	0x50
  2177 012b 1C000000 		.4byte	.LVL49
  2178 012f 22000000 		.4byte	.LVL50
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 67
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 67
 
 
  2179 0133 0100     		.2byte	0x1
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2233 01b3 9F       		.byte	0x9f
  2234 01b4 1C000000 		.4byte	.LVL49
  2235 01b8 22000000 		.4byte	.LVL50
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 68
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 68
 
 
  2236 01bc 0100     		.2byte	0x1
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2290 0244 53       		.byte	0x53
  2291 0245 36000000 		.4byte	.LVL62
  2292 0249 3C000000 		.4byte	.LVL63
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 69
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 69
 
 
  2293 024d 0100     		.2byte	0x1
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2347 00b8 00000000 		.4byte	.LFB21
  2348 00bc 28000000 		.4byte	.LFE21-.LFB21
  2349 00c0 00000000 		.4byte	.LFB22
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 70
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 70
 
 
  2350 00c4 20000000 		.4byte	.LFE22-.LFB22
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2404 00a4 24000000 		.4byte	.LFE20
  2405 00a8 00000000 		.4byte	.LFB21
  2406 00ac 28000000 		.4byte	.LFE21
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 71
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 71
 
 
  2407 00b0 00000000 		.4byte	.LFB22
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2437 007b 55415254 		.ascii	"UART_Slave_WriteTxData\000"
  2437      5F536C61 
  2437      76655F57 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 72
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 72
 
 
  2437      72697465 
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2461      65616454 
  2461      78537461 
  2462              	.LASF56:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 73
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 73
 
 
  2463 0141 7265744D 		.ascii	"retMode\000"
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2485 01ed 746D7053 		.ascii	"tmpStat\000"
  2485      74617400 
  2486              	.LASF17:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 74
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 74
 
 
  2487 01f5 73697A65 		.ascii	"sizetype\000"
@@ -4418,177 +4418,181 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 1
  2501      76655F45 
  2501      6E61626C 
  2501      6500
- 2502              	.LASF66:
- 2503 0264 433A5C55 		.ascii	"C:\\Users\\chris\\Desktop\\SPI test\\Spi_Slave\\Spi"
- 2503      73657273 
- 2503      5C636872 
- 2503      69735C44 
- 2503      65736B74 
- 2504 0291 5F536C61 		.ascii	"_Slave.cydsn\000"
- 2504      76652E63 
- 2504      7964736E 
- 2504      00
- 2505              	.LASF33:
- 2506 029e 55415254 		.ascii	"UART_Slave_GetRxBufferSize\000"
- 2506      5F536C61 
- 2506      76655F47 
- 2506      65745278 
- 2506      42756666 
- 2507              	.LASF11:
- 2508 02b9 666C6F61 		.ascii	"float\000"
- 2508      7400
- 2509              	.LASF63:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 75
+ 2502              	.LASF44:
+ 2503 0264 55415254 		.ascii	"UART_Slave_ReadControlRegister\000"
+ 2503      5F536C61 
+ 2503      76655F52 
+ 2503      65616443 
+ 2503      6F6E7472 
+ 2504              	.LASF33:
+ 2505 0283 55415254 		.ascii	"UART_Slave_GetRxBufferSize\000"
+ 2505      5F536C61 
+ 2505      76655F47 
+ 2505      65745278 
+ 2505      42756666 
+ 2506              	.LASF11:
+ 2507 029e 666C6F61 		.ascii	"float\000"
+ 2507      7400
+ 2508              	.LASF63:
+ 2509 02a4 55415254 		.ascii	"UART_Slave_IntClock_Stop\000"
+ 2509      5F536C61 
+ 2509      76655F49 
+ 2509      6E74436C 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 75
 
 
- 2510 02bf 55415254 		.ascii	"UART_Slave_IntClock_Stop\000"
- 2510      5F536C61 
- 2510      76655F49 
- 2510      6E74436C 
- 2510      6F636B5F 
- 2511              	.LASF15:
- 2512 02d8 72656738 		.ascii	"reg8\000"
- 2512      00
- 2513              	.LASF23:
- 2514 02dd 55415254 		.ascii	"UART_Slave_SetRxInterruptMode\000"
- 2514      5F536C61 
- 2514      76655F53 
- 2514      65745278 
- 2514      496E7465 
- 2515              	.LASF1:
- 2516 02fb 756E7369 		.ascii	"unsigned char\000"
- 2516      676E6564 
- 2516      20636861 
- 2516      7200
- 2517              	.LASF54:
- 2518 0309 55415254 		.ascii	"UART_Slave_ClearTxBuffer\000"
- 2518      5F536C61 
- 2518      76655F43 
- 2518      6C656172 
- 2518      54784275 
- 2519              	.LASF2:
- 2520 0322 73686F72 		.ascii	"short int\000"
- 2520      7420696E 
- 2520      7400
- 2521              	.LASF47:
- 2522 032c 55415254 		.ascii	"UART_Slave_PutString\000"
- 2522      5F536C61 
- 2522      76655F50 
- 2522      75745374 
- 2522      72696E67 
- 2523              	.LASF65:
- 2524 0341 47656E65 		.ascii	"Generated_Source\\PSoC5\\UART_Slave.c\000"
- 2524      72617465 
- 2524      645F536F 
- 2524      75726365 
- 2524      5C50536F 
- 2525              	.LASF64:
- 2526 0365 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 2526      43313120 
- 2526      352E342E 
- 2526      31203230 
- 2526      31363036 
- 2527 0398 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 2527      20726576 
- 2527      6973696F 
- 2527      6E203233 
- 2527      37373135 
- 2528 03cb 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2528      66756E63 
- 2528      74696F6E 
- 2528      2D736563 
- 2528      74696F6E 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 76
+ 2509      6F636B5F 
+ 2510              	.LASF15:
+ 2511 02bd 72656738 		.ascii	"reg8\000"
+ 2511      00
+ 2512              	.LASF23:
+ 2513 02c2 55415254 		.ascii	"UART_Slave_SetRxInterruptMode\000"
+ 2513      5F536C61 
+ 2513      76655F53 
+ 2513      65745278 
+ 2513      496E7465 
+ 2514              	.LASF1:
+ 2515 02e0 756E7369 		.ascii	"unsigned char\000"
+ 2515      676E6564 
+ 2515      20636861 
+ 2515      7200
+ 2516              	.LASF54:
+ 2517 02ee 55415254 		.ascii	"UART_Slave_ClearTxBuffer\000"
+ 2517      5F536C61 
+ 2517      76655F43 
+ 2517      6C656172 
+ 2517      54784275 
+ 2518              	.LASF2:
+ 2519 0307 73686F72 		.ascii	"short int\000"
+ 2519      7420696E 
+ 2519      7400
+ 2520              	.LASF47:
+ 2521 0311 55415254 		.ascii	"UART_Slave_PutString\000"
+ 2521      5F536C61 
+ 2521      76655F50 
+ 2521      75745374 
+ 2521      72696E67 
+ 2522              	.LASF65:
+ 2523 0326 47656E65 		.ascii	"Generated_Source\\PSoC5\\UART_Slave.c\000"
+ 2523      72617465 
+ 2523      645F536F 
+ 2523      75726365 
+ 2523      5C50536F 
+ 2524              	.LASF64:
+ 2525 034a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2525      43313120 
+ 2525      352E342E 
+ 2525      31203230 
+ 2525      31363036 
+ 2526 037d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2526      20726576 
+ 2526      6973696F 
+ 2526      6E203233 
+ 2526      37373135 
+ 2527 03b0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2527      66756E63 
+ 2527      74696F6E 
+ 2527      2D736563 
+ 2527      74696F6E 
+ 2528              	.LASF51:
+ 2529 03d8 62797465 		.ascii	"byteCount\000"
+ 2529      436F756E 
+ 2529      7400
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 76
 
 
- 2529              	.LASF51:
- 2530 03f3 62797465 		.ascii	"byteCount\000"
- 2530      436F756E 
- 2530      7400
- 2531              	.LASF36:
- 2532 03fd 55415254 		.ascii	"UART_Slave_SetRxAddressMode\000"
- 2532      5F536C61 
- 2532      76655F53 
- 2532      65745278 
- 2532      41646472 
- 2533              	.LASF46:
- 2534 0419 55415254 		.ascii	"UART_Slave_PutChar\000"
- 2534      5F536C61 
- 2534      76655F50 
- 2534      75744368 
- 2534      617200
- 2535              	.LASF26:
- 2536 042c 72784461 		.ascii	"rxData\000"
- 2536      746100
- 2537              	.LASF14:
- 2538 0433 63686172 		.ascii	"char\000"
- 2538      00
- 2539              	.LASF44:
- 2540 0438 55415254 		.ascii	"UART_Slave_ReadControlRegister\000"
- 2540      5F536C61 
- 2540      76655F52 
- 2540      65616443 
- 2540      6F6E7472 
- 2541              	.LASF13:
- 2542 0457 63686172 		.ascii	"char8\000"
- 2542      3800
- 2543              	.LASF32:
- 2544 045d 55415254 		.ascii	"UART_Slave_GetByte\000"
- 2544      5F536C61 
- 2544      76655F47 
- 2544      65744279 
- 2544      746500
- 2545              	.LASF52:
- 2546 0470 55415254 		.ascii	"UART_Slave_PutCRLF\000"
- 2546      5F536C61 
- 2546      76655F50 
- 2546      75744352 
- 2546      4C4600
- 2547              	.LASF38:
- 2548 0483 55415254 		.ascii	"UART_Slave_SetRxAddress1\000"
- 2548      5F536C61 
- 2548      76655F53 
- 2548      65745278 
- 2548      41646472 
- 2549              	.LASF40:
- 2550 049c 55415254 		.ascii	"UART_Slave_SetRxAddress2\000"
- 2550      5F536C61 
- 2550      76655F53 
- 2550      65745278 
- 2550      41646472 
- 2551              	.LASF21:
- 2552 04b5 656E6162 		.ascii	"enableInterrupts\000"
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccV9tyA2.s 			page 77
+ 2530              	.LASF36:
+ 2531 03e2 55415254 		.ascii	"UART_Slave_SetRxAddressMode\000"
+ 2531      5F536C61 
+ 2531      76655F53 
+ 2531      65745278 
+ 2531      41646472 
+ 2532              	.LASF46:
+ 2533 03fe 55415254 		.ascii	"UART_Slave_PutChar\000"
+ 2533      5F536C61 
+ 2533      76655F50 
+ 2533      75744368 
+ 2533      617200
+ 2534              	.LASF26:
+ 2535 0411 72784461 		.ascii	"rxData\000"
+ 2535      746100
+ 2536              	.LASF14:
+ 2537 0418 63686172 		.ascii	"char\000"
+ 2537      00
+ 2538              	.LASF13:
+ 2539 041d 63686172 		.ascii	"char8\000"
+ 2539      3800
+ 2540              	.LASF32:
+ 2541 0423 55415254 		.ascii	"UART_Slave_GetByte\000"
+ 2541      5F536C61 
+ 2541      76655F47 
+ 2541      65744279 
+ 2541      746500
+ 2542              	.LASF52:
+ 2543 0436 55415254 		.ascii	"UART_Slave_PutCRLF\000"
+ 2543      5F536C61 
+ 2543      76655F50 
+ 2543      75744352 
+ 2543      4C4600
+ 2544              	.LASF38:
+ 2545 0449 55415254 		.ascii	"UART_Slave_SetRxAddress1\000"
+ 2545      5F536C61 
+ 2545      76655F53 
+ 2545      65745278 
+ 2545      41646472 
+ 2546              	.LASF40:
+ 2547 0462 55415254 		.ascii	"UART_Slave_SetRxAddress2\000"
+ 2547      5F536C61 
+ 2547      76655F53 
+ 2547      65745278 
+ 2547      41646472 
+ 2548              	.LASF21:
+ 2549 047b 656E6162 		.ascii	"enableInterrupts\000"
+ 2549      6C65496E 
+ 2549      74657272 
+ 2549      75707473 
+ 2549      00
+ 2550              	.LASF29:
+ 2551 048c 73746174 		.ascii	"status\000"
+ 2551      757300
+ 2552              	.LASF28:
+ 2553 0493 55415254 		.ascii	"UART_Slave_ReadRxStatus\000"
+ 2553      5F536C61 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cchNOcUy.s 			page 77
 
 
- 2552      6C65496E 
- 2552      74657272 
- 2552      75707473 
- 2552      00
- 2553              	.LASF29:
- 2554 04c6 73746174 		.ascii	"status\000"
- 2554      757300
- 2555              	.LASF28:
- 2556 04cd 55415254 		.ascii	"UART_Slave_ReadRxStatus\000"
- 2556      5F536C61 
- 2556      76655F52 
- 2556      65616452 
- 2556      78537461 
- 2557              	.LASF50:
- 2558 04e5 55415254 		.ascii	"UART_Slave_PutArray\000"
- 2558      5F536C61 
- 2558      76655F50 
- 2558      75744172 
- 2558      72617900 
- 2559              	.LASF67:
- 2560 04f9 55415254 		.ascii	"UART_Slave_Init\000"
- 2560      5F536C61 
- 2560      76655F49 
- 2560      6E697400 
- 2561              	.LASF41:
- 2562 0509 55415254 		.ascii	"UART_Slave_SetTxInterruptMode\000"
- 2562      5F536C61 
- 2562      76655F53 
- 2562      65745478 
- 2562      496E7465 
- 2563              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 2553      76655F52 
+ 2553      65616452 
+ 2553      78537461 
+ 2554              	.LASF50:
+ 2555 04ab 55415254 		.ascii	"UART_Slave_PutArray\000"
+ 2555      5F536C61 
+ 2555      76655F50 
+ 2555      75744172 
+ 2555      72617900 
+ 2556              	.LASF67:
+ 2557 04bf 55415254 		.ascii	"UART_Slave_Init\000"
+ 2557      5F536C61 
+ 2557      76655F49 
+ 2557      6E697400 
+ 2558              	.LASF41:
+ 2559 04cf 55415254 		.ascii	"UART_Slave_SetTxInterruptMode\000"
+ 2559      5F536C61 
+ 2559      76655F53 
+ 2559      65745478 
+ 2559      496E7465 
+ 2560              	.LASF66:
+ 2561 04ed 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 2561      73657273 
+ 2561      5C6C6172 
+ 2561      73686F6C 
+ 2561      6D39325C 
+ 2562 051b 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\SPI test\\Spi_Slave\\Spi_Sl"
+ 2562      656B7467 
+ 2562      72757070 
+ 2562      6531365C 
+ 2562      49335052 
+ 2563 054a 6176652E 		.ascii	"ave.cydsn\000"
+ 2563      63796473 
+ 2563      6E00
+ 2564              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

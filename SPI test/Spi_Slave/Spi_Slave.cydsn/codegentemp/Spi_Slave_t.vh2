@@ -1,5 +1,5 @@
--- Project:   C:\Users\chris\Desktop\SPI test\Spi_Slave\Spi_Slave.cydsn\Spi_Slave.cyprj
--- Generated: 11/17/2017 13:00:29
+-- Project:   C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\SPI test\Spi_Slave\Spi_Slave.cydsn\Spi_Slave.cyprj
+-- Generated: 12/01/2017 12:20:02
 -- PSoC Creator  4.1 Update 1
 
 ENTITY Spi_Slave IS
