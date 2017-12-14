@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
   42 000a 0122     		movs	r2, #1
   43 000c 5A70     		strb	r2, [r3, #1]
   14:main.c        ****     SPI_Slave_ClearRxBuffer(); //Clearing the RX buffer
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 2
 
 
   44              		.loc 1 14 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
   88              	.LVL4:
   25:main.c        ****     
   26:main.c        ****     ISR_SPI_StartEx(ISR_SPI); //Initialising the ISR
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 3
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 3
 
 
   89              		.loc 1 26 0
@@ -137,9 +137,9 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
   32:main.c        ****     
   33:main.c        ****     for(;;)
   34:main.c        ****     {
-  35:main.c        ****         SPI_Slave_WriteTxData('B');
+  35:main.c        ****         SPI_Slave_WriteTxData('O');
   97              		.loc 1 35 0 discriminator 1
-  98 0018 4220     		movs	r0, #66
+  98 0018 4F20     		movs	r0, #79
   99 001a FFF7FEFF 		bl	SPI_Slave_WriteTxData
  100              	.LVL7:
   36:main.c        ****         CyDelay(200);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  126              	received:
  127 0000 00       		.space	1
  128              		.type	intFlag, %object
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 4
 
 
  129              		.size	intFlag, 1
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  183 004e 05       		.byte	0x5
  184 004f 69020000 		.4byte	.LASF4
  185 0053 02       		.uleb128 0x2
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 5
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 5
 
 
  186 0054 04       		.byte	0x4
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  240 00be 08       		.uleb128 0x8
  241 00bf AE000000 		.4byte	0xae
  242 00c3 07       		.byte	0x7
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 6
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 6
 
 
  243 00c4 00       		.byte	0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  297 0145 0D       		.uleb128 0xd
  298 0146 14000000 		.4byte	.LVL5
  299 014a 15020000 		.4byte	0x215
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 7
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 7
 
 
  300 014e 5C010000 		.4byte	0x15c
@@ -381,7 +381,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  317 0174 50       		.byte	0x50
  318 0175 02       		.uleb128 0x2
  319 0176 08       		.byte	0x8
- 320 0177 42       		.byte	0x42
+ 320 0177 4F       		.byte	0x4f
  321 0178 00       		.byte	0
  322 0179 0F       		.uleb128 0xf
  323 017a 24000000 		.4byte	.LVL8
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  354 01b8 00000000 		.4byte	received
  355 01bc 11       		.uleb128 0x11
  356 01bd F0010000 		.4byte	.LASF21
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 8
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 8
 
 
  357 01c1 01       		.byte	0x1
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  411 0236 12       		.uleb128 0x12
  412 0237 9F020000 		.4byte	.LASF31
  413 023b 9F020000 		.4byte	.LASF31
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 9
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 9
 
 
  414 023f 09       		.byte	0x9
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  468 0031 0B       		.uleb128 0xb
  469 0032 03       		.uleb128 0x3
  470 0033 08       		.uleb128 0x8
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 10
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 10
 
 
  471 0034 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  525 006a 01       		.uleb128 0x1
  526 006b 12       		.uleb128 0x12
  527 006c 06       		.uleb128 0x6
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 11
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 11
 
 
  528 006d 40       		.uleb128 0x40
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  582 00a8 0B       		.uleb128 0xb
  583 00a9 49       		.uleb128 0x49
  584 00aa 13       		.uleb128 0x13
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 12
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 12
 
 
  585 00ab 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  639 00e8 0B       		.uleb128 0xb
  640 00e9 3B       		.uleb128 0x3b
  641 00ea 0B       		.uleb128 0xb
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 13
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 13
 
 
  642 00eb 49       		.uleb128 0x49
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  692      01010101 
  693              	.LASF25:
  694 0000 5350495F 		.ascii	"SPI_Slave_ClearFIFO\000"
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 14
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 14
 
 
  694      536C6176 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  716 00ff 6C6F6E67 		.ascii	"long unsigned int\000"
  716      20756E73 
  716      69676E65 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 15
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 15
 
 
  716      6420696E 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  740 01a5 5350495F 		.ascii	"SPI_Slave_ReadRxData\000"
  740      536C6176 
  740      655F5265 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 16
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 16
 
 
  740      61645278 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 1
  764      75745374 
  764      72696E67 
  765              	.LASF15:
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccsc2ZsR.s 			page 17
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccjAsNR4.s 			page 17
 
 
  766 0287 6C6F6E67 		.ascii	"long double\000"

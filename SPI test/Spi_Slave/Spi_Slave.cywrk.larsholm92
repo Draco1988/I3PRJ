@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Spi_Slave\Spi_Slave\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Spi_Slave">
 <ExpandedNodeIds>
 <v>Spi_Slave</v>
 <v>Spi_Slave\Spi_Slave</v>
@@ -36,6 +36,7 @@
 <v>Spi_Slave\Spi_Slave\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Spi_Slave</v>
 <v>Spi_Slave\Spi_Slave</v>
 <v>Spi_Slave\Spi_Slave\TopDesign</v>
 <v>Spi_Slave\Spi_Slave\Spi_Slave.cydwr</v>
@@ -82,8 +83,6 @@
 <v>Spi_Slave\Spi_Slave\Generated_Source\PSoC5\cyfitter_cfg.h</v>
 <v>Spi_Slave\Spi_Slave\Generated_Source\PSoC5\cyfittergnu.inc</v>
 <v>Spi_Slave\Spi_Slave\Generated_Source\PSoC5\cyfitteriar.inc</v>
-<v>Spi_Slave\Spi_Slave\Generated_Source\PSoC5\cyfitterrv.inc</v>
-<v>Spi_Slave\Spi_Slave\Generated_Source\PSoC5\cymetadata.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -225,6 +224,7 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\Spi_Slave.cydsn\main.c" />
+<name v=".\Spi_Slave.cydsn\Spi_Slave.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -232,7 +232,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1482, 711" SelectedTabbedMdiWindow="e4a91f8d-b270-4319-8d9e-eee5d6dd2869"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="3d7b8984-c5ac-400b-b334-262231cdf311" /><DocumentWindow Key="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\SPI test\Spi_Slave\Spi_Slave.cydsn\main.c" Guid="e4a91f8d-b270-4319-8d9e-eee5d6dd2869" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="520, 702" SelectedTabbedMdiWindow="e4a91f8d-b270-4319-8d9e-eee5d6dd2869"><DocumentWindow Key="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\SPI test\Spi_Slave\Spi_Slave.cydsn\main.c" Guid="e4a91f8d-b270-4319-8d9e-eee5d6dd2869" /><DocumentWindow Key="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\SPI test\Spi_Slave\Spi_Slave.cydsn\Spi_Slave.cydwr" Guid="57182686-e73d-4a01-bafe-27ff896cd0e0" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="3d7b8984-c5ac-400b-b334-262231cdf311" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
