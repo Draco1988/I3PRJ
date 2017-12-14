@@ -1171,4 +1171,4 @@ END GROUP
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(C:\Users\larsholm92\Documents\IKT\3. Semester\Projekt3\03_DC_Motor_Control\Stepper_Motor.cydsn\CortexM3\ARM_GCC_541\Debug\Stepper_Motor.elf elf32-littlearm)
+OUTPUT(C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\Stepper_Motor.cydsn\CortexM3\ARM_GCC_541\Debug\Stepper_Motor.elf elf32-littlearm)

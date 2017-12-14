@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
   28:Generated_Source\PSoC5/SPI_Slave.c **** 
   29:Generated_Source\PSoC5/SPI_Slave.c **** #if (SPI_Slave_RX_SOFTWARE_BUF_ENABLED)
   30:Generated_Source\PSoC5/SPI_Slave.c **** 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 2
 
 
   31:Generated_Source\PSoC5/SPI_Slave.c ****     volatile uint8 SPI_Slave_rxBuffer[SPI_Slave_RX_BUFFER_SIZE];
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
   85:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
   86:Generated_Source\PSoC5/SPI_Slave.c **** 
   87:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_RX_ISR_NUMBER);
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 3
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 3
 
 
   88:Generated_Source\PSoC5/SPI_Slave.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  142:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_Enable(void) 
  143:Generated_Source\PSoC5/SPI_Slave.c **** {
   28              		.loc 1 143 0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 4
 
 
   29              		.cfi_startproc
@@ -196,26 +196,26 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  146:Generated_Source\PSoC5/SPI_Slave.c **** 
  147:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_COUNTER_CONTROL_REG |= SPI_Slave_CNTR_ENABLE;
   39              		.loc 1 147 0
-  40 0006 0A4A     		ldr	r2, .L3
+  40 0006 0B4A     		ldr	r2, .L3
   41 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   42 000a 43F02003 		orr	r3, r3, #32
   43 000e 1370     		strb	r3, [r2]
  148:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_TX_STATUS_ACTL_REG |= SPI_Slave_INT_ENABLE;
   44              		.loc 1 148 0
-  45 0010 FF3A     		subs	r2, r2, #255
-  46 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  47 0014 43F01003 		orr	r3, r3, #16
-  48 0018 1370     		strb	r3, [r2]
+  45 0010 A2F58072 		sub	r2, r2, #256
+  46 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  47 0016 43F01003 		orr	r3, r3, #16
+  48 001a 1370     		strb	r3, [r2]
  149:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_RX_STATUS_ACTL_REG |= SPI_Slave_INT_ENABLE;
   49              		.loc 1 149 0
-  50 001a 023A     		subs	r2, r2, #2
-  51 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  52 001e 43F01003 		orr	r3, r3, #16
-  53 0022 1370     		strb	r3, [r2]
+  50 001c 02F58172 		add	r2, r2, #258
+  51 0020 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  52 0022 43F01003 		orr	r3, r3, #16
+  53 0026 1370     		strb	r3, [r2]
  150:Generated_Source\PSoC5/SPI_Slave.c **** 
  151:Generated_Source\PSoC5/SPI_Slave.c ****     CyExitCriticalSection(enableInterrupts);
   54              		.loc 1 151 0
-  55 0024 FFF7FEFF 		bl	CyExitCriticalSection
+  55 0028 FFF7FEFF 		bl	CyExitCriticalSection
   56              	.LVL1:
  152:Generated_Source\PSoC5/SPI_Slave.c **** 
  153:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
@@ -225,20 +225,20 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  157:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
  158:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_RX_ISR_NUMBER);
   57              		.loc 1 158 0
-  58 0028 0422     		movs	r2, #4
-  59 002a 024B     		ldr	r3, .L3+4
-  60 002c 1A60     		str	r2, [r3]
-  61 002e 08BD     		pop	{r3, pc}
+  58 002c 0822     		movs	r2, #8
+  59 002e 024B     		ldr	r3, .L3+4
+  60 0030 1A60     		str	r2, [r3]
+  61 0032 08BD     		pop	{r3, pc}
   62              	.L4:
   63              		.align	2
   64              	.L3:
-  65 0030 99650040 		.word	1073767833
-  66 0034 00E100E0 		.word	-536813312
+  65 0034 98650040 		.word	1073767832
+  66 0038 00E100E0 		.word	-536813312
   67              		.cfi_endproc
   68              	.LFE1:
   69              		.size	SPI_Slave_Enable, .-SPI_Slave_Enable
   70              		.section	.text.SPI_Slave_Stop,"ax",%progbits
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 5
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 5
 
 
   71              		.align	2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  206:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
  207:Generated_Source\PSoC5/SPI_Slave.c **** *  None.
  208:Generated_Source\PSoC5/SPI_Slave.c **** *
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 6
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 6
 
 
  209:Generated_Source\PSoC5/SPI_Slave.c **** * Return:
@@ -332,14 +332,14 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
   93 000e 1370     		strb	r3, [r2]
  222:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_RX_STATUS_ACTL_REG &= (uint8)~SPI_Slave_INT_ENABLE;
   94              		.loc 1 222 0
-  95 0010 023A     		subs	r2, r2, #2
-  96 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  97 0014 03F0EF03 		and	r3, r3, #239
-  98 0018 1370     		strb	r3, [r2]
+  95 0010 02F58172 		add	r2, r2, #258
+  96 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  97 0016 03F0EF03 		and	r3, r3, #239
+  98 001a 1370     		strb	r3, [r2]
  223:Generated_Source\PSoC5/SPI_Slave.c **** 
  224:Generated_Source\PSoC5/SPI_Slave.c ****     CyExitCriticalSection(enableInterrupts);
   99              		.loc 1 224 0
- 100 001a FFF7FEFF 		bl	CyExitCriticalSection
+ 100 001c FFF7FEFF 		bl	CyExitCriticalSection
  101              	.LVL3:
  225:Generated_Source\PSoC5/SPI_Slave.c **** 
  226:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
@@ -349,16 +349,16 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  230:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
  231:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_RX_ISR_NUMBER);
  102              		.loc 1 231 0
- 103 001e 0422     		movs	r2, #4
- 104 0020 024B     		ldr	r3, .L7+4
- 105 0022 1A60     		str	r2, [r3]
- 106 0024 08BD     		pop	{r3, pc}
+ 103 0020 0822     		movs	r2, #8
+ 104 0022 024B     		ldr	r3, .L7+4
+ 105 0024 1A60     		str	r2, [r3]
+ 106 0026 08BD     		pop	{r3, pc}
  107              	.L8:
- 108 0026 00BF     		.align	2
+ 108              		.align	2
  109              	.L7:
- 110 0028 9A640040 		.word	1073767578
+ 110 0028 98640040 		.word	1073767576
  111 002c 80E100E0 		.word	-536813184
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 7
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 7
 
 
  112              		.cfi_endproc
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  258:Generated_Source\PSoC5/SPI_Slave.c **** }
  259:Generated_Source\PSoC5/SPI_Slave.c **** 
  260:Generated_Source\PSoC5/SPI_Slave.c **** 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 8
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 8
 
 
  261:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
@@ -448,7 +448,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  280:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
  281:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_RX_ISR_NUMBER);
  145              		.loc 1 281 0
- 146 0000 0422     		movs	r2, #4
+ 146 0000 0822     		movs	r2, #8
  147 0002 014B     		ldr	r3, .L11
  148 0004 1A60     		str	r2, [r3]
  149 0006 7047     		bx	lr
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  290:Generated_Source\PSoC5/SPI_Slave.c **** * Summary:
  291:Generated_Source\PSoC5/SPI_Slave.c **** *  Disable internal Tx interrupt generation.
  292:Generated_Source\PSoC5/SPI_Slave.c **** *
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 9
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 9
 
 
  293:Generated_Source\PSoC5/SPI_Slave.c **** * Parameters:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  182              		.loc 1 329 0
  183              		.cfi_startproc
  184              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 10
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 10
 
 
  185              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -546,7 +546,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  330:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
  331:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_RX_ISR_NUMBER);
  187              		.loc 1 331 0
- 188 0000 0422     		movs	r2, #4
+ 188 0000 0822     		movs	r2, #8
  189 0002 014B     		ldr	r3, .L15
  190 0004 1A60     		str	r2, [r3]
  191 0006 7047     		bx	lr
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  356:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_TX_STATUS_MASK_REG  = intSrc;
  213              		.loc 1 356 0
  214 0000 014B     		ldr	r3, .L18
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 11
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 11
 
 
  215 0002 1870     		strb	r0, [r3]
@@ -606,7 +606,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  217              	.L19:
  218 0006 00BF     		.align	2
  219              	.L18:
- 220 0008 8A640040 		.word	1073767562
+ 220 0008 88640040 		.word	1073767560
  221              		.cfi_endproc
  222              	.LFE8:
  223              		.size	SPI_Slave_SetTxInterruptMode, .-SPI_Slave_SetTxInterruptMode
@@ -655,10 +655,10 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  242              	.L22:
  243 0006 00BF     		.align	2
  244              	.L21:
- 245 0008 88640040 		.word	1073767560
+ 245 0008 8A650040 		.word	1073767818
  246              		.cfi_endproc
  247              	.LFE9:
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 12
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 12
 
 
  248              		.size	SPI_Slave_SetRxInterruptMode, .-SPI_Slave_SetRxInterruptMode
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  421:Generated_Source\PSoC5/SPI_Slave.c **** 
  422:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_swStatusTx = 0u;
  423:Generated_Source\PSoC5/SPI_Slave.c **** 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 13
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 13
 
 
  424:Generated_Source\PSoC5/SPI_Slave.c ****         /* Enable Interrupts */
@@ -741,7 +741,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  268              	.L25:
  269 0006 00BF     		.align	2
  270              	.L24:
- 271 0008 6A640040 		.word	1073767530
+ 271 0008 68640040 		.word	1073767528
  272              		.cfi_endproc
  273              	.LFE10:
  274              		.size	SPI_Slave_ReadTxStatus, .-SPI_Slave_ReadTxStatus
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  457:Generated_Source\PSoC5/SPI_Slave.c **** *
  458:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
  459:Generated_Source\PSoC5/SPI_Slave.c **** *  Clear Rx status register of the component.
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 14
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 14
 
 
  460:Generated_Source\PSoC5/SPI_Slave.c **** *
@@ -823,7 +823,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  294              	.L28:
  295 0006 00BF     		.align	2
  296              	.L27:
- 297 0008 68640040 		.word	1073767528
+ 297 0008 6A650040 		.word	1073767786
  298              		.cfi_endproc
  299              	.LFE11:
  300              		.size	SPI_Slave_ReadRxStatus, .-SPI_Slave_ReadRxStatus
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  488:Generated_Source\PSoC5/SPI_Slave.c **** 
  489:Generated_Source\PSoC5/SPI_Slave.c **** 
  490:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 15
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 15
 
 
  491:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_WriteTxData
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  538:Generated_Source\PSoC5/SPI_Slave.c ****             }
  539:Generated_Source\PSoC5/SPI_Slave.c ****             else
  540:Generated_Source\PSoC5/SPI_Slave.c ****             {
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 16
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 16
 
 
  541:Generated_Source\PSoC5/SPI_Slave.c ****                 tmpTxBufferRead--;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  590:Generated_Source\PSoC5/SPI_Slave.c ****         }
  591:Generated_Source\PSoC5/SPI_Slave.c **** 
  592:Generated_Source\PSoC5/SPI_Slave.c ****         /* Put data element into the TX FIFO */
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 17
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 17
 
 
  593:Generated_Source\PSoC5/SPI_Slave.c ****         CY_SET_REG8(SPI_Slave_TXDATA_PTR, txData);
@@ -969,8 +969,8 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  325              	.L32:
  326              		.align	2
  327              	.L31:
- 328 0010 6A640040 		.word	1073767530
- 329 0014 49640040 		.word	1073767497
+ 328 0010 68640040 		.word	1073767528
+ 329 0014 48640040 		.word	1073767496
  330              		.cfi_endproc
  331              	.LFE12:
  332              		.size	SPI_Slave_WriteTxData, .-SPI_Slave_WriteTxData
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  627:Generated_Source\PSoC5/SPI_Slave.c **** 
  628:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
  629:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_ReadRxData
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 18
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 18
 
 
  630:Generated_Source\PSoC5/SPI_Slave.c **** ********************************************************************************
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  679:Generated_Source\PSoC5/SPI_Slave.c ****             }
  680:Generated_Source\PSoC5/SPI_Slave.c ****             else
  681:Generated_Source\PSoC5/SPI_Slave.c ****             {
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 19
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 19
 
 
  682:Generated_Source\PSoC5/SPI_Slave.c ****                 SPI_Slave_rxBufferFull = 0u;
@@ -1108,7 +1108,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  352              	.L35:
  353 0006 00BF     		.align	2
  354              	.L34:
- 355 0008 59640040 		.word	1073767513
+ 355 0008 58640040 		.word	1073767512
  356              		.cfi_endproc
  357              	.LFE13:
  358              		.size	SPI_Slave_ReadRxData, .-SPI_Slave_ReadRxData
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  715:Generated_Source\PSoC5/SPI_Slave.c **** *  Integer count of the number of bytes/words in the RX buffer.
  716:Generated_Source\PSoC5/SPI_Slave.c **** *
  717:Generated_Source\PSoC5/SPI_Slave.c **** * Global variables:
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 20
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 20
 
 
  718:Generated_Source\PSoC5/SPI_Slave.c **** *  SPI_Slave_rxBufferWrite - used for the account of the bytes which
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  757:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_RX_SOFTWARE_BUF_ENABLED */
  758:Generated_Source\PSoC5/SPI_Slave.c **** 
  759:Generated_Source\PSoC5/SPI_Slave.c ****     return (size);
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 21
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 21
 
 
  760:Generated_Source\PSoC5/SPI_Slave.c **** }
@@ -1207,7 +1207,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  384              	.L40:
  385 0012 00BF     		.align	2
  386              	.L39:
- 387 0014 68640040 		.word	1073767528
+ 387 0014 6A650040 		.word	1073767786
  388              		.cfi_endproc
  389              	.LFE14:
  390              		.size	SPI_Slave_GetRxBufferSize, .-SPI_Slave_GetRxBufferSize
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  402              		@ frame_needed = 0, uses_anonymous_args = 0
  403              		@ link register save eliminated.
  794:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 size;
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 22
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 22
 
 
  795:Generated_Source\PSoC5/SPI_Slave.c **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  829:Generated_Source\PSoC5/SPI_Slave.c ****         }
  830:Generated_Source\PSoC5/SPI_Slave.c ****         else
  831:Generated_Source\PSoC5/SPI_Slave.c ****         {
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 23
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 23
 
 
  832:Generated_Source\PSoC5/SPI_Slave.c ****             size = 4u;
@@ -1336,7 +1336,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  428              	.L46:
  429 001e 00BF     		.align	2
  430              	.L45:
- 431 0020 6A640040 		.word	1073767530
+ 431 0020 68640040 		.word	1073767528
  432              		.cfi_endproc
  433              	.LFE15:
  434              		.size	SPI_Slave_GetTxBufferSize, .-SPI_Slave_GetTxBufferSize
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  866:Generated_Source\PSoC5/SPI_Slave.c **** *
  867:Generated_Source\PSoC5/SPI_Slave.c **** * Side Effects:
  868:Generated_Source\PSoC5/SPI_Slave.c **** *  Any received data not read from the RAM buffer will be lost when overwritten.
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 24
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 24
 
 
  869:Generated_Source\PSoC5/SPI_Slave.c **** *
@@ -1430,15 +1430,15 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  462              	.L51:
  463 0012 00BF     		.align	2
  464              	.L50:
- 465 0014 59640040 		.word	1073767513
- 466 0018 68640040 		.word	1073767528
+ 465 0014 58640040 		.word	1073767512
+ 466 0018 6A650040 		.word	1073767786
  467              		.cfi_endproc
  468              	.LFE16:
  469              		.size	SPI_Slave_ClearRxBuffer, .-SPI_Slave_ClearRxBuffer
  470              		.section	.text.SPI_Slave_ClearTxBuffer,"ax",%progbits
  471              		.align	2
  472              		.global	SPI_Slave_ClearTxBuffer
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 25
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 25
 
 
  473              		.thumb
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  936:Generated_Source\PSoC5/SPI_Slave.c ****     enableInterrupts = CyEnterCriticalSection();
  486              		.loc 1 936 0
  487 0002 FFF7FEFF 		bl	CyEnterCriticalSection
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 26
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 26
 
 
  488              	.LVL13:
@@ -1536,7 +1536,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  502              	.L55:
  503 001e 00BF     		.align	2
  504              	.L54:
- 505 0020 99640040 		.word	1073767577
+ 505 0020 98640040 		.word	1073767576
  506              		.cfi_endproc
  507              	.LFE17:
  508              		.size	SPI_Slave_ClearTxBuffer, .-SPI_Slave_ClearTxBuffer
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  962:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_txBufferWrite = 0u;
  963:Generated_Source\PSoC5/SPI_Slave.c **** 		SPI_Slave_txBufferFull  = 0u;
  964:Generated_Source\PSoC5/SPI_Slave.c **** 		
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 27
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 27
 
 
  965:Generated_Source\PSoC5/SPI_Slave.c ****         /* If Buffer is empty then disable TX FIFO status interrupt */
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
 1019:Generated_Source\PSoC5/SPI_Slave.c **** 
 1020:Generated_Source\PSoC5/SPI_Slave.c **** 
 1021:Generated_Source\PSoC5/SPI_Slave.c **** /*******************************************************************************
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 28
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 28
 
 
 1022:Generated_Source\PSoC5/SPI_Slave.c **** * Function Name: SPI_Slave_PutArray
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  537              		.loc 1 1055 0
  538 000a 705D     		ldrb	r0, [r6, r5]	@ zero_extendqisi2
  539 000c FFF7FEFF 		bl	SPI_Slave_WriteTxData
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 29
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 29
 
 
  540              	.LVL18:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  568              		.loc 1 1080 0
  569              		.cfi_startproc
  570              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 30
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 30
 
 
  571              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
 1105:Generated_Source\PSoC5/SPI_Slave.c **** 
 1106:Generated_Source\PSoC5/SPI_Slave.c ****     CyExitCriticalSection(enableInterrupts);
  600              		.loc 1 1106 0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 31
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 31
 
 
  601 0028 FFF7FEFF 		bl	CyExitCriticalSection
@@ -1807,9 +1807,9 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  604              	.L65:
  605 002e 00BF     		.align	2
  606              	.L64:
- 607 0030 59640040 		.word	1073767513
- 608 0034 68640040 		.word	1073767528
- 609 0038 99640040 		.word	1073767577
+ 607 0030 58640040 		.word	1073767512
+ 608 0034 6A650040 		.word	1073767786
+ 609 0038 98640040 		.word	1073767576
  610              		.cfi_endproc
  611              	.LFE19:
  612              		.size	SPI_Slave_ClearFIFO, .-SPI_Slave_ClearFIFO
@@ -1826,123 +1826,124 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
  622              		.cfi_startproc
  623              		@ args = 0, pretend = 0, frame = 0
  624              		@ frame_needed = 0, uses_anonymous_args = 0
- 625 0000 10B5     		push	{r4, lr}
- 626              		.cfi_def_cfa_offset 8
- 627              		.cfi_offset 4, -8
- 628              		.cfi_offset 14, -4
+ 625 0000 38B5     		push	{r3, r4, r5, lr}
+ 626              		.cfi_def_cfa_offset 16
+ 627              		.cfi_offset 3, -16
+ 628              		.cfi_offset 4, -12
+ 629              		.cfi_offset 5, -8
+ 630              		.cfi_offset 14, -4
   70:Generated_Source\PSoC5/SPI_Slave.c **** 
- 629              		.loc 1 70 0
- 630 0002 0724     		movs	r4, #7
- 631 0004 0C4B     		ldr	r3, .L68
- 632 0006 1C70     		strb	r4, [r3]
+ 631              		.loc 1 70 0
+ 632 0002 0725     		movs	r5, #7
+ 633 0004 0C4B     		ldr	r3, .L68
+ 634 0006 1D70     		strb	r5, [r3]
   87:Generated_Source\PSoC5/SPI_Slave.c **** 
- 633              		.loc 1 87 0
- 634 0008 0422     		movs	r2, #4
- 635 000a 0C4B     		ldr	r3, .L68+4
- 636 000c 1A60     		str	r2, [r3]
+ 635              		.loc 1 87 0
+ 636 0008 0824     		movs	r4, #8
+ 637 000a 0C4B     		ldr	r3, .L68+4
+ 638 000c 1C60     		str	r4, [r3]
   90:Generated_Source\PSoC5/SPI_Slave.c **** 
- 637              		.loc 1 90 0
- 638 000e 0C49     		ldr	r1, .L68+8
- 639 0010 0220     		movs	r0, #2
- 640 0012 FFF7FEFF 		bl	CyIntSetVector
- 641              	.LVL25:
+ 639              		.loc 1 90 0
+ 640 000e 0C49     		ldr	r1, .L68+8
+ 641 0010 0320     		movs	r0, #3
+ 642 0012 FFF7FEFF 		bl	CyIntSetVector
+ 643              	.LVL25:
   93:Generated_Source\PSoC5/SPI_Slave.c **** 
- 642              		.loc 1 93 0
- 643 0016 2146     		mov	r1, r4
- 644 0018 0220     		movs	r0, #2
- 645 001a FFF7FEFF 		bl	CyIntSetPriority
- 646              	.LVL26:
+ 644              		.loc 1 93 0
+ 645 0016 2946     		mov	r1, r5
+ 646 0018 0320     		movs	r0, #3
+ 647 001a FFF7FEFF 		bl	CyIntSetPriority
+ 648              	.LVL26:
   98:Generated_Source\PSoC5/SPI_Slave.c **** 
- 647              		.loc 1 98 0
- 648 001e FFF7FEFF 		bl	SPI_Slave_ClearFIFO
- 649              	.LVL27:
+ 649              		.loc 1 98 0
+ 650 001e FFF7FEFF 		bl	SPI_Slave_ClearFIFO
+ 651              	.LVL27:
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 32
+
+
  112:Generated_Source\PSoC5/SPI_Slave.c ****     (void) SPI_Slave_ReadRxStatus(); /* Clear any pending status bits */
- 650              		.loc 1 112 0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 32
-
-
- 651 0022 FFF7FEFF 		bl	SPI_Slave_ReadTxStatus
- 652              	.LVL28:
+ 652              		.loc 1 112 0
+ 653 0022 FFF7FEFF 		bl	SPI_Slave_ReadTxStatus
+ 654              	.LVL28:
  113:Generated_Source\PSoC5/SPI_Slave.c **** 
- 653              		.loc 1 113 0
- 654 0026 FFF7FEFF 		bl	SPI_Slave_ReadRxStatus
- 655              	.LVL29:
+ 655              		.loc 1 113 0
+ 656 0026 FFF7FEFF 		bl	SPI_Slave_ReadRxStatus
+ 657              	.LVL29:
  121:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_TX_SOFTWARE_BUF_ENABLED */
- 656              		.loc 1 121 0
- 657 002a 0022     		movs	r2, #0
- 658 002c 054B     		ldr	r3, .L68+12
- 659 002e 1A70     		strb	r2, [r3]
+ 658              		.loc 1 121 0
+ 659 002a 0022     		movs	r2, #0
+ 660 002c 054B     		ldr	r3, .L68+12
+ 661 002e 1A70     		strb	r2, [r3]
  124:Generated_Source\PSoC5/SPI_Slave.c **** }
- 660              		.loc 1 124 0
- 661 0030 0822     		movs	r2, #8
- 662 0032 023B     		subs	r3, r3, #2
- 663 0034 1A70     		strb	r2, [r3]
- 664 0036 10BD     		pop	{r4, pc}
- 665              	.L69:
- 666              		.align	2
- 667              	.L68:
- 668 0038 89650040 		.word	1073767817
- 669 003c 80E100E0 		.word	-536813184
- 670 0040 00000000 		.word	SPI_Slave_RX_ISR
- 671 0044 8A640040 		.word	1073767562
- 672              		.cfi_endproc
- 673              	.LFE0:
- 674              		.size	SPI_Slave_Init, .-SPI_Slave_Init
- 675              		.section	.text.SPI_Slave_Start,"ax",%progbits
- 676              		.align	2
- 677              		.global	SPI_Slave_Start
- 678              		.thumb
- 679              		.thumb_func
- 680              		.type	SPI_Slave_Start, %function
- 681              	SPI_Slave_Start:
- 682              	.LFB2:
+ 662              		.loc 1 124 0
+ 663 0030 03F58173 		add	r3, r3, #258
+ 664 0034 1C70     		strb	r4, [r3]
+ 665 0036 38BD     		pop	{r3, r4, r5, pc}
+ 666              	.L69:
+ 667              		.align	2
+ 668              	.L68:
+ 669 0038 88650040 		.word	1073767816
+ 670 003c 80E100E0 		.word	-536813184
+ 671 0040 00000000 		.word	SPI_Slave_RX_ISR
+ 672 0044 88640040 		.word	1073767560
+ 673              		.cfi_endproc
+ 674              	.LFE0:
+ 675              		.size	SPI_Slave_Init, .-SPI_Slave_Init
+ 676              		.section	.text.SPI_Slave_Start,"ax",%progbits
+ 677              		.align	2
+ 678              		.global	SPI_Slave_Start
+ 679              		.thumb
+ 680              		.thumb_func
+ 681              		.type	SPI_Slave_Start, %function
+ 682              	SPI_Slave_Start:
+ 683              	.LFB2:
  188:Generated_Source\PSoC5/SPI_Slave.c ****     if(SPI_Slave_initVar == 0u)
- 683              		.loc 1 188 0
- 684              		.cfi_startproc
- 685              		@ args = 0, pretend = 0, frame = 0
- 686              		@ frame_needed = 0, uses_anonymous_args = 0
- 687 0000 08B5     		push	{r3, lr}
- 688              		.cfi_def_cfa_offset 8
- 689              		.cfi_offset 3, -8
- 690              		.cfi_offset 14, -4
+ 684              		.loc 1 188 0
+ 685              		.cfi_startproc
+ 686              		@ args = 0, pretend = 0, frame = 0
+ 687              		@ frame_needed = 0, uses_anonymous_args = 0
+ 688 0000 08B5     		push	{r3, lr}
+ 689              		.cfi_def_cfa_offset 8
+ 690              		.cfi_offset 3, -8
+ 691              		.cfi_offset 14, -4
  189:Generated_Source\PSoC5/SPI_Slave.c ****     {
- 691              		.loc 1 189 0
- 692 0002 054B     		ldr	r3, .L73
- 693 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 694 0006 23B9     		cbnz	r3, .L71
+ 692              		.loc 1 189 0
+ 693 0002 054B     		ldr	r3, .L73
+ 694 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 695 0006 23B9     		cbnz	r3, .L71
  191:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_initVar = 1u;
- 695              		.loc 1 191 0
- 696 0008 FFF7FEFF 		bl	SPI_Slave_Init
- 697              	.LVL30:
+ 696              		.loc 1 191 0
+ 697 0008 FFF7FEFF 		bl	SPI_Slave_Init
+ 698              	.LVL30:
  192:Generated_Source\PSoC5/SPI_Slave.c ****     }
- 698              		.loc 1 192 0
- 699 000c 0122     		movs	r2, #1
- 700 000e 024B     		ldr	r3, .L73
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 33
+ 699              		.loc 1 192 0
+ 700 000c 0122     		movs	r2, #1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 33
 
 
- 701 0010 1A70     		strb	r2, [r3]
- 702              	.L71:
+ 701 000e 024B     		ldr	r3, .L73
+ 702 0010 1A70     		strb	r2, [r3]
+ 703              	.L71:
  195:Generated_Source\PSoC5/SPI_Slave.c **** }
- 703              		.loc 1 195 0
- 704 0012 FFF7FEFF 		bl	SPI_Slave_Enable
- 705              	.LVL31:
- 706 0016 08BD     		pop	{r3, pc}
- 707              	.L74:
- 708              		.align	2
- 709              	.L73:
- 710 0018 00000000 		.word	.LANCHOR0
- 711              		.cfi_endproc
- 712              	.LFE2:
- 713              		.size	SPI_Slave_Start, .-SPI_Slave_Start
- 714              		.section	.text.SPI_Slave_EnableInt,"ax",%progbits
- 715              		.align	2
- 716              		.global	SPI_Slave_EnableInt
- 717              		.thumb
- 718              		.thumb_func
- 719              		.type	SPI_Slave_EnableInt, %function
- 720              	SPI_Slave_EnableInt:
- 721              	.LFB20:
+ 704              		.loc 1 195 0
+ 705 0012 FFF7FEFF 		bl	SPI_Slave_Enable
+ 706              	.LVL31:
+ 707 0016 08BD     		pop	{r3, pc}
+ 708              	.L74:
+ 709              		.align	2
+ 710              	.L73:
+ 711 0018 00000000 		.word	.LANCHOR0
+ 712              		.cfi_endproc
+ 713              	.LFE2:
+ 714              		.size	SPI_Slave_Start, .-SPI_Slave_Start
+ 715              		.section	.text.SPI_Slave_EnableInt,"ax",%progbits
+ 716              		.align	2
+ 717              		.global	SPI_Slave_EnableInt
+ 718              		.thumb
+ 719              		.thumb_func
+ 720              		.type	SPI_Slave_EnableInt, %function
+ 721              	SPI_Slave_EnableInt:
+ 722              	.LFB20:
 1107:Generated_Source\PSoC5/SPI_Slave.c **** }
 1108:Generated_Source\PSoC5/SPI_Slave.c **** 
 1109:Generated_Source\PSoC5/SPI_Slave.c **** 
@@ -1970,40 +1971,40 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
 1131:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
 1132:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_EnableInt(void) 
 1133:Generated_Source\PSoC5/SPI_Slave.c **** {
- 722              		.loc 1 1133 0
- 723              		.cfi_startproc
- 724              		@ args = 0, pretend = 0, frame = 0
- 725              		@ frame_needed = 0, uses_anonymous_args = 0
- 726              		@ link register save eliminated.
+ 723              		.loc 1 1133 0
+ 724              		.cfi_startproc
+ 725              		@ args = 0, pretend = 0, frame = 0
+ 726              		@ frame_needed = 0, uses_anonymous_args = 0
+ 727              		@ link register save eliminated.
 1134:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
 1135:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_TX_ISR_NUMBER);
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 34
+
+
 1136:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 34
-
-
 1137:Generated_Source\PSoC5/SPI_Slave.c **** 
 1138:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
 1139:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntEnable(SPI_Slave_RX_ISR_NUMBER);
- 727              		.loc 1 1139 0
- 728 0000 0422     		movs	r2, #4
- 729 0002 014B     		ldr	r3, .L76
- 730 0004 1A60     		str	r2, [r3]
- 731 0006 7047     		bx	lr
- 732              	.L77:
- 733              		.align	2
- 734              	.L76:
- 735 0008 00E100E0 		.word	-536813312
- 736              		.cfi_endproc
- 737              	.LFE20:
- 738              		.size	SPI_Slave_EnableInt, .-SPI_Slave_EnableInt
- 739              		.section	.text.SPI_Slave_DisableInt,"ax",%progbits
- 740              		.align	2
- 741              		.global	SPI_Slave_DisableInt
- 742              		.thumb
- 743              		.thumb_func
- 744              		.type	SPI_Slave_DisableInt, %function
- 745              	SPI_Slave_DisableInt:
- 746              	.LFB21:
+ 728              		.loc 1 1139 0
+ 729 0000 0822     		movs	r2, #8
+ 730 0002 014B     		ldr	r3, .L76
+ 731 0004 1A60     		str	r2, [r3]
+ 732 0006 7047     		bx	lr
+ 733              	.L77:
+ 734              		.align	2
+ 735              	.L76:
+ 736 0008 00E100E0 		.word	-536813312
+ 737              		.cfi_endproc
+ 738              	.LFE20:
+ 739              		.size	SPI_Slave_EnableInt, .-SPI_Slave_EnableInt
+ 740              		.section	.text.SPI_Slave_DisableInt,"ax",%progbits
+ 741              		.align	2
+ 742              		.global	SPI_Slave_DisableInt
+ 743              		.thumb
+ 744              		.thumb_func
+ 745              		.type	SPI_Slave_DisableInt, %function
+ 746              	SPI_Slave_DisableInt:
+ 747              	.LFB21:
 1140:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
 1141:Generated_Source\PSoC5/SPI_Slave.c **** }
 1142:Generated_Source\PSoC5/SPI_Slave.c **** 
@@ -2027,40 +2028,40 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
 1160:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
 1161:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_DisableInt(void) 
 1162:Generated_Source\PSoC5/SPI_Slave.c **** {
- 747              		.loc 1 1162 0
- 748              		.cfi_startproc
- 749              		@ args = 0, pretend = 0, frame = 0
- 750              		@ frame_needed = 0, uses_anonymous_args = 0
- 751              		@ link register save eliminated.
+ 748              		.loc 1 1162 0
+ 749              		.cfi_startproc
+ 750              		@ args = 0, pretend = 0, frame = 0
+ 751              		@ frame_needed = 0, uses_anonymous_args = 0
+ 752              		@ link register save eliminated.
 1163:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_TX_INT_ENABLED)
 1164:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_TX_ISR_NUMBER);
 1165:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_TX_INT_ENABLED */
 1166:Generated_Source\PSoC5/SPI_Slave.c **** 
 1167:Generated_Source\PSoC5/SPI_Slave.c ****     #if(SPI_Slave_INTERNAL_RX_INT_ENABLED)
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 35
+
+
 1168:Generated_Source\PSoC5/SPI_Slave.c ****         CyIntDisable(SPI_Slave_RX_ISR_NUMBER);
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 35
-
-
- 752              		.loc 1 1168 0
- 753 0000 0422     		movs	r2, #4
- 754 0002 014B     		ldr	r3, .L79
- 755 0004 1A60     		str	r2, [r3]
- 756 0006 7047     		bx	lr
- 757              	.L80:
- 758              		.align	2
- 759              	.L79:
- 760 0008 80E100E0 		.word	-536813184
- 761              		.cfi_endproc
- 762              	.LFE21:
- 763              		.size	SPI_Slave_DisableInt, .-SPI_Slave_DisableInt
- 764              		.section	.text.SPI_Slave_SetInterruptMode,"ax",%progbits
- 765              		.align	2
- 766              		.global	SPI_Slave_SetInterruptMode
- 767              		.thumb
- 768              		.thumb_func
- 769              		.type	SPI_Slave_SetInterruptMode, %function
- 770              	SPI_Slave_SetInterruptMode:
- 771              	.LFB22:
+ 753              		.loc 1 1168 0
+ 754 0000 0822     		movs	r2, #8
+ 755 0002 014B     		ldr	r3, .L79
+ 756 0004 1A60     		str	r2, [r3]
+ 757 0006 7047     		bx	lr
+ 758              	.L80:
+ 759              		.align	2
+ 760              	.L79:
+ 761 0008 80E100E0 		.word	-536813184
+ 762              		.cfi_endproc
+ 763              	.LFE21:
+ 764              		.size	SPI_Slave_DisableInt, .-SPI_Slave_DisableInt
+ 765              		.section	.text.SPI_Slave_SetInterruptMode,"ax",%progbits
+ 766              		.align	2
+ 767              		.global	SPI_Slave_SetInterruptMode
+ 768              		.thumb
+ 769              		.thumb_func
+ 770              		.type	SPI_Slave_SetInterruptMode, %function
+ 771              	SPI_Slave_SetInterruptMode:
+ 772              	.LFB22:
 1169:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* SPI_Slave_INTERNAL_RX_INT_ENABLED */
 1170:Generated_Source\PSoC5/SPI_Slave.c **** }
 1171:Generated_Source\PSoC5/SPI_Slave.c **** 
@@ -2085,39 +2086,39 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
 1190:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
 1191:Generated_Source\PSoC5/SPI_Slave.c **** void SPI_Slave_SetInterruptMode(uint8 intSrc) 
 1192:Generated_Source\PSoC5/SPI_Slave.c **** {
- 772              		.loc 1 1192 0
- 773              		.cfi_startproc
- 774              		@ args = 0, pretend = 0, frame = 0
- 775              		@ frame_needed = 0, uses_anonymous_args = 0
- 776              		@ link register save eliminated.
- 777              	.LVL32:
+ 773              		.loc 1 1192 0
+ 774              		.cfi_startproc
+ 775              		@ args = 0, pretend = 0, frame = 0
+ 776              		@ frame_needed = 0, uses_anonymous_args = 0
+ 777              		@ link register save eliminated.
+ 778              	.LVL32:
 1193:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_TX_STATUS_MASK_REG  = intSrc;
- 778              		.loc 1 1193 0
- 779 0000 024B     		ldr	r3, .L82
- 780 0002 1870     		strb	r0, [r3]
+ 779              		.loc 1 1193 0
+ 780 0000 024B     		ldr	r3, .L82
+ 781 0002 1870     		strb	r0, [r3]
 1194:Generated_Source\PSoC5/SPI_Slave.c ****     SPI_Slave_RX_STATUS_MASK_REG  = intSrc;
- 781              		.loc 1 1194 0
- 782 0004 023B     		subs	r3, r3, #2
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 36
+ 782              		.loc 1 1194 0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 36
 
 
- 783 0006 1870     		strb	r0, [r3]
- 784 0008 7047     		bx	lr
- 785              	.L83:
- 786 000a 00BF     		.align	2
- 787              	.L82:
- 788 000c 8A640040 		.word	1073767562
- 789              		.cfi_endproc
- 790              	.LFE22:
- 791              		.size	SPI_Slave_SetInterruptMode, .-SPI_Slave_SetInterruptMode
- 792              		.section	.text.SPI_Slave_ReadStatus,"ax",%progbits
- 793              		.align	2
- 794              		.global	SPI_Slave_ReadStatus
- 795              		.thumb
- 796              		.thumb_func
- 797              		.type	SPI_Slave_ReadStatus, %function
- 798              	SPI_Slave_ReadStatus:
- 799              	.LFB23:
+ 783 0004 03F58173 		add	r3, r3, #258
+ 784 0008 1870     		strb	r0, [r3]
+ 785 000a 7047     		bx	lr
+ 786              	.L83:
+ 787              		.align	2
+ 788              	.L82:
+ 789 000c 88640040 		.word	1073767560
+ 790              		.cfi_endproc
+ 791              	.LFE22:
+ 792              		.size	SPI_Slave_SetInterruptMode, .-SPI_Slave_SetInterruptMode
+ 793              		.section	.text.SPI_Slave_ReadStatus,"ax",%progbits
+ 794              		.align	2
+ 795              		.global	SPI_Slave_ReadStatus
+ 796              		.thumb
+ 797              		.thumb_func
+ 798              		.type	SPI_Slave_ReadStatus, %function
+ 799              	SPI_Slave_ReadStatus:
+ 800              	.LFB23:
 1195:Generated_Source\PSoC5/SPI_Slave.c **** }
 1196:Generated_Source\PSoC5/SPI_Slave.c **** 
 1197:Generated_Source\PSoC5/SPI_Slave.c **** 
@@ -2151,16 +2152,16 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
 1225:Generated_Source\PSoC5/SPI_Slave.c **** *******************************************************************************/
 1226:Generated_Source\PSoC5/SPI_Slave.c **** uint8 SPI_Slave_ReadStatus(void) 
 1227:Generated_Source\PSoC5/SPI_Slave.c **** {
- 800              		.loc 1 1227 0
- 801              		.cfi_startproc
- 802              		@ args = 0, pretend = 0, frame = 0
- 803              		@ frame_needed = 0, uses_anonymous_args = 0
- 804              		@ link register save eliminated.
+ 801              		.loc 1 1227 0
+ 802              		.cfi_startproc
+ 803              		@ args = 0, pretend = 0, frame = 0
+ 804              		@ frame_needed = 0, uses_anonymous_args = 0
+ 805              		@ link register save eliminated.
 1228:Generated_Source\PSoC5/SPI_Slave.c ****     uint8 tmpStatus;
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 37
+
+
 1229:Generated_Source\PSoC5/SPI_Slave.c **** 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 37
-
-
 1230:Generated_Source\PSoC5/SPI_Slave.c ****     #if ((SPI_Slave_TX_SOFTWARE_BUF_ENABLED) || (SPI_Slave_RX_SOFTWARE_BUF_ENABLED))
 1231:Generated_Source\PSoC5/SPI_Slave.c **** 
 1232:Generated_Source\PSoC5/SPI_Slave.c ****         SPI_Slave_DisableInt();
@@ -2177,1552 +2178,1555 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 1
 1243:Generated_Source\PSoC5/SPI_Slave.c ****     #else /* !((SPI_Slave_TX_SOFTWARE_BUF_ENABLED) || (SPI_Slave_RX_SOFTWARE_BUF_ENABLED)) */
 1244:Generated_Source\PSoC5/SPI_Slave.c **** 
 1245:Generated_Source\PSoC5/SPI_Slave.c ****         tmpStatus = SPI_Slave_TX_STATUS_REG | (SPI_Slave_RX_STATUS_REG &
- 805              		.loc 1 1245 0
- 806 0000 034B     		ldr	r3, .L85
- 807 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 808 0004 023B     		subs	r3, r3, #2
- 809 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 810 0008 03F0BF03 		and	r3, r3, #191
- 811              	.LVL33:
+ 806              		.loc 1 1245 0
+ 807 0000 044B     		ldr	r3, .L85
+ 808 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 809 0004 03F58173 		add	r3, r3, #258
+ 810 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 811 000a 03F0BF03 		and	r3, r3, #191
+ 812              	.LVL33:
 1246:Generated_Source\PSoC5/SPI_Slave.c ****                                                       (uint8)~SPI_Slave_STS_RX_FIFO_FULL);
 1247:Generated_Source\PSoC5/SPI_Slave.c **** 
 1248:Generated_Source\PSoC5/SPI_Slave.c ****     #endif /* (SPI_Slave_TX_SOFTWARE_BUF_ENABLED) || (SPI_Slave_RX_SOFTWARE_BUF_ENABLED) */
 1249:Generated_Source\PSoC5/SPI_Slave.c **** 
 1250:Generated_Source\PSoC5/SPI_Slave.c ****     return(tmpStatus);
 1251:Generated_Source\PSoC5/SPI_Slave.c **** }
- 812              		.loc 1 1251 0
- 813 000c 1843     		orrs	r0, r0, r3
- 814              	.LVL34:
- 815 000e 7047     		bx	lr
- 816              	.L86:
- 817              		.align	2
- 818              	.L85:
- 819 0010 6A640040 		.word	1073767530
- 820              		.cfi_endproc
- 821              	.LFE23:
- 822              		.size	SPI_Slave_ReadStatus, .-SPI_Slave_ReadStatus
- 823              		.comm	SPI_Slave_swStatusRx,1,1
- 824              		.comm	SPI_Slave_swStatusTx,1,1
- 825              		.global	SPI_Slave_initVar
- 826              		.bss
- 827              		.set	.LANCHOR0,. + 0
- 828              		.type	SPI_Slave_initVar, %object
- 829              		.size	SPI_Slave_initVar, 1
- 830              	SPI_Slave_initVar:
- 831 0000 00       		.space	1
- 832              		.text
- 833              	.Letext0:
- 834              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 835              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
- 836              		.section	.debug_info,"",%progbits
- 837              	.Ldebug_info0:
- 838 0000 EF040000 		.4byte	0x4ef
- 839 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 38
+ 813              		.loc 1 1251 0
+ 814 000e 1843     		orrs	r0, r0, r3
+ 815              	.LVL34:
+ 816 0010 7047     		bx	lr
+ 817              	.L86:
+ 818 0012 00BF     		.align	2
+ 819              	.L85:
+ 820 0014 68640040 		.word	1073767528
+ 821              		.cfi_endproc
+ 822              	.LFE23:
+ 823              		.size	SPI_Slave_ReadStatus, .-SPI_Slave_ReadStatus
+ 824              		.comm	SPI_Slave_swStatusRx,1,1
+ 825              		.comm	SPI_Slave_swStatusTx,1,1
+ 826              		.global	SPI_Slave_initVar
+ 827              		.bss
+ 828              		.set	.LANCHOR0,. + 0
+ 829              		.type	SPI_Slave_initVar, %object
+ 830              		.size	SPI_Slave_initVar, 1
+ 831              	SPI_Slave_initVar:
+ 832 0000 00       		.space	1
+ 833              		.text
+ 834              	.Letext0:
+ 835              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 836              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 837              		.section	.debug_info,"",%progbits
+ 838              	.Ldebug_info0:
+ 839 0000 EF040000 		.4byte	0x4ef
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 38
 
 
- 840 0006 00000000 		.4byte	.Ldebug_abbrev0
- 841 000a 04       		.byte	0x4
- 842 000b 01       		.uleb128 0x1
- 843 000c 17010000 		.4byte	.LASF58
- 844 0010 0C       		.byte	0xc
- 845 0011 89000000 		.4byte	.LASF59
- 846 0015 25020000 		.4byte	.LASF60
- 847 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 848 001d 00000000 		.4byte	0
- 849 0021 00000000 		.4byte	.Ldebug_line0
- 850 0025 02       		.uleb128 0x2
- 851 0026 01       		.byte	0x1
- 852 0027 06       		.byte	0x6
- 853 0028 84040000 		.4byte	.LASF0
- 854 002c 02       		.uleb128 0x2
- 855 002d 01       		.byte	0x1
- 856 002e 08       		.byte	0x8
- 857 002f 93020000 		.4byte	.LASF1
- 858 0033 02       		.uleb128 0x2
- 859 0034 02       		.byte	0x2
- 860 0035 05       		.byte	0x5
- 861 0036 1F040000 		.4byte	.LASF2
- 862 003a 02       		.uleb128 0x2
- 863 003b 02       		.byte	0x2
- 864 003c 07       		.byte	0x7
- 865 003d 76000000 		.4byte	.LASF3
- 866 0041 02       		.uleb128 0x2
- 867 0042 04       		.byte	0x4
- 868 0043 05       		.byte	0x5
- 869 0044 5F040000 		.4byte	.LASF4
- 870 0048 02       		.uleb128 0x2
- 871 0049 04       		.byte	0x4
- 872 004a 07       		.byte	0x7
- 873 004b E2010000 		.4byte	.LASF5
- 874 004f 02       		.uleb128 0x2
- 875 0050 08       		.byte	0x8
- 876 0051 05       		.byte	0x5
- 877 0052 B6030000 		.4byte	.LASF6
- 878 0056 02       		.uleb128 0x2
- 879 0057 08       		.byte	0x8
- 880 0058 07       		.byte	0x7
- 881 0059 FB000000 		.4byte	.LASF7
- 882 005d 03       		.uleb128 0x3
- 883 005e 04       		.byte	0x4
- 884 005f 05       		.byte	0x5
- 885 0060 696E7400 		.ascii	"int\000"
- 886 0064 02       		.uleb128 0x2
- 887 0065 04       		.byte	0x4
- 888 0066 07       		.byte	0x7
- 889 0067 F8020000 		.4byte	.LASF8
- 890 006b 04       		.uleb128 0x4
- 891 006c 06020000 		.4byte	.LASF9
- 892 0070 02       		.byte	0x2
- 893 0071 9201     		.2byte	0x192
- 894 0073 2C000000 		.4byte	0x2c
- 895 0077 04       		.uleb128 0x4
- 896 0078 DA020000 		.4byte	.LASF10
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 39
+ 840 0004 0400     		.2byte	0x4
+ 841 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 842 000a 04       		.byte	0x4
+ 843 000b 01       		.uleb128 0x1
+ 844 000c 06010000 		.4byte	.LASF58
+ 845 0010 0C       		.byte	0xc
+ 846 0011 8C000000 		.4byte	.LASF59
+ 847 0015 14040000 		.4byte	.LASF60
+ 848 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 849 001d 00000000 		.4byte	0
+ 850 0021 00000000 		.4byte	.Ldebug_line0
+ 851 0025 02       		.uleb128 0x2
+ 852 0026 01       		.byte	0x1
+ 853 0027 06       		.byte	0x6
+ 854 0028 90040000 		.4byte	.LASF0
+ 855 002c 02       		.uleb128 0x2
+ 856 002d 01       		.byte	0x1
+ 857 002e 08       		.byte	0x8
+ 858 002f 35020000 		.4byte	.LASF1
+ 859 0033 02       		.uleb128 0x2
+ 860 0034 02       		.byte	0x2
+ 861 0035 05       		.byte	0x5
+ 862 0036 C1030000 		.4byte	.LASF2
+ 863 003a 02       		.uleb128 0x2
+ 864 003b 02       		.byte	0x2
+ 865 003c 07       		.byte	0x7
+ 866 003d 79000000 		.4byte	.LASF3
+ 867 0041 02       		.uleb128 0x2
+ 868 0042 04       		.byte	0x4
+ 869 0043 05       		.byte	0x5
+ 870 0044 01040000 		.4byte	.LASF4
+ 871 0048 02       		.uleb128 0x2
+ 872 0049 04       		.byte	0x4
+ 873 004a 07       		.byte	0x7
+ 874 004b D1010000 		.4byte	.LASF5
+ 875 004f 02       		.uleb128 0x2
+ 876 0050 08       		.byte	0x8
+ 877 0051 05       		.byte	0x5
+ 878 0052 58030000 		.4byte	.LASF6
+ 879 0056 02       		.uleb128 0x2
+ 880 0057 08       		.byte	0x8
+ 881 0058 07       		.byte	0x7
+ 882 0059 EA000000 		.4byte	.LASF7
+ 883 005d 03       		.uleb128 0x3
+ 884 005e 04       		.byte	0x4
+ 885 005f 05       		.byte	0x5
+ 886 0060 696E7400 		.ascii	"int\000"
+ 887 0064 02       		.uleb128 0x2
+ 888 0065 04       		.byte	0x4
+ 889 0066 07       		.byte	0x7
+ 890 0067 9A020000 		.4byte	.LASF8
+ 891 006b 04       		.uleb128 0x4
+ 892 006c F5010000 		.4byte	.LASF9
+ 893 0070 02       		.byte	0x2
+ 894 0071 9201     		.2byte	0x192
+ 895 0073 2C000000 		.4byte	0x2c
+ 896 0077 04       		.uleb128 0x4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 39
 
 
- 897 007c 02       		.byte	0x2
- 898 007d 9401     		.2byte	0x194
- 899 007f 48000000 		.4byte	0x48
- 900 0083 02       		.uleb128 0x2
- 901 0084 04       		.byte	0x4
- 902 0085 04       		.byte	0x4
- 903 0086 7E040000 		.4byte	.LASF11
- 904 008a 02       		.uleb128 0x2
- 905 008b 08       		.byte	0x8
- 906 008c 04       		.byte	0x4
- 907 008d A1020000 		.4byte	.LASF12
- 908 0091 02       		.uleb128 0x2
- 909 0092 01       		.byte	0x1
- 910 0093 08       		.byte	0x8
- 911 0094 AC000000 		.4byte	.LASF13
- 912 0098 04       		.uleb128 0x4
- 913 0099 79030000 		.4byte	.LASF14
- 914 009d 02       		.byte	0x2
- 915 009e 3C02     		.2byte	0x23c
- 916 00a0 A4000000 		.4byte	0xa4
- 917 00a4 05       		.uleb128 0x5
- 918 00a5 6B000000 		.4byte	0x6b
- 919 00a9 04       		.uleb128 0x4
- 920 00aa 11000000 		.4byte	.LASF15
- 921 00ae 02       		.byte	0x2
- 922 00af 3E02     		.2byte	0x23e
- 923 00b1 B5000000 		.4byte	0xb5
- 924 00b5 05       		.uleb128 0x5
- 925 00b6 77000000 		.4byte	0x77
- 926 00ba 02       		.uleb128 0x2
- 927 00bb 08       		.byte	0x8
- 928 00bc 04       		.byte	0x4
- 929 00bd 72040000 		.4byte	.LASF16
- 930 00c1 02       		.uleb128 0x2
- 931 00c2 04       		.byte	0x4
- 932 00c3 07       		.byte	0x7
- 933 00c4 93030000 		.4byte	.LASF17
- 934 00c8 06       		.uleb128 0x6
- 935 00c9 BC010000 		.4byte	.LASF18
- 936 00cd 01       		.byte	0x1
- 937 00ce 8E       		.byte	0x8e
- 938 00cf 00000000 		.4byte	.LFB1
- 939 00d3 38000000 		.4byte	.LFE1-.LFB1
- 940 00d7 01       		.uleb128 0x1
- 941 00d8 9C       		.byte	0x9c
- 942 00d9 FF000000 		.4byte	0xff
- 943 00dd 07       		.uleb128 0x7
- 944 00de 00000000 		.4byte	.LASF20
- 945 00e2 01       		.byte	0x1
- 946 00e3 90       		.byte	0x90
- 947 00e4 6B000000 		.4byte	0x6b
- 948 00e8 00000000 		.4byte	.LLST0
- 949 00ec 08       		.uleb128 0x8
- 950 00ed 06000000 		.4byte	.LVL0
- 951 00f1 C6040000 		.4byte	0x4c6
- 952 00f5 08       		.uleb128 0x8
- 953 00f6 28000000 		.4byte	.LVL1
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 40
+ 897 0078 7C020000 		.4byte	.LASF10
+ 898 007c 02       		.byte	0x2
+ 899 007d 9401     		.2byte	0x194
+ 900 007f 48000000 		.4byte	0x48
+ 901 0083 02       		.uleb128 0x2
+ 902 0084 04       		.byte	0x4
+ 903 0085 04       		.byte	0x4
+ 904 0086 8A040000 		.4byte	.LASF11
+ 905 008a 02       		.uleb128 0x2
+ 906 008b 08       		.byte	0x8
+ 907 008c 04       		.byte	0x4
+ 908 008d 43020000 		.4byte	.LASF12
+ 909 0091 02       		.uleb128 0x2
+ 910 0092 01       		.byte	0x1
+ 911 0093 08       		.byte	0x8
+ 912 0094 AF000000 		.4byte	.LASF13
+ 913 0098 04       		.uleb128 0x4
+ 914 0099 1B030000 		.4byte	.LASF14
+ 915 009d 02       		.byte	0x2
+ 916 009e 3C02     		.2byte	0x23c
+ 917 00a0 A4000000 		.4byte	0xa4
+ 918 00a4 05       		.uleb128 0x5
+ 919 00a5 6B000000 		.4byte	0x6b
+ 920 00a9 04       		.uleb128 0x4
+ 921 00aa 14000000 		.4byte	.LASF15
+ 922 00ae 02       		.byte	0x2
+ 923 00af 3E02     		.2byte	0x23e
+ 924 00b1 B5000000 		.4byte	0xb5
+ 925 00b5 05       		.uleb128 0x5
+ 926 00b6 77000000 		.4byte	0x77
+ 927 00ba 02       		.uleb128 0x2
+ 928 00bb 08       		.byte	0x8
+ 929 00bc 04       		.byte	0x4
+ 930 00bd 7E040000 		.4byte	.LASF16
+ 931 00c1 02       		.uleb128 0x2
+ 932 00c2 04       		.byte	0x4
+ 933 00c3 07       		.byte	0x7
+ 934 00c4 35030000 		.4byte	.LASF17
+ 935 00c8 06       		.uleb128 0x6
+ 936 00c9 AB010000 		.4byte	.LASF18
+ 937 00cd 01       		.byte	0x1
+ 938 00ce 8E       		.byte	0x8e
+ 939 00cf 00000000 		.4byte	.LFB1
+ 940 00d3 3C000000 		.4byte	.LFE1-.LFB1
+ 941 00d7 01       		.uleb128 0x1
+ 942 00d8 9C       		.byte	0x9c
+ 943 00d9 FF000000 		.4byte	0xff
+ 944 00dd 07       		.uleb128 0x7
+ 945 00de 14020000 		.4byte	.LASF20
+ 946 00e2 01       		.byte	0x1
+ 947 00e3 90       		.byte	0x90
+ 948 00e4 6B000000 		.4byte	0x6b
+ 949 00e8 00000000 		.4byte	.LLST0
+ 950 00ec 08       		.uleb128 0x8
+ 951 00ed 06000000 		.4byte	.LVL0
+ 952 00f1 C6040000 		.4byte	0x4c6
+ 953 00f5 08       		.uleb128 0x8
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 40
 
 
- 954 00fa D1040000 		.4byte	0x4d1
- 955 00fe 00       		.byte	0
- 956 00ff 06       		.uleb128 0x6
- 957 0100 0C020000 		.4byte	.LASF19
- 958 0104 01       		.byte	0x1
- 959 0105 D8       		.byte	0xd8
- 960 0106 00000000 		.4byte	.LFB3
- 961 010a 30000000 		.4byte	.LFE3-.LFB3
- 962 010e 01       		.uleb128 0x1
- 963 010f 9C       		.byte	0x9c
- 964 0110 36010000 		.4byte	0x136
- 965 0114 07       		.uleb128 0x7
- 966 0115 00000000 		.4byte	.LASF20
- 967 0119 01       		.byte	0x1
- 968 011a DA       		.byte	0xda
- 969 011b 6B000000 		.4byte	0x6b
- 970 011f 13000000 		.4byte	.LLST1
- 971 0123 08       		.uleb128 0x8
- 972 0124 06000000 		.4byte	.LVL2
- 973 0128 C6040000 		.4byte	0x4c6
- 974 012c 08       		.uleb128 0x8
- 975 012d 1E000000 		.4byte	.LVL3
- 976 0131 D1040000 		.4byte	0x4d1
- 977 0135 00       		.byte	0
- 978 0136 09       		.uleb128 0x9
- 979 0137 A4040000 		.4byte	.LASF21
- 980 013b 01       		.byte	0x1
- 981 013c FD       		.byte	0xfd
- 982 013d 00000000 		.4byte	.LFB4
- 983 0141 02000000 		.4byte	.LFE4-.LFB4
- 984 0145 01       		.uleb128 0x1
- 985 0146 9C       		.byte	0x9c
- 986 0147 0A       		.uleb128 0xa
- 987 0148 C4020000 		.4byte	.LASF22
- 988 014c 01       		.byte	0x1
- 989 014d 1601     		.2byte	0x116
- 990 014f 00000000 		.4byte	.LFB5
- 991 0153 0C000000 		.4byte	.LFE5-.LFB5
- 992 0157 01       		.uleb128 0x1
- 993 0158 9C       		.byte	0x9c
- 994 0159 0A       		.uleb128 0xa
- 995 015a E4000000 		.4byte	.LASF23
- 996 015e 01       		.byte	0x1
- 997 015f 2F01     		.2byte	0x12f
- 998 0161 00000000 		.4byte	.LFB6
- 999 0165 02000000 		.4byte	.LFE6-.LFB6
- 1000 0169 01       		.uleb128 0x1
- 1001 016a 9C       		.byte	0x9c
- 1002 016b 0A       		.uleb128 0xa
- 1003 016c F3030000 		.4byte	.LASF24
- 1004 0170 01       		.byte	0x1
- 1005 0171 4801     		.2byte	0x148
- 1006 0173 00000000 		.4byte	.LFB7
- 1007 0177 0C000000 		.4byte	.LFE7-.LFB7
- 1008 017b 01       		.uleb128 0x1
- 1009 017c 9C       		.byte	0x9c
- 1010 017d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 41
+ 954 00f6 2C000000 		.4byte	.LVL1
+ 955 00fa D1040000 		.4byte	0x4d1
+ 956 00fe 00       		.byte	0
+ 957 00ff 06       		.uleb128 0x6
+ 958 0100 FB010000 		.4byte	.LASF19
+ 959 0104 01       		.byte	0x1
+ 960 0105 D8       		.byte	0xd8
+ 961 0106 00000000 		.4byte	.LFB3
+ 962 010a 30000000 		.4byte	.LFE3-.LFB3
+ 963 010e 01       		.uleb128 0x1
+ 964 010f 9C       		.byte	0x9c
+ 965 0110 36010000 		.4byte	0x136
+ 966 0114 07       		.uleb128 0x7
+ 967 0115 14020000 		.4byte	.LASF20
+ 968 0119 01       		.byte	0x1
+ 969 011a DA       		.byte	0xda
+ 970 011b 6B000000 		.4byte	0x6b
+ 971 011f 13000000 		.4byte	.LLST1
+ 972 0123 08       		.uleb128 0x8
+ 973 0124 06000000 		.4byte	.LVL2
+ 974 0128 C6040000 		.4byte	0x4c6
+ 975 012c 08       		.uleb128 0x8
+ 976 012d 20000000 		.4byte	.LVL3
+ 977 0131 D1040000 		.4byte	0x4d1
+ 978 0135 00       		.byte	0
+ 979 0136 09       		.uleb128 0x9
+ 980 0137 B0040000 		.4byte	.LASF21
+ 981 013b 01       		.byte	0x1
+ 982 013c FD       		.byte	0xfd
+ 983 013d 00000000 		.4byte	.LFB4
+ 984 0141 02000000 		.4byte	.LFE4-.LFB4
+ 985 0145 01       		.uleb128 0x1
+ 986 0146 9C       		.byte	0x9c
+ 987 0147 0A       		.uleb128 0xa
+ 988 0148 66020000 		.4byte	.LASF22
+ 989 014c 01       		.byte	0x1
+ 990 014d 1601     		.2byte	0x116
+ 991 014f 00000000 		.4byte	.LFB5
+ 992 0153 0C000000 		.4byte	.LFE5-.LFB5
+ 993 0157 01       		.uleb128 0x1
+ 994 0158 9C       		.byte	0x9c
+ 995 0159 0A       		.uleb128 0xa
+ 996 015a D3000000 		.4byte	.LASF23
+ 997 015e 01       		.byte	0x1
+ 998 015f 2F01     		.2byte	0x12f
+ 999 0161 00000000 		.4byte	.LFB6
+ 1000 0165 02000000 		.4byte	.LFE6-.LFB6
+ 1001 0169 01       		.uleb128 0x1
+ 1002 016a 9C       		.byte	0x9c
+ 1003 016b 0A       		.uleb128 0xa
+ 1004 016c 95030000 		.4byte	.LASF24
+ 1005 0170 01       		.byte	0x1
+ 1006 0171 4801     		.2byte	0x148
+ 1007 0173 00000000 		.4byte	.LFB7
+ 1008 0177 0C000000 		.4byte	.LFE7-.LFB7
+ 1009 017b 01       		.uleb128 0x1
+ 1010 017c 9C       		.byte	0x9c
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 41
 
 
- 1011 017e 3C000000 		.4byte	.LASF25
- 1012 0182 01       		.byte	0x1
- 1013 0183 6201     		.2byte	0x162
- 1014 0185 00000000 		.4byte	.LFB8
- 1015 0189 0C000000 		.4byte	.LFE8-.LFB8
- 1016 018d 01       		.uleb128 0x1
- 1017 018e 9C       		.byte	0x9c
- 1018 018f A2010000 		.4byte	0x1a2
- 1019 0193 0C       		.uleb128 0xc
- 1020 0194 A8020000 		.4byte	.LASF27
- 1021 0198 01       		.byte	0x1
- 1022 0199 6201     		.2byte	0x162
- 1023 019b 6B000000 		.4byte	0x6b
- 1024 019f 01       		.uleb128 0x1
- 1025 01a0 50       		.byte	0x50
- 1026 01a1 00       		.byte	0
- 1027 01a2 0B       		.uleb128 0xb
- 1028 01a3 59000000 		.4byte	.LASF26
- 1029 01a7 01       		.byte	0x1
- 1030 01a8 7A01     		.2byte	0x17a
- 1031 01aa 00000000 		.4byte	.LFB9
- 1032 01ae 0C000000 		.4byte	.LFE9-.LFB9
- 1033 01b2 01       		.uleb128 0x1
- 1034 01b3 9C       		.byte	0x9c
- 1035 01b4 C7010000 		.4byte	0x1c7
- 1036 01b8 0C       		.uleb128 0xc
- 1037 01b9 A8020000 		.4byte	.LASF27
- 1038 01bd 01       		.byte	0x1
- 1039 01be 7A01     		.2byte	0x17a
- 1040 01c0 6B000000 		.4byte	0x6b
- 1041 01c4 01       		.uleb128 0x1
- 1042 01c5 50       		.byte	0x50
- 1043 01c6 00       		.byte	0
- 1044 01c7 0D       		.uleb128 0xd
- 1045 01c8 48040000 		.4byte	.LASF29
- 1046 01cc 01       		.byte	0x1
- 1047 01cd 9C01     		.2byte	0x19c
- 1048 01cf 6B000000 		.4byte	0x6b
- 1049 01d3 00000000 		.4byte	.LFB10
- 1050 01d7 0C000000 		.4byte	.LFE10-.LFB10
- 1051 01db 01       		.uleb128 0x1
- 1052 01dc 9C       		.byte	0x9c
- 1053 01dd F0010000 		.4byte	0x1f0
- 1054 01e1 0E       		.uleb128 0xe
- 1055 01e2 68040000 		.4byte	.LASF28
- 1056 01e6 01       		.byte	0x1
- 1057 01e7 9E01     		.2byte	0x19e
- 1058 01e9 6B000000 		.4byte	0x6b
- 1059 01ed 01       		.uleb128 0x1
- 1060 01ee 50       		.byte	0x50
- 1061 01ef 00       		.byte	0
- 1062 01f0 0D       		.uleb128 0xd
- 1063 01f1 A5010000 		.4byte	.LASF30
- 1064 01f5 01       		.byte	0x1
- 1065 01f6 D101     		.2byte	0x1d1
- 1066 01f8 6B000000 		.4byte	0x6b
- 1067 01fc 00000000 		.4byte	.LFB11
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 42
+ 1011 017d 0B       		.uleb128 0xb
+ 1012 017e 3F000000 		.4byte	.LASF25
+ 1013 0182 01       		.byte	0x1
+ 1014 0183 6201     		.2byte	0x162
+ 1015 0185 00000000 		.4byte	.LFB8
+ 1016 0189 0C000000 		.4byte	.LFE8-.LFB8
+ 1017 018d 01       		.uleb128 0x1
+ 1018 018e 9C       		.byte	0x9c
+ 1019 018f A2010000 		.4byte	0x1a2
+ 1020 0193 0C       		.uleb128 0xc
+ 1021 0194 4A020000 		.4byte	.LASF27
+ 1022 0198 01       		.byte	0x1
+ 1023 0199 6201     		.2byte	0x162
+ 1024 019b 6B000000 		.4byte	0x6b
+ 1025 019f 01       		.uleb128 0x1
+ 1026 01a0 50       		.byte	0x50
+ 1027 01a1 00       		.byte	0
+ 1028 01a2 0B       		.uleb128 0xb
+ 1029 01a3 5C000000 		.4byte	.LASF26
+ 1030 01a7 01       		.byte	0x1
+ 1031 01a8 7A01     		.2byte	0x17a
+ 1032 01aa 00000000 		.4byte	.LFB9
+ 1033 01ae 0C000000 		.4byte	.LFE9-.LFB9
+ 1034 01b2 01       		.uleb128 0x1
+ 1035 01b3 9C       		.byte	0x9c
+ 1036 01b4 C7010000 		.4byte	0x1c7
+ 1037 01b8 0C       		.uleb128 0xc
+ 1038 01b9 4A020000 		.4byte	.LASF27
+ 1039 01bd 01       		.byte	0x1
+ 1040 01be 7A01     		.2byte	0x17a
+ 1041 01c0 6B000000 		.4byte	0x6b
+ 1042 01c4 01       		.uleb128 0x1
+ 1043 01c5 50       		.byte	0x50
+ 1044 01c6 00       		.byte	0
+ 1045 01c7 0D       		.uleb128 0xd
+ 1046 01c8 EA030000 		.4byte	.LASF29
+ 1047 01cc 01       		.byte	0x1
+ 1048 01cd 9C01     		.2byte	0x19c
+ 1049 01cf 6B000000 		.4byte	0x6b
+ 1050 01d3 00000000 		.4byte	.LFB10
+ 1051 01d7 0C000000 		.4byte	.LFE10-.LFB10
+ 1052 01db 01       		.uleb128 0x1
+ 1053 01dc 9C       		.byte	0x9c
+ 1054 01dd F0010000 		.4byte	0x1f0
+ 1055 01e1 0E       		.uleb128 0xe
+ 1056 01e2 0A040000 		.4byte	.LASF28
+ 1057 01e6 01       		.byte	0x1
+ 1058 01e7 9E01     		.2byte	0x19e
+ 1059 01e9 6B000000 		.4byte	0x6b
+ 1060 01ed 01       		.uleb128 0x1
+ 1061 01ee 50       		.byte	0x50
+ 1062 01ef 00       		.byte	0
+ 1063 01f0 0D       		.uleb128 0xd
+ 1064 01f1 94010000 		.4byte	.LASF30
+ 1065 01f5 01       		.byte	0x1
+ 1066 01f6 D101     		.2byte	0x1d1
+ 1067 01f8 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 42
 
 
- 1068 0200 0C000000 		.4byte	.LFE11-.LFB11
- 1069 0204 01       		.uleb128 0x1
- 1070 0205 9C       		.byte	0x9c
- 1071 0206 19020000 		.4byte	0x219
- 1072 020a 0E       		.uleb128 0xe
- 1073 020b 68040000 		.4byte	.LASF28
- 1074 020f 01       		.byte	0x1
- 1075 0210 D301     		.2byte	0x1d3
- 1076 0212 6B000000 		.4byte	0x6b
- 1077 0216 01       		.uleb128 0x1
- 1078 0217 50       		.byte	0x50
- 1079 0218 00       		.byte	0
- 1080 0219 0B       		.uleb128 0xb
- 1081 021a 48030000 		.4byte	.LASF31
- 1082 021e 01       		.byte	0x1
- 1083 021f 0C02     		.2byte	0x20c
- 1084 0221 00000000 		.4byte	.LFB12
- 1085 0225 18000000 		.4byte	.LFE12-.LFB12
- 1086 0229 01       		.uleb128 0x1
- 1087 022a 9C       		.byte	0x9c
- 1088 022b 3E020000 		.4byte	0x23e
- 1089 022f 0C       		.uleb128 0xc
- 1090 0230 35000000 		.4byte	.LASF32
- 1091 0234 01       		.byte	0x1
- 1092 0235 0C02     		.2byte	0x20c
- 1093 0237 6B000000 		.4byte	0x6b
- 1094 023b 01       		.uleb128 0x1
- 1095 023c 50       		.byte	0x50
- 1096 023d 00       		.byte	0
- 1097 023e 0D       		.uleb128 0xd
- 1098 023f 7E030000 		.4byte	.LASF33
- 1099 0243 01       		.byte	0x1
- 1100 0244 9502     		.2byte	0x295
- 1101 0246 6B000000 		.4byte	0x6b
- 1102 024a 00000000 		.4byte	.LFB13
- 1103 024e 0C000000 		.4byte	.LFE13-.LFB13
- 1104 0252 01       		.uleb128 0x1
- 1105 0253 9C       		.byte	0x9c
- 1106 0254 67020000 		.4byte	0x267
- 1107 0258 0E       		.uleb128 0xe
- 1108 0259 DD000000 		.4byte	.LASF34
- 1109 025d 01       		.byte	0x1
- 1110 025e 9702     		.2byte	0x297
- 1111 0260 6B000000 		.4byte	0x6b
- 1112 0264 01       		.uleb128 0x1
- 1113 0265 50       		.byte	0x50
- 1114 0266 00       		.byte	0
- 1115 0267 0D       		.uleb128 0xd
- 1116 0268 D9030000 		.4byte	.LASF35
- 1117 026c 01       		.byte	0x1
- 1118 026d D702     		.2byte	0x2d7
- 1119 026f 6B000000 		.4byte	0x6b
- 1120 0273 00000000 		.4byte	.LFB14
- 1121 0277 18000000 		.4byte	.LFE14-.LFB14
- 1122 027b 01       		.uleb128 0x1
- 1123 027c 9C       		.byte	0x9c
- 1124 027d 90020000 		.4byte	0x290
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 43
+ 1068 01fc 00000000 		.4byte	.LFB11
+ 1069 0200 0C000000 		.4byte	.LFE11-.LFB11
+ 1070 0204 01       		.uleb128 0x1
+ 1071 0205 9C       		.byte	0x9c
+ 1072 0206 19020000 		.4byte	0x219
+ 1073 020a 0E       		.uleb128 0xe
+ 1074 020b 0A040000 		.4byte	.LASF28
+ 1075 020f 01       		.byte	0x1
+ 1076 0210 D301     		.2byte	0x1d3
+ 1077 0212 6B000000 		.4byte	0x6b
+ 1078 0216 01       		.uleb128 0x1
+ 1079 0217 50       		.byte	0x50
+ 1080 0218 00       		.byte	0
+ 1081 0219 0B       		.uleb128 0xb
+ 1082 021a EA020000 		.4byte	.LASF31
+ 1083 021e 01       		.byte	0x1
+ 1084 021f 0C02     		.2byte	0x20c
+ 1085 0221 00000000 		.4byte	.LFB12
+ 1086 0225 18000000 		.4byte	.LFE12-.LFB12
+ 1087 0229 01       		.uleb128 0x1
+ 1088 022a 9C       		.byte	0x9c
+ 1089 022b 3E020000 		.4byte	0x23e
+ 1090 022f 0C       		.uleb128 0xc
+ 1091 0230 38000000 		.4byte	.LASF32
+ 1092 0234 01       		.byte	0x1
+ 1093 0235 0C02     		.2byte	0x20c
+ 1094 0237 6B000000 		.4byte	0x6b
+ 1095 023b 01       		.uleb128 0x1
+ 1096 023c 50       		.byte	0x50
+ 1097 023d 00       		.byte	0
+ 1098 023e 0D       		.uleb128 0xd
+ 1099 023f 20030000 		.4byte	.LASF33
+ 1100 0243 01       		.byte	0x1
+ 1101 0244 9502     		.2byte	0x295
+ 1102 0246 6B000000 		.4byte	0x6b
+ 1103 024a 00000000 		.4byte	.LFB13
+ 1104 024e 0C000000 		.4byte	.LFE13-.LFB13
+ 1105 0252 01       		.uleb128 0x1
+ 1106 0253 9C       		.byte	0x9c
+ 1107 0254 67020000 		.4byte	0x267
+ 1108 0258 0E       		.uleb128 0xe
+ 1109 0259 CC000000 		.4byte	.LASF34
+ 1110 025d 01       		.byte	0x1
+ 1111 025e 9702     		.2byte	0x297
+ 1112 0260 6B000000 		.4byte	0x6b
+ 1113 0264 01       		.uleb128 0x1
+ 1114 0265 50       		.byte	0x50
+ 1115 0266 00       		.byte	0
+ 1116 0267 0D       		.uleb128 0xd
+ 1117 0268 7B030000 		.4byte	.LASF35
+ 1118 026c 01       		.byte	0x1
+ 1119 026d D702     		.2byte	0x2d7
+ 1120 026f 6B000000 		.4byte	0x6b
+ 1121 0273 00000000 		.4byte	.LFB14
+ 1122 0277 18000000 		.4byte	.LFE14-.LFB14
+ 1123 027b 01       		.uleb128 0x1
+ 1124 027c 9C       		.byte	0x9c
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 43
 
 
- 1125 0281 0E       		.uleb128 0xe
- 1126 0282 12010000 		.4byte	.LASF36
- 1127 0286 01       		.byte	0x1
- 1128 0287 D902     		.2byte	0x2d9
- 1129 0289 6B000000 		.4byte	0x6b
- 1130 028d 01       		.uleb128 0x1
- 1131 028e 50       		.byte	0x50
- 1132 028f 00       		.byte	0
- 1133 0290 0D       		.uleb128 0xd
- 1134 0291 9C030000 		.4byte	.LASF37
- 1135 0295 01       		.byte	0x1
- 1136 0296 1803     		.2byte	0x318
- 1137 0298 6B000000 		.4byte	0x6b
- 1138 029c 00000000 		.4byte	.LFB15
- 1139 02a0 24000000 		.4byte	.LFE15-.LFB15
- 1140 02a4 01       		.uleb128 0x1
- 1141 02a5 9C       		.byte	0x9c
- 1142 02a6 BB020000 		.4byte	0x2bb
- 1143 02aa 0F       		.uleb128 0xf
- 1144 02ab 12010000 		.4byte	.LASF36
- 1145 02af 01       		.byte	0x1
- 1146 02b0 1A03     		.2byte	0x31a
- 1147 02b2 6B000000 		.4byte	0x6b
- 1148 02b6 26000000 		.4byte	.LLST2
- 1149 02ba 00       		.byte	0
- 1150 02bb 0A       		.uleb128 0xa
- 1151 02bc B1000000 		.4byte	.LASF38
- 1152 02c0 01       		.byte	0x1
- 1153 02c1 6A03     		.2byte	0x36a
- 1154 02c3 00000000 		.4byte	.LFB16
- 1155 02c7 1C000000 		.4byte	.LFE16-.LFB16
- 1156 02cb 01       		.uleb128 0x1
- 1157 02cc 9C       		.byte	0x9c
- 1158 02cd 0B       		.uleb128 0xb
- 1159 02ce 30040000 		.4byte	.LASF39
- 1160 02d2 01       		.byte	0x1
- 1161 02d3 A303     		.2byte	0x3a3
- 1162 02d5 00000000 		.4byte	.LFB17
- 1163 02d9 24000000 		.4byte	.LFE17-.LFB17
- 1164 02dd 01       		.uleb128 0x1
- 1165 02de 9C       		.byte	0x9c
- 1166 02df 06030000 		.4byte	0x306
- 1167 02e3 0F       		.uleb128 0xf
- 1168 02e4 00000000 		.4byte	.LASF20
- 1169 02e8 01       		.byte	0x1
- 1170 02e9 A503     		.2byte	0x3a5
- 1171 02eb 6B000000 		.4byte	0x6b
- 1172 02ef 44000000 		.4byte	.LLST3
- 1173 02f3 08       		.uleb128 0x8
- 1174 02f4 06000000 		.4byte	.LVL13
- 1175 02f8 C6040000 		.4byte	0x4c6
- 1176 02fc 08       		.uleb128 0x8
- 1177 02fd 1C000000 		.4byte	.LVL14
- 1178 0301 D1040000 		.4byte	0x4d1
- 1179 0305 00       		.byte	0
- 1180 0306 0B       		.uleb128 0xb
- 1181 0307 05030000 		.4byte	.LASF40
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 44
+ 1125 027d 90020000 		.4byte	0x290
+ 1126 0281 0E       		.uleb128 0xe
+ 1127 0282 01010000 		.4byte	.LASF36
+ 1128 0286 01       		.byte	0x1
+ 1129 0287 D902     		.2byte	0x2d9
+ 1130 0289 6B000000 		.4byte	0x6b
+ 1131 028d 01       		.uleb128 0x1
+ 1132 028e 50       		.byte	0x50
+ 1133 028f 00       		.byte	0
+ 1134 0290 0D       		.uleb128 0xd
+ 1135 0291 3E030000 		.4byte	.LASF37
+ 1136 0295 01       		.byte	0x1
+ 1137 0296 1803     		.2byte	0x318
+ 1138 0298 6B000000 		.4byte	0x6b
+ 1139 029c 00000000 		.4byte	.LFB15
+ 1140 02a0 24000000 		.4byte	.LFE15-.LFB15
+ 1141 02a4 01       		.uleb128 0x1
+ 1142 02a5 9C       		.byte	0x9c
+ 1143 02a6 BB020000 		.4byte	0x2bb
+ 1144 02aa 0F       		.uleb128 0xf
+ 1145 02ab 01010000 		.4byte	.LASF36
+ 1146 02af 01       		.byte	0x1
+ 1147 02b0 1A03     		.2byte	0x31a
+ 1148 02b2 6B000000 		.4byte	0x6b
+ 1149 02b6 26000000 		.4byte	.LLST2
+ 1150 02ba 00       		.byte	0
+ 1151 02bb 0A       		.uleb128 0xa
+ 1152 02bc B4000000 		.4byte	.LASF38
+ 1153 02c0 01       		.byte	0x1
+ 1154 02c1 6A03     		.2byte	0x36a
+ 1155 02c3 00000000 		.4byte	.LFB16
+ 1156 02c7 1C000000 		.4byte	.LFE16-.LFB16
+ 1157 02cb 01       		.uleb128 0x1
+ 1158 02cc 9C       		.byte	0x9c
+ 1159 02cd 0B       		.uleb128 0xb
+ 1160 02ce D2030000 		.4byte	.LASF39
+ 1161 02d2 01       		.byte	0x1
+ 1162 02d3 A303     		.2byte	0x3a3
+ 1163 02d5 00000000 		.4byte	.LFB17
+ 1164 02d9 24000000 		.4byte	.LFE17-.LFB17
+ 1165 02dd 01       		.uleb128 0x1
+ 1166 02de 9C       		.byte	0x9c
+ 1167 02df 06030000 		.4byte	0x306
+ 1168 02e3 0F       		.uleb128 0xf
+ 1169 02e4 14020000 		.4byte	.LASF20
+ 1170 02e8 01       		.byte	0x1
+ 1171 02e9 A503     		.2byte	0x3a5
+ 1172 02eb 6B000000 		.4byte	0x6b
+ 1173 02ef 44000000 		.4byte	.LLST3
+ 1174 02f3 08       		.uleb128 0x8
+ 1175 02f4 06000000 		.4byte	.LVL13
+ 1176 02f8 C6040000 		.4byte	0x4c6
+ 1177 02fc 08       		.uleb128 0x8
+ 1178 02fd 1C000000 		.4byte	.LVL14
+ 1179 0301 D1040000 		.4byte	0x4d1
+ 1180 0305 00       		.byte	0
+ 1181 0306 0B       		.uleb128 0xb
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 44
 
 
- 1182 030b 01       		.byte	0x1
- 1183 030c 1704     		.2byte	0x417
- 1184 030e 00000000 		.4byte	.LFB18
- 1185 0312 1E000000 		.4byte	.LFE18-.LFB18
- 1186 0316 01       		.uleb128 0x1
- 1187 0317 9C       		.byte	0x9c
- 1188 0318 56030000 		.4byte	0x356
- 1189 031c 10       		.uleb128 0x10
- 1190 031d 29040000 		.4byte	.LASF41
- 1191 0321 01       		.byte	0x1
- 1192 0322 1704     		.2byte	0x417
- 1193 0324 56030000 		.4byte	0x356
- 1194 0328 57000000 		.4byte	.LLST4
- 1195 032c 10       		.uleb128 0x10
- 1196 032d 1B020000 		.4byte	.LASF42
- 1197 0331 01       		.byte	0x1
- 1198 0332 1704     		.2byte	0x417
- 1199 0334 6B000000 		.4byte	0x6b
- 1200 0338 75000000 		.4byte	.LLST5
- 1201 033c 0F       		.uleb128 0xf
- 1202 033d 3F030000 		.4byte	.LASF43
- 1203 0341 01       		.byte	0x1
- 1204 0342 1A04     		.2byte	0x41a
- 1205 0344 6B000000 		.4byte	0x6b
- 1206 0348 9E000000 		.4byte	.LLST6
- 1207 034c 08       		.uleb128 0x8
- 1208 034d 10000000 		.4byte	.LVL18
- 1209 0351 19020000 		.4byte	0x219
- 1210 0355 00       		.byte	0
- 1211 0356 11       		.uleb128 0x11
- 1212 0357 04       		.byte	0x4
- 1213 0358 5C030000 		.4byte	0x35c
- 1214 035c 12       		.uleb128 0x12
- 1215 035d 6B000000 		.4byte	0x6b
- 1216 0361 0B       		.uleb128 0xb
- 1217 0362 C9000000 		.4byte	.LASF44
- 1218 0366 01       		.byte	0x1
- 1219 0367 3704     		.2byte	0x437
- 1220 0369 00000000 		.4byte	.LFB19
- 1221 036d 3C000000 		.4byte	.LFE19-.LFB19
- 1222 0371 01       		.uleb128 0x1
- 1223 0372 9C       		.byte	0x9c
- 1224 0373 9A030000 		.4byte	0x39a
- 1225 0377 0F       		.uleb128 0xf
- 1226 0378 00000000 		.4byte	.LASF20
- 1227 037c 01       		.byte	0x1
- 1228 037d 3904     		.2byte	0x439
- 1229 037f 6B000000 		.4byte	0x6b
- 1230 0383 C8000000 		.4byte	.LLST7
- 1231 0387 08       		.uleb128 0x8
- 1232 0388 16000000 		.4byte	.LVL23
- 1233 038c C6040000 		.4byte	0x4c6
- 1234 0390 08       		.uleb128 0x8
- 1235 0391 2C000000 		.4byte	.LVL24
- 1236 0395 D1040000 		.4byte	0x4d1
- 1237 0399 00       		.byte	0
- 1238 039a 06       		.uleb128 0x6
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 45
+ 1182 0307 A7020000 		.4byte	.LASF40
+ 1183 030b 01       		.byte	0x1
+ 1184 030c 1704     		.2byte	0x417
+ 1185 030e 00000000 		.4byte	.LFB18
+ 1186 0312 1E000000 		.4byte	.LFE18-.LFB18
+ 1187 0316 01       		.uleb128 0x1
+ 1188 0317 9C       		.byte	0x9c
+ 1189 0318 56030000 		.4byte	0x356
+ 1190 031c 10       		.uleb128 0x10
+ 1191 031d CB030000 		.4byte	.LASF41
+ 1192 0321 01       		.byte	0x1
+ 1193 0322 1704     		.2byte	0x417
+ 1194 0324 56030000 		.4byte	0x356
+ 1195 0328 57000000 		.4byte	.LLST4
+ 1196 032c 10       		.uleb128 0x10
+ 1197 032d 0A020000 		.4byte	.LASF42
+ 1198 0331 01       		.byte	0x1
+ 1199 0332 1704     		.2byte	0x417
+ 1200 0334 6B000000 		.4byte	0x6b
+ 1201 0338 75000000 		.4byte	.LLST5
+ 1202 033c 0F       		.uleb128 0xf
+ 1203 033d E1020000 		.4byte	.LASF43
+ 1204 0341 01       		.byte	0x1
+ 1205 0342 1A04     		.2byte	0x41a
+ 1206 0344 6B000000 		.4byte	0x6b
+ 1207 0348 9E000000 		.4byte	.LLST6
+ 1208 034c 08       		.uleb128 0x8
+ 1209 034d 10000000 		.4byte	.LVL18
+ 1210 0351 19020000 		.4byte	0x219
+ 1211 0355 00       		.byte	0
+ 1212 0356 11       		.uleb128 0x11
+ 1213 0357 04       		.byte	0x4
+ 1214 0358 5C030000 		.4byte	0x35c
+ 1215 035c 12       		.uleb128 0x12
+ 1216 035d 6B000000 		.4byte	0x6b
+ 1217 0361 0B       		.uleb128 0xb
+ 1218 0362 00000000 		.4byte	.LASF44
+ 1219 0366 01       		.byte	0x1
+ 1220 0367 3704     		.2byte	0x437
+ 1221 0369 00000000 		.4byte	.LFB19
+ 1222 036d 3C000000 		.4byte	.LFE19-.LFB19
+ 1223 0371 01       		.uleb128 0x1
+ 1224 0372 9C       		.byte	0x9c
+ 1225 0373 9A030000 		.4byte	0x39a
+ 1226 0377 0F       		.uleb128 0xf
+ 1227 0378 14020000 		.4byte	.LASF20
+ 1228 037c 01       		.byte	0x1
+ 1229 037d 3904     		.2byte	0x439
+ 1230 037f 6B000000 		.4byte	0x6b
+ 1231 0383 C8000000 		.4byte	.LLST7
+ 1232 0387 08       		.uleb128 0x8
+ 1233 0388 16000000 		.4byte	.LVL23
+ 1234 038c C6040000 		.4byte	0x4c6
+ 1235 0390 08       		.uleb128 0x8
+ 1236 0391 2C000000 		.4byte	.LVL24
+ 1237 0395 D1040000 		.4byte	0x4d1
+ 1238 0399 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 45
 
 
- 1239 039b 17000000 		.4byte	.LASF45
- 1240 039f 01       		.byte	0x1
- 1241 03a0 43       		.byte	0x43
- 1242 03a1 00000000 		.4byte	.LFB0
- 1243 03a5 48000000 		.4byte	.LFE0-.LFB0
- 1244 03a9 01       		.uleb128 0x1
- 1245 03aa 9C       		.byte	0x9c
- 1246 03ab F7030000 		.4byte	0x3f7
- 1247 03af 13       		.uleb128 0x13
- 1248 03b0 16000000 		.4byte	.LVL25
- 1249 03b4 DC040000 		.4byte	0x4dc
- 1250 03b8 C2030000 		.4byte	0x3c2
- 1251 03bc 14       		.uleb128 0x14
- 1252 03bd 01       		.uleb128 0x1
- 1253 03be 50       		.byte	0x50
- 1254 03bf 01       		.uleb128 0x1
- 1255 03c0 32       		.byte	0x32
- 1256 03c1 00       		.byte	0
- 1257 03c2 13       		.uleb128 0x13
- 1258 03c3 1E000000 		.4byte	.LVL26
- 1259 03c7 E7040000 		.4byte	0x4e7
- 1260 03cb DB030000 		.4byte	0x3db
- 1261 03cf 14       		.uleb128 0x14
- 1262 03d0 01       		.uleb128 0x1
- 1263 03d1 50       		.byte	0x50
- 1264 03d2 01       		.uleb128 0x1
- 1265 03d3 32       		.byte	0x32
- 1266 03d4 14       		.uleb128 0x14
- 1267 03d5 01       		.uleb128 0x1
- 1268 03d6 51       		.byte	0x51
- 1269 03d7 02       		.uleb128 0x2
- 1270 03d8 74       		.byte	0x74
- 1271 03d9 00       		.sleb128 0
- 1272 03da 00       		.byte	0
- 1273 03db 08       		.uleb128 0x8
- 1274 03dc 22000000 		.4byte	.LVL27
- 1275 03e0 61030000 		.4byte	0x361
- 1276 03e4 08       		.uleb128 0x8
- 1277 03e5 26000000 		.4byte	.LVL28
- 1278 03e9 C7010000 		.4byte	0x1c7
- 1279 03ed 08       		.uleb128 0x8
- 1280 03ee 2A000000 		.4byte	.LVL29
- 1281 03f2 F0010000 		.4byte	0x1f0
- 1282 03f6 00       		.byte	0
- 1283 03f7 06       		.uleb128 0x6
- 1284 03f8 83020000 		.4byte	.LASF46
- 1285 03fc 01       		.byte	0x1
- 1286 03fd BB       		.byte	0xbb
- 1287 03fe 00000000 		.4byte	.LFB2
- 1288 0402 1C000000 		.4byte	.LFE2-.LFB2
- 1289 0406 01       		.uleb128 0x1
- 1290 0407 9C       		.byte	0x9c
- 1291 0408 1F040000 		.4byte	0x41f
- 1292 040c 08       		.uleb128 0x8
- 1293 040d 0C000000 		.4byte	.LVL30
- 1294 0411 9A030000 		.4byte	0x39a
- 1295 0415 08       		.uleb128 0x8
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 46
+ 1239 039a 06       		.uleb128 0x6
+ 1240 039b 1A000000 		.4byte	.LASF45
+ 1241 039f 01       		.byte	0x1
+ 1242 03a0 43       		.byte	0x43
+ 1243 03a1 00000000 		.4byte	.LFB0
+ 1244 03a5 48000000 		.4byte	.LFE0-.LFB0
+ 1245 03a9 01       		.uleb128 0x1
+ 1246 03aa 9C       		.byte	0x9c
+ 1247 03ab F7030000 		.4byte	0x3f7
+ 1248 03af 13       		.uleb128 0x13
+ 1249 03b0 16000000 		.4byte	.LVL25
+ 1250 03b4 DC040000 		.4byte	0x4dc
+ 1251 03b8 C2030000 		.4byte	0x3c2
+ 1252 03bc 14       		.uleb128 0x14
+ 1253 03bd 01       		.uleb128 0x1
+ 1254 03be 50       		.byte	0x50
+ 1255 03bf 01       		.uleb128 0x1
+ 1256 03c0 33       		.byte	0x33
+ 1257 03c1 00       		.byte	0
+ 1258 03c2 13       		.uleb128 0x13
+ 1259 03c3 1E000000 		.4byte	.LVL26
+ 1260 03c7 E7040000 		.4byte	0x4e7
+ 1261 03cb DB030000 		.4byte	0x3db
+ 1262 03cf 14       		.uleb128 0x14
+ 1263 03d0 01       		.uleb128 0x1
+ 1264 03d1 50       		.byte	0x50
+ 1265 03d2 01       		.uleb128 0x1
+ 1266 03d3 33       		.byte	0x33
+ 1267 03d4 14       		.uleb128 0x14
+ 1268 03d5 01       		.uleb128 0x1
+ 1269 03d6 51       		.byte	0x51
+ 1270 03d7 02       		.uleb128 0x2
+ 1271 03d8 75       		.byte	0x75
+ 1272 03d9 00       		.sleb128 0
+ 1273 03da 00       		.byte	0
+ 1274 03db 08       		.uleb128 0x8
+ 1275 03dc 22000000 		.4byte	.LVL27
+ 1276 03e0 61030000 		.4byte	0x361
+ 1277 03e4 08       		.uleb128 0x8
+ 1278 03e5 26000000 		.4byte	.LVL28
+ 1279 03e9 C7010000 		.4byte	0x1c7
+ 1280 03ed 08       		.uleb128 0x8
+ 1281 03ee 2A000000 		.4byte	.LVL29
+ 1282 03f2 F0010000 		.4byte	0x1f0
+ 1283 03f6 00       		.byte	0
+ 1284 03f7 06       		.uleb128 0x6
+ 1285 03f8 25020000 		.4byte	.LASF46
+ 1286 03fc 01       		.byte	0x1
+ 1287 03fd BB       		.byte	0xbb
+ 1288 03fe 00000000 		.4byte	.LFB2
+ 1289 0402 1C000000 		.4byte	.LFE2-.LFB2
+ 1290 0406 01       		.uleb128 0x1
+ 1291 0407 9C       		.byte	0x9c
+ 1292 0408 1F040000 		.4byte	0x41f
+ 1293 040c 08       		.uleb128 0x8
+ 1294 040d 0C000000 		.4byte	.LVL30
+ 1295 0411 9A030000 		.4byte	0x39a
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 46
 
 
- 1296 0416 16000000 		.4byte	.LVL31
- 1297 041a C8000000 		.4byte	0xc8
- 1298 041e 00       		.byte	0
- 1299 041f 0A       		.uleb128 0xa
- 1300 0420 90040000 		.4byte	.LASF47
- 1301 0424 01       		.byte	0x1
- 1302 0425 6C04     		.2byte	0x46c
- 1303 0427 00000000 		.4byte	.LFB20
- 1304 042b 0C000000 		.4byte	.LFE20-.LFB20
- 1305 042f 01       		.uleb128 0x1
- 1306 0430 9C       		.byte	0x9c
- 1307 0431 0A       		.uleb128 0xa
- 1308 0432 CD010000 		.4byte	.LASF48
- 1309 0436 01       		.byte	0x1
- 1310 0437 8904     		.2byte	0x489
- 1311 0439 00000000 		.4byte	.LFB21
- 1312 043d 0C000000 		.4byte	.LFE21-.LFB21
- 1313 0441 01       		.uleb128 0x1
- 1314 0442 9C       		.byte	0x9c
- 1315 0443 0B       		.uleb128 0xb
- 1316 0444 5E030000 		.4byte	.LASF49
- 1317 0448 01       		.byte	0x1
- 1318 0449 A704     		.2byte	0x4a7
- 1319 044b 00000000 		.4byte	.LFB22
- 1320 044f 10000000 		.4byte	.LFE22-.LFB22
- 1321 0453 01       		.uleb128 0x1
- 1322 0454 9C       		.byte	0x9c
- 1323 0455 68040000 		.4byte	0x468
- 1324 0459 0C       		.uleb128 0xc
- 1325 045a A8020000 		.4byte	.LASF27
- 1326 045e 01       		.byte	0x1
- 1327 045f A704     		.2byte	0x4a7
- 1328 0461 6B000000 		.4byte	0x6b
- 1329 0465 01       		.uleb128 0x1
- 1330 0466 50       		.byte	0x50
- 1331 0467 00       		.byte	0
- 1332 0468 0D       		.uleb128 0xd
- 1333 0469 AF020000 		.4byte	.LASF50
- 1334 046d 01       		.byte	0x1
- 1335 046e CA04     		.2byte	0x4ca
- 1336 0470 6B000000 		.4byte	0x6b
- 1337 0474 00000000 		.4byte	.LFB23
- 1338 0478 14000000 		.4byte	.LFE23-.LFB23
- 1339 047c 01       		.uleb128 0x1
- 1340 047d 9C       		.byte	0x9c
- 1341 047e 93040000 		.4byte	0x493
- 1342 0482 0F       		.uleb128 0xf
- 1343 0483 68040000 		.4byte	.LASF28
- 1344 0487 01       		.byte	0x1
- 1345 0488 CC04     		.2byte	0x4cc
- 1346 048a 6B000000 		.4byte	0x6b
- 1347 048e DB000000 		.4byte	.LLST8
- 1348 0492 00       		.byte	0
- 1349 0493 15       		.uleb128 0x15
- 1350 0494 F4010000 		.4byte	.LASF51
- 1351 0498 01       		.byte	0x1
- 1352 0499 26       		.byte	0x26
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 47
+ 1296 0415 08       		.uleb128 0x8
+ 1297 0416 16000000 		.4byte	.LVL31
+ 1298 041a C8000000 		.4byte	0xc8
+ 1299 041e 00       		.byte	0
+ 1300 041f 0A       		.uleb128 0xa
+ 1301 0420 9C040000 		.4byte	.LASF47
+ 1302 0424 01       		.byte	0x1
+ 1303 0425 6C04     		.2byte	0x46c
+ 1304 0427 00000000 		.4byte	.LFB20
+ 1305 042b 0C000000 		.4byte	.LFE20-.LFB20
+ 1306 042f 01       		.uleb128 0x1
+ 1307 0430 9C       		.byte	0x9c
+ 1308 0431 0A       		.uleb128 0xa
+ 1309 0432 BC010000 		.4byte	.LASF48
+ 1310 0436 01       		.byte	0x1
+ 1311 0437 8904     		.2byte	0x489
+ 1312 0439 00000000 		.4byte	.LFB21
+ 1313 043d 0C000000 		.4byte	.LFE21-.LFB21
+ 1314 0441 01       		.uleb128 0x1
+ 1315 0442 9C       		.byte	0x9c
+ 1316 0443 0B       		.uleb128 0xb
+ 1317 0444 00030000 		.4byte	.LASF49
+ 1318 0448 01       		.byte	0x1
+ 1319 0449 A704     		.2byte	0x4a7
+ 1320 044b 00000000 		.4byte	.LFB22
+ 1321 044f 10000000 		.4byte	.LFE22-.LFB22
+ 1322 0453 01       		.uleb128 0x1
+ 1323 0454 9C       		.byte	0x9c
+ 1324 0455 68040000 		.4byte	0x468
+ 1325 0459 0C       		.uleb128 0xc
+ 1326 045a 4A020000 		.4byte	.LASF27
+ 1327 045e 01       		.byte	0x1
+ 1328 045f A704     		.2byte	0x4a7
+ 1329 0461 6B000000 		.4byte	0x6b
+ 1330 0465 01       		.uleb128 0x1
+ 1331 0466 50       		.byte	0x50
+ 1332 0467 00       		.byte	0
+ 1333 0468 0D       		.uleb128 0xd
+ 1334 0469 51020000 		.4byte	.LASF50
+ 1335 046d 01       		.byte	0x1
+ 1336 046e CA04     		.2byte	0x4ca
+ 1337 0470 6B000000 		.4byte	0x6b
+ 1338 0474 00000000 		.4byte	.LFB23
+ 1339 0478 18000000 		.4byte	.LFE23-.LFB23
+ 1340 047c 01       		.uleb128 0x1
+ 1341 047d 9C       		.byte	0x9c
+ 1342 047e 93040000 		.4byte	0x493
+ 1343 0482 0F       		.uleb128 0xf
+ 1344 0483 0A040000 		.4byte	.LASF28
+ 1345 0487 01       		.byte	0x1
+ 1346 0488 CC04     		.2byte	0x4cc
+ 1347 048a 6B000000 		.4byte	0x6b
+ 1348 048e DB000000 		.4byte	.LLST8
+ 1349 0492 00       		.byte	0
+ 1350 0493 15       		.uleb128 0x15
+ 1351 0494 E3010000 		.4byte	.LASF51
+ 1352 0498 01       		.byte	0x1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 47
 
 
- 1353 049a 6B000000 		.4byte	0x6b
- 1354 049e 05       		.uleb128 0x5
- 1355 049f 03       		.byte	0x3
- 1356 04a0 00000000 		.4byte	SPI_Slave_initVar
- 1357 04a4 15       		.uleb128 0x15
- 1358 04a5 0A040000 		.4byte	.LASF52
- 1359 04a9 01       		.byte	0x1
- 1360 04aa 28       		.byte	0x28
- 1361 04ab A4000000 		.4byte	0xa4
- 1362 04af 05       		.uleb128 0x5
- 1363 04b0 03       		.byte	0x3
- 1364 04b1 00000000 		.4byte	SPI_Slave_swStatusTx
- 1365 04b5 15       		.uleb128 0x15
- 1366 04b6 C4030000 		.4byte	.LASF53
- 1367 04ba 01       		.byte	0x1
- 1368 04bb 29       		.byte	0x29
- 1369 04bc A4000000 		.4byte	0xa4
- 1370 04c0 05       		.uleb128 0x5
- 1371 04c1 03       		.byte	0x3
- 1372 04c2 00000000 		.4byte	SPI_Slave_swStatusRx
- 1373 04c6 16       		.uleb128 0x16
- 1374 04c7 E1020000 		.4byte	.LASF54
- 1375 04cb E1020000 		.4byte	.LASF54
- 1376 04cf 03       		.byte	0x3
- 1377 04d0 7D       		.byte	0x7d
- 1378 04d1 16       		.uleb128 0x16
- 1379 04d2 18030000 		.4byte	.LASF55
- 1380 04d6 18030000 		.4byte	.LASF55
- 1381 04da 03       		.byte	0x3
- 1382 04db 7E       		.byte	0x7e
- 1383 04dc 16       		.uleb128 0x16
- 1384 04dd 26000000 		.4byte	.LASF56
- 1385 04e1 26000000 		.4byte	.LASF56
- 1386 04e5 03       		.byte	0x3
- 1387 04e6 88       		.byte	0x88
- 1388 04e7 16       		.uleb128 0x16
- 1389 04e8 2E030000 		.4byte	.LASF57
- 1390 04ec 2E030000 		.4byte	.LASF57
- 1391 04f0 03       		.byte	0x3
- 1392 04f1 8B       		.byte	0x8b
- 1393 04f2 00       		.byte	0
- 1394              		.section	.debug_abbrev,"",%progbits
- 1395              	.Ldebug_abbrev0:
- 1396 0000 01       		.uleb128 0x1
- 1397 0001 11       		.uleb128 0x11
- 1398 0002 01       		.byte	0x1
- 1399 0003 25       		.uleb128 0x25
- 1400 0004 0E       		.uleb128 0xe
- 1401 0005 13       		.uleb128 0x13
- 1402 0006 0B       		.uleb128 0xb
- 1403 0007 03       		.uleb128 0x3
- 1404 0008 0E       		.uleb128 0xe
- 1405 0009 1B       		.uleb128 0x1b
- 1406 000a 0E       		.uleb128 0xe
- 1407 000b 55       		.uleb128 0x55
- 1408 000c 17       		.uleb128 0x17
- 1409 000d 11       		.uleb128 0x11
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 48
+ 1353 0499 26       		.byte	0x26
+ 1354 049a 6B000000 		.4byte	0x6b
+ 1355 049e 05       		.uleb128 0x5
+ 1356 049f 03       		.byte	0x3
+ 1357 04a0 00000000 		.4byte	SPI_Slave_initVar
+ 1358 04a4 15       		.uleb128 0x15
+ 1359 04a5 AC030000 		.4byte	.LASF52
+ 1360 04a9 01       		.byte	0x1
+ 1361 04aa 28       		.byte	0x28
+ 1362 04ab A4000000 		.4byte	0xa4
+ 1363 04af 05       		.uleb128 0x5
+ 1364 04b0 03       		.byte	0x3
+ 1365 04b1 00000000 		.4byte	SPI_Slave_swStatusTx
+ 1366 04b5 15       		.uleb128 0x15
+ 1367 04b6 66030000 		.4byte	.LASF53
+ 1368 04ba 01       		.byte	0x1
+ 1369 04bb 29       		.byte	0x29
+ 1370 04bc A4000000 		.4byte	0xa4
+ 1371 04c0 05       		.uleb128 0x5
+ 1372 04c1 03       		.byte	0x3
+ 1373 04c2 00000000 		.4byte	SPI_Slave_swStatusRx
+ 1374 04c6 16       		.uleb128 0x16
+ 1375 04c7 83020000 		.4byte	.LASF54
+ 1376 04cb 83020000 		.4byte	.LASF54
+ 1377 04cf 03       		.byte	0x3
+ 1378 04d0 7D       		.byte	0x7d
+ 1379 04d1 16       		.uleb128 0x16
+ 1380 04d2 BA020000 		.4byte	.LASF55
+ 1381 04d6 BA020000 		.4byte	.LASF55
+ 1382 04da 03       		.byte	0x3
+ 1383 04db 7E       		.byte	0x7e
+ 1384 04dc 16       		.uleb128 0x16
+ 1385 04dd 29000000 		.4byte	.LASF56
+ 1386 04e1 29000000 		.4byte	.LASF56
+ 1387 04e5 03       		.byte	0x3
+ 1388 04e6 88       		.byte	0x88
+ 1389 04e7 16       		.uleb128 0x16
+ 1390 04e8 D0020000 		.4byte	.LASF57
+ 1391 04ec D0020000 		.4byte	.LASF57
+ 1392 04f0 03       		.byte	0x3
+ 1393 04f1 8B       		.byte	0x8b
+ 1394 04f2 00       		.byte	0
+ 1395              		.section	.debug_abbrev,"",%progbits
+ 1396              	.Ldebug_abbrev0:
+ 1397 0000 01       		.uleb128 0x1
+ 1398 0001 11       		.uleb128 0x11
+ 1399 0002 01       		.byte	0x1
+ 1400 0003 25       		.uleb128 0x25
+ 1401 0004 0E       		.uleb128 0xe
+ 1402 0005 13       		.uleb128 0x13
+ 1403 0006 0B       		.uleb128 0xb
+ 1404 0007 03       		.uleb128 0x3
+ 1405 0008 0E       		.uleb128 0xe
+ 1406 0009 1B       		.uleb128 0x1b
+ 1407 000a 0E       		.uleb128 0xe
+ 1408 000b 55       		.uleb128 0x55
+ 1409 000c 17       		.uleb128 0x17
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 48
 
 
- 1410 000e 01       		.uleb128 0x1
- 1411 000f 10       		.uleb128 0x10
- 1412 0010 17       		.uleb128 0x17
- 1413 0011 00       		.byte	0
- 1414 0012 00       		.byte	0
- 1415 0013 02       		.uleb128 0x2
- 1416 0014 24       		.uleb128 0x24
- 1417 0015 00       		.byte	0
- 1418 0016 0B       		.uleb128 0xb
- 1419 0017 0B       		.uleb128 0xb
- 1420 0018 3E       		.uleb128 0x3e
- 1421 0019 0B       		.uleb128 0xb
- 1422 001a 03       		.uleb128 0x3
- 1423 001b 0E       		.uleb128 0xe
- 1424 001c 00       		.byte	0
- 1425 001d 00       		.byte	0
- 1426 001e 03       		.uleb128 0x3
- 1427 001f 24       		.uleb128 0x24
- 1428 0020 00       		.byte	0
- 1429 0021 0B       		.uleb128 0xb
- 1430 0022 0B       		.uleb128 0xb
- 1431 0023 3E       		.uleb128 0x3e
- 1432 0024 0B       		.uleb128 0xb
- 1433 0025 03       		.uleb128 0x3
- 1434 0026 08       		.uleb128 0x8
- 1435 0027 00       		.byte	0
- 1436 0028 00       		.byte	0
- 1437 0029 04       		.uleb128 0x4
- 1438 002a 16       		.uleb128 0x16
- 1439 002b 00       		.byte	0
- 1440 002c 03       		.uleb128 0x3
- 1441 002d 0E       		.uleb128 0xe
- 1442 002e 3A       		.uleb128 0x3a
- 1443 002f 0B       		.uleb128 0xb
- 1444 0030 3B       		.uleb128 0x3b
- 1445 0031 05       		.uleb128 0x5
- 1446 0032 49       		.uleb128 0x49
- 1447 0033 13       		.uleb128 0x13
- 1448 0034 00       		.byte	0
- 1449 0035 00       		.byte	0
- 1450 0036 05       		.uleb128 0x5
- 1451 0037 35       		.uleb128 0x35
- 1452 0038 00       		.byte	0
- 1453 0039 49       		.uleb128 0x49
- 1454 003a 13       		.uleb128 0x13
- 1455 003b 00       		.byte	0
- 1456 003c 00       		.byte	0
- 1457 003d 06       		.uleb128 0x6
- 1458 003e 2E       		.uleb128 0x2e
- 1459 003f 01       		.byte	0x1
- 1460 0040 3F       		.uleb128 0x3f
- 1461 0041 19       		.uleb128 0x19
- 1462 0042 03       		.uleb128 0x3
- 1463 0043 0E       		.uleb128 0xe
- 1464 0044 3A       		.uleb128 0x3a
- 1465 0045 0B       		.uleb128 0xb
- 1466 0046 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 49
+ 1410 000d 11       		.uleb128 0x11
+ 1411 000e 01       		.uleb128 0x1
+ 1412 000f 10       		.uleb128 0x10
+ 1413 0010 17       		.uleb128 0x17
+ 1414 0011 00       		.byte	0
+ 1415 0012 00       		.byte	0
+ 1416 0013 02       		.uleb128 0x2
+ 1417 0014 24       		.uleb128 0x24
+ 1418 0015 00       		.byte	0
+ 1419 0016 0B       		.uleb128 0xb
+ 1420 0017 0B       		.uleb128 0xb
+ 1421 0018 3E       		.uleb128 0x3e
+ 1422 0019 0B       		.uleb128 0xb
+ 1423 001a 03       		.uleb128 0x3
+ 1424 001b 0E       		.uleb128 0xe
+ 1425 001c 00       		.byte	0
+ 1426 001d 00       		.byte	0
+ 1427 001e 03       		.uleb128 0x3
+ 1428 001f 24       		.uleb128 0x24
+ 1429 0020 00       		.byte	0
+ 1430 0021 0B       		.uleb128 0xb
+ 1431 0022 0B       		.uleb128 0xb
+ 1432 0023 3E       		.uleb128 0x3e
+ 1433 0024 0B       		.uleb128 0xb
+ 1434 0025 03       		.uleb128 0x3
+ 1435 0026 08       		.uleb128 0x8
+ 1436 0027 00       		.byte	0
+ 1437 0028 00       		.byte	0
+ 1438 0029 04       		.uleb128 0x4
+ 1439 002a 16       		.uleb128 0x16
+ 1440 002b 00       		.byte	0
+ 1441 002c 03       		.uleb128 0x3
+ 1442 002d 0E       		.uleb128 0xe
+ 1443 002e 3A       		.uleb128 0x3a
+ 1444 002f 0B       		.uleb128 0xb
+ 1445 0030 3B       		.uleb128 0x3b
+ 1446 0031 05       		.uleb128 0x5
+ 1447 0032 49       		.uleb128 0x49
+ 1448 0033 13       		.uleb128 0x13
+ 1449 0034 00       		.byte	0
+ 1450 0035 00       		.byte	0
+ 1451 0036 05       		.uleb128 0x5
+ 1452 0037 35       		.uleb128 0x35
+ 1453 0038 00       		.byte	0
+ 1454 0039 49       		.uleb128 0x49
+ 1455 003a 13       		.uleb128 0x13
+ 1456 003b 00       		.byte	0
+ 1457 003c 00       		.byte	0
+ 1458 003d 06       		.uleb128 0x6
+ 1459 003e 2E       		.uleb128 0x2e
+ 1460 003f 01       		.byte	0x1
+ 1461 0040 3F       		.uleb128 0x3f
+ 1462 0041 19       		.uleb128 0x19
+ 1463 0042 03       		.uleb128 0x3
+ 1464 0043 0E       		.uleb128 0xe
+ 1465 0044 3A       		.uleb128 0x3a
+ 1466 0045 0B       		.uleb128 0xb
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 49
 
 
- 1467 0047 0B       		.uleb128 0xb
- 1468 0048 27       		.uleb128 0x27
- 1469 0049 19       		.uleb128 0x19
- 1470 004a 11       		.uleb128 0x11
- 1471 004b 01       		.uleb128 0x1
- 1472 004c 12       		.uleb128 0x12
- 1473 004d 06       		.uleb128 0x6
- 1474 004e 40       		.uleb128 0x40
- 1475 004f 18       		.uleb128 0x18
- 1476 0050 9742     		.uleb128 0x2117
- 1477 0052 19       		.uleb128 0x19
- 1478 0053 01       		.uleb128 0x1
- 1479 0054 13       		.uleb128 0x13
- 1480 0055 00       		.byte	0
- 1481 0056 00       		.byte	0
- 1482 0057 07       		.uleb128 0x7
- 1483 0058 34       		.uleb128 0x34
- 1484 0059 00       		.byte	0
- 1485 005a 03       		.uleb128 0x3
- 1486 005b 0E       		.uleb128 0xe
- 1487 005c 3A       		.uleb128 0x3a
- 1488 005d 0B       		.uleb128 0xb
- 1489 005e 3B       		.uleb128 0x3b
- 1490 005f 0B       		.uleb128 0xb
- 1491 0060 49       		.uleb128 0x49
- 1492 0061 13       		.uleb128 0x13
- 1493 0062 02       		.uleb128 0x2
- 1494 0063 17       		.uleb128 0x17
- 1495 0064 00       		.byte	0
- 1496 0065 00       		.byte	0
- 1497 0066 08       		.uleb128 0x8
- 1498 0067 898201   		.uleb128 0x4109
- 1499 006a 00       		.byte	0
- 1500 006b 11       		.uleb128 0x11
- 1501 006c 01       		.uleb128 0x1
- 1502 006d 31       		.uleb128 0x31
- 1503 006e 13       		.uleb128 0x13
- 1504 006f 00       		.byte	0
- 1505 0070 00       		.byte	0
- 1506 0071 09       		.uleb128 0x9
- 1507 0072 2E       		.uleb128 0x2e
- 1508 0073 00       		.byte	0
- 1509 0074 3F       		.uleb128 0x3f
- 1510 0075 19       		.uleb128 0x19
- 1511 0076 03       		.uleb128 0x3
- 1512 0077 0E       		.uleb128 0xe
- 1513 0078 3A       		.uleb128 0x3a
- 1514 0079 0B       		.uleb128 0xb
- 1515 007a 3B       		.uleb128 0x3b
- 1516 007b 0B       		.uleb128 0xb
- 1517 007c 27       		.uleb128 0x27
- 1518 007d 19       		.uleb128 0x19
- 1519 007e 11       		.uleb128 0x11
- 1520 007f 01       		.uleb128 0x1
- 1521 0080 12       		.uleb128 0x12
- 1522 0081 06       		.uleb128 0x6
- 1523 0082 40       		.uleb128 0x40
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 50
+ 1467 0046 3B       		.uleb128 0x3b
+ 1468 0047 0B       		.uleb128 0xb
+ 1469 0048 27       		.uleb128 0x27
+ 1470 0049 19       		.uleb128 0x19
+ 1471 004a 11       		.uleb128 0x11
+ 1472 004b 01       		.uleb128 0x1
+ 1473 004c 12       		.uleb128 0x12
+ 1474 004d 06       		.uleb128 0x6
+ 1475 004e 40       		.uleb128 0x40
+ 1476 004f 18       		.uleb128 0x18
+ 1477 0050 9742     		.uleb128 0x2117
+ 1478 0052 19       		.uleb128 0x19
+ 1479 0053 01       		.uleb128 0x1
+ 1480 0054 13       		.uleb128 0x13
+ 1481 0055 00       		.byte	0
+ 1482 0056 00       		.byte	0
+ 1483 0057 07       		.uleb128 0x7
+ 1484 0058 34       		.uleb128 0x34
+ 1485 0059 00       		.byte	0
+ 1486 005a 03       		.uleb128 0x3
+ 1487 005b 0E       		.uleb128 0xe
+ 1488 005c 3A       		.uleb128 0x3a
+ 1489 005d 0B       		.uleb128 0xb
+ 1490 005e 3B       		.uleb128 0x3b
+ 1491 005f 0B       		.uleb128 0xb
+ 1492 0060 49       		.uleb128 0x49
+ 1493 0061 13       		.uleb128 0x13
+ 1494 0062 02       		.uleb128 0x2
+ 1495 0063 17       		.uleb128 0x17
+ 1496 0064 00       		.byte	0
+ 1497 0065 00       		.byte	0
+ 1498 0066 08       		.uleb128 0x8
+ 1499 0067 898201   		.uleb128 0x4109
+ 1500 006a 00       		.byte	0
+ 1501 006b 11       		.uleb128 0x11
+ 1502 006c 01       		.uleb128 0x1
+ 1503 006d 31       		.uleb128 0x31
+ 1504 006e 13       		.uleb128 0x13
+ 1505 006f 00       		.byte	0
+ 1506 0070 00       		.byte	0
+ 1507 0071 09       		.uleb128 0x9
+ 1508 0072 2E       		.uleb128 0x2e
+ 1509 0073 00       		.byte	0
+ 1510 0074 3F       		.uleb128 0x3f
+ 1511 0075 19       		.uleb128 0x19
+ 1512 0076 03       		.uleb128 0x3
+ 1513 0077 0E       		.uleb128 0xe
+ 1514 0078 3A       		.uleb128 0x3a
+ 1515 0079 0B       		.uleb128 0xb
+ 1516 007a 3B       		.uleb128 0x3b
+ 1517 007b 0B       		.uleb128 0xb
+ 1518 007c 27       		.uleb128 0x27
+ 1519 007d 19       		.uleb128 0x19
+ 1520 007e 11       		.uleb128 0x11
+ 1521 007f 01       		.uleb128 0x1
+ 1522 0080 12       		.uleb128 0x12
+ 1523 0081 06       		.uleb128 0x6
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 50
 
 
- 1524 0083 18       		.uleb128 0x18
- 1525 0084 9742     		.uleb128 0x2117
- 1526 0086 19       		.uleb128 0x19
- 1527 0087 00       		.byte	0
- 1528 0088 00       		.byte	0
- 1529 0089 0A       		.uleb128 0xa
- 1530 008a 2E       		.uleb128 0x2e
- 1531 008b 00       		.byte	0
- 1532 008c 3F       		.uleb128 0x3f
- 1533 008d 19       		.uleb128 0x19
- 1534 008e 03       		.uleb128 0x3
- 1535 008f 0E       		.uleb128 0xe
- 1536 0090 3A       		.uleb128 0x3a
- 1537 0091 0B       		.uleb128 0xb
- 1538 0092 3B       		.uleb128 0x3b
- 1539 0093 05       		.uleb128 0x5
- 1540 0094 27       		.uleb128 0x27
- 1541 0095 19       		.uleb128 0x19
- 1542 0096 11       		.uleb128 0x11
- 1543 0097 01       		.uleb128 0x1
- 1544 0098 12       		.uleb128 0x12
- 1545 0099 06       		.uleb128 0x6
- 1546 009a 40       		.uleb128 0x40
- 1547 009b 18       		.uleb128 0x18
- 1548 009c 9742     		.uleb128 0x2117
- 1549 009e 19       		.uleb128 0x19
- 1550 009f 00       		.byte	0
- 1551 00a0 00       		.byte	0
- 1552 00a1 0B       		.uleb128 0xb
- 1553 00a2 2E       		.uleb128 0x2e
- 1554 00a3 01       		.byte	0x1
- 1555 00a4 3F       		.uleb128 0x3f
- 1556 00a5 19       		.uleb128 0x19
- 1557 00a6 03       		.uleb128 0x3
- 1558 00a7 0E       		.uleb128 0xe
- 1559 00a8 3A       		.uleb128 0x3a
- 1560 00a9 0B       		.uleb128 0xb
- 1561 00aa 3B       		.uleb128 0x3b
- 1562 00ab 05       		.uleb128 0x5
- 1563 00ac 27       		.uleb128 0x27
- 1564 00ad 19       		.uleb128 0x19
- 1565 00ae 11       		.uleb128 0x11
- 1566 00af 01       		.uleb128 0x1
- 1567 00b0 12       		.uleb128 0x12
- 1568 00b1 06       		.uleb128 0x6
- 1569 00b2 40       		.uleb128 0x40
- 1570 00b3 18       		.uleb128 0x18
- 1571 00b4 9742     		.uleb128 0x2117
- 1572 00b6 19       		.uleb128 0x19
- 1573 00b7 01       		.uleb128 0x1
- 1574 00b8 13       		.uleb128 0x13
- 1575 00b9 00       		.byte	0
- 1576 00ba 00       		.byte	0
- 1577 00bb 0C       		.uleb128 0xc
- 1578 00bc 05       		.uleb128 0x5
- 1579 00bd 00       		.byte	0
- 1580 00be 03       		.uleb128 0x3
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 51
+ 1524 0082 40       		.uleb128 0x40
+ 1525 0083 18       		.uleb128 0x18
+ 1526 0084 9742     		.uleb128 0x2117
+ 1527 0086 19       		.uleb128 0x19
+ 1528 0087 00       		.byte	0
+ 1529 0088 00       		.byte	0
+ 1530 0089 0A       		.uleb128 0xa
+ 1531 008a 2E       		.uleb128 0x2e
+ 1532 008b 00       		.byte	0
+ 1533 008c 3F       		.uleb128 0x3f
+ 1534 008d 19       		.uleb128 0x19
+ 1535 008e 03       		.uleb128 0x3
+ 1536 008f 0E       		.uleb128 0xe
+ 1537 0090 3A       		.uleb128 0x3a
+ 1538 0091 0B       		.uleb128 0xb
+ 1539 0092 3B       		.uleb128 0x3b
+ 1540 0093 05       		.uleb128 0x5
+ 1541 0094 27       		.uleb128 0x27
+ 1542 0095 19       		.uleb128 0x19
+ 1543 0096 11       		.uleb128 0x11
+ 1544 0097 01       		.uleb128 0x1
+ 1545 0098 12       		.uleb128 0x12
+ 1546 0099 06       		.uleb128 0x6
+ 1547 009a 40       		.uleb128 0x40
+ 1548 009b 18       		.uleb128 0x18
+ 1549 009c 9742     		.uleb128 0x2117
+ 1550 009e 19       		.uleb128 0x19
+ 1551 009f 00       		.byte	0
+ 1552 00a0 00       		.byte	0
+ 1553 00a1 0B       		.uleb128 0xb
+ 1554 00a2 2E       		.uleb128 0x2e
+ 1555 00a3 01       		.byte	0x1
+ 1556 00a4 3F       		.uleb128 0x3f
+ 1557 00a5 19       		.uleb128 0x19
+ 1558 00a6 03       		.uleb128 0x3
+ 1559 00a7 0E       		.uleb128 0xe
+ 1560 00a8 3A       		.uleb128 0x3a
+ 1561 00a9 0B       		.uleb128 0xb
+ 1562 00aa 3B       		.uleb128 0x3b
+ 1563 00ab 05       		.uleb128 0x5
+ 1564 00ac 27       		.uleb128 0x27
+ 1565 00ad 19       		.uleb128 0x19
+ 1566 00ae 11       		.uleb128 0x11
+ 1567 00af 01       		.uleb128 0x1
+ 1568 00b0 12       		.uleb128 0x12
+ 1569 00b1 06       		.uleb128 0x6
+ 1570 00b2 40       		.uleb128 0x40
+ 1571 00b3 18       		.uleb128 0x18
+ 1572 00b4 9742     		.uleb128 0x2117
+ 1573 00b6 19       		.uleb128 0x19
+ 1574 00b7 01       		.uleb128 0x1
+ 1575 00b8 13       		.uleb128 0x13
+ 1576 00b9 00       		.byte	0
+ 1577 00ba 00       		.byte	0
+ 1578 00bb 0C       		.uleb128 0xc
+ 1579 00bc 05       		.uleb128 0x5
+ 1580 00bd 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 51
 
 
- 1581 00bf 0E       		.uleb128 0xe
- 1582 00c0 3A       		.uleb128 0x3a
- 1583 00c1 0B       		.uleb128 0xb
- 1584 00c2 3B       		.uleb128 0x3b
- 1585 00c3 05       		.uleb128 0x5
- 1586 00c4 49       		.uleb128 0x49
- 1587 00c5 13       		.uleb128 0x13
- 1588 00c6 02       		.uleb128 0x2
- 1589 00c7 18       		.uleb128 0x18
- 1590 00c8 00       		.byte	0
- 1591 00c9 00       		.byte	0
- 1592 00ca 0D       		.uleb128 0xd
- 1593 00cb 2E       		.uleb128 0x2e
- 1594 00cc 01       		.byte	0x1
- 1595 00cd 3F       		.uleb128 0x3f
- 1596 00ce 19       		.uleb128 0x19
- 1597 00cf 03       		.uleb128 0x3
- 1598 00d0 0E       		.uleb128 0xe
- 1599 00d1 3A       		.uleb128 0x3a
- 1600 00d2 0B       		.uleb128 0xb
- 1601 00d3 3B       		.uleb128 0x3b
- 1602 00d4 05       		.uleb128 0x5
- 1603 00d5 27       		.uleb128 0x27
- 1604 00d6 19       		.uleb128 0x19
- 1605 00d7 49       		.uleb128 0x49
- 1606 00d8 13       		.uleb128 0x13
- 1607 00d9 11       		.uleb128 0x11
- 1608 00da 01       		.uleb128 0x1
- 1609 00db 12       		.uleb128 0x12
- 1610 00dc 06       		.uleb128 0x6
- 1611 00dd 40       		.uleb128 0x40
- 1612 00de 18       		.uleb128 0x18
- 1613 00df 9742     		.uleb128 0x2117
- 1614 00e1 19       		.uleb128 0x19
- 1615 00e2 01       		.uleb128 0x1
- 1616 00e3 13       		.uleb128 0x13
- 1617 00e4 00       		.byte	0
- 1618 00e5 00       		.byte	0
- 1619 00e6 0E       		.uleb128 0xe
- 1620 00e7 34       		.uleb128 0x34
- 1621 00e8 00       		.byte	0
- 1622 00e9 03       		.uleb128 0x3
- 1623 00ea 0E       		.uleb128 0xe
- 1624 00eb 3A       		.uleb128 0x3a
- 1625 00ec 0B       		.uleb128 0xb
- 1626 00ed 3B       		.uleb128 0x3b
- 1627 00ee 05       		.uleb128 0x5
- 1628 00ef 49       		.uleb128 0x49
- 1629 00f0 13       		.uleb128 0x13
- 1630 00f1 02       		.uleb128 0x2
- 1631 00f2 18       		.uleb128 0x18
- 1632 00f3 00       		.byte	0
- 1633 00f4 00       		.byte	0
- 1634 00f5 0F       		.uleb128 0xf
- 1635 00f6 34       		.uleb128 0x34
- 1636 00f7 00       		.byte	0
- 1637 00f8 03       		.uleb128 0x3
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 52
+ 1581 00be 03       		.uleb128 0x3
+ 1582 00bf 0E       		.uleb128 0xe
+ 1583 00c0 3A       		.uleb128 0x3a
+ 1584 00c1 0B       		.uleb128 0xb
+ 1585 00c2 3B       		.uleb128 0x3b
+ 1586 00c3 05       		.uleb128 0x5
+ 1587 00c4 49       		.uleb128 0x49
+ 1588 00c5 13       		.uleb128 0x13
+ 1589 00c6 02       		.uleb128 0x2
+ 1590 00c7 18       		.uleb128 0x18
+ 1591 00c8 00       		.byte	0
+ 1592 00c9 00       		.byte	0
+ 1593 00ca 0D       		.uleb128 0xd
+ 1594 00cb 2E       		.uleb128 0x2e
+ 1595 00cc 01       		.byte	0x1
+ 1596 00cd 3F       		.uleb128 0x3f
+ 1597 00ce 19       		.uleb128 0x19
+ 1598 00cf 03       		.uleb128 0x3
+ 1599 00d0 0E       		.uleb128 0xe
+ 1600 00d1 3A       		.uleb128 0x3a
+ 1601 00d2 0B       		.uleb128 0xb
+ 1602 00d3 3B       		.uleb128 0x3b
+ 1603 00d4 05       		.uleb128 0x5
+ 1604 00d5 27       		.uleb128 0x27
+ 1605 00d6 19       		.uleb128 0x19
+ 1606 00d7 49       		.uleb128 0x49
+ 1607 00d8 13       		.uleb128 0x13
+ 1608 00d9 11       		.uleb128 0x11
+ 1609 00da 01       		.uleb128 0x1
+ 1610 00db 12       		.uleb128 0x12
+ 1611 00dc 06       		.uleb128 0x6
+ 1612 00dd 40       		.uleb128 0x40
+ 1613 00de 18       		.uleb128 0x18
+ 1614 00df 9742     		.uleb128 0x2117
+ 1615 00e1 19       		.uleb128 0x19
+ 1616 00e2 01       		.uleb128 0x1
+ 1617 00e3 13       		.uleb128 0x13
+ 1618 00e4 00       		.byte	0
+ 1619 00e5 00       		.byte	0
+ 1620 00e6 0E       		.uleb128 0xe
+ 1621 00e7 34       		.uleb128 0x34
+ 1622 00e8 00       		.byte	0
+ 1623 00e9 03       		.uleb128 0x3
+ 1624 00ea 0E       		.uleb128 0xe
+ 1625 00eb 3A       		.uleb128 0x3a
+ 1626 00ec 0B       		.uleb128 0xb
+ 1627 00ed 3B       		.uleb128 0x3b
+ 1628 00ee 05       		.uleb128 0x5
+ 1629 00ef 49       		.uleb128 0x49
+ 1630 00f0 13       		.uleb128 0x13
+ 1631 00f1 02       		.uleb128 0x2
+ 1632 00f2 18       		.uleb128 0x18
+ 1633 00f3 00       		.byte	0
+ 1634 00f4 00       		.byte	0
+ 1635 00f5 0F       		.uleb128 0xf
+ 1636 00f6 34       		.uleb128 0x34
+ 1637 00f7 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 52
 
 
- 1638 00f9 0E       		.uleb128 0xe
- 1639 00fa 3A       		.uleb128 0x3a
- 1640 00fb 0B       		.uleb128 0xb
- 1641 00fc 3B       		.uleb128 0x3b
- 1642 00fd 05       		.uleb128 0x5
- 1643 00fe 49       		.uleb128 0x49
- 1644 00ff 13       		.uleb128 0x13
- 1645 0100 02       		.uleb128 0x2
- 1646 0101 17       		.uleb128 0x17
- 1647 0102 00       		.byte	0
- 1648 0103 00       		.byte	0
- 1649 0104 10       		.uleb128 0x10
- 1650 0105 05       		.uleb128 0x5
- 1651 0106 00       		.byte	0
- 1652 0107 03       		.uleb128 0x3
- 1653 0108 0E       		.uleb128 0xe
- 1654 0109 3A       		.uleb128 0x3a
- 1655 010a 0B       		.uleb128 0xb
- 1656 010b 3B       		.uleb128 0x3b
- 1657 010c 05       		.uleb128 0x5
- 1658 010d 49       		.uleb128 0x49
- 1659 010e 13       		.uleb128 0x13
- 1660 010f 02       		.uleb128 0x2
- 1661 0110 17       		.uleb128 0x17
- 1662 0111 00       		.byte	0
- 1663 0112 00       		.byte	0
- 1664 0113 11       		.uleb128 0x11
- 1665 0114 0F       		.uleb128 0xf
- 1666 0115 00       		.byte	0
- 1667 0116 0B       		.uleb128 0xb
- 1668 0117 0B       		.uleb128 0xb
- 1669 0118 49       		.uleb128 0x49
- 1670 0119 13       		.uleb128 0x13
- 1671 011a 00       		.byte	0
- 1672 011b 00       		.byte	0
- 1673 011c 12       		.uleb128 0x12
- 1674 011d 26       		.uleb128 0x26
- 1675 011e 00       		.byte	0
- 1676 011f 49       		.uleb128 0x49
- 1677 0120 13       		.uleb128 0x13
- 1678 0121 00       		.byte	0
- 1679 0122 00       		.byte	0
- 1680 0123 13       		.uleb128 0x13
- 1681 0124 898201   		.uleb128 0x4109
- 1682 0127 01       		.byte	0x1
- 1683 0128 11       		.uleb128 0x11
- 1684 0129 01       		.uleb128 0x1
- 1685 012a 31       		.uleb128 0x31
- 1686 012b 13       		.uleb128 0x13
- 1687 012c 01       		.uleb128 0x1
- 1688 012d 13       		.uleb128 0x13
- 1689 012e 00       		.byte	0
- 1690 012f 00       		.byte	0
- 1691 0130 14       		.uleb128 0x14
- 1692 0131 8A8201   		.uleb128 0x410a
- 1693 0134 00       		.byte	0
- 1694 0135 02       		.uleb128 0x2
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 53
+ 1638 00f8 03       		.uleb128 0x3
+ 1639 00f9 0E       		.uleb128 0xe
+ 1640 00fa 3A       		.uleb128 0x3a
+ 1641 00fb 0B       		.uleb128 0xb
+ 1642 00fc 3B       		.uleb128 0x3b
+ 1643 00fd 05       		.uleb128 0x5
+ 1644 00fe 49       		.uleb128 0x49
+ 1645 00ff 13       		.uleb128 0x13
+ 1646 0100 02       		.uleb128 0x2
+ 1647 0101 17       		.uleb128 0x17
+ 1648 0102 00       		.byte	0
+ 1649 0103 00       		.byte	0
+ 1650 0104 10       		.uleb128 0x10
+ 1651 0105 05       		.uleb128 0x5
+ 1652 0106 00       		.byte	0
+ 1653 0107 03       		.uleb128 0x3
+ 1654 0108 0E       		.uleb128 0xe
+ 1655 0109 3A       		.uleb128 0x3a
+ 1656 010a 0B       		.uleb128 0xb
+ 1657 010b 3B       		.uleb128 0x3b
+ 1658 010c 05       		.uleb128 0x5
+ 1659 010d 49       		.uleb128 0x49
+ 1660 010e 13       		.uleb128 0x13
+ 1661 010f 02       		.uleb128 0x2
+ 1662 0110 17       		.uleb128 0x17
+ 1663 0111 00       		.byte	0
+ 1664 0112 00       		.byte	0
+ 1665 0113 11       		.uleb128 0x11
+ 1666 0114 0F       		.uleb128 0xf
+ 1667 0115 00       		.byte	0
+ 1668 0116 0B       		.uleb128 0xb
+ 1669 0117 0B       		.uleb128 0xb
+ 1670 0118 49       		.uleb128 0x49
+ 1671 0119 13       		.uleb128 0x13
+ 1672 011a 00       		.byte	0
+ 1673 011b 00       		.byte	0
+ 1674 011c 12       		.uleb128 0x12
+ 1675 011d 26       		.uleb128 0x26
+ 1676 011e 00       		.byte	0
+ 1677 011f 49       		.uleb128 0x49
+ 1678 0120 13       		.uleb128 0x13
+ 1679 0121 00       		.byte	0
+ 1680 0122 00       		.byte	0
+ 1681 0123 13       		.uleb128 0x13
+ 1682 0124 898201   		.uleb128 0x4109
+ 1683 0127 01       		.byte	0x1
+ 1684 0128 11       		.uleb128 0x11
+ 1685 0129 01       		.uleb128 0x1
+ 1686 012a 31       		.uleb128 0x31
+ 1687 012b 13       		.uleb128 0x13
+ 1688 012c 01       		.uleb128 0x1
+ 1689 012d 13       		.uleb128 0x13
+ 1690 012e 00       		.byte	0
+ 1691 012f 00       		.byte	0
+ 1692 0130 14       		.uleb128 0x14
+ 1693 0131 8A8201   		.uleb128 0x410a
+ 1694 0134 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 53
 
 
- 1695 0136 18       		.uleb128 0x18
- 1696 0137 9142     		.uleb128 0x2111
- 1697 0139 18       		.uleb128 0x18
- 1698 013a 00       		.byte	0
- 1699 013b 00       		.byte	0
- 1700 013c 15       		.uleb128 0x15
- 1701 013d 34       		.uleb128 0x34
- 1702 013e 00       		.byte	0
- 1703 013f 03       		.uleb128 0x3
- 1704 0140 0E       		.uleb128 0xe
- 1705 0141 3A       		.uleb128 0x3a
- 1706 0142 0B       		.uleb128 0xb
- 1707 0143 3B       		.uleb128 0x3b
- 1708 0144 0B       		.uleb128 0xb
- 1709 0145 49       		.uleb128 0x49
- 1710 0146 13       		.uleb128 0x13
- 1711 0147 3F       		.uleb128 0x3f
- 1712 0148 19       		.uleb128 0x19
- 1713 0149 02       		.uleb128 0x2
- 1714 014a 18       		.uleb128 0x18
- 1715 014b 00       		.byte	0
- 1716 014c 00       		.byte	0
- 1717 014d 16       		.uleb128 0x16
- 1718 014e 2E       		.uleb128 0x2e
- 1719 014f 00       		.byte	0
- 1720 0150 3F       		.uleb128 0x3f
- 1721 0151 19       		.uleb128 0x19
- 1722 0152 3C       		.uleb128 0x3c
- 1723 0153 19       		.uleb128 0x19
- 1724 0154 6E       		.uleb128 0x6e
- 1725 0155 0E       		.uleb128 0xe
- 1726 0156 03       		.uleb128 0x3
- 1727 0157 0E       		.uleb128 0xe
- 1728 0158 3A       		.uleb128 0x3a
- 1729 0159 0B       		.uleb128 0xb
- 1730 015a 3B       		.uleb128 0x3b
- 1731 015b 0B       		.uleb128 0xb
- 1732 015c 00       		.byte	0
- 1733 015d 00       		.byte	0
- 1734 015e 00       		.byte	0
- 1735              		.section	.debug_loc,"",%progbits
- 1736              	.Ldebug_loc0:
- 1737              	.LLST0:
- 1738 0000 06000000 		.4byte	.LVL0
- 1739 0004 27000000 		.4byte	.LVL1-1
- 1740 0008 0100     		.2byte	0x1
- 1741 000a 50       		.byte	0x50
- 1742 000b 00000000 		.4byte	0
- 1743 000f 00000000 		.4byte	0
- 1744              	.LLST1:
- 1745 0013 06000000 		.4byte	.LVL2
- 1746 0017 1D000000 		.4byte	.LVL3-1
- 1747 001b 0100     		.2byte	0x1
- 1748 001d 50       		.byte	0x50
- 1749 001e 00000000 		.4byte	0
- 1750 0022 00000000 		.4byte	0
- 1751              	.LLST2:
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 54
+ 1695 0135 02       		.uleb128 0x2
+ 1696 0136 18       		.uleb128 0x18
+ 1697 0137 9142     		.uleb128 0x2111
+ 1698 0139 18       		.uleb128 0x18
+ 1699 013a 00       		.byte	0
+ 1700 013b 00       		.byte	0
+ 1701 013c 15       		.uleb128 0x15
+ 1702 013d 34       		.uleb128 0x34
+ 1703 013e 00       		.byte	0
+ 1704 013f 03       		.uleb128 0x3
+ 1705 0140 0E       		.uleb128 0xe
+ 1706 0141 3A       		.uleb128 0x3a
+ 1707 0142 0B       		.uleb128 0xb
+ 1708 0143 3B       		.uleb128 0x3b
+ 1709 0144 0B       		.uleb128 0xb
+ 1710 0145 49       		.uleb128 0x49
+ 1711 0146 13       		.uleb128 0x13
+ 1712 0147 3F       		.uleb128 0x3f
+ 1713 0148 19       		.uleb128 0x19
+ 1714 0149 02       		.uleb128 0x2
+ 1715 014a 18       		.uleb128 0x18
+ 1716 014b 00       		.byte	0
+ 1717 014c 00       		.byte	0
+ 1718 014d 16       		.uleb128 0x16
+ 1719 014e 2E       		.uleb128 0x2e
+ 1720 014f 00       		.byte	0
+ 1721 0150 3F       		.uleb128 0x3f
+ 1722 0151 19       		.uleb128 0x19
+ 1723 0152 3C       		.uleb128 0x3c
+ 1724 0153 19       		.uleb128 0x19
+ 1725 0154 6E       		.uleb128 0x6e
+ 1726 0155 0E       		.uleb128 0xe
+ 1727 0156 03       		.uleb128 0x3
+ 1728 0157 0E       		.uleb128 0xe
+ 1729 0158 3A       		.uleb128 0x3a
+ 1730 0159 0B       		.uleb128 0xb
+ 1731 015a 3B       		.uleb128 0x3b
+ 1732 015b 0B       		.uleb128 0xb
+ 1733 015c 00       		.byte	0
+ 1734 015d 00       		.byte	0
+ 1735 015e 00       		.byte	0
+ 1736              		.section	.debug_loc,"",%progbits
+ 1737              	.Ldebug_loc0:
+ 1738              	.LLST0:
+ 1739 0000 06000000 		.4byte	.LVL0
+ 1740 0004 2B000000 		.4byte	.LVL1-1
+ 1741 0008 0100     		.2byte	0x1
+ 1742 000a 50       		.byte	0x50
+ 1743 000b 00000000 		.4byte	0
+ 1744 000f 00000000 		.4byte	0
+ 1745              	.LLST1:
+ 1746 0013 06000000 		.4byte	.LVL2
+ 1747 0017 1F000000 		.4byte	.LVL3-1
+ 1748 001b 0100     		.2byte	0x1
+ 1749 001d 50       		.byte	0x50
+ 1750 001e 00000000 		.4byte	0
+ 1751 0022 00000000 		.4byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 54
 
 
- 1752 0026 06000000 		.4byte	.LVL11
- 1753 002a 1C000000 		.4byte	.LVL12
- 1754 002e 0100     		.2byte	0x1
- 1755 0030 53       		.byte	0x53
- 1756 0031 1C000000 		.4byte	.LVL12
- 1757 0035 24000000 		.4byte	.LFE15
- 1758 0039 0100     		.2byte	0x1
- 1759 003b 50       		.byte	0x50
- 1760 003c 00000000 		.4byte	0
- 1761 0040 00000000 		.4byte	0
- 1762              	.LLST3:
- 1763 0044 06000000 		.4byte	.LVL13
- 1764 0048 1B000000 		.4byte	.LVL14-1
- 1765 004c 0100     		.2byte	0x1
- 1766 004e 50       		.byte	0x50
- 1767 004f 00000000 		.4byte	0
- 1768 0053 00000000 		.4byte	0
- 1769              	.LLST4:
- 1770 0057 00000000 		.4byte	.LVL15
- 1771 005b 0A000000 		.4byte	.LVL17
- 1772 005f 0100     		.2byte	0x1
- 1773 0061 50       		.byte	0x50
- 1774 0062 0A000000 		.4byte	.LVL17
- 1775 0066 1E000000 		.4byte	.LFE18
- 1776 006a 0100     		.2byte	0x1
- 1777 006c 56       		.byte	0x56
- 1778 006d 00000000 		.4byte	0
- 1779 0071 00000000 		.4byte	0
- 1780              	.LLST5:
- 1781 0075 00000000 		.4byte	.LVL15
- 1782 0079 0A000000 		.4byte	.LVL17
- 1783 007d 0100     		.2byte	0x1
- 1784 007f 51       		.byte	0x51
- 1785 0080 0A000000 		.4byte	.LVL17
- 1786 0084 16000000 		.4byte	.LVL21
- 1787 0088 0100     		.2byte	0x1
- 1788 008a 54       		.byte	0x54
- 1789 008b 18000000 		.4byte	.LVL22
- 1790 008f 1E000000 		.4byte	.LFE18
- 1791 0093 0100     		.2byte	0x1
- 1792 0095 54       		.byte	0x54
- 1793 0096 00000000 		.4byte	0
- 1794 009a 00000000 		.4byte	0
- 1795              	.LLST6:
- 1796 009e 06000000 		.4byte	.LVL16
- 1797 00a2 0A000000 		.4byte	.LVL17
- 1798 00a6 0200     		.2byte	0x2
- 1799 00a8 30       		.byte	0x30
- 1800 00a9 9F       		.byte	0x9f
- 1801 00aa 0A000000 		.4byte	.LVL17
- 1802 00ae 12000000 		.4byte	.LVL19
- 1803 00b2 0100     		.2byte	0x1
- 1804 00b4 55       		.byte	0x55
- 1805 00b5 14000000 		.4byte	.LVL20
- 1806 00b9 1E000000 		.4byte	.LFE18
- 1807 00bd 0100     		.2byte	0x1
- 1808 00bf 55       		.byte	0x55
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 55
+ 1752              	.LLST2:
+ 1753 0026 06000000 		.4byte	.LVL11
+ 1754 002a 1C000000 		.4byte	.LVL12
+ 1755 002e 0100     		.2byte	0x1
+ 1756 0030 53       		.byte	0x53
+ 1757 0031 1C000000 		.4byte	.LVL12
+ 1758 0035 24000000 		.4byte	.LFE15
+ 1759 0039 0100     		.2byte	0x1
+ 1760 003b 50       		.byte	0x50
+ 1761 003c 00000000 		.4byte	0
+ 1762 0040 00000000 		.4byte	0
+ 1763              	.LLST3:
+ 1764 0044 06000000 		.4byte	.LVL13
+ 1765 0048 1B000000 		.4byte	.LVL14-1
+ 1766 004c 0100     		.2byte	0x1
+ 1767 004e 50       		.byte	0x50
+ 1768 004f 00000000 		.4byte	0
+ 1769 0053 00000000 		.4byte	0
+ 1770              	.LLST4:
+ 1771 0057 00000000 		.4byte	.LVL15
+ 1772 005b 0A000000 		.4byte	.LVL17
+ 1773 005f 0100     		.2byte	0x1
+ 1774 0061 50       		.byte	0x50
+ 1775 0062 0A000000 		.4byte	.LVL17
+ 1776 0066 1E000000 		.4byte	.LFE18
+ 1777 006a 0100     		.2byte	0x1
+ 1778 006c 56       		.byte	0x56
+ 1779 006d 00000000 		.4byte	0
+ 1780 0071 00000000 		.4byte	0
+ 1781              	.LLST5:
+ 1782 0075 00000000 		.4byte	.LVL15
+ 1783 0079 0A000000 		.4byte	.LVL17
+ 1784 007d 0100     		.2byte	0x1
+ 1785 007f 51       		.byte	0x51
+ 1786 0080 0A000000 		.4byte	.LVL17
+ 1787 0084 16000000 		.4byte	.LVL21
+ 1788 0088 0100     		.2byte	0x1
+ 1789 008a 54       		.byte	0x54
+ 1790 008b 18000000 		.4byte	.LVL22
+ 1791 008f 1E000000 		.4byte	.LFE18
+ 1792 0093 0100     		.2byte	0x1
+ 1793 0095 54       		.byte	0x54
+ 1794 0096 00000000 		.4byte	0
+ 1795 009a 00000000 		.4byte	0
+ 1796              	.LLST6:
+ 1797 009e 06000000 		.4byte	.LVL16
+ 1798 00a2 0A000000 		.4byte	.LVL17
+ 1799 00a6 0200     		.2byte	0x2
+ 1800 00a8 30       		.byte	0x30
+ 1801 00a9 9F       		.byte	0x9f
+ 1802 00aa 0A000000 		.4byte	.LVL17
+ 1803 00ae 12000000 		.4byte	.LVL19
+ 1804 00b2 0100     		.2byte	0x1
+ 1805 00b4 55       		.byte	0x55
+ 1806 00b5 14000000 		.4byte	.LVL20
+ 1807 00b9 1E000000 		.4byte	.LFE18
+ 1808 00bd 0100     		.2byte	0x1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 55
 
 
- 1809 00c0 00000000 		.4byte	0
- 1810 00c4 00000000 		.4byte	0
- 1811              	.LLST7:
- 1812 00c8 16000000 		.4byte	.LVL23
- 1813 00cc 2B000000 		.4byte	.LVL24-1
- 1814 00d0 0100     		.2byte	0x1
- 1815 00d2 50       		.byte	0x50
- 1816 00d3 00000000 		.4byte	0
- 1817 00d7 00000000 		.4byte	0
- 1818              	.LLST8:
- 1819 00db 0C000000 		.4byte	.LVL33
- 1820 00df 0E000000 		.4byte	.LVL34
- 1821 00e3 0600     		.2byte	0x6
- 1822 00e5 70       		.byte	0x70
- 1823 00e6 00       		.sleb128 0
- 1824 00e7 73       		.byte	0x73
- 1825 00e8 00       		.sleb128 0
- 1826 00e9 21       		.byte	0x21
- 1827 00ea 9F       		.byte	0x9f
- 1828 00eb 00000000 		.4byte	0
- 1829 00ef 00000000 		.4byte	0
- 1830              		.section	.debug_aranges,"",%progbits
- 1831 0000 D4000000 		.4byte	0xd4
- 1832 0004 0200     		.2byte	0x2
- 1833 0006 00000000 		.4byte	.Ldebug_info0
- 1834 000a 04       		.byte	0x4
- 1835 000b 00       		.byte	0
- 1836 000c 0000     		.2byte	0
- 1837 000e 0000     		.2byte	0
- 1838 0010 00000000 		.4byte	.LFB1
- 1839 0014 38000000 		.4byte	.LFE1-.LFB1
- 1840 0018 00000000 		.4byte	.LFB3
- 1841 001c 30000000 		.4byte	.LFE3-.LFB3
- 1842 0020 00000000 		.4byte	.LFB4
- 1843 0024 02000000 		.4byte	.LFE4-.LFB4
- 1844 0028 00000000 		.4byte	.LFB5
- 1845 002c 0C000000 		.4byte	.LFE5-.LFB5
- 1846 0030 00000000 		.4byte	.LFB6
- 1847 0034 02000000 		.4byte	.LFE6-.LFB6
- 1848 0038 00000000 		.4byte	.LFB7
- 1849 003c 0C000000 		.4byte	.LFE7-.LFB7
- 1850 0040 00000000 		.4byte	.LFB8
- 1851 0044 0C000000 		.4byte	.LFE8-.LFB8
- 1852 0048 00000000 		.4byte	.LFB9
- 1853 004c 0C000000 		.4byte	.LFE9-.LFB9
- 1854 0050 00000000 		.4byte	.LFB10
- 1855 0054 0C000000 		.4byte	.LFE10-.LFB10
- 1856 0058 00000000 		.4byte	.LFB11
- 1857 005c 0C000000 		.4byte	.LFE11-.LFB11
- 1858 0060 00000000 		.4byte	.LFB12
- 1859 0064 18000000 		.4byte	.LFE12-.LFB12
- 1860 0068 00000000 		.4byte	.LFB13
- 1861 006c 0C000000 		.4byte	.LFE13-.LFB13
- 1862 0070 00000000 		.4byte	.LFB14
- 1863 0074 18000000 		.4byte	.LFE14-.LFB14
- 1864 0078 00000000 		.4byte	.LFB15
- 1865 007c 24000000 		.4byte	.LFE15-.LFB15
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 56
+ 1809 00bf 55       		.byte	0x55
+ 1810 00c0 00000000 		.4byte	0
+ 1811 00c4 00000000 		.4byte	0
+ 1812              	.LLST7:
+ 1813 00c8 16000000 		.4byte	.LVL23
+ 1814 00cc 2B000000 		.4byte	.LVL24-1
+ 1815 00d0 0100     		.2byte	0x1
+ 1816 00d2 50       		.byte	0x50
+ 1817 00d3 00000000 		.4byte	0
+ 1818 00d7 00000000 		.4byte	0
+ 1819              	.LLST8:
+ 1820 00db 0E000000 		.4byte	.LVL33
+ 1821 00df 10000000 		.4byte	.LVL34
+ 1822 00e3 0600     		.2byte	0x6
+ 1823 00e5 70       		.byte	0x70
+ 1824 00e6 00       		.sleb128 0
+ 1825 00e7 73       		.byte	0x73
+ 1826 00e8 00       		.sleb128 0
+ 1827 00e9 21       		.byte	0x21
+ 1828 00ea 9F       		.byte	0x9f
+ 1829 00eb 00000000 		.4byte	0
+ 1830 00ef 00000000 		.4byte	0
+ 1831              		.section	.debug_aranges,"",%progbits
+ 1832 0000 D4000000 		.4byte	0xd4
+ 1833 0004 0200     		.2byte	0x2
+ 1834 0006 00000000 		.4byte	.Ldebug_info0
+ 1835 000a 04       		.byte	0x4
+ 1836 000b 00       		.byte	0
+ 1837 000c 0000     		.2byte	0
+ 1838 000e 0000     		.2byte	0
+ 1839 0010 00000000 		.4byte	.LFB1
+ 1840 0014 3C000000 		.4byte	.LFE1-.LFB1
+ 1841 0018 00000000 		.4byte	.LFB3
+ 1842 001c 30000000 		.4byte	.LFE3-.LFB3
+ 1843 0020 00000000 		.4byte	.LFB4
+ 1844 0024 02000000 		.4byte	.LFE4-.LFB4
+ 1845 0028 00000000 		.4byte	.LFB5
+ 1846 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1847 0030 00000000 		.4byte	.LFB6
+ 1848 0034 02000000 		.4byte	.LFE6-.LFB6
+ 1849 0038 00000000 		.4byte	.LFB7
+ 1850 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1851 0040 00000000 		.4byte	.LFB8
+ 1852 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1853 0048 00000000 		.4byte	.LFB9
+ 1854 004c 0C000000 		.4byte	.LFE9-.LFB9
+ 1855 0050 00000000 		.4byte	.LFB10
+ 1856 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1857 0058 00000000 		.4byte	.LFB11
+ 1858 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1859 0060 00000000 		.4byte	.LFB12
+ 1860 0064 18000000 		.4byte	.LFE12-.LFB12
+ 1861 0068 00000000 		.4byte	.LFB13
+ 1862 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 1863 0070 00000000 		.4byte	.LFB14
+ 1864 0074 18000000 		.4byte	.LFE14-.LFB14
+ 1865 0078 00000000 		.4byte	.LFB15
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 56
 
 
- 1866 0080 00000000 		.4byte	.LFB16
- 1867 0084 1C000000 		.4byte	.LFE16-.LFB16
- 1868 0088 00000000 		.4byte	.LFB17
- 1869 008c 24000000 		.4byte	.LFE17-.LFB17
- 1870 0090 00000000 		.4byte	.LFB18
- 1871 0094 1E000000 		.4byte	.LFE18-.LFB18
- 1872 0098 00000000 		.4byte	.LFB19
- 1873 009c 3C000000 		.4byte	.LFE19-.LFB19
- 1874 00a0 00000000 		.4byte	.LFB0
- 1875 00a4 48000000 		.4byte	.LFE0-.LFB0
- 1876 00a8 00000000 		.4byte	.LFB2
- 1877 00ac 1C000000 		.4byte	.LFE2-.LFB2
- 1878 00b0 00000000 		.4byte	.LFB20
- 1879 00b4 0C000000 		.4byte	.LFE20-.LFB20
- 1880 00b8 00000000 		.4byte	.LFB21
- 1881 00bc 0C000000 		.4byte	.LFE21-.LFB21
- 1882 00c0 00000000 		.4byte	.LFB22
- 1883 00c4 10000000 		.4byte	.LFE22-.LFB22
- 1884 00c8 00000000 		.4byte	.LFB23
- 1885 00cc 14000000 		.4byte	.LFE23-.LFB23
- 1886 00d0 00000000 		.4byte	0
- 1887 00d4 00000000 		.4byte	0
- 1888              		.section	.debug_ranges,"",%progbits
- 1889              	.Ldebug_ranges0:
- 1890 0000 00000000 		.4byte	.LFB1
- 1891 0004 38000000 		.4byte	.LFE1
- 1892 0008 00000000 		.4byte	.LFB3
- 1893 000c 30000000 		.4byte	.LFE3
- 1894 0010 00000000 		.4byte	.LFB4
- 1895 0014 02000000 		.4byte	.LFE4
- 1896 0018 00000000 		.4byte	.LFB5
- 1897 001c 0C000000 		.4byte	.LFE5
- 1898 0020 00000000 		.4byte	.LFB6
- 1899 0024 02000000 		.4byte	.LFE6
- 1900 0028 00000000 		.4byte	.LFB7
- 1901 002c 0C000000 		.4byte	.LFE7
- 1902 0030 00000000 		.4byte	.LFB8
- 1903 0034 0C000000 		.4byte	.LFE8
- 1904 0038 00000000 		.4byte	.LFB9
- 1905 003c 0C000000 		.4byte	.LFE9
- 1906 0040 00000000 		.4byte	.LFB10
- 1907 0044 0C000000 		.4byte	.LFE10
- 1908 0048 00000000 		.4byte	.LFB11
- 1909 004c 0C000000 		.4byte	.LFE11
- 1910 0050 00000000 		.4byte	.LFB12
- 1911 0054 18000000 		.4byte	.LFE12
- 1912 0058 00000000 		.4byte	.LFB13
- 1913 005c 0C000000 		.4byte	.LFE13
- 1914 0060 00000000 		.4byte	.LFB14
- 1915 0064 18000000 		.4byte	.LFE14
- 1916 0068 00000000 		.4byte	.LFB15
- 1917 006c 24000000 		.4byte	.LFE15
- 1918 0070 00000000 		.4byte	.LFB16
- 1919 0074 1C000000 		.4byte	.LFE16
- 1920 0078 00000000 		.4byte	.LFB17
- 1921 007c 24000000 		.4byte	.LFE17
- 1922 0080 00000000 		.4byte	.LFB18
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 57
+ 1866 007c 24000000 		.4byte	.LFE15-.LFB15
+ 1867 0080 00000000 		.4byte	.LFB16
+ 1868 0084 1C000000 		.4byte	.LFE16-.LFB16
+ 1869 0088 00000000 		.4byte	.LFB17
+ 1870 008c 24000000 		.4byte	.LFE17-.LFB17
+ 1871 0090 00000000 		.4byte	.LFB18
+ 1872 0094 1E000000 		.4byte	.LFE18-.LFB18
+ 1873 0098 00000000 		.4byte	.LFB19
+ 1874 009c 3C000000 		.4byte	.LFE19-.LFB19
+ 1875 00a0 00000000 		.4byte	.LFB0
+ 1876 00a4 48000000 		.4byte	.LFE0-.LFB0
+ 1877 00a8 00000000 		.4byte	.LFB2
+ 1878 00ac 1C000000 		.4byte	.LFE2-.LFB2
+ 1879 00b0 00000000 		.4byte	.LFB20
+ 1880 00b4 0C000000 		.4byte	.LFE20-.LFB20
+ 1881 00b8 00000000 		.4byte	.LFB21
+ 1882 00bc 0C000000 		.4byte	.LFE21-.LFB21
+ 1883 00c0 00000000 		.4byte	.LFB22
+ 1884 00c4 10000000 		.4byte	.LFE22-.LFB22
+ 1885 00c8 00000000 		.4byte	.LFB23
+ 1886 00cc 18000000 		.4byte	.LFE23-.LFB23
+ 1887 00d0 00000000 		.4byte	0
+ 1888 00d4 00000000 		.4byte	0
+ 1889              		.section	.debug_ranges,"",%progbits
+ 1890              	.Ldebug_ranges0:
+ 1891 0000 00000000 		.4byte	.LFB1
+ 1892 0004 3C000000 		.4byte	.LFE1
+ 1893 0008 00000000 		.4byte	.LFB3
+ 1894 000c 30000000 		.4byte	.LFE3
+ 1895 0010 00000000 		.4byte	.LFB4
+ 1896 0014 02000000 		.4byte	.LFE4
+ 1897 0018 00000000 		.4byte	.LFB5
+ 1898 001c 0C000000 		.4byte	.LFE5
+ 1899 0020 00000000 		.4byte	.LFB6
+ 1900 0024 02000000 		.4byte	.LFE6
+ 1901 0028 00000000 		.4byte	.LFB7
+ 1902 002c 0C000000 		.4byte	.LFE7
+ 1903 0030 00000000 		.4byte	.LFB8
+ 1904 0034 0C000000 		.4byte	.LFE8
+ 1905 0038 00000000 		.4byte	.LFB9
+ 1906 003c 0C000000 		.4byte	.LFE9
+ 1907 0040 00000000 		.4byte	.LFB10
+ 1908 0044 0C000000 		.4byte	.LFE10
+ 1909 0048 00000000 		.4byte	.LFB11
+ 1910 004c 0C000000 		.4byte	.LFE11
+ 1911 0050 00000000 		.4byte	.LFB12
+ 1912 0054 18000000 		.4byte	.LFE12
+ 1913 0058 00000000 		.4byte	.LFB13
+ 1914 005c 0C000000 		.4byte	.LFE13
+ 1915 0060 00000000 		.4byte	.LFB14
+ 1916 0064 18000000 		.4byte	.LFE14
+ 1917 0068 00000000 		.4byte	.LFB15
+ 1918 006c 24000000 		.4byte	.LFE15
+ 1919 0070 00000000 		.4byte	.LFB16
+ 1920 0074 1C000000 		.4byte	.LFE16
+ 1921 0078 00000000 		.4byte	.LFB17
+ 1922 007c 24000000 		.4byte	.LFE17
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 57
 
 
- 1923 0084 1E000000 		.4byte	.LFE18
- 1924 0088 00000000 		.4byte	.LFB19
- 1925 008c 3C000000 		.4byte	.LFE19
- 1926 0090 00000000 		.4byte	.LFB0
- 1927 0094 48000000 		.4byte	.LFE0
- 1928 0098 00000000 		.4byte	.LFB2
- 1929 009c 1C000000 		.4byte	.LFE2
- 1930 00a0 00000000 		.4byte	.LFB20
- 1931 00a4 0C000000 		.4byte	.LFE20
- 1932 00a8 00000000 		.4byte	.LFB21
- 1933 00ac 0C000000 		.4byte	.LFE21
- 1934 00b0 00000000 		.4byte	.LFB22
- 1935 00b4 10000000 		.4byte	.LFE22
- 1936 00b8 00000000 		.4byte	.LFB23
- 1937 00bc 14000000 		.4byte	.LFE23
- 1938 00c0 00000000 		.4byte	0
- 1939 00c4 00000000 		.4byte	0
- 1940              		.section	.debug_line,"",%progbits
- 1941              	.Ldebug_line0:
- 1942 0000 3C020000 		.section	.debug_str,"MS",%progbits,1
- 1942      02005100 
- 1942      00000201 
- 1942      FB0E0D00 
- 1942      01010101 
- 1943              	.LASF20:
- 1944 0000 656E6162 		.ascii	"enableInterrupts\000"
- 1944      6C65496E 
- 1944      74657272 
- 1944      75707473 
- 1944      00
- 1945              	.LASF15:
- 1946 0011 72656733 		.ascii	"reg32\000"
- 1946      3200
- 1947              	.LASF45:
- 1948 0017 5350495F 		.ascii	"SPI_Slave_Init\000"
- 1948      536C6176 
- 1948      655F496E 
- 1948      697400
- 1949              	.LASF56:
- 1950 0026 4379496E 		.ascii	"CyIntSetVector\000"
- 1950      74536574 
- 1950      56656374 
- 1950      6F7200
- 1951              	.LASF32:
- 1952 0035 74784461 		.ascii	"txData\000"
- 1952      746100
- 1953              	.LASF25:
- 1954 003c 5350495F 		.ascii	"SPI_Slave_SetTxInterruptMode\000"
- 1954      536C6176 
- 1954      655F5365 
- 1954      74547849 
- 1954      6E746572 
- 1955              	.LASF26:
- 1956 0059 5350495F 		.ascii	"SPI_Slave_SetRxInterruptMode\000"
- 1956      536C6176 
- 1956      655F5365 
- 1956      74527849 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 58
+ 1923 0080 00000000 		.4byte	.LFB18
+ 1924 0084 1E000000 		.4byte	.LFE18
+ 1925 0088 00000000 		.4byte	.LFB19
+ 1926 008c 3C000000 		.4byte	.LFE19
+ 1927 0090 00000000 		.4byte	.LFB0
+ 1928 0094 48000000 		.4byte	.LFE0
+ 1929 0098 00000000 		.4byte	.LFB2
+ 1930 009c 1C000000 		.4byte	.LFE2
+ 1931 00a0 00000000 		.4byte	.LFB20
+ 1932 00a4 0C000000 		.4byte	.LFE20
+ 1933 00a8 00000000 		.4byte	.LFB21
+ 1934 00ac 0C000000 		.4byte	.LFE21
+ 1935 00b0 00000000 		.4byte	.LFB22
+ 1936 00b4 10000000 		.4byte	.LFE22
+ 1937 00b8 00000000 		.4byte	.LFB23
+ 1938 00bc 18000000 		.4byte	.LFE23
+ 1939 00c0 00000000 		.4byte	0
+ 1940 00c4 00000000 		.4byte	0
+ 1941              		.section	.debug_line,"",%progbits
+ 1942              	.Ldebug_line0:
+ 1943 0000 3C020000 		.section	.debug_str,"MS",%progbits,1
+ 1943      02005100 
+ 1943      00000201 
+ 1943      FB0E0D00 
+ 1943      01010101 
+ 1944              	.LASF44:
+ 1945 0000 5350495F 		.ascii	"SPI_Slave_ClearFIFO\000"
+ 1945      536C6176 
+ 1945      655F436C 
+ 1945      65617246 
+ 1945      49464F00 
+ 1946              	.LASF15:
+ 1947 0014 72656733 		.ascii	"reg32\000"
+ 1947      3200
+ 1948              	.LASF45:
+ 1949 001a 5350495F 		.ascii	"SPI_Slave_Init\000"
+ 1949      536C6176 
+ 1949      655F496E 
+ 1949      697400
+ 1950              	.LASF56:
+ 1951 0029 4379496E 		.ascii	"CyIntSetVector\000"
+ 1951      74536574 
+ 1951      56656374 
+ 1951      6F7200
+ 1952              	.LASF32:
+ 1953 0038 74784461 		.ascii	"txData\000"
+ 1953      746100
+ 1954              	.LASF25:
+ 1955 003f 5350495F 		.ascii	"SPI_Slave_SetTxInterruptMode\000"
+ 1955      536C6176 
+ 1955      655F5365 
+ 1955      74547849 
+ 1955      6E746572 
+ 1956              	.LASF26:
+ 1957 005c 5350495F 		.ascii	"SPI_Slave_SetRxInterruptMode\000"
+ 1957      536C6176 
+ 1957      655F5365 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 58
 
 
- 1956      6E746572 
- 1957              	.LASF3:
- 1958 0076 73686F72 		.ascii	"short unsigned int\000"
- 1958      7420756E 
- 1958      7369676E 
- 1958      65642069 
- 1958      6E7400
- 1959              	.LASF59:
- 1960 0089 47656E65 		.ascii	"Generated_Source\\PSoC5\\SPI_Slave.c\000"
- 1960      72617465 
- 1960      645F536F 
- 1960      75726365 
- 1960      5C50536F 
- 1961              	.LASF13:
- 1962 00ac 63686172 		.ascii	"char\000"
- 1962      00
- 1963              	.LASF38:
- 1964 00b1 5350495F 		.ascii	"SPI_Slave_ClearRxBuffer\000"
- 1964      536C6176 
- 1964      655F436C 
- 1964      65617252 
- 1964      78427566 
- 1965              	.LASF44:
- 1966 00c9 5350495F 		.ascii	"SPI_Slave_ClearFIFO\000"
- 1966      536C6176 
- 1966      655F436C 
- 1966      65617246 
- 1966      49464F00 
- 1967              	.LASF34:
- 1968 00dd 72784461 		.ascii	"rxData\000"
- 1968      746100
- 1969              	.LASF23:
- 1970 00e4 5350495F 		.ascii	"SPI_Slave_DisableTxInt\000"
- 1970      536C6176 
- 1970      655F4469 
- 1970      7361626C 
- 1970      65547849 
- 1971              	.LASF7:
- 1972 00fb 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1972      206C6F6E 
- 1972      6720756E 
- 1972      7369676E 
- 1972      65642069 
- 1973              	.LASF36:
- 1974 0112 73697A65 		.ascii	"size\000"
- 1974      00
- 1975              	.LASF58:
- 1976 0117 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1976      43313120 
- 1976      352E342E 
- 1976      31203230 
- 1976      31363036 
- 1977 014a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1977      20726576 
- 1977      6973696F 
- 1977      6E203233 
- 1977      37373135 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 59
+ 1957      74527849 
+ 1957      6E746572 
+ 1958              	.LASF3:
+ 1959 0079 73686F72 		.ascii	"short unsigned int\000"
+ 1959      7420756E 
+ 1959      7369676E 
+ 1959      65642069 
+ 1959      6E7400
+ 1960              	.LASF59:
+ 1961 008c 47656E65 		.ascii	"Generated_Source\\PSoC5\\SPI_Slave.c\000"
+ 1961      72617465 
+ 1961      645F536F 
+ 1961      75726365 
+ 1961      5C50536F 
+ 1962              	.LASF13:
+ 1963 00af 63686172 		.ascii	"char\000"
+ 1963      00
+ 1964              	.LASF38:
+ 1965 00b4 5350495F 		.ascii	"SPI_Slave_ClearRxBuffer\000"
+ 1965      536C6176 
+ 1965      655F436C 
+ 1965      65617252 
+ 1965      78427566 
+ 1966              	.LASF34:
+ 1967 00cc 72784461 		.ascii	"rxData\000"
+ 1967      746100
+ 1968              	.LASF23:
+ 1969 00d3 5350495F 		.ascii	"SPI_Slave_DisableTxInt\000"
+ 1969      536C6176 
+ 1969      655F4469 
+ 1969      7361626C 
+ 1969      65547849 
+ 1970              	.LASF7:
+ 1971 00ea 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1971      206C6F6E 
+ 1971      6720756E 
+ 1971      7369676E 
+ 1971      65642069 
+ 1972              	.LASF36:
+ 1973 0101 73697A65 		.ascii	"size\000"
+ 1973      00
+ 1974              	.LASF58:
+ 1975 0106 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1975      43313120 
+ 1975      352E342E 
+ 1975      31203230 
+ 1975      31363036 
+ 1976 0139 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1976      20726576 
+ 1976      6973696F 
+ 1976      6E203233 
+ 1976      37373135 
+ 1977 016c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1977      66756E63 
+ 1977      74696F6E 
+ 1977      2D736563 
+ 1977      74696F6E 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 59
 
 
- 1978 017d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1978      66756E63 
- 1978      74696F6E 
- 1978      2D736563 
- 1978      74696F6E 
- 1979              	.LASF30:
- 1980 01a5 5350495F 		.ascii	"SPI_Slave_ReadRxStatus\000"
- 1980      536C6176 
- 1980      655F5265 
- 1980      61645278 
- 1980      53746174 
- 1981              	.LASF18:
- 1982 01bc 5350495F 		.ascii	"SPI_Slave_Enable\000"
- 1982      536C6176 
- 1982      655F456E 
- 1982      61626C65 
- 1982      00
- 1983              	.LASF48:
- 1984 01cd 5350495F 		.ascii	"SPI_Slave_DisableInt\000"
- 1984      536C6176 
- 1984      655F4469 
- 1984      7361626C 
- 1984      65496E74 
- 1985              	.LASF5:
- 1986 01e2 6C6F6E67 		.ascii	"long unsigned int\000"
- 1986      20756E73 
- 1986      69676E65 
- 1986      6420696E 
- 1986      7400
- 1987              	.LASF51:
- 1988 01f4 5350495F 		.ascii	"SPI_Slave_initVar\000"
- 1988      536C6176 
- 1988      655F696E 
- 1988      69745661 
- 1988      7200
- 1989              	.LASF9:
- 1990 0206 75696E74 		.ascii	"uint8\000"
- 1990      3800
- 1991              	.LASF19:
- 1992 020c 5350495F 		.ascii	"SPI_Slave_Stop\000"
- 1992      536C6176 
- 1992      655F5374 
- 1992      6F7000
- 1993              	.LASF42:
- 1994 021b 62797465 		.ascii	"byteCount\000"
- 1994      436F756E 
- 1994      7400
- 1995              	.LASF60:
- 1996 0225 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
- 1996      73657273 
- 1996      5C6C6172 
- 1996      73686F6C 
- 1996      6D39325C 
- 1997 0253 50726F6A 		.ascii	"Projekt3\\03_DC_Motor_Control\\DC-Motor-PWM.cydsn\000"
- 1997      656B7433 
- 1997      5C30335F 
- 1997      44435F4D 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 60
+ 1978              	.LASF30:
+ 1979 0194 5350495F 		.ascii	"SPI_Slave_ReadRxStatus\000"
+ 1979      536C6176 
+ 1979      655F5265 
+ 1979      61645278 
+ 1979      53746174 
+ 1980              	.LASF18:
+ 1981 01ab 5350495F 		.ascii	"SPI_Slave_Enable\000"
+ 1981      536C6176 
+ 1981      655F456E 
+ 1981      61626C65 
+ 1981      00
+ 1982              	.LASF48:
+ 1983 01bc 5350495F 		.ascii	"SPI_Slave_DisableInt\000"
+ 1983      536C6176 
+ 1983      655F4469 
+ 1983      7361626C 
+ 1983      65496E74 
+ 1984              	.LASF5:
+ 1985 01d1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1985      20756E73 
+ 1985      69676E65 
+ 1985      6420696E 
+ 1985      7400
+ 1986              	.LASF51:
+ 1987 01e3 5350495F 		.ascii	"SPI_Slave_initVar\000"
+ 1987      536C6176 
+ 1987      655F696E 
+ 1987      69745661 
+ 1987      7200
+ 1988              	.LASF9:
+ 1989 01f5 75696E74 		.ascii	"uint8\000"
+ 1989      3800
+ 1990              	.LASF19:
+ 1991 01fb 5350495F 		.ascii	"SPI_Slave_Stop\000"
+ 1991      536C6176 
+ 1991      655F5374 
+ 1991      6F7000
+ 1992              	.LASF42:
+ 1993 020a 62797465 		.ascii	"byteCount\000"
+ 1993      436F756E 
+ 1993      7400
+ 1994              	.LASF20:
+ 1995 0214 656E6162 		.ascii	"enableInterrupts\000"
+ 1995      6C65496E 
+ 1995      74657272 
+ 1995      75707473 
+ 1995      00
+ 1996              	.LASF46:
+ 1997 0225 5350495F 		.ascii	"SPI_Slave_Start\000"
+ 1997      536C6176 
+ 1997      655F5374 
+ 1997      61727400 
+ 1998              	.LASF1:
+ 1999 0235 756E7369 		.ascii	"unsigned char\000"
+ 1999      676E6564 
+ 1999      20636861 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 60
 
 
- 1997      6F746F72 
- 1998              	.LASF46:
- 1999 0283 5350495F 		.ascii	"SPI_Slave_Start\000"
- 1999      536C6176 
- 1999      655F5374 
- 1999      61727400 
- 2000              	.LASF1:
- 2001 0293 756E7369 		.ascii	"unsigned char\000"
- 2001      676E6564 
- 2001      20636861 
- 2001      7200
- 2002              	.LASF12:
- 2003 02a1 646F7562 		.ascii	"double\000"
- 2003      6C6500
- 2004              	.LASF27:
- 2005 02a8 696E7453 		.ascii	"intSrc\000"
- 2005      726300
- 2006              	.LASF50:
- 2007 02af 5350495F 		.ascii	"SPI_Slave_ReadStatus\000"
+ 1999      7200
+ 2000              	.LASF12:
+ 2001 0243 646F7562 		.ascii	"double\000"
+ 2001      6C6500
+ 2002              	.LASF27:
+ 2003 024a 696E7453 		.ascii	"intSrc\000"
+ 2003      726300
+ 2004              	.LASF50:
+ 2005 0251 5350495F 		.ascii	"SPI_Slave_ReadStatus\000"
+ 2005      536C6176 
+ 2005      655F5265 
+ 2005      61645374 
+ 2005      61747573 
+ 2006              	.LASF22:
+ 2007 0266 5350495F 		.ascii	"SPI_Slave_EnableRxInt\000"
  2007      536C6176 
- 2007      655F5265 
- 2007      61645374 
- 2007      61747573 
- 2008              	.LASF22:
- 2009 02c4 5350495F 		.ascii	"SPI_Slave_EnableRxInt\000"
- 2009      536C6176 
- 2009      655F456E 
- 2009      61626C65 
- 2009      5278496E 
- 2010              	.LASF10:
- 2011 02da 75696E74 		.ascii	"uint32\000"
- 2011      333200
- 2012              	.LASF54:
- 2013 02e1 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 2013      74657243 
- 2013      72697469 
- 2013      63616C53 
- 2013      65637469 
- 2014              	.LASF8:
- 2015 02f8 756E7369 		.ascii	"unsigned int\000"
- 2015      676E6564 
- 2015      20696E74 
- 2015      00
- 2016              	.LASF40:
- 2017 0305 5350495F 		.ascii	"SPI_Slave_PutArray\000"
- 2017      536C6176 
- 2017      655F5075 
- 2017      74417272 
- 2017      617900
- 2018              	.LASF55:
- 2019 0318 43794578 		.ascii	"CyExitCriticalSection\000"
- 2019      69744372 
- 2019      69746963 
- 2019      616C5365 
- 2019      6374696F 
- 2020              	.LASF57:
- 2021 032e 4379496E 		.ascii	"CyIntSetPriority\000"
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 61
-
-
- 2021      74536574 
- 2021      5072696F 
- 2021      72697479 
+ 2007      655F456E 
+ 2007      61626C65 
+ 2007      5278496E 
+ 2008              	.LASF10:
+ 2009 027c 75696E74 		.ascii	"uint32\000"
+ 2009      333200
+ 2010              	.LASF54:
+ 2011 0283 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2011      74657243 
+ 2011      72697469 
+ 2011      63616C53 
+ 2011      65637469 
+ 2012              	.LASF8:
+ 2013 029a 756E7369 		.ascii	"unsigned int\000"
+ 2013      676E6564 
+ 2013      20696E74 
+ 2013      00
+ 2014              	.LASF40:
+ 2015 02a7 5350495F 		.ascii	"SPI_Slave_PutArray\000"
+ 2015      536C6176 
+ 2015      655F5075 
+ 2015      74417272 
+ 2015      617900
+ 2016              	.LASF55:
+ 2017 02ba 43794578 		.ascii	"CyExitCriticalSection\000"
+ 2017      69744372 
+ 2017      69746963 
+ 2017      616C5365 
+ 2017      6374696F 
+ 2018              	.LASF57:
+ 2019 02d0 4379496E 		.ascii	"CyIntSetPriority\000"
+ 2019      74536574 
+ 2019      5072696F 
+ 2019      72697479 
+ 2019      00
+ 2020              	.LASF43:
+ 2021 02e1 62756649 		.ascii	"bufIndex\000"
+ 2021      6E646578 
  2021      00
- 2022              	.LASF43:
- 2023 033f 62756649 		.ascii	"bufIndex\000"
- 2023      6E646578 
- 2023      00
- 2024              	.LASF31:
- 2025 0348 5350495F 		.ascii	"SPI_Slave_WriteTxData\000"
+ 2022              	.LASF31:
+ 2023 02ea 5350495F 		.ascii	"SPI_Slave_WriteTxData\000"
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 61
+
+
+ 2023      536C6176 
+ 2023      655F5772 
+ 2023      69746554 
+ 2023      78446174 
+ 2024              	.LASF49:
+ 2025 0300 5350495F 		.ascii	"SPI_Slave_SetInterruptMode\000"
  2025      536C6176 
- 2025      655F5772 
- 2025      69746554 
- 2025      78446174 
- 2026              	.LASF49:
- 2027 035e 5350495F 		.ascii	"SPI_Slave_SetInterruptMode\000"
- 2027      536C6176 
- 2027      655F5365 
- 2027      74496E74 
- 2027      65727275 
- 2028              	.LASF14:
- 2029 0379 72656738 		.ascii	"reg8\000"
- 2029      00
- 2030              	.LASF33:
- 2031 037e 5350495F 		.ascii	"SPI_Slave_ReadRxData\000"
- 2031      536C6176 
- 2031      655F5265 
- 2031      61645278 
- 2031      44617461 
- 2032              	.LASF17:
- 2033 0393 73697A65 		.ascii	"sizetype\000"
- 2033      74797065 
- 2033      00
- 2034              	.LASF37:
- 2035 039c 5350495F 		.ascii	"SPI_Slave_GetTxBufferSize\000"
- 2035      536C6176 
- 2035      655F4765 
- 2035      74547842 
- 2035      75666665 
- 2036              	.LASF6:
- 2037 03b6 6C6F6E67 		.ascii	"long long int\000"
- 2037      206C6F6E 
- 2037      6720696E 
- 2037      7400
- 2038              	.LASF53:
- 2039 03c4 5350495F 		.ascii	"SPI_Slave_swStatusRx\000"
+ 2025      655F5365 
+ 2025      74496E74 
+ 2025      65727275 
+ 2026              	.LASF14:
+ 2027 031b 72656738 		.ascii	"reg8\000"
+ 2027      00
+ 2028              	.LASF33:
+ 2029 0320 5350495F 		.ascii	"SPI_Slave_ReadRxData\000"
+ 2029      536C6176 
+ 2029      655F5265 
+ 2029      61645278 
+ 2029      44617461 
+ 2030              	.LASF17:
+ 2031 0335 73697A65 		.ascii	"sizetype\000"
+ 2031      74797065 
+ 2031      00
+ 2032              	.LASF37:
+ 2033 033e 5350495F 		.ascii	"SPI_Slave_GetTxBufferSize\000"
+ 2033      536C6176 
+ 2033      655F4765 
+ 2033      74547842 
+ 2033      75666665 
+ 2034              	.LASF6:
+ 2035 0358 6C6F6E67 		.ascii	"long long int\000"
+ 2035      206C6F6E 
+ 2035      6720696E 
+ 2035      7400
+ 2036              	.LASF53:
+ 2037 0366 5350495F 		.ascii	"SPI_Slave_swStatusRx\000"
+ 2037      536C6176 
+ 2037      655F7377 
+ 2037      53746174 
+ 2037      75735278 
+ 2038              	.LASF35:
+ 2039 037b 5350495F 		.ascii	"SPI_Slave_GetRxBufferSize\000"
  2039      536C6176 
- 2039      655F7377 
- 2039      53746174 
- 2039      75735278 
- 2040              	.LASF35:
- 2041 03d9 5350495F 		.ascii	"SPI_Slave_GetRxBufferSize\000"
+ 2039      655F4765 
+ 2039      74527842 
+ 2039      75666665 
+ 2040              	.LASF24:
+ 2041 0395 5350495F 		.ascii	"SPI_Slave_DisableRxInt\000"
  2041      536C6176 
- 2041      655F4765 
- 2041      74527842 
- 2041      75666665 
- 2042              	.LASF24:
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 62
-
-
- 2043 03f3 5350495F 		.ascii	"SPI_Slave_DisableRxInt\000"
+ 2041      655F4469 
+ 2041      7361626C 
+ 2041      65527849 
+ 2042              	.LASF52:
+ 2043 03ac 5350495F 		.ascii	"SPI_Slave_swStatusTx\000"
  2043      536C6176 
- 2043      655F4469 
- 2043      7361626C 
- 2043      65527849 
- 2044              	.LASF52:
- 2045 040a 5350495F 		.ascii	"SPI_Slave_swStatusTx\000"
- 2045      536C6176 
- 2045      655F7377 
- 2045      53746174 
- 2045      75735478 
- 2046              	.LASF2:
- 2047 041f 73686F72 		.ascii	"short int\000"
- 2047      7420696E 
- 2047      7400
- 2048              	.LASF41:
- 2049 0429 62756666 		.ascii	"buffer\000"
- 2049      657200
- 2050              	.LASF39:
- 2051 0430 5350495F 		.ascii	"SPI_Slave_ClearTxBuffer\000"
+ 2043      655F7377 
+ 2043      53746174 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 62
+
+
+ 2043      75735478 
+ 2044              	.LASF2:
+ 2045 03c1 73686F72 		.ascii	"short int\000"
+ 2045      7420696E 
+ 2045      7400
+ 2046              	.LASF41:
+ 2047 03cb 62756666 		.ascii	"buffer\000"
+ 2047      657200
+ 2048              	.LASF39:
+ 2049 03d2 5350495F 		.ascii	"SPI_Slave_ClearTxBuffer\000"
+ 2049      536C6176 
+ 2049      655F436C 
+ 2049      65617254 
+ 2049      78427566 
+ 2050              	.LASF29:
+ 2051 03ea 5350495F 		.ascii	"SPI_Slave_ReadTxStatus\000"
  2051      536C6176 
- 2051      655F436C 
- 2051      65617254 
- 2051      78427566 
- 2052              	.LASF29:
- 2053 0448 5350495F 		.ascii	"SPI_Slave_ReadTxStatus\000"
- 2053      536C6176 
- 2053      655F5265 
- 2053      61645478 
- 2053      53746174 
- 2054              	.LASF4:
- 2055 045f 6C6F6E67 		.ascii	"long int\000"
- 2055      20696E74 
- 2055      00
- 2056              	.LASF28:
- 2057 0468 746D7053 		.ascii	"tmpStatus\000"
- 2057      74617475 
- 2057      7300
- 2058              	.LASF16:
- 2059 0472 6C6F6E67 		.ascii	"long double\000"
- 2059      20646F75 
- 2059      626C6500 
- 2060              	.LASF11:
- 2061 047e 666C6F61 		.ascii	"float\000"
- 2061      7400
- 2062              	.LASF0:
- 2063 0484 7369676E 		.ascii	"signed char\000"
- 2063      65642063 
- 2063      68617200 
- 2064              	.LASF47:
- 2065 0490 5350495F 		.ascii	"SPI_Slave_EnableInt\000"
- 2065      536C6176 
- 2065      655F456E 
- 2065      61626C65 
- 2065      496E7400 
- 2066              	.LASF21:
- 2067 04a4 5350495F 		.ascii	"SPI_Slave_EnableTxInt\000"
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc3AW7DT.s 			page 63
-
-
+ 2051      655F5265 
+ 2051      61645478 
+ 2051      53746174 
+ 2052              	.LASF4:
+ 2053 0401 6C6F6E67 		.ascii	"long int\000"
+ 2053      20696E74 
+ 2053      00
+ 2054              	.LASF28:
+ 2055 040a 746D7053 		.ascii	"tmpStatus\000"
+ 2055      74617475 
+ 2055      7300
+ 2056              	.LASF60:
+ 2057 0414 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 2057      73657273 
+ 2057      5C6C6172 
+ 2057      73686F6C 
+ 2057      6D39325C 
+ 2058 0442 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\PSoC_SW_NOT_TESTED\\DC-Moto"
+ 2058      656B7467 
+ 2058      72757070 
+ 2058      6531365C 
+ 2058      49335052 
+ 2059 0472 722D5057 		.ascii	"r-PWM.cydsn\000"
+ 2059      4D2E6379 
+ 2059      64736E00 
+ 2060              	.LASF16:
+ 2061 047e 6C6F6E67 		.ascii	"long double\000"
+ 2061      20646F75 
+ 2061      626C6500 
+ 2062              	.LASF11:
+ 2063 048a 666C6F61 		.ascii	"float\000"
+ 2063      7400
+ 2064              	.LASF0:
+ 2065 0490 7369676E 		.ascii	"signed char\000"
+ 2065      65642063 
+ 2065      68617200 
+ 2066              	.LASF47:
+ 2067 049c 5350495F 		.ascii	"SPI_Slave_EnableInt\000"
  2067      536C6176 
  2067      655F456E 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccO9gOSk.s 			page 63
+
+
  2067      61626C65 
- 2067      5478496E 
- 2068              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 2067      496E7400 
+ 2068              	.LASF21:
+ 2069 04b0 5350495F 		.ascii	"SPI_Slave_EnableTxInt\000"
+ 2069      536C6176 
+ 2069      655F456E 
+ 2069      61626C65 
+ 2069      5478496E 
+ 2070              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

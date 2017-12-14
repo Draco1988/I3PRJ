@@ -1,4 +1,4 @@
-C:\Users\larsholm92\Documents\IKT\3. Semester\Projekt3\03_DC_Motor_Control\Stepper_Motor.cydsn\TopDesign\TopDesign.cysch
+C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\Stepper_Motor.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\UART_v2_50\UART_v2_50.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\UART_v2_50\UART_v2_50.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\UART_v2_50\UART_v2_50.pdf
@@ -79,7 +79,7 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrim
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_isr_v1_70\Custom\custom.cs
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_isr_v1_70\PSoC5\API\intc.c
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_isr_v1_70\PSoC5\API\intc.h
-C:\Users\larsholm92\Documents\IKT\3. Semester\Projekt3\03_DC_Motor_Control\Stepper_Motor.cydsn\Stepper_Motor.cydwr
+C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\Stepper_Motor.cydsn\Stepper_Motor.cydwr
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_60\PSoC5\API\cm3gcc.ld
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_60\PSoC5\API\Cm3RealView.scat
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_60\PSoC5\API\Cm3Start.c

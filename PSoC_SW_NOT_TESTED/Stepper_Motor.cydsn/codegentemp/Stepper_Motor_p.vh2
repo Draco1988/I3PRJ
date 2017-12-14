@@ -1,5 +1,5 @@
 -- Project:   Stepper_Motor
--- Generated: 12/14/2017 09:58:58
+-- Generated: 12/14/2017 13:39:16
 -- PSoC Creator  4.1 Update 1
 
 ENTITY Stepper_Motor IS

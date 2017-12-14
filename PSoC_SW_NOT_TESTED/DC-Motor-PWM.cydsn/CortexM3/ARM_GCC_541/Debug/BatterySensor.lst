@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
   22:BatterySensor.c **** {
   34              		.loc 1 22 0
   35              		.cfi_startproc
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 2
 
 
   36              		@ args = 0, pretend = 0, frame = 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
   81              		.loc 1 31 0
   82 004a 2846     		mov	r0, r5
   83 004c FFF7FEFF 		bl	UART_1_PutString
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 3
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 3
 
 
   84              	.LVL9:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  127              	.LFE64:
  128              		.size	checkBattery, .-checkBattery
  129              		.comm	uartBufferBattery,256,4
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 4
 
 
  130              		.global	voltage
@@ -221,14 +221,14 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  162 000c 53000000 		.4byte	.LASF25
  163 0010 0C       		.byte	0xc
  164 0011 06010000 		.4byte	.LASF26
- 165 0015 2B010000 		.4byte	.LASF27
+ 165 0015 CD010000 		.4byte	.LASF27
  166 0019 00000000 		.4byte	.Ldebug_ranges0+0
  167 001d 00000000 		.4byte	0
  168 0021 00000000 		.4byte	.Ldebug_line0
  169 0025 02       		.uleb128 0x2
  170 0026 01       		.byte	0x1
  171 0027 06       		.byte	0x6
- 172 0028 37020000 		.4byte	.LASF0
+ 172 0028 43020000 		.4byte	.LASF0
  173 002c 02       		.uleb128 0x2
  174 002d 01       		.byte	0x1
  175 002e 08       		.byte	0x8
@@ -236,9 +236,9 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  177 0033 02       		.uleb128 0x2
  178 0034 02       		.byte	0x2
  179 0035 05       		.byte	0x5
- 180 0036 18020000 		.4byte	.LASF2
+ 180 0036 BA010000 		.4byte	.LASF2
  181 003a 02       		.uleb128 0x2
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 5
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 5
 
 
  182 003b 02       		.byte	0x2
@@ -252,7 +252,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  190 004c 02       		.uleb128 0x2
  191 004d 04       		.byte	0x4
  192 004e 05       		.byte	0x5
- 193 004f 22020000 		.4byte	.LASF4
+ 193 004f C4010000 		.4byte	.LASF4
  194 0053 02       		.uleb128 0x2
  195 0054 04       		.byte	0x4
  196 0055 07       		.byte	0x7
@@ -260,11 +260,11 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  198 005a 02       		.uleb128 0x2
  199 005b 08       		.byte	0x8
  200 005c 05       		.byte	0x5
- 201 005d 05020000 		.4byte	.LASF6
+ 201 005d A7010000 		.4byte	.LASF6
  202 0061 02       		.uleb128 0x2
  203 0062 08       		.byte	0x8
  204 0063 07       		.byte	0x7
- 205 0064 9D010000 		.4byte	.LASF7
+ 205 0064 3F010000 		.4byte	.LASF7
  206 0068 04       		.uleb128 0x4
  207 0069 04       		.byte	0x4
  208 006a 05       		.byte	0x5
@@ -272,9 +272,9 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  210 006f 02       		.uleb128 0x2
  211 0070 04       		.byte	0x4
  212 0071 07       		.byte	0x7
- 213 0072 90010000 		.4byte	.LASF8
+ 213 0072 32010000 		.4byte	.LASF8
  214 0076 03       		.uleb128 0x3
- 215 0077 D1010000 		.4byte	.LASF10
+ 215 0077 73010000 		.4byte	.LASF10
  216 007b 03       		.byte	0x3
  217 007c 2C       		.byte	0x2c
  218 007d 41000000 		.4byte	0x41
@@ -285,24 +285,24 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  223 0088 02       		.uleb128 0x2
  224 0089 08       		.byte	0x8
  225 008a 04       		.byte	0x4
- 226 008b 89010000 		.4byte	.LASF12
+ 226 008b 2B010000 		.4byte	.LASF12
  227 008f 02       		.uleb128 0x2
  228 0090 01       		.byte	0x1
  229 0091 08       		.byte	0x8
- 230 0092 13020000 		.4byte	.LASF13
+ 230 0092 B5010000 		.4byte	.LASF13
  231 0096 02       		.uleb128 0x2
  232 0097 08       		.byte	0x8
  233 0098 04       		.byte	0x4
- 234 0099 2B020000 		.4byte	.LASF14
+ 234 0099 37020000 		.4byte	.LASF14
  235 009d 02       		.uleb128 0x2
  236 009e 04       		.byte	0x4
  237 009f 07       		.byte	0x7
- 238 00a0 D9010000 		.4byte	.LASF15
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 6
+ 238 00a0 7B010000 		.4byte	.LASF15
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 6
 
 
  239 00a4 05       		.uleb128 0x5
- 240 00a5 E2010000 		.4byte	.LASF28
+ 240 00a5 84010000 		.4byte	.LASF28
  241 00a9 01       		.byte	0x1
  242 00aa 15       		.byte	0x15
  243 00ab 00000000 		.4byte	.LFB64
@@ -315,7 +315,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  250 00be 62000000 		.4byte	.LBE2-.LBB2
  251 00c2 3E010000 		.4byte	0x13e
  252 00c6 07       		.uleb128 0x7
- 253 00c7 B4010000 		.4byte	.LASF29
+ 253 00c7 56010000 		.4byte	.LASF29
  254 00cb 01       		.byte	0x1
  255 00cc 1A       		.byte	0x1a
  256 00cd 81000000 		.4byte	0x81
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  293 0114 00       		.sleb128 0
  294 0115 00       		.byte	0
  295 0116 09       		.uleb128 0x9
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 7
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 7
 
 
  296 0117 68000000 		.4byte	.LVL12
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  350 017f 05       		.uleb128 0x5
  351 0180 03       		.byte	0x3
  352 0181 00000000 		.4byte	voltage
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 8
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 8
 
 
  353 0185 0F       		.uleb128 0xf
@@ -437,8 +437,8 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  366 01a1 03       		.byte	0x3
  367 01a2 00000000 		.4byte	uartBufferBattery
  368 01a6 11       		.uleb128 0x11
- 369 01a7 EF010000 		.4byte	.LASF19
- 370 01ab EF010000 		.4byte	.LASF19
+ 369 01a7 91010000 		.4byte	.LASF19
+ 370 01ab 91010000 		.4byte	.LASF19
  371 01af 05       		.byte	0x5
  372 01b0 3B       		.byte	0x3b
  373 01b1 11       		.uleb128 0x11
@@ -447,13 +447,13 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  376 01ba 06       		.byte	0x6
  377 01bb FD       		.byte	0xfd
  378 01bc 11       		.uleb128 0x11
- 379 01bd 43020000 		.4byte	.LASF21
- 380 01c1 43020000 		.4byte	.LASF21
+ 379 01bd 4F020000 		.4byte	.LASF21
+ 380 01c1 4F020000 		.4byte	.LASF21
  381 01c5 07       		.byte	0x7
  382 01c6 8B       		.byte	0x8b
  383 01c7 11       		.uleb128 0x11
- 384 01c8 BB010000 		.4byte	.LASF22
- 385 01cc BB010000 		.4byte	.LASF22
+ 384 01c8 5D010000 		.4byte	.LASF22
+ 385 01cc 5D010000 		.4byte	.LASF22
  386 01d0 08       		.byte	0x8
  387 01d1 50       		.byte	0x50
  388 01d2 11       		.uleb128 0x11
@@ -462,8 +462,8 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  391 01db 05       		.byte	0x5
  392 01dc 39       		.byte	0x39
  393 01dd 11       		.uleb128 0x11
- 394 01de 54020000 		.4byte	.LASF24
- 395 01e2 54020000 		.4byte	.LASF24
+ 394 01de 60020000 		.4byte	.LASF24
+ 395 01e2 60020000 		.4byte	.LASF24
  396 01e6 09       		.byte	0x9
  397 01e7 76       		.byte	0x76
  398 01e8 00       		.byte	0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  407 0006 0B       		.uleb128 0xb
  408 0007 03       		.uleb128 0x3
  409 0008 0E       		.uleb128 0xe
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 9
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 9
 
 
  410 0009 1B       		.uleb128 0x1b
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  464 003f 3B       		.uleb128 0x3b
  465 0040 0B       		.uleb128 0xb
  466 0041 11       		.uleb128 0x11
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 10
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 10
 
 
  467 0042 01       		.uleb128 0x1
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  521 007d 13       		.uleb128 0x13
  522 007e 00       		.byte	0
  523 007f 00       		.byte	0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 11
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 11
 
 
  524 0080 0A       		.uleb128 0xa
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  578 00bb 19       		.uleb128 0x19
  579 00bc 02       		.uleb128 0x2
  580 00bd 18       		.uleb128 0x18
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 12
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 12
 
 
  581 00be 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  635 000e 0000     		.2byte	0
  636 0010 00000000 		.4byte	.LFB64
  637 0014 A8000000 		.4byte	.LFE64-.LFB64
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 13
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 13
 
 
  638 0018 00000000 		.4byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  664 00b9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  664      66756E63 
  664      74696F6E 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 14
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 14
 
 
  664      2D736563 
@@ -808,92 +808,98 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 1
  674      52784275 
  674      66666572 
  674      00
- 675              	.LASF27:
- 676 012b 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
- 676      73657273 
- 676      5C6C6172 
- 676      73686F6C 
- 676      6D39325C 
- 677 0159 50726F6A 		.ascii	"Projekt3\\03_DC_Motor_Control\\DC-Motor-PWM.cydsn\000"
- 677      656B7433 
- 677      5C30335F 
- 677      44435F4D 
- 677      6F746F72 
- 678              	.LASF12:
- 679 0189 646F7562 		.ascii	"double\000"
- 679      6C6500
- 680              	.LASF8:
- 681 0190 756E7369 		.ascii	"unsigned int\000"
- 681      676E6564 
- 681      20696E74 
- 681      00
- 682              	.LASF7:
- 683 019d 6C6F6E67 		.ascii	"long long unsigned int\000"
- 683      206C6F6E 
- 683      6720756E 
- 683      7369676E 
- 683      65642069 
- 684              	.LASF29:
- 685 01b4 72657375 		.ascii	"result\000"
- 685      6C7400
- 686              	.LASF22:
- 687 01bb 5350495F 		.ascii	"SPI_Slave_WriteTxData\000"
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cclss5GO.s 			page 15
+ 675              	.LASF12:
+ 676 012b 646F7562 		.ascii	"double\000"
+ 676      6C6500
+ 677              	.LASF8:
+ 678 0132 756E7369 		.ascii	"unsigned int\000"
+ 678      676E6564 
+ 678      20696E74 
+ 678      00
+ 679              	.LASF7:
+ 680 013f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 680      206C6F6E 
+ 680      6720756E 
+ 680      7369676E 
+ 680      65642069 
+ 681              	.LASF29:
+ 682 0156 72657375 		.ascii	"result\000"
+ 682      6C7400
+ 683              	.LASF22:
+ 684 015d 5350495F 		.ascii	"SPI_Slave_WriteTxData\000"
+ 684      536C6176 
+ 684      655F5772 
+ 684      69746554 
+ 684      78446174 
+ 685              	.LASF10:
+ 686 0173 696E7433 		.ascii	"int32_t\000"
+ 686      325F7400 
+ 687              	.LASF15:
+ 688 017b 73697A65 		.ascii	"sizetype\000"
+ 688      74797065 
+ 688      00
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 15
 
 
- 687      536C6176 
- 687      655F5772 
- 687      69746554 
- 687      78446174 
- 688              	.LASF10:
- 689 01d1 696E7433 		.ascii	"int32_t\000"
- 689      325F7400 
- 690              	.LASF15:
- 691 01d9 73697A65 		.ascii	"sizetype\000"
- 691      74797065 
- 691      00
- 692              	.LASF28:
- 693 01e2 63686563 		.ascii	"checkBattery\000"
- 693      6B426174 
- 693      74657279 
- 693      00
- 694              	.LASF19:
- 695 01ef 4144435F 		.ascii	"ADC_SAR_1_GetResult16\000"
- 695      5341525F 
- 695      315F4765 
- 695      74526573 
- 695      756C7431 
- 696              	.LASF6:
- 697 0205 6C6F6E67 		.ascii	"long long int\000"
- 697      206C6F6E 
- 697      6720696E 
- 697      7400
- 698              	.LASF13:
- 699 0213 63686172 		.ascii	"char\000"
- 699      00
- 700              	.LASF2:
- 701 0218 73686F72 		.ascii	"short int\000"
- 701      7420696E 
- 701      7400
- 702              	.LASF4:
- 703 0222 6C6F6E67 		.ascii	"long int\000"
- 703      20696E74 
- 703      00
- 704              	.LASF14:
- 705 022b 6C6F6E67 		.ascii	"long double\000"
- 705      20646F75 
- 705      626C6500 
- 706              	.LASF0:
- 707 0237 7369676E 		.ascii	"signed char\000"
- 707      65642063 
- 707      68617200 
- 708              	.LASF21:
- 709 0243 55415254 		.ascii	"UART_1_PutString\000"
- 709      5F315F50 
- 709      75745374 
- 709      72696E67 
- 709      00
- 710              	.LASF24:
- 711 0254 43794465 		.ascii	"CyDelay\000"
- 711      6C617900 
- 712              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 689              	.LASF28:
+ 690 0184 63686563 		.ascii	"checkBattery\000"
+ 690      6B426174 
+ 690      74657279 
+ 690      00
+ 691              	.LASF19:
+ 692 0191 4144435F 		.ascii	"ADC_SAR_1_GetResult16\000"
+ 692      5341525F 
+ 692      315F4765 
+ 692      74526573 
+ 692      756C7431 
+ 693              	.LASF6:
+ 694 01a7 6C6F6E67 		.ascii	"long long int\000"
+ 694      206C6F6E 
+ 694      6720696E 
+ 694      7400
+ 695              	.LASF13:
+ 696 01b5 63686172 		.ascii	"char\000"
+ 696      00
+ 697              	.LASF2:
+ 698 01ba 73686F72 		.ascii	"short int\000"
+ 698      7420696E 
+ 698      7400
+ 699              	.LASF4:
+ 700 01c4 6C6F6E67 		.ascii	"long int\000"
+ 700      20696E74 
+ 700      00
+ 701              	.LASF27:
+ 702 01cd 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 702      73657273 
+ 702      5C6C6172 
+ 702      73686F6C 
+ 702      6D39325C 
+ 703 01fb 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\PSoC_SW_NOT_TESTED\\DC-Moto"
+ 703      656B7467 
+ 703      72757070 
+ 703      6531365C 
+ 703      49335052 
+ 704 022b 722D5057 		.ascii	"r-PWM.cydsn\000"
+ 704      4D2E6379 
+ 704      64736E00 
+ 705              	.LASF14:
+ 706 0237 6C6F6E67 		.ascii	"long double\000"
+ 706      20646F75 
+ 706      626C6500 
+ 707              	.LASF0:
+ 708 0243 7369676E 		.ascii	"signed char\000"
+ 708      65642063 
+ 708      68617200 
+ 709              	.LASF21:
+ 710 024f 55415254 		.ascii	"UART_1_PutString\000"
+ 710      5F315F50 
+ 710      75745374 
+ 710      72696E67 
+ 710      00
+ 711              	.LASF24:
+ 712 0260 43794465 		.ascii	"CyDelay\000"
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccubChmG.s 			page 16
+
+
+ 712      6C617900 
+ 713              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

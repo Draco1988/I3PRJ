@@ -1,5 +1,5 @@
--- Project:   C:\Users\larsholm92\Documents\IKT\3. Semester\Projekt3\03_DC_Motor_Control\Stepper_Motor.cydsn\Stepper_Motor.cyprj
--- Generated: 12/14/2017 09:59:03
+-- Project:   C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\Stepper_Motor.cydsn\Stepper_Motor.cyprj
+-- Generated: 12/14/2017 13:39:21
 -- PSoC Creator  4.1 Update 1
 
 ENTITY Stepper_Motor IS

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
   28:Generated_Source\PSoC5/ISR_SPI.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/ISR_SPI.c **** /* `#START ISR_SPI_intc` */
   30:Generated_Source\PSoC5/ISR_SPI.c **** 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 2
 
 
   31:Generated_Source\PSoC5/ISR_SPI.c **** /* `#END` */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
   85:Generated_Source\PSoC5/ISR_SPI.c **** *  the interrupt to the interrupt controller.
   86:Generated_Source\PSoC5/ISR_SPI.c **** *  
   87:Generated_Source\PSoC5/ISR_SPI.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 3
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 3
 
 
   88:Generated_Source\PSoC5/ISR_SPI.c **** *  used to provide consistent definition across compilers:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  142:Generated_Source\PSoC5/ISR_SPI.c **** 
  143:Generated_Source\PSoC5/ISR_SPI.c **** 
  144:Generated_Source\PSoC5/ISR_SPI.c **** /*******************************************************************************
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 4
 
 
  145:Generated_Source\PSoC5/ISR_SPI.c **** * Function Name: ISR_SPI_Interrupt
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  182:Generated_Source\PSoC5/ISR_SPI.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
  183:Generated_Source\PSoC5/ISR_SPI.c **** *   used to provide consistent definition across compilers:
  184:Generated_Source\PSoC5/ISR_SPI.c **** *
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 5
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 5
 
 
  185:Generated_Source\PSoC5/ISR_SPI.c **** *   Function definition example:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  211:Generated_Source\PSoC5/ISR_SPI.c **** * Function Name: ISR_SPI_GetVector
  212:Generated_Source\PSoC5/ISR_SPI.c **** ********************************************************************************
  213:Generated_Source\PSoC5/ISR_SPI.c **** *
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 6
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 6
 
 
  214:Generated_Source\PSoC5/ISR_SPI.c **** * Summary:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  241:Generated_Source\PSoC5/ISR_SPI.c **** *   Note calling ISR_SPI_Start or ISR_SPI_StartEx will 
  242:Generated_Source\PSoC5/ISR_SPI.c **** *   override any effect this API would have had. This API should only be called
  243:Generated_Source\PSoC5/ISR_SPI.c **** *   after ISR_SPI_Start or ISR_SPI_StartEx has been called. 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 7
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 7
 
 
  244:Generated_Source\PSoC5/ISR_SPI.c **** *   To set the initial priority for the component, use the Design-Wide Resources
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  270:Generated_Source\PSoC5/ISR_SPI.c **** *
  271:Generated_Source\PSoC5/ISR_SPI.c **** * Parameters:
  272:Generated_Source\PSoC5/ISR_SPI.c **** *   None
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 8
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 8
 
 
  273:Generated_Source\PSoC5/ISR_SPI.c **** *
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  299:Generated_Source\PSoC5/ISR_SPI.c **** *
  300:Generated_Source\PSoC5/ISR_SPI.c **** * Parameters:
  301:Generated_Source\PSoC5/ISR_SPI.c **** *   None
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 9
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 9
 
 
  302:Generated_Source\PSoC5/ISR_SPI.c **** *
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  182              		.cfi_startproc
  183              		@ args = 0, pretend = 0, frame = 0
  184              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 10
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 10
 
 
  185              		@ link register save eliminated.
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  216 0006 7047     		bx	lr
  217              	.L22:
  218              		.align	2
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 11
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 11
 
 
  219              	.L21:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  268              	ISR_SPI_StartEx:
  269              	.LFB1:
  105:Generated_Source\PSoC5/ISR_SPI.c ****     /* For all we know the interrupt is active. */
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 12
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 12
 
 
  270              		.loc 1 105 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  317              		.loc 1 140 0
  318 0006 0248     		ldr	r0, .L31
  319 0008 FFF7FEFF 		bl	ISR_SPI_SetVector
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 13
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 13
 
 
  320              	.LVL17:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  348              		.align	2
  349              	.L34:
  350 0008 00E200E0 		.word	-536813056
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 14
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 14
 
 
  351              		.cfi_endproc
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  380              	.Letext0:
  381              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
  382              		.section	.debug_info,"",%progbits
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 15
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 15
 
 
  383              	.Ldebug_info0:
@@ -850,7 +850,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  389 000c C5000000 		.4byte	.LASF34
  390 0010 0C       		.byte	0xc
  391 0011 00000000 		.4byte	.LASF35
- 392 0015 9C010000 		.4byte	.LASF36
+ 392 0015 68020000 		.4byte	.LASF36
  393 0019 00000000 		.4byte	.Ldebug_ranges0+0
  394 001d 00000000 		.4byte	0
  395 0021 00000000 		.4byte	.Ldebug_line0
@@ -861,19 +861,19 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  400 002c 03       		.uleb128 0x3
  401 002d 04       		.byte	0x4
  402 002e 07       		.byte	0x7
- 403 002f 41020000 		.4byte	.LASF0
+ 403 002f E3010000 		.4byte	.LASF0
  404 0033 03       		.uleb128 0x3
  405 0034 08       		.byte	0x8
  406 0035 05       		.byte	0x5
- 407 0036 91020000 		.4byte	.LASF1
+ 407 0036 33020000 		.4byte	.LASF1
  408 003a 03       		.uleb128 0x3
  409 003b 08       		.byte	0x8
  410 003c 04       		.byte	0x4
- 411 003d C6020000 		.4byte	.LASF2
+ 411 003d D2020000 		.4byte	.LASF2
  412 0041 03       		.uleb128 0x3
  413 0042 01       		.byte	0x1
  414 0043 06       		.byte	0x6
- 415 0044 D2020000 		.4byte	.LASF3
+ 415 0044 DE020000 		.4byte	.LASF3
  416 0048 03       		.uleb128 0x3
  417 0049 01       		.byte	0x1
  418 004a 08       		.byte	0x8
@@ -881,7 +881,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  420 004f 03       		.uleb128 0x3
  421 0050 02       		.byte	0x2
  422 0051 05       		.byte	0x5
- 423 0052 B3020000 		.4byte	.LASF5
+ 423 0052 55020000 		.4byte	.LASF5
  424 0056 03       		.uleb128 0x3
  425 0057 02       		.byte	0x2
  426 0058 07       		.byte	0x7
@@ -889,7 +889,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  428 005d 03       		.uleb128 0x3
  429 005e 04       		.byte	0x4
  430 005f 05       		.byte	0x5
- 431 0060 BD020000 		.4byte	.LASF7
+ 431 0060 5F020000 		.4byte	.LASF7
  432 0064 03       		.uleb128 0x3
  433 0065 04       		.byte	0x4
  434 0066 07       		.byte	0x7
@@ -897,18 +897,18 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  436 006b 03       		.uleb128 0x3
  437 006c 08       		.byte	0x8
  438 006d 07       		.byte	0x7
- 439 006e 56020000 		.4byte	.LASF9
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 16
+ 439 006e F8010000 		.4byte	.LASF9
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 16
 
 
  440 0072 03       		.uleb128 0x3
  441 0073 04       		.byte	0x4
  442 0074 07       		.byte	0x7
- 443 0075 7A020000 		.4byte	.LASF10
+ 443 0075 1C020000 		.4byte	.LASF10
  444 0079 03       		.uleb128 0x3
  445 007a 01       		.byte	0x1
  446 007b 08       		.byte	0x8
- 447 007c 9F020000 		.4byte	.LASF11
+ 447 007c 41020000 		.4byte	.LASF11
  448 0080 04       		.uleb128 0x4
  449 0081 04       		.byte	0x4
  450 0082 86000000 		.4byte	0x86
@@ -919,7 +919,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  455 008d 9201     		.2byte	0x192
  456 008f 48000000 		.4byte	0x48
  457 0093 06       		.uleb128 0x6
- 458 0094 3A020000 		.4byte	.LASF13
+ 458 0094 DC010000 		.4byte	.LASF13
  459 0098 02       		.byte	0x2
  460 0099 9401     		.2byte	0x194
  461 009b 64000000 		.4byte	0x64
@@ -930,7 +930,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  466 00a6 03       		.uleb128 0x3
  467 00a7 08       		.byte	0x8
  468 00a8 04       		.byte	0x4
- 469 00a9 0F020000 		.4byte	.LASF15
+ 469 00a9 B1010000 		.4byte	.LASF15
  470 00ad 06       		.uleb128 0x6
  471 00ae 53010000 		.4byte	.LASF16
  472 00b2 02       		.byte	0x2
@@ -946,19 +946,19 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  482 00ca 07       		.uleb128 0x7
  483 00cb 93000000 		.4byte	0x93
  484 00cf 06       		.uleb128 0x6
- 485 00d0 6D020000 		.4byte	.LASF18
+ 485 00d0 0F020000 		.4byte	.LASF18
  486 00d4 02       		.byte	0x2
  487 00d5 4E02     		.2byte	0x24e
  488 00d7 80000000 		.4byte	0x80
  489 00db 08       		.uleb128 0x8
- 490 00dc 28020000 		.4byte	.LASF26
+ 490 00dc CA010000 		.4byte	.LASF26
  491 00e0 01       		.byte	0x1
  492 00e1 A0       		.byte	0xa0
  493 00e2 00000000 		.4byte	.LFB3
  494 00e6 02000000 		.4byte	.LFE3-.LFB3
  495 00ea 01       		.uleb128 0x1
  496 00eb 9C       		.byte	0x9c
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 17
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 17
 
 
  497 00ec 09       		.uleb128 0x9
@@ -971,14 +971,14 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  504 00fc 9C       		.byte	0x9c
  505 00fd 1C010000 		.4byte	0x11c
  506 0101 0A       		.uleb128 0xa
- 507 0102 4E020000 		.4byte	.LASF22
+ 507 0102 F0010000 		.4byte	.LASF22
  508 0106 01       		.byte	0x1
  509 0107 C8       		.byte	0xc8
  510 0108 CF000000 		.4byte	0xcf
  511 010c 01       		.uleb128 0x1
  512 010d 50       		.byte	0x50
  513 010e 0B       		.uleb128 0xb
- 514 010f A4020000 		.4byte	.LASF19
+ 514 010f 46020000 		.4byte	.LASF19
  515 0113 01       		.byte	0x1
  516 0114 CA       		.byte	0xca
  517 0115 1C010000 		.4byte	0x11c
@@ -989,7 +989,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  522 011d 04       		.byte	0x4
  523 011e CF000000 		.4byte	0xcf
  524 0122 0C       		.uleb128 0xc
- 525 0123 16020000 		.4byte	.LASF24
+ 525 0123 B8010000 		.4byte	.LASF24
  526 0127 01       		.byte	0x1
  527 0128 E0       		.byte	0xe0
  528 0129 CF000000 		.4byte	0xcf
@@ -999,7 +999,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  532 0136 9C       		.byte	0x9c
  533 0137 49010000 		.4byte	0x149
  534 013b 0B       		.uleb128 0xb
- 535 013c A4020000 		.4byte	.LASF19
+ 535 013c 46020000 		.4byte	.LASF19
  536 0140 01       		.byte	0x1
  537 0141 E2       		.byte	0xe2
  538 0142 1C010000 		.4byte	0x11c
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  551 015f 0E       		.uleb128 0xe
  552 0160 93010000 		.4byte	.LASF23
  553 0164 01       		.byte	0x1
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 18
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 18
 
 
  554 0165 0201     		.2byte	0x102
@@ -1068,7 +1068,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  598 01d3 01       		.uleb128 0x1
  599 01d4 9C       		.byte	0x9c
  600 01d5 09       		.uleb128 0x9
- 601 01d6 83020000 		.4byte	.LASF29
+ 601 01d6 25020000 		.4byte	.LASF29
  602 01da 01       		.byte	0x1
  603 01db 3D       		.byte	0x3d
  604 01dc 00000000 		.4byte	.LFB0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  608 01e6 27020000 		.4byte	0x227
  609 01ea 13       		.uleb128 0x13
  610 01eb 06000000 		.4byte	.LVL7
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 19
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 19
 
 
  611 01ef C3010000 		.4byte	0x1c3
@@ -1117,7 +1117,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  644 0237 9C       		.byte	0x9c
  645 0238 85020000 		.4byte	0x285
  646 023c 16       		.uleb128 0x16
- 647 023d 4E020000 		.4byte	.LASF22
+ 647 023d F0010000 		.4byte	.LASF22
  648 0241 01       		.byte	0x1
  649 0242 68       		.byte	0x68
  650 0243 CF000000 		.4byte	0xcf
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  665 0267 00       		.byte	0
  666 0268 14       		.uleb128 0x14
  667 0269 14000000 		.4byte	.LVL14
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 20
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 20
 
 
  668 026d 49010000 		.4byte	0x149
@@ -1178,7 +1178,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  702 02bd 01       		.uleb128 0x1
  703 02be 9C       		.byte	0x9c
  704 02bf 11       		.uleb128 0x11
- 705 02c0 FA010000 		.4byte	.LASF33
+ 705 02c0 9C010000 		.4byte	.LASF33
  706 02c4 01       		.byte	0x1
  707 02c5 9101     		.2byte	0x191
  708 02c7 00000000 		.4byte	.LFB12
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  722 0007 03       		.uleb128 0x3
  723 0008 0E       		.uleb128 0xe
  724 0009 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 21
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 21
 
 
  725 000a 0E       		.uleb128 0xe
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  779 0040 3B       		.uleb128 0x3b
  780 0041 05       		.uleb128 0x5
  781 0042 49       		.uleb128 0x49
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 22
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 22
 
 
  782 0043 13       		.uleb128 0x13
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  836 007b 01       		.uleb128 0x1
  837 007c 13       		.uleb128 0x13
  838 007d 00       		.byte	0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 23
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 23
 
 
  839 007e 00       		.byte	0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  893 00b5 01       		.uleb128 0x1
  894 00b6 13       		.uleb128 0x13
  895 00b7 00       		.byte	0
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 24
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 24
 
 
  896 00b8 00       		.byte	0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  950 00ef 49       		.uleb128 0x49
  951 00f0 13       		.uleb128 0x13
  952 00f1 11       		.uleb128 0x11
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 25
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 25
 
 
  953 00f2 01       		.uleb128 0x1
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  1007 012a 03       		.uleb128 0x3
  1008 012b 0E       		.uleb128 0xe
  1009 012c 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 26
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 26
 
 
  1010 012d 0B       		.uleb128 0xb
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  1064 016b 0B       		.uleb128 0xb
  1065 016c 49       		.uleb128 0x49
  1066 016d 13       		.uleb128 0x13
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 27
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 27
 
 
  1067 016e 02       		.uleb128 0x2
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  1121 001c 0C000000 		.4byte	.LFE4-.LFB4
  1122 0020 00000000 		.4byte	.LFB5
  1123 0024 0C000000 		.4byte	.LFE5-.LFB5
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 28
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 28
 
 
  1124 0028 00000000 		.4byte	.LFB6
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  1178 0000 30010000 		.section	.debug_str,"MS",%progbits,1
  1178      02004400 
  1178      00000201 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 29
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 29
 
 
  1178      FB0E0D00 
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  1199              	.LASF31:
  1200 00aa 4953525F 		.ascii	"ISR_SPI_Stop\000"
  1200      5350495F 
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 30
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 30
 
 
  1200      53746F70 
@@ -1791,102 +1791,105 @@ ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 1
  1218 0193 7072696F 		.ascii	"priority\000"
  1218      72697479 
  1218      00
- 1219              	.LASF36:
- 1220 019c 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
- 1220      73657273 
- 1220      5C6C6172 
- 1220      73686F6C 
- 1220      6D39325C 
- 1221 01ca 50726F6A 		.ascii	"Projekt3\\03_DC_Motor_Control\\DC-Motor-PWM.cydsn\000"
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 31
+ 1219              	.LASF33:
+ 1220 019c 4953525F 		.ascii	"ISR_SPI_ClearPending\000"
+ 1220      5350495F 
+ 1220      436C6561 
+ 1220      7250656E 
+ 1220      64696E67 
+ 1221              	.LASF15:
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 31
 
 
- 1221      656B7433 
- 1221      5C30335F 
- 1221      44435F4D 
- 1221      6F746F72 
- 1222              	.LASF33:
- 1223 01fa 4953525F 		.ascii	"ISR_SPI_ClearPending\000"
- 1223      5350495F 
- 1223      436C6561 
- 1223      7250656E 
- 1223      64696E67 
- 1224              	.LASF15:
- 1225 020f 646F7562 		.ascii	"double\000"
- 1225      6C6500
- 1226              	.LASF24:
- 1227 0216 4953525F 		.ascii	"ISR_SPI_GetVector\000"
- 1227      5350495F 
- 1227      47657456 
- 1227      6563746F 
- 1227      7200
- 1228              	.LASF26:
- 1229 0228 4953525F 		.ascii	"ISR_SPI_Interrupt\000"
- 1229      5350495F 
- 1229      496E7465 
- 1229      72727570 
- 1229      7400
- 1230              	.LASF13:
- 1231 023a 75696E74 		.ascii	"uint32\000"
- 1231      333200
- 1232              	.LASF0:
- 1233 0241 756E7369 		.ascii	"unsigned int\000"
- 1233      676E6564 
- 1233      20696E74 
- 1233      00
- 1234              	.LASF22:
- 1235 024e 61646472 		.ascii	"address\000"
- 1235      65737300 
- 1236              	.LASF9:
- 1237 0256 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1237      206C6F6E 
- 1237      6720756E 
- 1237      7369676E 
- 1237      65642069 
- 1238              	.LASF18:
- 1239 026d 63796973 		.ascii	"cyisraddress\000"
- 1239      72616464 
- 1239      72657373 
- 1239      00
- 1240              	.LASF10:
- 1241 027a 73697A65 		.ascii	"sizetype\000"
- 1241      74797065 
- 1241      00
- 1242              	.LASF29:
- 1243 0283 4953525F 		.ascii	"ISR_SPI_Start\000"
- 1243      5350495F 
- 1243      53746172 
- 1243      7400
- 1244              	.LASF1:
-ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc87nWtC.s 			page 32
+ 1222 01b1 646F7562 		.ascii	"double\000"
+ 1222      6C6500
+ 1223              	.LASF24:
+ 1224 01b8 4953525F 		.ascii	"ISR_SPI_GetVector\000"
+ 1224      5350495F 
+ 1224      47657456 
+ 1224      6563746F 
+ 1224      7200
+ 1225              	.LASF26:
+ 1226 01ca 4953525F 		.ascii	"ISR_SPI_Interrupt\000"
+ 1226      5350495F 
+ 1226      496E7465 
+ 1226      72727570 
+ 1226      7400
+ 1227              	.LASF13:
+ 1228 01dc 75696E74 		.ascii	"uint32\000"
+ 1228      333200
+ 1229              	.LASF0:
+ 1230 01e3 756E7369 		.ascii	"unsigned int\000"
+ 1230      676E6564 
+ 1230      20696E74 
+ 1230      00
+ 1231              	.LASF22:
+ 1232 01f0 61646472 		.ascii	"address\000"
+ 1232      65737300 
+ 1233              	.LASF9:
+ 1234 01f8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1234      206C6F6E 
+ 1234      6720756E 
+ 1234      7369676E 
+ 1234      65642069 
+ 1235              	.LASF18:
+ 1236 020f 63796973 		.ascii	"cyisraddress\000"
+ 1236      72616464 
+ 1236      72657373 
+ 1236      00
+ 1237              	.LASF10:
+ 1238 021c 73697A65 		.ascii	"sizetype\000"
+ 1238      74797065 
+ 1238      00
+ 1239              	.LASF29:
+ 1240 0225 4953525F 		.ascii	"ISR_SPI_Start\000"
+ 1240      5350495F 
+ 1240      53746172 
+ 1240      7400
+ 1241              	.LASF1:
+ 1242 0233 6C6F6E67 		.ascii	"long long int\000"
+ 1242      206C6F6E 
+ 1242      6720696E 
+ 1242      7400
+ 1243              	.LASF11:
+ 1244 0241 63686172 		.ascii	"char\000"
+ 1244      00
+ 1245              	.LASF19:
+ 1246 0246 72616D56 		.ascii	"ramVectorTable\000"
+ 1246      6563746F 
+ 1246      72546162 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccYfTPaw.s 			page 32
 
 
- 1245 0291 6C6F6E67 		.ascii	"long long int\000"
- 1245      206C6F6E 
- 1245      6720696E 
- 1245      7400
- 1246              	.LASF11:
- 1247 029f 63686172 		.ascii	"char\000"
- 1247      00
- 1248              	.LASF19:
- 1249 02a4 72616D56 		.ascii	"ramVectorTable\000"
- 1249      6563746F 
- 1249      72546162 
- 1249      6C6500
- 1250              	.LASF5:
- 1251 02b3 73686F72 		.ascii	"short int\000"
- 1251      7420696E 
- 1251      7400
- 1252              	.LASF7:
- 1253 02bd 6C6F6E67 		.ascii	"long int\000"
- 1253      20696E74 
- 1253      00
- 1254              	.LASF2:
- 1255 02c6 6C6F6E67 		.ascii	"long double\000"
- 1255      20646F75 
- 1255      626C6500 
- 1256              	.LASF3:
- 1257 02d2 7369676E 		.ascii	"signed char\000"
- 1257      65642063 
- 1257      68617200 
- 1258              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1246      6C6500
+ 1247              	.LASF5:
+ 1248 0255 73686F72 		.ascii	"short int\000"
+ 1248      7420696E 
+ 1248      7400
+ 1249              	.LASF7:
+ 1250 025f 6C6F6E67 		.ascii	"long int\000"
+ 1250      20696E74 
+ 1250      00
+ 1251              	.LASF36:
+ 1252 0268 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 1252      73657273 
+ 1252      5C6C6172 
+ 1252      73686F6C 
+ 1252      6D39325C 
+ 1253 0296 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\PSoC_SW_NOT_TESTED\\DC-Moto"
+ 1253      656B7467 
+ 1253      72757070 
+ 1253      6531365C 
+ 1253      49335052 
+ 1254 02c6 722D5057 		.ascii	"r-PWM.cydsn\000"
+ 1254      4D2E6379 
+ 1254      64736E00 
+ 1255              	.LASF2:
+ 1256 02d2 6C6F6E67 		.ascii	"long double\000"
+ 1256      20646F75 
+ 1256      626C6500 
+ 1257              	.LASF3:
+ 1258 02de 7369676E 		.ascii	"signed char\000"
+ 1258      65642063 
+ 1258      68617200 
+ 1259              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

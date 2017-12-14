@@ -2,7 +2,7 @@
 --	Conversion of Stepper_Motor.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Dec 14 09:58:57 2017
+--	Thu Dec 14 13:39:15 2017
 --
 
 USE cypress.cypress.all;
