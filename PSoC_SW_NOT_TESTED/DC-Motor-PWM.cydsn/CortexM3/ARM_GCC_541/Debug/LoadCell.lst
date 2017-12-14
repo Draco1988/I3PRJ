@@ -1,0 +1,931 @@
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"LoadCell.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_i2d
+  20              		.global	__aeabi_dsub
+  21              		.global	__aeabi_ddiv
+  22              		.global	__aeabi_d2f
+  23              		.global	__aeabi_f2d
+  24              		.global	__aeabi_fcmplt
+  25              		.section	.text.checkLoad,"ax",%progbits
+  26              		.align	2
+  27              		.global	checkLoad
+  28              		.thumb
+  29              		.thumb_func
+  30              		.type	checkLoad, %function
+  31              	checkLoad:
+  32              	.LFB64:
+  33              		.file 1 "LoadCell.c"
+   1:LoadCell.c    **** /* ========================================
+   2:LoadCell.c    ****  *
+   3:LoadCell.c    ****  * Copyright YOUR COMPANY, THE YEAR
+   4:LoadCell.c    ****  * All Rights Reserved
+   5:LoadCell.c    ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:LoadCell.c    ****  *
+   7:LoadCell.c    ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:LoadCell.c    ****  * WHICH IS THE PROPERTY OF your company.
+   9:LoadCell.c    ****  *
+  10:LoadCell.c    ****  * ========================================
+  11:LoadCell.c    **** */
+  12:LoadCell.c    **** #include"LoadCell.h"
+  13:LoadCell.c    **** #include"project.h"
+  14:LoadCell.c    **** #include <stdio.h>
+  15:LoadCell.c    **** 
+  16:LoadCell.c    **** char uartBufferLoad[256];
+  17:LoadCell.c    **** 
+  18:LoadCell.c    **** void checkLoad()
+  19:LoadCell.c    **** {
+  34              		.loc 1 19 0
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 0, uses_anonymous_args = 0
+  38 0000 30B5     		push	{r4, r5, lr}
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 2
+
+
+  39              		.cfi_def_cfa_offset 12
+  40              		.cfi_offset 4, -12
+  41              		.cfi_offset 5, -8
+  42              		.cfi_offset 14, -4
+  43 0002 83B0     		sub	sp, sp, #12
+  44              		.cfi_def_cfa_offset 24
+  20:LoadCell.c    ****     if (ADC_SAR_1_IsEndConversion(ADC_SAR_1_WAIT_FOR_RESULT))
+  45              		.loc 1 20 0
+  46 0004 0020     		movs	r0, #0
+  47 0006 FFF7FEFF 		bl	ADC_SAR_1_IsEndConversion
+  48              	.LVL0:
+  49 000a 68B3     		cbz	r0, .L1
+  50              	.LBB2:
+  21:LoadCell.c    ****         {
+  22:LoadCell.c    **** 			//Get current measurement from ADC
+  23:LoadCell.c    ****             uint16_t result = ADC_SAR_1_GetResult16();
+  51              		.loc 1 23 0
+  52 000c FFF7FEFF 		bl	ADC_SAR_1_GetResult16
+  53              	.LVL1:
+  54 0010 84B2     		uxth	r4, r0
+  55              	.LVL2:
+  24:LoadCell.c    **** 			//Convert measurement to mV using the built-in function
+  25:LoadCell.c    **** 			uint16_t resultInMVolts = ADC_SAR_1_CountsTo_mVolts(result); //
+  56              		.loc 1 25 0
+  57 0012 FFF7FEFF 		bl	ADC_SAR_1_CountsTo_mVolts
+  58              	.LVL3:
+  26:LoadCell.c    **** 			//Convert to grams using linear function
+  27:LoadCell.c    **** 			float convertedResult = (result - 1471.8)/1.4174;  
+  59              		.loc 1 27 0
+  60 0016 2046     		mov	r0, r4
+  61 0018 FFF7FEFF 		bl	__aeabi_i2d
+  62              	.LVL4:
+  63 001c 14A3     		adr	r3, .L6
+  64 001e D3E90023 		ldrd	r2, [r3]
+  65 0022 FFF7FEFF 		bl	__aeabi_dsub
+  66              	.LVL5:
+  67 0026 14A3     		adr	r3, .L6+8
+  68 0028 D3E90023 		ldrd	r2, [r3]
+  69 002c FFF7FEFF 		bl	__aeabi_ddiv
+  70              	.LVL6:
+  71 0030 FFF7FEFF 		bl	__aeabi_d2f
+  72              	.LVL7:
+  73 0034 0546     		mov	r5, r0
+  74              	.LVL8:
+  28:LoadCell.c    ****             //float convertedResult = result/1.4174;
+  29:LoadCell.c    ****             
+  30:LoadCell.c    ****             snprintf(uartBufferLoad,sizeof(uartBufferLoad),"Result er %f\r\n",convertedResult);
+  75              		.loc 1 30 0
+  76 0036 124C     		ldr	r4, .L6+16
+  77              	.LVL9:
+  78 0038 FFF7FEFF 		bl	__aeabi_f2d
+  79              	.LVL10:
+  80 003c CDE90001 		strd	r0, [sp]
+  81 0040 104A     		ldr	r2, .L6+20
+  82 0042 4FF48071 		mov	r1, #256
+  83 0046 2046     		mov	r0, r4
+  84 0048 FFF7FEFF 		bl	snprintf
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 3
+
+
+  85              	.LVL11:
+  31:LoadCell.c    ****             UART_1_PutString(uartBufferLoad);
+  86              		.loc 1 31 0
+  87 004c 2046     		mov	r0, r4
+  88 004e FFF7FEFF 		bl	UART_1_PutString
+  89              	.LVL12:
+  32:LoadCell.c    ****             if (convertedResult < 100)
+  90              		.loc 1 32 0
+  91 0052 0D49     		ldr	r1, .L6+24
+  92 0054 2846     		mov	r0, r5
+  93 0056 FFF7FEFF 		bl	__aeabi_fcmplt
+  94              	.LVL13:
+  95 005a 28B1     		cbz	r0, .L1
+  33:LoadCell.c    ****             {
+  34:LoadCell.c    ****                 UART_1_PutString("Result er under 100\r\n");  
+  96              		.loc 1 34 0
+  97 005c 0B48     		ldr	r0, .L6+28
+  98 005e FFF7FEFF 		bl	UART_1_PutString
+  99              	.LVL14:
+  35:LoadCell.c    ****                 SPI_Slave_WriteTxData('V');
+ 100              		.loc 1 35 0
+ 101 0062 5620     		movs	r0, #86
+ 102 0064 FFF7FEFF 		bl	SPI_Slave_WriteTxData
+ 103              	.LVL15:
+ 104              	.L1:
+ 105              	.LBE2:
+  36:LoadCell.c    ****             }
+  37:LoadCell.c    ****         }
+  38:LoadCell.c    **** }
+ 106              		.loc 1 38 0
+ 107 0068 03B0     		add	sp, sp, #12
+ 108              		.cfi_def_cfa_offset 12
+ 109              		@ sp needed
+ 110 006a 30BD     		pop	{r4, r5, pc}
+ 111              	.L7:
+ 112 006c AFF30080 		.align	3
+ 113              	.L6:
+ 114 0070 33333333 		.word	858993459
+ 115 0074 33FF9640 		.word	1083637555
+ 116 0078 3D9B559F 		.word	-1621779651
+ 117 007c ABADF63F 		.word	1073130923
+ 118 0080 00000000 		.word	uartBufferLoad
+ 119 0084 00000000 		.word	.LC0
+ 120 0088 0000C842 		.word	1120403456
+ 121 008c 10000000 		.word	.LC1
+ 122              		.cfi_endproc
+ 123              	.LFE64:
+ 124              		.size	checkLoad, .-checkLoad
+ 125              		.comm	uartBufferLoad,256,4
+ 126              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 127              		.align	2
+ 128              	.LC0:
+ 129 0000 52657375 		.ascii	"Result er %f\015\012\000"
+ 129      6C742065 
+ 129      72202566 
+ 129      0D0A00
+ 130 000f 00       		.space	1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 4
+
+
+ 131              	.LC1:
+ 132 0010 52657375 		.ascii	"Result er under 100\015\012\000"
+ 132      6C742065 
+ 132      7220756E 
+ 132      64657220 
+ 132      3130300D 
+ 133              		.text
+ 134              	.Letext0:
+ 135              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 136              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 137              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 138              		.file 5 "Generated_Source\\PSoC5/ADC_SAR_1.h"
+ 139              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 140              		.file 7 "Generated_Source\\PSoC5/UART_1.h"
+ 141              		.file 8 "Generated_Source\\PSoC5/SPI_Slave.h"
+ 142              		.section	.debug_info,"",%progbits
+ 143              	.Ldebug_info0:
+ 144 0000 F8010000 		.4byte	0x1f8
+ 145 0004 0400     		.2byte	0x4
+ 146 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 147 000a 04       		.byte	0x4
+ 148 000b 01       		.uleb128 0x1
+ 149 000c 5B000000 		.4byte	.LASF28
+ 150 0010 0C       		.byte	0xc
+ 151 0011 85010000 		.4byte	.LASF29
+ 152 0015 27010000 		.4byte	.LASF30
+ 153 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 154 001d 00000000 		.4byte	0
+ 155 0021 00000000 		.4byte	.Ldebug_line0
+ 156 0025 02       		.uleb128 0x2
+ 157 0026 01       		.byte	0x1
+ 158 0027 06       		.byte	0x6
+ 159 0028 71020000 		.4byte	.LASF0
+ 160 002c 02       		.uleb128 0x2
+ 161 002d 01       		.byte	0x1
+ 162 002e 08       		.byte	0x8
+ 163 002f 4D000000 		.4byte	.LASF1
+ 164 0033 02       		.uleb128 0x2
+ 165 0034 02       		.byte	0x2
+ 166 0035 05       		.byte	0x5
+ 167 0036 49020000 		.4byte	.LASF2
+ 168 003a 03       		.uleb128 0x3
+ 169 003b 90010000 		.4byte	.LASF4
+ 170 003f 02       		.byte	0x2
+ 171 0040 2B       		.byte	0x2b
+ 172 0041 45000000 		.4byte	0x45
+ 173 0045 02       		.uleb128 0x2
+ 174 0046 02       		.byte	0x2
+ 175 0047 07       		.byte	0x7
+ 176 0048 FB000000 		.4byte	.LASF3
+ 177 004c 03       		.uleb128 0x3
+ 178 004d 00000000 		.4byte	.LASF5
+ 179 0051 02       		.byte	0x2
+ 180 0052 3F       		.byte	0x3f
+ 181 0053 57000000 		.4byte	0x57
+ 182 0057 02       		.uleb128 0x2
+ 183 0058 04       		.byte	0x4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 5
+
+
+ 184 0059 05       		.byte	0x5
+ 185 005a 5C020000 		.4byte	.LASF6
+ 186 005e 02       		.uleb128 0x2
+ 187 005f 04       		.byte	0x4
+ 188 0060 07       		.byte	0x7
+ 189 0061 E9000000 		.4byte	.LASF7
+ 190 0065 02       		.uleb128 0x2
+ 191 0066 08       		.byte	0x8
+ 192 0067 05       		.byte	0x5
+ 193 0068 27020000 		.4byte	.LASF8
+ 194 006c 02       		.uleb128 0x2
+ 195 006d 08       		.byte	0x8
+ 196 006e 07       		.byte	0x7
+ 197 006f CC010000 		.4byte	.LASF9
+ 198 0073 04       		.uleb128 0x4
+ 199 0074 04       		.byte	0x4
+ 200 0075 05       		.byte	0x5
+ 201 0076 696E7400 		.ascii	"int\000"
+ 202 007a 02       		.uleb128 0x2
+ 203 007b 04       		.byte	0x4
+ 204 007c 07       		.byte	0x7
+ 205 007d BF010000 		.4byte	.LASF10
+ 206 0081 03       		.uleb128 0x3
+ 207 0082 53020000 		.4byte	.LASF11
+ 208 0086 03       		.byte	0x3
+ 209 0087 24       		.byte	0x24
+ 210 0088 3A000000 		.4byte	0x3a
+ 211 008c 03       		.uleb128 0x3
+ 212 008d 00020000 		.4byte	.LASF12
+ 213 0091 03       		.byte	0x3
+ 214 0092 2C       		.byte	0x2c
+ 215 0093 4C000000 		.4byte	0x4c
+ 216 0097 02       		.uleb128 0x2
+ 217 0098 04       		.byte	0x4
+ 218 0099 04       		.byte	0x4
+ 219 009a 2D000000 		.4byte	.LASF13
+ 220 009e 02       		.uleb128 0x2
+ 221 009f 08       		.byte	0x8
+ 222 00a0 04       		.byte	0x4
+ 223 00a1 9B010000 		.4byte	.LASF14
+ 224 00a5 02       		.uleb128 0x2
+ 225 00a6 01       		.byte	0x1
+ 226 00a7 08       		.byte	0x8
+ 227 00a8 35020000 		.4byte	.LASF15
+ 228 00ac 02       		.uleb128 0x2
+ 229 00ad 08       		.byte	0x8
+ 230 00ae 04       		.byte	0x4
+ 231 00af 65020000 		.4byte	.LASF16
+ 232 00b3 02       		.uleb128 0x2
+ 233 00b4 04       		.byte	0x4
+ 234 00b5 07       		.byte	0x7
+ 235 00b6 08020000 		.4byte	.LASF17
+ 236 00ba 05       		.uleb128 0x5
+ 237 00bb 0E010000 		.4byte	.LASF31
+ 238 00bf 01       		.byte	0x1
+ 239 00c0 12       		.byte	0x12
+ 240 00c1 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 6
+
+
+ 241 00c5 90000000 		.4byte	.LFE64-.LFB64
+ 242 00c9 01       		.uleb128 0x1
+ 243 00ca 9C       		.byte	0x9c
+ 244 00cb 87010000 		.4byte	0x187
+ 245 00cf 06       		.uleb128 0x6
+ 246 00d0 0C000000 		.4byte	.LBB2
+ 247 00d4 5C000000 		.4byte	.LBE2-.LBB2
+ 248 00d8 77010000 		.4byte	0x177
+ 249 00dc 07       		.uleb128 0x7
+ 250 00dd E3010000 		.4byte	.LASF18
+ 251 00e1 01       		.byte	0x1
+ 252 00e2 17       		.byte	0x17
+ 253 00e3 81000000 		.4byte	0x81
+ 254 00e7 00000000 		.4byte	.LLST0
+ 255 00eb 08       		.uleb128 0x8
+ 256 00ec 3A020000 		.4byte	.LASF32
+ 257 00f0 01       		.byte	0x1
+ 258 00f1 19       		.byte	0x19
+ 259 00f2 81000000 		.4byte	0x81
+ 260 00f6 07       		.uleb128 0x7
+ 261 00f7 A2010000 		.4byte	.LASF19
+ 262 00fb 01       		.byte	0x1
+ 263 00fc 1B       		.byte	0x1b
+ 264 00fd 97000000 		.4byte	0x97
+ 265 0101 13000000 		.4byte	.LLST1
+ 266 0105 09       		.uleb128 0x9
+ 267 0106 10000000 		.4byte	.LVL1
+ 268 010a B9010000 		.4byte	0x1b9
+ 269 010e 09       		.uleb128 0x9
+ 270 010f 16000000 		.4byte	.LVL3
+ 271 0113 C4010000 		.4byte	0x1c4
+ 272 0117 0A       		.uleb128 0xa
+ 273 0118 4C000000 		.4byte	.LVL11
+ 274 011c CF010000 		.4byte	0x1cf
+ 275 0120 3B010000 		.4byte	0x13b
+ 276 0124 0B       		.uleb128 0xb
+ 277 0125 01       		.uleb128 0x1
+ 278 0126 50       		.byte	0x50
+ 279 0127 02       		.uleb128 0x2
+ 280 0128 74       		.byte	0x74
+ 281 0129 00       		.sleb128 0
+ 282 012a 0B       		.uleb128 0xb
+ 283 012b 01       		.uleb128 0x1
+ 284 012c 51       		.byte	0x51
+ 285 012d 03       		.uleb128 0x3
+ 286 012e 0A       		.byte	0xa
+ 287 012f 0001     		.2byte	0x100
+ 288 0131 0B       		.uleb128 0xb
+ 289 0132 01       		.uleb128 0x1
+ 290 0133 52       		.byte	0x52
+ 291 0134 05       		.uleb128 0x5
+ 292 0135 03       		.byte	0x3
+ 293 0136 00000000 		.4byte	.LC0
+ 294 013a 00       		.byte	0
+ 295 013b 0A       		.uleb128 0xa
+ 296 013c 52000000 		.4byte	.LVL12
+ 297 0140 DA010000 		.4byte	0x1da
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 7
+
+
+ 298 0144 4F010000 		.4byte	0x14f
+ 299 0148 0B       		.uleb128 0xb
+ 300 0149 01       		.uleb128 0x1
+ 301 014a 50       		.byte	0x50
+ 302 014b 02       		.uleb128 0x2
+ 303 014c 74       		.byte	0x74
+ 304 014d 00       		.sleb128 0
+ 305 014e 00       		.byte	0
+ 306 014f 0A       		.uleb128 0xa
+ 307 0150 62000000 		.4byte	.LVL14
+ 308 0154 DA010000 		.4byte	0x1da
+ 309 0158 66010000 		.4byte	0x166
+ 310 015c 0B       		.uleb128 0xb
+ 311 015d 01       		.uleb128 0x1
+ 312 015e 50       		.byte	0x50
+ 313 015f 05       		.uleb128 0x5
+ 314 0160 03       		.byte	0x3
+ 315 0161 10000000 		.4byte	.LC1
+ 316 0165 00       		.byte	0
+ 317 0166 0C       		.uleb128 0xc
+ 318 0167 68000000 		.4byte	.LVL15
+ 319 016b E5010000 		.4byte	0x1e5
+ 320 016f 0B       		.uleb128 0xb
+ 321 0170 01       		.uleb128 0x1
+ 322 0171 50       		.byte	0x50
+ 323 0172 02       		.uleb128 0x2
+ 324 0173 08       		.byte	0x8
+ 325 0174 56       		.byte	0x56
+ 326 0175 00       		.byte	0
+ 327 0176 00       		.byte	0
+ 328 0177 0C       		.uleb128 0xc
+ 329 0178 0A000000 		.4byte	.LVL0
+ 330 017c F0010000 		.4byte	0x1f0
+ 331 0180 0B       		.uleb128 0xb
+ 332 0181 01       		.uleb128 0x1
+ 333 0182 50       		.byte	0x50
+ 334 0183 01       		.uleb128 0x1
+ 335 0184 30       		.byte	0x30
+ 336 0185 00       		.byte	0
+ 337 0186 00       		.byte	0
+ 338 0187 0D       		.uleb128 0xd
+ 339 0188 B2010000 		.4byte	.LASF20
+ 340 018c 04       		.byte	0x4
+ 341 018d 9606     		.2byte	0x696
+ 342 018f 93010000 		.4byte	0x193
+ 343 0193 0E       		.uleb128 0xe
+ 344 0194 8C000000 		.4byte	0x8c
+ 345 0198 0F       		.uleb128 0xf
+ 346 0199 A5000000 		.4byte	0xa5
+ 347 019d A8010000 		.4byte	0x1a8
+ 348 01a1 10       		.uleb128 0x10
+ 349 01a2 B3000000 		.4byte	0xb3
+ 350 01a6 FF       		.byte	0xff
+ 351 01a7 00       		.byte	0
+ 352 01a8 11       		.uleb128 0x11
+ 353 01a9 18010000 		.4byte	.LASF21
+ 354 01ad 01       		.byte	0x1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 8
+
+
+ 355 01ae 10       		.byte	0x10
+ 356 01af 98010000 		.4byte	0x198
+ 357 01b3 05       		.uleb128 0x5
+ 358 01b4 03       		.byte	0x3
+ 359 01b5 00000000 		.4byte	uartBufferLoad
+ 360 01b9 12       		.uleb128 0x12
+ 361 01ba 11020000 		.4byte	.LASF22
+ 362 01be 11020000 		.4byte	.LASF22
+ 363 01c2 05       		.byte	0x5
+ 364 01c3 3B       		.byte	0x3b
+ 365 01c4 12       		.uleb128 0x12
+ 366 01c5 13000000 		.4byte	.LASF23
+ 367 01c9 13000000 		.4byte	.LASF23
+ 368 01cd 05       		.byte	0x5
+ 369 01ce 3F       		.byte	0x3f
+ 370 01cf 12       		.uleb128 0x12
+ 371 01d0 0A000000 		.4byte	.LASF24
+ 372 01d4 0A000000 		.4byte	.LASF24
+ 373 01d8 06       		.byte	0x6
+ 374 01d9 FD       		.byte	0xfd
+ 375 01da 12       		.uleb128 0x12
+ 376 01db 7D020000 		.4byte	.LASF25
+ 377 01df 7D020000 		.4byte	.LASF25
+ 378 01e3 07       		.byte	0x7
+ 379 01e4 8B       		.byte	0x8b
+ 380 01e5 12       		.uleb128 0x12
+ 381 01e6 EA010000 		.4byte	.LASF26
+ 382 01ea EA010000 		.4byte	.LASF26
+ 383 01ee 08       		.byte	0x8
+ 384 01ef 50       		.byte	0x50
+ 385 01f0 12       		.uleb128 0x12
+ 386 01f1 33000000 		.4byte	.LASF27
+ 387 01f5 33000000 		.4byte	.LASF27
+ 388 01f9 05       		.byte	0x5
+ 389 01fa 39       		.byte	0x39
+ 390 01fb 00       		.byte	0
+ 391              		.section	.debug_abbrev,"",%progbits
+ 392              	.Ldebug_abbrev0:
+ 393 0000 01       		.uleb128 0x1
+ 394 0001 11       		.uleb128 0x11
+ 395 0002 01       		.byte	0x1
+ 396 0003 25       		.uleb128 0x25
+ 397 0004 0E       		.uleb128 0xe
+ 398 0005 13       		.uleb128 0x13
+ 399 0006 0B       		.uleb128 0xb
+ 400 0007 03       		.uleb128 0x3
+ 401 0008 0E       		.uleb128 0xe
+ 402 0009 1B       		.uleb128 0x1b
+ 403 000a 0E       		.uleb128 0xe
+ 404 000b 55       		.uleb128 0x55
+ 405 000c 17       		.uleb128 0x17
+ 406 000d 11       		.uleb128 0x11
+ 407 000e 01       		.uleb128 0x1
+ 408 000f 10       		.uleb128 0x10
+ 409 0010 17       		.uleb128 0x17
+ 410 0011 00       		.byte	0
+ 411 0012 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 9
+
+
+ 412 0013 02       		.uleb128 0x2
+ 413 0014 24       		.uleb128 0x24
+ 414 0015 00       		.byte	0
+ 415 0016 0B       		.uleb128 0xb
+ 416 0017 0B       		.uleb128 0xb
+ 417 0018 3E       		.uleb128 0x3e
+ 418 0019 0B       		.uleb128 0xb
+ 419 001a 03       		.uleb128 0x3
+ 420 001b 0E       		.uleb128 0xe
+ 421 001c 00       		.byte	0
+ 422 001d 00       		.byte	0
+ 423 001e 03       		.uleb128 0x3
+ 424 001f 16       		.uleb128 0x16
+ 425 0020 00       		.byte	0
+ 426 0021 03       		.uleb128 0x3
+ 427 0022 0E       		.uleb128 0xe
+ 428 0023 3A       		.uleb128 0x3a
+ 429 0024 0B       		.uleb128 0xb
+ 430 0025 3B       		.uleb128 0x3b
+ 431 0026 0B       		.uleb128 0xb
+ 432 0027 49       		.uleb128 0x49
+ 433 0028 13       		.uleb128 0x13
+ 434 0029 00       		.byte	0
+ 435 002a 00       		.byte	0
+ 436 002b 04       		.uleb128 0x4
+ 437 002c 24       		.uleb128 0x24
+ 438 002d 00       		.byte	0
+ 439 002e 0B       		.uleb128 0xb
+ 440 002f 0B       		.uleb128 0xb
+ 441 0030 3E       		.uleb128 0x3e
+ 442 0031 0B       		.uleb128 0xb
+ 443 0032 03       		.uleb128 0x3
+ 444 0033 08       		.uleb128 0x8
+ 445 0034 00       		.byte	0
+ 446 0035 00       		.byte	0
+ 447 0036 05       		.uleb128 0x5
+ 448 0037 2E       		.uleb128 0x2e
+ 449 0038 01       		.byte	0x1
+ 450 0039 3F       		.uleb128 0x3f
+ 451 003a 19       		.uleb128 0x19
+ 452 003b 03       		.uleb128 0x3
+ 453 003c 0E       		.uleb128 0xe
+ 454 003d 3A       		.uleb128 0x3a
+ 455 003e 0B       		.uleb128 0xb
+ 456 003f 3B       		.uleb128 0x3b
+ 457 0040 0B       		.uleb128 0xb
+ 458 0041 11       		.uleb128 0x11
+ 459 0042 01       		.uleb128 0x1
+ 460 0043 12       		.uleb128 0x12
+ 461 0044 06       		.uleb128 0x6
+ 462 0045 40       		.uleb128 0x40
+ 463 0046 18       		.uleb128 0x18
+ 464 0047 9642     		.uleb128 0x2116
+ 465 0049 19       		.uleb128 0x19
+ 466 004a 01       		.uleb128 0x1
+ 467 004b 13       		.uleb128 0x13
+ 468 004c 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 10
+
+
+ 469 004d 00       		.byte	0
+ 470 004e 06       		.uleb128 0x6
+ 471 004f 0B       		.uleb128 0xb
+ 472 0050 01       		.byte	0x1
+ 473 0051 11       		.uleb128 0x11
+ 474 0052 01       		.uleb128 0x1
+ 475 0053 12       		.uleb128 0x12
+ 476 0054 06       		.uleb128 0x6
+ 477 0055 01       		.uleb128 0x1
+ 478 0056 13       		.uleb128 0x13
+ 479 0057 00       		.byte	0
+ 480 0058 00       		.byte	0
+ 481 0059 07       		.uleb128 0x7
+ 482 005a 34       		.uleb128 0x34
+ 483 005b 00       		.byte	0
+ 484 005c 03       		.uleb128 0x3
+ 485 005d 0E       		.uleb128 0xe
+ 486 005e 3A       		.uleb128 0x3a
+ 487 005f 0B       		.uleb128 0xb
+ 488 0060 3B       		.uleb128 0x3b
+ 489 0061 0B       		.uleb128 0xb
+ 490 0062 49       		.uleb128 0x49
+ 491 0063 13       		.uleb128 0x13
+ 492 0064 02       		.uleb128 0x2
+ 493 0065 17       		.uleb128 0x17
+ 494 0066 00       		.byte	0
+ 495 0067 00       		.byte	0
+ 496 0068 08       		.uleb128 0x8
+ 497 0069 34       		.uleb128 0x34
+ 498 006a 00       		.byte	0
+ 499 006b 03       		.uleb128 0x3
+ 500 006c 0E       		.uleb128 0xe
+ 501 006d 3A       		.uleb128 0x3a
+ 502 006e 0B       		.uleb128 0xb
+ 503 006f 3B       		.uleb128 0x3b
+ 504 0070 0B       		.uleb128 0xb
+ 505 0071 49       		.uleb128 0x49
+ 506 0072 13       		.uleb128 0x13
+ 507 0073 00       		.byte	0
+ 508 0074 00       		.byte	0
+ 509 0075 09       		.uleb128 0x9
+ 510 0076 898201   		.uleb128 0x4109
+ 511 0079 00       		.byte	0
+ 512 007a 11       		.uleb128 0x11
+ 513 007b 01       		.uleb128 0x1
+ 514 007c 31       		.uleb128 0x31
+ 515 007d 13       		.uleb128 0x13
+ 516 007e 00       		.byte	0
+ 517 007f 00       		.byte	0
+ 518 0080 0A       		.uleb128 0xa
+ 519 0081 898201   		.uleb128 0x4109
+ 520 0084 01       		.byte	0x1
+ 521 0085 11       		.uleb128 0x11
+ 522 0086 01       		.uleb128 0x1
+ 523 0087 31       		.uleb128 0x31
+ 524 0088 13       		.uleb128 0x13
+ 525 0089 01       		.uleb128 0x1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 11
+
+
+ 526 008a 13       		.uleb128 0x13
+ 527 008b 00       		.byte	0
+ 528 008c 00       		.byte	0
+ 529 008d 0B       		.uleb128 0xb
+ 530 008e 8A8201   		.uleb128 0x410a
+ 531 0091 00       		.byte	0
+ 532 0092 02       		.uleb128 0x2
+ 533 0093 18       		.uleb128 0x18
+ 534 0094 9142     		.uleb128 0x2111
+ 535 0096 18       		.uleb128 0x18
+ 536 0097 00       		.byte	0
+ 537 0098 00       		.byte	0
+ 538 0099 0C       		.uleb128 0xc
+ 539 009a 898201   		.uleb128 0x4109
+ 540 009d 01       		.byte	0x1
+ 541 009e 11       		.uleb128 0x11
+ 542 009f 01       		.uleb128 0x1
+ 543 00a0 31       		.uleb128 0x31
+ 544 00a1 13       		.uleb128 0x13
+ 545 00a2 00       		.byte	0
+ 546 00a3 00       		.byte	0
+ 547 00a4 0D       		.uleb128 0xd
+ 548 00a5 34       		.uleb128 0x34
+ 549 00a6 00       		.byte	0
+ 550 00a7 03       		.uleb128 0x3
+ 551 00a8 0E       		.uleb128 0xe
+ 552 00a9 3A       		.uleb128 0x3a
+ 553 00aa 0B       		.uleb128 0xb
+ 554 00ab 3B       		.uleb128 0x3b
+ 555 00ac 05       		.uleb128 0x5
+ 556 00ad 49       		.uleb128 0x49
+ 557 00ae 13       		.uleb128 0x13
+ 558 00af 3F       		.uleb128 0x3f
+ 559 00b0 19       		.uleb128 0x19
+ 560 00b1 3C       		.uleb128 0x3c
+ 561 00b2 19       		.uleb128 0x19
+ 562 00b3 00       		.byte	0
+ 563 00b4 00       		.byte	0
+ 564 00b5 0E       		.uleb128 0xe
+ 565 00b6 35       		.uleb128 0x35
+ 566 00b7 00       		.byte	0
+ 567 00b8 49       		.uleb128 0x49
+ 568 00b9 13       		.uleb128 0x13
+ 569 00ba 00       		.byte	0
+ 570 00bb 00       		.byte	0
+ 571 00bc 0F       		.uleb128 0xf
+ 572 00bd 01       		.uleb128 0x1
+ 573 00be 01       		.byte	0x1
+ 574 00bf 49       		.uleb128 0x49
+ 575 00c0 13       		.uleb128 0x13
+ 576 00c1 01       		.uleb128 0x1
+ 577 00c2 13       		.uleb128 0x13
+ 578 00c3 00       		.byte	0
+ 579 00c4 00       		.byte	0
+ 580 00c5 10       		.uleb128 0x10
+ 581 00c6 21       		.uleb128 0x21
+ 582 00c7 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 12
+
+
+ 583 00c8 49       		.uleb128 0x49
+ 584 00c9 13       		.uleb128 0x13
+ 585 00ca 2F       		.uleb128 0x2f
+ 586 00cb 0B       		.uleb128 0xb
+ 587 00cc 00       		.byte	0
+ 588 00cd 00       		.byte	0
+ 589 00ce 11       		.uleb128 0x11
+ 590 00cf 34       		.uleb128 0x34
+ 591 00d0 00       		.byte	0
+ 592 00d1 03       		.uleb128 0x3
+ 593 00d2 0E       		.uleb128 0xe
+ 594 00d3 3A       		.uleb128 0x3a
+ 595 00d4 0B       		.uleb128 0xb
+ 596 00d5 3B       		.uleb128 0x3b
+ 597 00d6 0B       		.uleb128 0xb
+ 598 00d7 49       		.uleb128 0x49
+ 599 00d8 13       		.uleb128 0x13
+ 600 00d9 3F       		.uleb128 0x3f
+ 601 00da 19       		.uleb128 0x19
+ 602 00db 02       		.uleb128 0x2
+ 603 00dc 18       		.uleb128 0x18
+ 604 00dd 00       		.byte	0
+ 605 00de 00       		.byte	0
+ 606 00df 12       		.uleb128 0x12
+ 607 00e0 2E       		.uleb128 0x2e
+ 608 00e1 00       		.byte	0
+ 609 00e2 3F       		.uleb128 0x3f
+ 610 00e3 19       		.uleb128 0x19
+ 611 00e4 3C       		.uleb128 0x3c
+ 612 00e5 19       		.uleb128 0x19
+ 613 00e6 6E       		.uleb128 0x6e
+ 614 00e7 0E       		.uleb128 0xe
+ 615 00e8 03       		.uleb128 0x3
+ 616 00e9 0E       		.uleb128 0xe
+ 617 00ea 3A       		.uleb128 0x3a
+ 618 00eb 0B       		.uleb128 0xb
+ 619 00ec 3B       		.uleb128 0x3b
+ 620 00ed 0B       		.uleb128 0xb
+ 621 00ee 00       		.byte	0
+ 622 00ef 00       		.byte	0
+ 623 00f0 00       		.byte	0
+ 624              		.section	.debug_loc,"",%progbits
+ 625              	.Ldebug_loc0:
+ 626              	.LLST0:
+ 627 0000 12000000 		.4byte	.LVL2
+ 628 0004 38000000 		.4byte	.LVL9
+ 629 0008 0100     		.2byte	0x1
+ 630 000a 54       		.byte	0x54
+ 631 000b 00000000 		.4byte	0
+ 632 000f 00000000 		.4byte	0
+ 633              	.LLST1:
+ 634 0013 36000000 		.4byte	.LVL8
+ 635 0017 3B000000 		.4byte	.LVL10-1
+ 636 001b 0100     		.2byte	0x1
+ 637 001d 50       		.byte	0x50
+ 638 001e 3B000000 		.4byte	.LVL10-1
+ 639 0022 68000000 		.4byte	.LVL15
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 13
+
+
+ 640 0026 0100     		.2byte	0x1
+ 641 0028 55       		.byte	0x55
+ 642 0029 00000000 		.4byte	0
+ 643 002d 00000000 		.4byte	0
+ 644              		.section	.debug_aranges,"",%progbits
+ 645 0000 1C000000 		.4byte	0x1c
+ 646 0004 0200     		.2byte	0x2
+ 647 0006 00000000 		.4byte	.Ldebug_info0
+ 648 000a 04       		.byte	0x4
+ 649 000b 00       		.byte	0
+ 650 000c 0000     		.2byte	0
+ 651 000e 0000     		.2byte	0
+ 652 0010 00000000 		.4byte	.LFB64
+ 653 0014 90000000 		.4byte	.LFE64-.LFB64
+ 654 0018 00000000 		.4byte	0
+ 655 001c 00000000 		.4byte	0
+ 656              		.section	.debug_ranges,"",%progbits
+ 657              	.Ldebug_ranges0:
+ 658 0000 00000000 		.4byte	.LFB64
+ 659 0004 90000000 		.4byte	.LFE64
+ 660 0008 00000000 		.4byte	0
+ 661 000c 00000000 		.4byte	0
+ 662              		.section	.debug_line,"",%progbits
+ 663              	.Ldebug_line0:
+ 664 0000 FF010000 		.section	.debug_str,"MS",%progbits,1
+ 664      0200E001 
+ 664      00000201 
+ 664      FB0E0D00 
+ 664      01010101 
+ 665              	.LASF5:
+ 666 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 666      7433325F 
+ 666      7400
+ 667              	.LASF24:
+ 668 000a 736E7072 		.ascii	"snprintf\000"
+ 668      696E7466 
+ 668      00
+ 669              	.LASF23:
+ 670 0013 4144435F 		.ascii	"ADC_SAR_1_CountsTo_mVolts\000"
+ 670      5341525F 
+ 670      315F436F 
+ 670      756E7473 
+ 670      546F5F6D 
+ 671              	.LASF13:
+ 672 002d 666C6F61 		.ascii	"float\000"
+ 672      7400
+ 673              	.LASF27:
+ 674 0033 4144435F 		.ascii	"ADC_SAR_1_IsEndConversion\000"
+ 674      5341525F 
+ 674      315F4973 
+ 674      456E6443 
+ 674      6F6E7665 
+ 675              	.LASF1:
+ 676 004d 756E7369 		.ascii	"unsigned char\000"
+ 676      676E6564 
+ 676      20636861 
+ 676      7200
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 14
+
+
+ 677              	.LASF28:
+ 678 005b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 678      43313120 
+ 678      352E342E 
+ 678      31203230 
+ 678      31363036 
+ 679 008e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 679      20726576 
+ 679      6973696F 
+ 679      6E203233 
+ 679      37373135 
+ 680 00c1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 680      66756E63 
+ 680      74696F6E 
+ 680      2D736563 
+ 680      74696F6E 
+ 681              	.LASF7:
+ 682 00e9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 682      20756E73 
+ 682      69676E65 
+ 682      6420696E 
+ 682      7400
+ 683              	.LASF3:
+ 684 00fb 73686F72 		.ascii	"short unsigned int\000"
+ 684      7420756E 
+ 684      7369676E 
+ 684      65642069 
+ 684      6E7400
+ 685              	.LASF31:
+ 686 010e 63686563 		.ascii	"checkLoad\000"
+ 686      6B4C6F61 
+ 686      6400
+ 687              	.LASF21:
+ 688 0118 75617274 		.ascii	"uartBufferLoad\000"
+ 688      42756666 
+ 688      65724C6F 
+ 688      616400
+ 689              	.LASF30:
+ 690 0127 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 690      73657273 
+ 690      5C6C6172 
+ 690      73686F6C 
+ 690      6D39325C 
+ 691 0155 50726F6A 		.ascii	"Projekt3\\03_DC_Motor_Control\\DC-Motor-PWM.cydsn\000"
+ 691      656B7433 
+ 691      5C30335F 
+ 691      44435F4D 
+ 691      6F746F72 
+ 692              	.LASF29:
+ 693 0185 4C6F6164 		.ascii	"LoadCell.c\000"
+ 693      43656C6C 
+ 693      2E6300
+ 694              	.LASF4:
+ 695 0190 5F5F7569 		.ascii	"__uint16_t\000"
+ 695      6E743136 
+ 695      5F7400
+ 696              	.LASF14:
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 15
+
+
+ 697 019b 646F7562 		.ascii	"double\000"
+ 697      6C6500
+ 698              	.LASF19:
+ 699 01a2 636F6E76 		.ascii	"convertedResult\000"
+ 699      65727465 
+ 699      64526573 
+ 699      756C7400 
+ 700              	.LASF20:
+ 701 01b2 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 701      52784275 
+ 701      66666572 
+ 701      00
+ 702              	.LASF10:
+ 703 01bf 756E7369 		.ascii	"unsigned int\000"
+ 703      676E6564 
+ 703      20696E74 
+ 703      00
+ 704              	.LASF9:
+ 705 01cc 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 705      206C6F6E 
+ 705      6720756E 
+ 705      7369676E 
+ 705      65642069 
+ 706              	.LASF18:
+ 707 01e3 72657375 		.ascii	"result\000"
+ 707      6C7400
+ 708              	.LASF26:
+ 709 01ea 5350495F 		.ascii	"SPI_Slave_WriteTxData\000"
+ 709      536C6176 
+ 709      655F5772 
+ 709      69746554 
+ 709      78446174 
+ 710              	.LASF12:
+ 711 0200 696E7433 		.ascii	"int32_t\000"
+ 711      325F7400 
+ 712              	.LASF17:
+ 713 0208 73697A65 		.ascii	"sizetype\000"
+ 713      74797065 
+ 713      00
+ 714              	.LASF22:
+ 715 0211 4144435F 		.ascii	"ADC_SAR_1_GetResult16\000"
+ 715      5341525F 
+ 715      315F4765 
+ 715      74526573 
+ 715      756C7431 
+ 716              	.LASF8:
+ 717 0227 6C6F6E67 		.ascii	"long long int\000"
+ 717      206C6F6E 
+ 717      6720696E 
+ 717      7400
+ 718              	.LASF15:
+ 719 0235 63686172 		.ascii	"char\000"
+ 719      00
+ 720              	.LASF32:
+ 721 023a 72657375 		.ascii	"resultInMVolts\000"
+ 721      6C74496E 
+ 721      4D566F6C 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc0zILTx.s 			page 16
+
+
+ 721      747300
+ 722              	.LASF2:
+ 723 0249 73686F72 		.ascii	"short int\000"
+ 723      7420696E 
+ 723      7400
+ 724              	.LASF11:
+ 725 0253 75696E74 		.ascii	"uint16_t\000"
+ 725      31365F74 
+ 725      00
+ 726              	.LASF6:
+ 727 025c 6C6F6E67 		.ascii	"long int\000"
+ 727      20696E74 
+ 727      00
+ 728              	.LASF16:
+ 729 0265 6C6F6E67 		.ascii	"long double\000"
+ 729      20646F75 
+ 729      626C6500 
+ 730              	.LASF0:
+ 731 0271 7369676E 		.ascii	"signed char\000"
+ 731      65642063 
+ 731      68617200 
+ 732              	.LASF25:
+ 733 027d 55415254 		.ascii	"UART_1_PutString\000"
+ 733      5F315F50 
+ 733      75745374 
+ 733      72696E67 
+ 733      00
+ 734              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
