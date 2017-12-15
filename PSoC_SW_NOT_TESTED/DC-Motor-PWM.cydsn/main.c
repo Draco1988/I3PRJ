@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Motor.h"
+#include "BatterySensor.h"
+#include "LoadCell.h"
 
 #define LEFT 1u
 #define RIGHT 2u
@@ -25,9 +27,6 @@
 volatile uint8_t sensor = 0;
 volatile uint8_t received = 0; //Varaible to store received data
 volatile uint8_t intFlag = 0; //Variable to indicate if there have been an interrupt
-
-
-volatile int16_t offsetADC = 0;
 
 static uint8 sensorPushed = 0;
 
@@ -122,11 +121,11 @@ void handleByteReceived(uint8_t byteReceived)
         break;
         case 't' :
         {
-            if(ADC_SAR_1_IsEndConversion(ADC_SAR_1_WAIT_FOR_RESULT))
+            if(ADC_SAR_V_IsEndConversion(ADC_SAR_V_WAIT_FOR_RESULT))
             {
             int16_t offset = 0;
-            offset = ADC_SAR_1_GetResult16();
-            ADC_SAR_1_SetOffset(offset);
+            offset = ADC_SAR_V_GetResult16();
+            ADC_SAR_V_SetOffset(offset);
             }
         }
         default :
@@ -147,8 +146,10 @@ int main(void)
     ISR_SPI_StartEx(ISR_SPI);
     UART_1_Start();
     SPI_Slave_Start();
-    ADC_SAR_1_Start();
-    ADC_SAR_1_StartConvert();
+    ADC_SAR_V_Start();
+    ADC_SAR_V_StartConvert();
+    ADC_SAR_B_Start();
+    ADC_SAR_B_StartConvert();
     PWM_M1_Start();    //PWM Motor1 (1hjul)
     PWM_M2_Start();    //PWM Motor1 (1hjul)
     PWM_M3_Start();   //PWM Motor2 (2jhul)
@@ -165,32 +166,23 @@ int main(void)
     UART_1_PutString("2: Drive backwards\r\n");
     UART_1_PutString("q: Decrease speed\r\n");
     UART_1_PutString("w: Increase speed\r\n");
-     PWM_P_WriteCompare(60);
-
+    PWM_P_WriteCompare(80);
+    PWM_M1_WriteCompare(100);
+    PWM_M3_WriteCompare(100);
+    
     for(;;)
     {
-        CyDelay(500);
+        //CyDelay(500);
        
-        //If and interrupt has occurred
-        //if(intFlag == 1)
-        //{
-            //intFlag = 0; //Reset to next interrupt
-            //char test[100];
-          //Looking at what is recevied
-            //snprintf(test,100," Den sendte integer er: %d\r\n",received );
-          //  UART_1_PutString(test); 
-            
-       
-        //}
         UART_1_PutString("Broomba run\r\n");
         if(sensorPushed == LEFT)
         {
-            turnRight();
+            turnLeft();
             sensor = 0;
         } 
         else if(sensorPushed == RIGHT)
         {
-           turnLeft();
+           turnRight();
             sensor = 0;
         }
         Pin_1_ClearInterrupt();
@@ -198,11 +190,8 @@ int main(void)
         sensorPushed = 0;
         CyDelay(2000);
         
-        //SPI_Slave_WriteTxData('5');
-        //CyDelay(300);
-        
-         
-        
+        checkBattery();
+        //checkLoad();
     }
     return 0;
 }

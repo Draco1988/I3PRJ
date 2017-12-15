@@ -20,10 +20,10 @@ char uartBufferBattery[256];
 
 void checkBattery()
 {
-    if (ADC_SAR_1_IsEndConversion(ADC_SAR_1_WAIT_FOR_RESULT))
+    if (ADC_SAR_B_IsEndConversion(ADC_SAR_B_WAIT_FOR_RESULT))
         {
             // Store result from conversion in result
-            float result = ADC_SAR_1_GetResult16();
+            float result = ADC_SAR_B_GetResult16();
             
             voltage = (result-51.6)/397.6;  //x = (y-b)/a
                    
@@ -35,7 +35,11 @@ void checkBattery()
             UART_1_PutString("Voltage level too low. Stop Broomba");   //prints the measures weight in grams
             SPI_Slave_WriteTxData('B');
             }
-            
+            else
+            {
+                SPI_Slave_WriteTxData('I');
+                
+            }
         }
         CyDelay(500);
 }

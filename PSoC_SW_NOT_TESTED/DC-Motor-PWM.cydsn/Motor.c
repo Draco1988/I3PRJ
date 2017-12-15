@@ -13,7 +13,7 @@
 #include"project.h"
 #include<CyLib.h>
 
-volatile uint8_t speed = 50;
+volatile uint8_t speed = 100;
 volatile unsigned long backTimer = 3000;
 volatile unsigned long turnSpeed = 3000;
 volatile uint8_t forward = 1;
@@ -56,9 +56,9 @@ void decreaseSpeed()
 
     if (forward == 1)
     {
-        //PWM_M1_WriteCompare(speed);
-        //PWM_M3_WriteCompare(speed);
-        PWM_P_WriteCompare(speed);
+        PWM_M1_WriteCompare(speed);
+        PWM_M3_WriteCompare(speed);
+        
     }
     else
     {
@@ -77,14 +77,14 @@ void increaseSpeed()
 	}
     if (forward == 1)
     {
-//        PWM_M3_WriteCompare(speed);
-//        PWM_M1_WriteCompare(speed); 
-        PWM_P_WriteCompare(speed);
+        PWM_M3_WriteCompare(speed);
+        PWM_M1_WriteCompare(speed); 
+        
     }
     else
     {
-        //PWM_M2_WriteCompare(speed);
-        //PWM_M4_WriteCompare(speed);//Increase compare variable to increase speed
+        PWM_M2_WriteCompare(speed);
+        PWM_M4_WriteCompare(speed);//Increase compare variable to increase speed
     }
 }
 

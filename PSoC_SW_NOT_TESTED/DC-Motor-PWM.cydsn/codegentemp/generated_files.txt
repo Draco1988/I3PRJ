@@ -38,10 +38,10 @@
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_1_aliases.h" value="HEADER;;;;;Pin_1" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_1.c" value="SOURCE_C;CortexM3;;;;Pin_1" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_1.h" value="HEADER;;;;;Pin_1" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_2" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2.h" value="HEADER;;;;;ADC_SAR_2" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_INT.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_2" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_PM.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_2" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_V" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V.h" value="HEADER;;;;;ADC_SAR_V" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_INT.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_V" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_PM.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_V" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM2_aliases.h" value="HEADER;;;;;Pin_PWM2" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM2.c" value="SOURCE_C;CortexM3;;;;Pin_PWM2" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM2.h" value="HEADER;;;;;Pin_PWM2" />
@@ -51,9 +51,9 @@
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\PWM_M3.c" value="SOURCE_C;CortexM3;;;;PWM_M3" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\PWM_M3.h" value="HEADER;;;;;PWM_M3" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\PWM_M3_PM.c" value="SOURCE_C;CortexM3;;;;PWM_M3" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_in_1_aliases.h" value="HEADER;;;;;Pin_ADC_in_1" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_in_1.c" value="SOURCE_C;CortexM3;;;;Pin_ADC_in_1" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_in_1.h" value="HEADER;;;;;Pin_ADC_in_1" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_V_aliases.h" value="HEADER;;;;;Pin_ADC_V" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_V.c" value="SOURCE_C;CortexM3;;;;Pin_ADC_V" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_V.h" value="HEADER;;;;;Pin_ADC_V" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM3_aliases.h" value="HEADER;;;;;Pin_PWM3" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM3.c" value="SOURCE_C;CortexM3;;;;Pin_PWM3" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM3.h" value="HEADER;;;;;Pin_PWM3" />
@@ -83,13 +83,13 @@
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\MISO.h" value="HEADER;;;;;MISO" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ISR_SPI.c" value="SOURCE_C;CortexM3;;;;ISR_SPI" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ISR_SPI.h" value="HEADER;;;;;ISR_SPI" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1.h" value="HEADER;;;;;ADC_SAR_1" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_INT.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_PM.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_in_aliases.h" value="HEADER;;;;;Pin_ADC_in" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_in.c" value="SOURCE_C;CortexM3;;;;Pin_ADC_in" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_in.h" value="HEADER;;;;;Pin_ADC_in" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_B" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B.h" value="HEADER;;;;;ADC_SAR_B" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_INT.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_B" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_PM.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_B" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_B_aliases.h" value="HEADER;;;;;Pin_ADC_B" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_B.c" value="SOURCE_C;CortexM3;;;;Pin_ADC_B" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_ADC_B.h" value="HEADER;;;;;Pin_ADC_B" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\PWM_P.c" value="SOURCE_C;CortexM3;;;;PWM_P" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\PWM_P.h" value="HEADER;;;;;PWM_P" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\PWM_P_PM.c" value="SOURCE_C;CortexM3;;;;PWM_P" />
@@ -98,24 +98,30 @@
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM_P_aliases.h" value="HEADER;;;;;Pin_PWM_P" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM_P.c" value="SOURCE_C;CortexM3;;;;Pin_PWM_P" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Pin_PWM_P.h" value="HEADER;;;;;Pin_PWM_P" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\LEDB_aliases.h" value="HEADER;;;;;LEDB" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\LEDB.c" value="SOURCE_C;CortexM3;;;;LEDB" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\LEDB.h" value="HEADER;;;;;LEDB" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\LEDV_aliases.h" value="HEADER;;;;;LEDV" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\LEDV.c" value="SOURCE_C;CortexM3;;;;LEDV" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\LEDV.h" value="HEADER;;;;;LEDV" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\UART_1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_1_IntClock" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\UART_1_IntClock.h" value="HEADER;;;;;UART_1_IntClock" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_2_IRQ" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_IRQ.h" value="HEADER;;;;;ADC_SAR_2_IRQ" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_2_theACLK" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_theACLK.h" value="HEADER;;;;;ADC_SAR_2_theACLK" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_ExtVref_aliases.h" value="HEADER;;;;;ADC_SAR_2_ExtVref" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_ExtVref.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_2_ExtVref" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_2_ExtVref.h" value="HEADER;;;;;ADC_SAR_2_ExtVref" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_V_IRQ" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_IRQ.h" value="HEADER;;;;;ADC_SAR_V_IRQ" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_V_theACLK" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_theACLK.h" value="HEADER;;;;;ADC_SAR_V_theACLK" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_ExtVref_aliases.h" value="HEADER;;;;;ADC_SAR_V_ExtVref" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_ExtVref.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_V_ExtVref" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_V_ExtVref.h" value="HEADER;;;;;ADC_SAR_V_ExtVref" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\SPI_Slave_IntClock.c" value="SOURCE_C;CortexM3;;;;SPI_Slave_IntClock" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\SPI_Slave_IntClock.h" value="HEADER;;;;;SPI_Slave_IntClock" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1_IRQ" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_IRQ.h" value="HEADER;;;;;ADC_SAR_1_IRQ" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1_theACLK" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_theACLK.h" value="HEADER;;;;;ADC_SAR_1_theACLK" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_ExtVref_aliases.h" value="HEADER;;;;;ADC_SAR_1_ExtVref" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_ExtVref.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_1_ExtVref" />
-  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_1_ExtVref.h" value="HEADER;;;;;ADC_SAR_1_ExtVref" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_B_IRQ" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_IRQ.h" value="HEADER;;;;;ADC_SAR_B_IRQ" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_B_theACLK" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_theACLK.h" value="HEADER;;;;;ADC_SAR_B_theACLK" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_ExtVref_aliases.h" value="HEADER;;;;;ADC_SAR_B_ExtVref" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_ExtVref.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_B_ExtVref" />
+  <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\ADC_SAR_B_ExtVref.h" value="HEADER;;;;;ADC_SAR_B_ExtVref" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Cm3RealView.scat" value="LINKER_SCRIPT;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;cy_boot" />
   <file name="C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\codegentemp\Cm3Start.c" value="SOURCE_C;CortexM3;;;;cy_boot" />

@@ -6,7 +6,7 @@
 
 #Build Date:         Jul 19 2017 14:31:00
 
-#File Generated:     Dec 14 2017 13:40:38
+#File Generated:     Dec 14 2017 18:40:35
 
 #Purpose:            
 
@@ -55,7 +55,7 @@ Design Statistics after Packing
 Device Utilization Summary after Packing
     Macrocells                  :	62/192
     UDBS                        :	12/24
-    IOs                         :	17/72
+    IOs                         :	19/72
 
 
 D2088: Phase 3, elapsed time : 0.0 (sec)
@@ -80,10 +80,10 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 14
-Clock: ADC_SAR_1_theACLK    | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_1_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_2_theACLK    | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_2_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_B_theACLK    | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_B_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_V_theACLK    | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_V_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
 Clock: Clock_PWM            | Frequency:  85.3 MHz | Target:   0.1 MHz
 Clock: Clock_PWM_4          | Frequency:  85.3 MHz | Target:   0.1 MHz
 Clock: CyBUS_CLK            | Frequency:  56.0 MHz | Target:  24.0 MHz
@@ -106,10 +106,10 @@ Phase 7
                      Clock Summary 
 ======================================================================
 Number of clocks: 14
-Clock: ADC_SAR_1_theACLK    | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_1_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_2_theACLK    | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_2_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_B_theACLK    | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_B_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_V_theACLK    | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_V_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
 Clock: Clock_PWM            | Frequency:  85.3 MHz | Target:   0.1 MHz
 Clock: Clock_PWM_4          | Frequency:  85.3 MHz | Target:   0.1 MHz
 Clock: CyBUS_CLK            | Frequency:   1.3 MHz | Target:  24.0 MHz
@@ -124,7 +124,7 @@ Clock: UART_1_IntClock      | Frequency:   1.3 MHz | Target:   0.9 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.6 (sec)
+D2088: Phase 7, elapsed time : 0.8 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	23
@@ -134,11 +134,11 @@ Final Design Statistics
     Number of Status            	:	9
     Number of SyncCells         	:	4
     Number of count7cells       	:	2
-    Number of IOs       	:	17
+    Number of IOs       	:	19
 
 Device Utilization Summary
     Macrocells                  :	62/192
-    IOs                         :	17/72
+    IOs                         :	19/72
 
 
 
@@ -155,10 +155,10 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 14
-Clock: ADC_SAR_1_theACLK    | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_1_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_2_theACLK    | Frequency: N/A       | Target:   1.8 MHz
-Clock: ADC_SAR_2_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_B_theACLK    | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_B_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_V_theACLK    | Frequency: N/A       | Target:   1.8 MHz
+Clock: ADC_SAR_V_theACLK(routed) | Frequency: N/A       | Target:   1.8 MHz
 Clock: Clock_PWM            | Frequency:  85.3 MHz | Target:   0.1 MHz
 Clock: Clock_PWM_4          | Frequency:  85.3 MHz | Target:   0.1 MHz
 Clock: CyBUS_CLK            | Frequency:   1.5 MHz | Target:  24.0 MHz
@@ -179,5 +179,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 1.8 sec.
+I2076: Total run-time: 2.0 sec.
 

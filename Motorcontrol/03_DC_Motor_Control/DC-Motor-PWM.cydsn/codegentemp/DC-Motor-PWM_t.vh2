@@ -1,5 +1,5 @@
--- Project:   C:\Users\chris\Documents\3. Semester\I3GFV\Motorcontrol\03_DC_Motor_Control\DC-Motor-PWM.cydsn\DC-Motor-PWM.cyprj
--- Generated: 12/12/2017 13:35:01
+-- Project:   C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\Motorcontrol\03_DC_Motor_Control\DC-Motor-PWM.cydsn\DC-Motor-PWM.cyprj
+-- Generated: 12/14/2017 18:01:22
 -- PSoC Creator  4.1 Update 1
 
 ENTITY \DC-Motor-PWM\ IS
