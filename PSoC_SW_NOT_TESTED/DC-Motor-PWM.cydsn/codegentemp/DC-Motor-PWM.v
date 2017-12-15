@@ -1,6 +1,6 @@
 // ======================================================================
 // DC-Motor-PWM.v generated from TopDesign.cysch
-// 12/14/2017 at 13:40
+// 12/14/2017 at 18:40
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -417,7 +417,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v"
 `endif
 
-// ADC_SAR_v3_0(ADC_Clock=1, ADC_Clock_Frequency=1800000, ADC_Input_Range=1, ADC_Power=0, ADC_Reference=2, ADC_Resolution=12, ADC_SampleMode=0, Enable_next_out=false, Ref_Voltage=2.5, Ref_Voltage_mV=2500, rm_int=false, Sample_Precharge=6, Sample_Rate=100000, Sample_Rate_def=631579, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ADC_SAR_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC_SAR_2, CY_INSTANCE_SHORT_NAME=ADC_SAR_2, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.1 Update 1, INSTANCE_NAME=ADC_SAR_2, )
+// ADC_SAR_v3_0(ADC_Clock=1, ADC_Clock_Frequency=1800000, ADC_Input_Range=1, ADC_Power=0, ADC_Reference=2, ADC_Resolution=12, ADC_SampleMode=0, Enable_next_out=false, Ref_Voltage=2.5, Ref_Voltage_mV=2500, rm_int=false, Sample_Precharge=6, Sample_Rate=100000, Sample_Rate_def=631579, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ADC_SAR_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC_SAR_V, CY_INSTANCE_SHORT_NAME=ADC_SAR_V, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.1 Update 1, INSTANCE_NAME=ADC_SAR_V, )
 module ADC_SAR_v3_0_2 (
     vplus,
     vminus,
@@ -1018,7 +1018,7 @@ module SPI_Slave_v2_70_6 (
 
 endmodule
 
-// ADC_SAR_v3_0(ADC_Clock=1, ADC_Clock_Frequency=1800000, ADC_Input_Range=1, ADC_Power=0, ADC_Reference=2, ADC_Resolution=12, ADC_SampleMode=0, Enable_next_out=false, Ref_Voltage=2.5, Ref_Voltage_mV=2500, rm_int=false, Sample_Precharge=6, Sample_Rate=100000, Sample_Rate_def=631579, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ADC_SAR_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC_SAR_1, CY_INSTANCE_SHORT_NAME=ADC_SAR_1, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.1 Update 1, INSTANCE_NAME=ADC_SAR_1, )
+// ADC_SAR_v3_0(ADC_Clock=1, ADC_Clock_Frequency=1800000, ADC_Input_Range=1, ADC_Power=0, ADC_Reference=2, ADC_Resolution=12, ADC_SampleMode=0, Enable_next_out=false, Ref_Voltage=2.5, Ref_Voltage_mV=2500, rm_int=false, Sample_Precharge=6, Sample_Rate=100000, Sample_Rate_def=631579, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ADC_SAR_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC_SAR_B, CY_INSTANCE_SHORT_NAME=ADC_SAR_B, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.1 Update 1, INSTANCE_NAME=ADC_SAR_B, )
 module ADC_SAR_v3_0_7 (
     vplus,
     vminus,
@@ -1327,6 +1327,8 @@ endmodule
 // top
 module top ;
 
+    electrical  Net_418;
+    electrical  Net_419;
           wire  Net_397;
           wire  Net_395;
           wire  Net_394;
@@ -1804,7 +1806,7 @@ module top ;
 
 	assign tmpOE__Pin_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{2'b11} : {2'b11};
 
-    ADC_SAR_v3_0_2 ADC_SAR_2 (
+    ADC_SAR_v3_0_2 ADC_SAR_V (
         .vplus(Net_398),
         .vminus(Net_399),
         .soc(1'b0),
@@ -1922,11 +1924,11 @@ module top ;
         .ph2(Net_220));
     defparam PWM_M3.Resolution = 8;
 
-	wire [0:0] tmpOE__Pin_ADC_in_1_net;
-	wire [0:0] tmpFB_0__Pin_ADC_in_1_net;
-	wire [0:0] tmpIO_0__Pin_ADC_in_1_net;
-	wire [0:0] tmpINTERRUPT_0__Pin_ADC_in_1_net;
-	electrical [0:0] tmpSIOVREF__Pin_ADC_in_1_net;
+	wire [0:0] tmpOE__Pin_ADC_V_net;
+	wire [0:0] tmpFB_0__Pin_ADC_V_net;
+	wire [0:0] tmpIO_0__Pin_ADC_V_net;
+	wire [0:0] tmpINTERRUPT_0__Pin_ADC_V_net;
+	electrical [0:0] tmpSIOVREF__Pin_ADC_V_net;
 
 	cy_psoc3_pins_v1_10
 		#(.id("ac7eebbf-5f79-419b-a982-cd3b38211cdc"),
@@ -1981,14 +1983,14 @@ module top ;
 		  .ovt_needed(1'b0),
 		  .ovt_slew_control(2'b00),
 		  .input_buffer_sel(2'b00))
-		Pin_ADC_in_1
-		 (.oe(tmpOE__Pin_ADC_in_1_net),
+		Pin_ADC_V
+		 (.oe(tmpOE__Pin_ADC_V_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__Pin_ADC_in_1_net[0:0]}),
+		  .fb({tmpFB_0__Pin_ADC_V_net[0:0]}),
 		  .analog({Net_398}),
-		  .io({tmpIO_0__Pin_ADC_in_1_net[0:0]}),
-		  .siovref(tmpSIOVREF__Pin_ADC_in_1_net),
-		  .interrupt({tmpINTERRUPT_0__Pin_ADC_in_1_net[0:0]}),
+		  .io({tmpIO_0__Pin_ADC_V_net[0:0]}),
+		  .siovref(tmpSIOVREF__Pin_ADC_V_net),
+		  .interrupt({tmpINTERRUPT_0__Pin_ADC_V_net[0:0]}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -1996,7 +1998,7 @@ module top ;
 		  .out_clock_en({1'b1}),
 		  .out_reset({1'b0}));
 
-	assign tmpOE__Pin_ADC_in_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+	assign tmpOE__Pin_ADC_V_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__Pin_PWM3_net;
 	wire [0:0] tmpFB_0__Pin_PWM3_net;
@@ -2483,7 +2485,7 @@ module top ;
 		 (.int_signal(Net_300));
 
 
-    ADC_SAR_v3_0_7 ADC_SAR_1 (
+    ADC_SAR_v3_0_7 ADC_SAR_B (
         .vplus(Net_101),
         .vminus(Net_306),
         .soc(1'b0),
@@ -2492,11 +2494,11 @@ module top ;
         .vdac_ref(Net_310),
         .eos(Net_311));
 
-	wire [0:0] tmpOE__Pin_ADC_in_net;
-	wire [0:0] tmpFB_0__Pin_ADC_in_net;
-	wire [0:0] tmpIO_0__Pin_ADC_in_net;
-	wire [0:0] tmpINTERRUPT_0__Pin_ADC_in_net;
-	electrical [0:0] tmpSIOVREF__Pin_ADC_in_net;
+	wire [0:0] tmpOE__Pin_ADC_B_net;
+	wire [0:0] tmpFB_0__Pin_ADC_B_net;
+	wire [0:0] tmpIO_0__Pin_ADC_B_net;
+	wire [0:0] tmpINTERRUPT_0__Pin_ADC_B_net;
+	electrical [0:0] tmpSIOVREF__Pin_ADC_B_net;
 
 	cy_psoc3_pins_v1_10
 		#(.id("77715107-f8d5-47e5-a629-0fb83101ac6b"),
@@ -2551,14 +2553,14 @@ module top ;
 		  .ovt_needed(1'b0),
 		  .ovt_slew_control(2'b00),
 		  .input_buffer_sel(2'b00))
-		Pin_ADC_in
-		 (.oe(tmpOE__Pin_ADC_in_net),
+		Pin_ADC_B
+		 (.oe(tmpOE__Pin_ADC_B_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__Pin_ADC_in_net[0:0]}),
+		  .fb({tmpFB_0__Pin_ADC_B_net[0:0]}),
 		  .analog({Net_101}),
-		  .io({tmpIO_0__Pin_ADC_in_net[0:0]}),
-		  .siovref(tmpSIOVREF__Pin_ADC_in_net),
-		  .interrupt({tmpINTERRUPT_0__Pin_ADC_in_net[0:0]}),
+		  .io({tmpIO_0__Pin_ADC_B_net[0:0]}),
+		  .siovref(tmpSIOVREF__Pin_ADC_B_net),
+		  .interrupt({tmpINTERRUPT_0__Pin_ADC_B_net[0:0]}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -2566,7 +2568,7 @@ module top ;
 		  .out_clock_en({1'b1}),
 		  .out_reset({1'b0}));
 
-	assign tmpOE__Pin_ADC_in_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+	assign tmpOE__Pin_ADC_B_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
     PWM_v3_30_8 PWM_P (
         .reset(1'b0),
@@ -2671,6 +2673,158 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__Pin_PWM_P_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__LEDB_net;
+	wire [0:0] tmpFB_0__LEDB_net;
+	wire [0:0] tmpIO_0__LEDB_net;
+	wire [0:0] tmpINTERRUPT_0__LEDB_net;
+	electrical [0:0] tmpSIOVREF__LEDB_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("e851a3b9-efb8-48be-bbb8-b303b216c393"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b0),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b1),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		LEDB
+		 (.oe(tmpOE__LEDB_net),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__LEDB_net[0:0]}),
+		  .io({tmpIO_0__LEDB_net[0:0]}),
+		  .siovref(tmpSIOVREF__LEDB_net),
+		  .interrupt({tmpINTERRUPT_0__LEDB_net[0:0]}),
+		  .annotation({Net_419}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__LEDB_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__LEDV_net;
+	wire [0:0] tmpFB_0__LEDV_net;
+	wire [0:0] tmpIO_0__LEDV_net;
+	wire [0:0] tmpINTERRUPT_0__LEDV_net;
+	electrical [0:0] tmpSIOVREF__LEDV_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("acc3f038-86be-41a6-8b40-552fa28ca446"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b0),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b1),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		LEDV
+		 (.oe(tmpOE__LEDV_net),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__LEDV_net[0:0]}),
+		  .io({tmpIO_0__LEDV_net[0:0]}),
+		  .siovref(tmpSIOVREF__LEDV_net),
+		  .interrupt({tmpINTERRUPT_0__LEDV_net[0:0]}),
+		  .annotation({Net_418}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__LEDV_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 
 
