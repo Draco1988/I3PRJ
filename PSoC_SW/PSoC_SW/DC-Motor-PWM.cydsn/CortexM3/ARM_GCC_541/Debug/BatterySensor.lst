@@ -1,0 +1,926 @@
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"BatterySensor.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_i2f
+  20              		.global	__aeabi_f2d
+  21              		.global	__aeabi_dsub
+  22              		.global	__aeabi_ddiv
+  23              		.global	__aeabi_d2f
+  24              		.global	__aeabi_dcmplt
+  25              		.section	.text.checkBattery,"ax",%progbits
+  26              		.align	2
+  27              		.global	checkBattery
+  28              		.thumb
+  29              		.thumb_func
+  30              		.type	checkBattery, %function
+  31              	checkBattery:
+  32              	.LFB64:
+  33              		.file 1 "BatterySensor.c"
+   1:BatterySensor.c **** /* ========================================
+   2:BatterySensor.c ****  *
+   3:BatterySensor.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:BatterySensor.c ****  * All Rights Reserved
+   5:BatterySensor.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:BatterySensor.c ****  *
+   7:BatterySensor.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:BatterySensor.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:BatterySensor.c ****  *
+  10:BatterySensor.c ****  * ========================================
+  11:BatterySensor.c **** */
+  12:BatterySensor.c **** #include"project.h"
+  13:BatterySensor.c **** #include"BatterySensor.h"
+  14:BatterySensor.c **** #include <stdio.h>
+  15:BatterySensor.c **** 
+  16:BatterySensor.c **** #define CRITICAL_LEVEL 1.92       //1.92 V = 20% Battery Voltage 9,6 V
+  17:BatterySensor.c **** 
+  18:BatterySensor.c **** float voltage = 0;
+  19:BatterySensor.c **** char uartBufferBattery[256];
+  20:BatterySensor.c **** 
+  21:BatterySensor.c **** void checkBattery()
+  22:BatterySensor.c **** {
+  34              		.loc 1 22 0
+  35              		.cfi_startproc
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 2
+
+
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 0, uses_anonymous_args = 0
+  38 0000 30B5     		push	{r4, r5, lr}
+  39              		.cfi_def_cfa_offset 12
+  40              		.cfi_offset 4, -12
+  41              		.cfi_offset 5, -8
+  42              		.cfi_offset 14, -4
+  43 0002 83B0     		sub	sp, sp, #12
+  44              		.cfi_def_cfa_offset 24
+  23:BatterySensor.c ****     if (ADC_SAR_B_IsEndConversion(ADC_SAR_B_WAIT_FOR_RESULT))
+  45              		.loc 1 23 0
+  46 0004 0020     		movs	r0, #0
+  47 0006 FFF7FEFF 		bl	ADC_SAR_B_IsEndConversion
+  48              	.LVL0:
+  49 000a A0B3     		cbz	r0, .L2
+  50              	.LBB2:
+  24:BatterySensor.c ****         {
+  25:BatterySensor.c ****             // Store result from conversion in result
+  26:BatterySensor.c ****             float result = ADC_SAR_B_GetResult16();
+  51              		.loc 1 26 0
+  52 000c FFF7FEFF 		bl	ADC_SAR_B_GetResult16
+  53              	.LVL1:
+  54 0010 FFF7FEFF 		bl	__aeabi_i2f
+  55              	.LVL2:
+  27:BatterySensor.c ****             
+  28:BatterySensor.c ****             voltage = (result-51.6)/397.6;  //x = (y-b)/a
+  56              		.loc 1 28 0
+  57 0014 FFF7FEFF 		bl	__aeabi_f2d
+  58              	.LVL3:
+  59 0018 1BA3     		adr	r3, .L8
+  60 001a D3E90023 		ldrd	r2, [r3]
+  61 001e FFF7FEFF 		bl	__aeabi_dsub
+  62              	.LVL4:
+  63 0022 1BA3     		adr	r3, .L8+8
+  64 0024 D3E90023 		ldrd	r2, [r3]
+  65 0028 FFF7FEFF 		bl	__aeabi_ddiv
+  66              	.LVL5:
+  67 002c FFF7FEFF 		bl	__aeabi_d2f
+  68              	.LVL6:
+  69 0030 1B4C     		ldr	r4, .L8+24
+  70 0032 2060     		str	r0, [r4]	@ float
+  29:BatterySensor.c ****                    
+  30:BatterySensor.c ****             snprintf(uartBufferBattery, sizeof(uartBufferBattery), "%f \r\n", voltage);
+  71              		.loc 1 30 0
+  72 0034 1B4D     		ldr	r5, .L8+28
+  73 0036 FFF7FEFF 		bl	__aeabi_f2d
+  74              	.LVL7:
+  75 003a CDE90001 		strd	r0, [sp]
+  76 003e 1A4A     		ldr	r2, .L8+32
+  77 0040 4FF48071 		mov	r1, #256
+  78 0044 2846     		mov	r0, r5
+  79 0046 FFF7FEFF 		bl	snprintf
+  80              	.LVL8:
+  31:BatterySensor.c ****             UART_1_PutString(uartBufferBattery);   //prints the measures weight in grams
+  81              		.loc 1 31 0
+  82 004a 2846     		mov	r0, r5
+  83 004c FFF7FEFF 		bl	UART_1_PutString
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 3
+
+
+  84              	.LVL9:
+  32:BatterySensor.c ****             
+  33:BatterySensor.c ****             if(voltage < CRITICAL_LEVEL)
+  85              		.loc 1 33 0
+  86 0050 2068     		ldr	r0, [r4]	@ float
+  87 0052 FFF7FEFF 		bl	__aeabi_f2d
+  88              	.LVL10:
+  89 0056 10A3     		adr	r3, .L8+16
+  90 0058 D3E90023 		ldrd	r2, [r3]
+  91 005c FFF7FEFF 		bl	__aeabi_dcmplt
+  92              	.LVL11:
+  93 0060 30B1     		cbz	r0, .L6
+  34:BatterySensor.c ****             {
+  35:BatterySensor.c ****             UART_1_PutString("Voltage level too low. Stop Broomba");   //prints the measures weight
+  94              		.loc 1 35 0
+  95 0062 1248     		ldr	r0, .L8+36
+  96 0064 FFF7FEFF 		bl	UART_1_PutString
+  97              	.LVL12:
+  36:BatterySensor.c ****             SPI_Slave_WriteTxData('B');
+  98              		.loc 1 36 0
+  99 0068 4220     		movs	r0, #66
+ 100 006a FFF7FEFF 		bl	SPI_Slave_WriteTxData
+ 101              	.LVL13:
+ 102 006e 02E0     		b	.L2
+ 103              	.L6:
+  37:BatterySensor.c ****             }
+  38:BatterySensor.c ****             else
+  39:BatterySensor.c ****             {
+  40:BatterySensor.c ****                 SPI_Slave_WriteTxData('I');
+ 104              		.loc 1 40 0
+ 105 0070 4920     		movs	r0, #73
+ 106 0072 FFF7FEFF 		bl	SPI_Slave_WriteTxData
+ 107              	.LVL14:
+ 108              	.L2:
+ 109              	.LBE2:
+  41:BatterySensor.c ****                 
+  42:BatterySensor.c ****             }
+  43:BatterySensor.c ****         }
+  44:BatterySensor.c ****         CyDelay(500);
+ 110              		.loc 1 44 0
+ 111 0076 4FF4FA70 		mov	r0, #500
+ 112 007a FFF7FEFF 		bl	CyDelay
+ 113              	.LVL15:
+  45:BatterySensor.c **** }
+ 114              		.loc 1 45 0
+ 115 007e 03B0     		add	sp, sp, #12
+ 116              		.cfi_def_cfa_offset 12
+ 117              		@ sp needed
+ 118 0080 30BD     		pop	{r4, r5, pc}
+ 119              	.L9:
+ 120 0082 00BFAFF3 		.align	3
+ 120      0080
+ 121              	.L8:
+ 122 0088 CDCCCCCC 		.word	-858993459
+ 123 008c CCCC4940 		.word	1078578380
+ 124 0090 9A999999 		.word	-1717986918
+ 125 0094 99D97840 		.word	1081661849
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 4
+
+
+ 126 0098 B81E85EB 		.word	-343597384
+ 127 009c 51B8FE3F 		.word	1073657937
+ 128 00a0 00000000 		.word	.LANCHOR0
+ 129 00a4 00000000 		.word	uartBufferBattery
+ 130 00a8 00000000 		.word	.LC0
+ 131 00ac 08000000 		.word	.LC1
+ 132              		.cfi_endproc
+ 133              	.LFE64:
+ 134              		.size	checkBattery, .-checkBattery
+ 135              		.comm	uartBufferBattery,256,4
+ 136              		.global	voltage
+ 137              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 138              		.align	2
+ 139              	.LC0:
+ 140 0000 2566200D 		.ascii	"%f \015\012\000"
+ 140      0A00
+ 141 0006 0000     		.space	2
+ 142              	.LC1:
+ 143 0008 566F6C74 		.ascii	"Voltage level too low. Stop Broomba\000"
+ 143      61676520 
+ 143      6C657665 
+ 143      6C20746F 
+ 143      6F206C6F 
+ 144              		.bss
+ 145              		.align	2
+ 146              		.set	.LANCHOR0,. + 0
+ 147              		.type	voltage, %object
+ 148              		.size	voltage, 4
+ 149              	voltage:
+ 150 0000 00000000 		.space	4
+ 151              		.text
+ 152              	.Letext0:
+ 153              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 154              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 155              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 156              		.file 5 "Generated_Source\\PSoC5/ADC_SAR_B.h"
+ 157              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 158              		.file 7 "Generated_Source\\PSoC5/UART_1.h"
+ 159              		.file 8 "Generated_Source\\PSoC5/SPI_Slave.h"
+ 160              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
+ 161              		.section	.debug_info,"",%progbits
+ 162              	.Ldebug_info0:
+ 163 0000 F9010000 		.4byte	0x1f9
+ 164 0004 0400     		.2byte	0x4
+ 165 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 166 000a 04       		.byte	0x4
+ 167 000b 01       		.uleb128 0x1
+ 168 000c 39000000 		.4byte	.LASF25
+ 169 0010 0C       		.byte	0xc
+ 170 0011 EC000000 		.4byte	.LASF26
+ 171 0015 CD010000 		.4byte	.LASF27
+ 172 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 173 001d 00000000 		.4byte	0
+ 174 0021 00000000 		.4byte	.Ldebug_line0
+ 175 0025 02       		.uleb128 0x2
+ 176 0026 01       		.byte	0x1
+ 177 0027 06       		.byte	0x6
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 5
+
+
+ 178 0028 43020000 		.4byte	.LASF0
+ 179 002c 02       		.uleb128 0x2
+ 180 002d 01       		.byte	0x1
+ 181 002e 08       		.byte	0x8
+ 182 002f 2B000000 		.4byte	.LASF1
+ 183 0033 02       		.uleb128 0x2
+ 184 0034 02       		.byte	0x2
+ 185 0035 05       		.byte	0x5
+ 186 0036 BA010000 		.4byte	.LASF2
+ 187 003a 02       		.uleb128 0x2
+ 188 003b 02       		.byte	0x2
+ 189 003c 07       		.byte	0x7
+ 190 003d D9000000 		.4byte	.LASF3
+ 191 0041 03       		.uleb128 0x3
+ 192 0042 00000000 		.4byte	.LASF9
+ 193 0046 02       		.byte	0x2
+ 194 0047 3F       		.byte	0x3f
+ 195 0048 4C000000 		.4byte	0x4c
+ 196 004c 02       		.uleb128 0x2
+ 197 004d 04       		.byte	0x4
+ 198 004e 05       		.byte	0x5
+ 199 004f C4010000 		.4byte	.LASF4
+ 200 0053 02       		.uleb128 0x2
+ 201 0054 04       		.byte	0x4
+ 202 0055 07       		.byte	0x7
+ 203 0056 C7000000 		.4byte	.LASF5
+ 204 005a 02       		.uleb128 0x2
+ 205 005b 08       		.byte	0x8
+ 206 005c 05       		.byte	0x5
+ 207 005d A7010000 		.4byte	.LASF6
+ 208 0061 02       		.uleb128 0x2
+ 209 0062 08       		.byte	0x8
+ 210 0063 07       		.byte	0x7
+ 211 0064 55010000 		.4byte	.LASF7
+ 212 0068 04       		.uleb128 0x4
+ 213 0069 04       		.byte	0x4
+ 214 006a 05       		.byte	0x5
+ 215 006b 696E7400 		.ascii	"int\000"
+ 216 006f 02       		.uleb128 0x2
+ 217 0070 04       		.byte	0x4
+ 218 0071 07       		.byte	0x7
+ 219 0072 32010000 		.4byte	.LASF8
+ 220 0076 03       		.uleb128 0x3
+ 221 0077 89010000 		.4byte	.LASF10
+ 222 007b 03       		.byte	0x3
+ 223 007c 2C       		.byte	0x2c
+ 224 007d 41000000 		.4byte	0x41
+ 225 0081 02       		.uleb128 0x2
+ 226 0082 04       		.byte	0x4
+ 227 0083 04       		.byte	0x4
+ 228 0084 25000000 		.4byte	.LASF11
+ 229 0088 02       		.uleb128 0x2
+ 230 0089 08       		.byte	0x8
+ 231 008a 04       		.byte	0x4
+ 232 008b 2B010000 		.4byte	.LASF12
+ 233 008f 02       		.uleb128 0x2
+ 234 0090 01       		.byte	0x1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 6
+
+
+ 235 0091 08       		.byte	0x8
+ 236 0092 B5010000 		.4byte	.LASF13
+ 237 0096 02       		.uleb128 0x2
+ 238 0097 08       		.byte	0x8
+ 239 0098 04       		.byte	0x4
+ 240 0099 37020000 		.4byte	.LASF14
+ 241 009d 02       		.uleb128 0x2
+ 242 009e 04       		.byte	0x4
+ 243 009f 07       		.byte	0x7
+ 244 00a0 91010000 		.4byte	.LASF15
+ 245 00a4 05       		.uleb128 0x5
+ 246 00a5 9A010000 		.4byte	.LASF28
+ 247 00a9 01       		.byte	0x1
+ 248 00aa 15       		.byte	0x15
+ 249 00ab 00000000 		.4byte	.LFB64
+ 250 00af B0000000 		.4byte	.LFE64-.LFB64
+ 251 00b3 01       		.uleb128 0x1
+ 252 00b4 9C       		.byte	0x9c
+ 253 00b5 77010000 		.4byte	0x177
+ 254 00b9 06       		.uleb128 0x6
+ 255 00ba 0C000000 		.4byte	.LBB2
+ 256 00be 6A000000 		.4byte	.LBE2-.LBB2
+ 257 00c2 52010000 		.4byte	0x152
+ 258 00c6 07       		.uleb128 0x7
+ 259 00c7 6C010000 		.4byte	.LASF29
+ 260 00cb 01       		.byte	0x1
+ 261 00cc 1A       		.byte	0x1a
+ 262 00cd 81000000 		.4byte	0x81
+ 263 00d1 00000000 		.4byte	.LLST0
+ 264 00d5 08       		.uleb128 0x8
+ 265 00d6 10000000 		.4byte	.LVL1
+ 266 00da BA010000 		.4byte	0x1ba
+ 267 00de 09       		.uleb128 0x9
+ 268 00df 4A000000 		.4byte	.LVL8
+ 269 00e3 C5010000 		.4byte	0x1c5
+ 270 00e7 02010000 		.4byte	0x102
+ 271 00eb 0A       		.uleb128 0xa
+ 272 00ec 01       		.uleb128 0x1
+ 273 00ed 50       		.byte	0x50
+ 274 00ee 02       		.uleb128 0x2
+ 275 00ef 75       		.byte	0x75
+ 276 00f0 00       		.sleb128 0
+ 277 00f1 0A       		.uleb128 0xa
+ 278 00f2 01       		.uleb128 0x1
+ 279 00f3 51       		.byte	0x51
+ 280 00f4 03       		.uleb128 0x3
+ 281 00f5 0A       		.byte	0xa
+ 282 00f6 0001     		.2byte	0x100
+ 283 00f8 0A       		.uleb128 0xa
+ 284 00f9 01       		.uleb128 0x1
+ 285 00fa 52       		.byte	0x52
+ 286 00fb 05       		.uleb128 0x5
+ 287 00fc 03       		.byte	0x3
+ 288 00fd 00000000 		.4byte	.LC0
+ 289 0101 00       		.byte	0
+ 290 0102 09       		.uleb128 0x9
+ 291 0103 50000000 		.4byte	.LVL9
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 7
+
+
+ 292 0107 D0010000 		.4byte	0x1d0
+ 293 010b 16010000 		.4byte	0x116
+ 294 010f 0A       		.uleb128 0xa
+ 295 0110 01       		.uleb128 0x1
+ 296 0111 50       		.byte	0x50
+ 297 0112 02       		.uleb128 0x2
+ 298 0113 75       		.byte	0x75
+ 299 0114 00       		.sleb128 0
+ 300 0115 00       		.byte	0
+ 301 0116 09       		.uleb128 0x9
+ 302 0117 68000000 		.4byte	.LVL12
+ 303 011b D0010000 		.4byte	0x1d0
+ 304 011f 2D010000 		.4byte	0x12d
+ 305 0123 0A       		.uleb128 0xa
+ 306 0124 01       		.uleb128 0x1
+ 307 0125 50       		.byte	0x50
+ 308 0126 05       		.uleb128 0x5
+ 309 0127 03       		.byte	0x3
+ 310 0128 08000000 		.4byte	.LC1
+ 311 012c 00       		.byte	0
+ 312 012d 09       		.uleb128 0x9
+ 313 012e 6E000000 		.4byte	.LVL13
+ 314 0132 DB010000 		.4byte	0x1db
+ 315 0136 41010000 		.4byte	0x141
+ 316 013a 0A       		.uleb128 0xa
+ 317 013b 01       		.uleb128 0x1
+ 318 013c 50       		.byte	0x50
+ 319 013d 02       		.uleb128 0x2
+ 320 013e 08       		.byte	0x8
+ 321 013f 42       		.byte	0x42
+ 322 0140 00       		.byte	0
+ 323 0141 0B       		.uleb128 0xb
+ 324 0142 76000000 		.4byte	.LVL14
+ 325 0146 DB010000 		.4byte	0x1db
+ 326 014a 0A       		.uleb128 0xa
+ 327 014b 01       		.uleb128 0x1
+ 328 014c 50       		.byte	0x50
+ 329 014d 02       		.uleb128 0x2
+ 330 014e 08       		.byte	0x8
+ 331 014f 49       		.byte	0x49
+ 332 0150 00       		.byte	0
+ 333 0151 00       		.byte	0
+ 334 0152 09       		.uleb128 0x9
+ 335 0153 0A000000 		.4byte	.LVL0
+ 336 0157 E6010000 		.4byte	0x1e6
+ 337 015b 65010000 		.4byte	0x165
+ 338 015f 0A       		.uleb128 0xa
+ 339 0160 01       		.uleb128 0x1
+ 340 0161 50       		.byte	0x50
+ 341 0162 01       		.uleb128 0x1
+ 342 0163 30       		.byte	0x30
+ 343 0164 00       		.byte	0
+ 344 0165 0B       		.uleb128 0xb
+ 345 0166 7E000000 		.4byte	.LVL15
+ 346 016a F1010000 		.4byte	0x1f1
+ 347 016e 0A       		.uleb128 0xa
+ 348 016f 01       		.uleb128 0x1
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 8
+
+
+ 349 0170 50       		.byte	0x50
+ 350 0171 03       		.uleb128 0x3
+ 351 0172 0A       		.byte	0xa
+ 352 0173 F401     		.2byte	0x1f4
+ 353 0175 00       		.byte	0
+ 354 0176 00       		.byte	0
+ 355 0177 0C       		.uleb128 0xc
+ 356 0178 04010000 		.4byte	.LASF16
+ 357 017c 04       		.byte	0x4
+ 358 017d 9606     		.2byte	0x696
+ 359 017f 83010000 		.4byte	0x183
+ 360 0183 0D       		.uleb128 0xd
+ 361 0184 76000000 		.4byte	0x76
+ 362 0188 0E       		.uleb128 0xe
+ 363 0189 FC000000 		.4byte	.LASF17
+ 364 018d 01       		.byte	0x1
+ 365 018e 12       		.byte	0x12
+ 366 018f 81000000 		.4byte	0x81
+ 367 0193 05       		.uleb128 0x5
+ 368 0194 03       		.byte	0x3
+ 369 0195 00000000 		.4byte	voltage
+ 370 0199 0F       		.uleb128 0xf
+ 371 019a 8F000000 		.4byte	0x8f
+ 372 019e A9010000 		.4byte	0x1a9
+ 373 01a2 10       		.uleb128 0x10
+ 374 01a3 9D000000 		.4byte	0x9d
+ 375 01a7 FF       		.byte	0xff
+ 376 01a8 00       		.byte	0
+ 377 01a9 0E       		.uleb128 0xe
+ 378 01aa 13000000 		.4byte	.LASF18
+ 379 01ae 01       		.byte	0x1
+ 380 01af 13       		.byte	0x13
+ 381 01b0 99010000 		.4byte	0x199
+ 382 01b4 05       		.uleb128 0x5
+ 383 01b5 03       		.byte	0x3
+ 384 01b6 00000000 		.4byte	uartBufferBattery
+ 385 01ba 11       		.uleb128 0x11
+ 386 01bb 3F010000 		.4byte	.LASF19
+ 387 01bf 3F010000 		.4byte	.LASF19
+ 388 01c3 05       		.byte	0x5
+ 389 01c4 3B       		.byte	0x3b
+ 390 01c5 11       		.uleb128 0x11
+ 391 01c6 0A000000 		.4byte	.LASF20
+ 392 01ca 0A000000 		.4byte	.LASF20
+ 393 01ce 06       		.byte	0x6
+ 394 01cf FD       		.byte	0xfd
+ 395 01d0 11       		.uleb128 0x11
+ 396 01d1 4F020000 		.4byte	.LASF21
+ 397 01d5 4F020000 		.4byte	.LASF21
+ 398 01d9 07       		.byte	0x7
+ 399 01da 8B       		.byte	0x8b
+ 400 01db 11       		.uleb128 0x11
+ 401 01dc 73010000 		.4byte	.LASF22
+ 402 01e0 73010000 		.4byte	.LASF22
+ 403 01e4 08       		.byte	0x8
+ 404 01e5 50       		.byte	0x50
+ 405 01e6 11       		.uleb128 0x11
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 9
+
+
+ 406 01e7 11010000 		.4byte	.LASF23
+ 407 01eb 11010000 		.4byte	.LASF23
+ 408 01ef 05       		.byte	0x5
+ 409 01f0 39       		.byte	0x39
+ 410 01f1 11       		.uleb128 0x11
+ 411 01f2 60020000 		.4byte	.LASF24
+ 412 01f6 60020000 		.4byte	.LASF24
+ 413 01fa 09       		.byte	0x9
+ 414 01fb 76       		.byte	0x76
+ 415 01fc 00       		.byte	0
+ 416              		.section	.debug_abbrev,"",%progbits
+ 417              	.Ldebug_abbrev0:
+ 418 0000 01       		.uleb128 0x1
+ 419 0001 11       		.uleb128 0x11
+ 420 0002 01       		.byte	0x1
+ 421 0003 25       		.uleb128 0x25
+ 422 0004 0E       		.uleb128 0xe
+ 423 0005 13       		.uleb128 0x13
+ 424 0006 0B       		.uleb128 0xb
+ 425 0007 03       		.uleb128 0x3
+ 426 0008 0E       		.uleb128 0xe
+ 427 0009 1B       		.uleb128 0x1b
+ 428 000a 0E       		.uleb128 0xe
+ 429 000b 55       		.uleb128 0x55
+ 430 000c 17       		.uleb128 0x17
+ 431 000d 11       		.uleb128 0x11
+ 432 000e 01       		.uleb128 0x1
+ 433 000f 10       		.uleb128 0x10
+ 434 0010 17       		.uleb128 0x17
+ 435 0011 00       		.byte	0
+ 436 0012 00       		.byte	0
+ 437 0013 02       		.uleb128 0x2
+ 438 0014 24       		.uleb128 0x24
+ 439 0015 00       		.byte	0
+ 440 0016 0B       		.uleb128 0xb
+ 441 0017 0B       		.uleb128 0xb
+ 442 0018 3E       		.uleb128 0x3e
+ 443 0019 0B       		.uleb128 0xb
+ 444 001a 03       		.uleb128 0x3
+ 445 001b 0E       		.uleb128 0xe
+ 446 001c 00       		.byte	0
+ 447 001d 00       		.byte	0
+ 448 001e 03       		.uleb128 0x3
+ 449 001f 16       		.uleb128 0x16
+ 450 0020 00       		.byte	0
+ 451 0021 03       		.uleb128 0x3
+ 452 0022 0E       		.uleb128 0xe
+ 453 0023 3A       		.uleb128 0x3a
+ 454 0024 0B       		.uleb128 0xb
+ 455 0025 3B       		.uleb128 0x3b
+ 456 0026 0B       		.uleb128 0xb
+ 457 0027 49       		.uleb128 0x49
+ 458 0028 13       		.uleb128 0x13
+ 459 0029 00       		.byte	0
+ 460 002a 00       		.byte	0
+ 461 002b 04       		.uleb128 0x4
+ 462 002c 24       		.uleb128 0x24
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 10
+
+
+ 463 002d 00       		.byte	0
+ 464 002e 0B       		.uleb128 0xb
+ 465 002f 0B       		.uleb128 0xb
+ 466 0030 3E       		.uleb128 0x3e
+ 467 0031 0B       		.uleb128 0xb
+ 468 0032 03       		.uleb128 0x3
+ 469 0033 08       		.uleb128 0x8
+ 470 0034 00       		.byte	0
+ 471 0035 00       		.byte	0
+ 472 0036 05       		.uleb128 0x5
+ 473 0037 2E       		.uleb128 0x2e
+ 474 0038 01       		.byte	0x1
+ 475 0039 3F       		.uleb128 0x3f
+ 476 003a 19       		.uleb128 0x19
+ 477 003b 03       		.uleb128 0x3
+ 478 003c 0E       		.uleb128 0xe
+ 479 003d 3A       		.uleb128 0x3a
+ 480 003e 0B       		.uleb128 0xb
+ 481 003f 3B       		.uleb128 0x3b
+ 482 0040 0B       		.uleb128 0xb
+ 483 0041 11       		.uleb128 0x11
+ 484 0042 01       		.uleb128 0x1
+ 485 0043 12       		.uleb128 0x12
+ 486 0044 06       		.uleb128 0x6
+ 487 0045 40       		.uleb128 0x40
+ 488 0046 18       		.uleb128 0x18
+ 489 0047 9642     		.uleb128 0x2116
+ 490 0049 19       		.uleb128 0x19
+ 491 004a 01       		.uleb128 0x1
+ 492 004b 13       		.uleb128 0x13
+ 493 004c 00       		.byte	0
+ 494 004d 00       		.byte	0
+ 495 004e 06       		.uleb128 0x6
+ 496 004f 0B       		.uleb128 0xb
+ 497 0050 01       		.byte	0x1
+ 498 0051 11       		.uleb128 0x11
+ 499 0052 01       		.uleb128 0x1
+ 500 0053 12       		.uleb128 0x12
+ 501 0054 06       		.uleb128 0x6
+ 502 0055 01       		.uleb128 0x1
+ 503 0056 13       		.uleb128 0x13
+ 504 0057 00       		.byte	0
+ 505 0058 00       		.byte	0
+ 506 0059 07       		.uleb128 0x7
+ 507 005a 34       		.uleb128 0x34
+ 508 005b 00       		.byte	0
+ 509 005c 03       		.uleb128 0x3
+ 510 005d 0E       		.uleb128 0xe
+ 511 005e 3A       		.uleb128 0x3a
+ 512 005f 0B       		.uleb128 0xb
+ 513 0060 3B       		.uleb128 0x3b
+ 514 0061 0B       		.uleb128 0xb
+ 515 0062 49       		.uleb128 0x49
+ 516 0063 13       		.uleb128 0x13
+ 517 0064 02       		.uleb128 0x2
+ 518 0065 17       		.uleb128 0x17
+ 519 0066 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 11
+
+
+ 520 0067 00       		.byte	0
+ 521 0068 08       		.uleb128 0x8
+ 522 0069 898201   		.uleb128 0x4109
+ 523 006c 00       		.byte	0
+ 524 006d 11       		.uleb128 0x11
+ 525 006e 01       		.uleb128 0x1
+ 526 006f 31       		.uleb128 0x31
+ 527 0070 13       		.uleb128 0x13
+ 528 0071 00       		.byte	0
+ 529 0072 00       		.byte	0
+ 530 0073 09       		.uleb128 0x9
+ 531 0074 898201   		.uleb128 0x4109
+ 532 0077 01       		.byte	0x1
+ 533 0078 11       		.uleb128 0x11
+ 534 0079 01       		.uleb128 0x1
+ 535 007a 31       		.uleb128 0x31
+ 536 007b 13       		.uleb128 0x13
+ 537 007c 01       		.uleb128 0x1
+ 538 007d 13       		.uleb128 0x13
+ 539 007e 00       		.byte	0
+ 540 007f 00       		.byte	0
+ 541 0080 0A       		.uleb128 0xa
+ 542 0081 8A8201   		.uleb128 0x410a
+ 543 0084 00       		.byte	0
+ 544 0085 02       		.uleb128 0x2
+ 545 0086 18       		.uleb128 0x18
+ 546 0087 9142     		.uleb128 0x2111
+ 547 0089 18       		.uleb128 0x18
+ 548 008a 00       		.byte	0
+ 549 008b 00       		.byte	0
+ 550 008c 0B       		.uleb128 0xb
+ 551 008d 898201   		.uleb128 0x4109
+ 552 0090 01       		.byte	0x1
+ 553 0091 11       		.uleb128 0x11
+ 554 0092 01       		.uleb128 0x1
+ 555 0093 31       		.uleb128 0x31
+ 556 0094 13       		.uleb128 0x13
+ 557 0095 00       		.byte	0
+ 558 0096 00       		.byte	0
+ 559 0097 0C       		.uleb128 0xc
+ 560 0098 34       		.uleb128 0x34
+ 561 0099 00       		.byte	0
+ 562 009a 03       		.uleb128 0x3
+ 563 009b 0E       		.uleb128 0xe
+ 564 009c 3A       		.uleb128 0x3a
+ 565 009d 0B       		.uleb128 0xb
+ 566 009e 3B       		.uleb128 0x3b
+ 567 009f 05       		.uleb128 0x5
+ 568 00a0 49       		.uleb128 0x49
+ 569 00a1 13       		.uleb128 0x13
+ 570 00a2 3F       		.uleb128 0x3f
+ 571 00a3 19       		.uleb128 0x19
+ 572 00a4 3C       		.uleb128 0x3c
+ 573 00a5 19       		.uleb128 0x19
+ 574 00a6 00       		.byte	0
+ 575 00a7 00       		.byte	0
+ 576 00a8 0D       		.uleb128 0xd
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 12
+
+
+ 577 00a9 35       		.uleb128 0x35
+ 578 00aa 00       		.byte	0
+ 579 00ab 49       		.uleb128 0x49
+ 580 00ac 13       		.uleb128 0x13
+ 581 00ad 00       		.byte	0
+ 582 00ae 00       		.byte	0
+ 583 00af 0E       		.uleb128 0xe
+ 584 00b0 34       		.uleb128 0x34
+ 585 00b1 00       		.byte	0
+ 586 00b2 03       		.uleb128 0x3
+ 587 00b3 0E       		.uleb128 0xe
+ 588 00b4 3A       		.uleb128 0x3a
+ 589 00b5 0B       		.uleb128 0xb
+ 590 00b6 3B       		.uleb128 0x3b
+ 591 00b7 0B       		.uleb128 0xb
+ 592 00b8 49       		.uleb128 0x49
+ 593 00b9 13       		.uleb128 0x13
+ 594 00ba 3F       		.uleb128 0x3f
+ 595 00bb 19       		.uleb128 0x19
+ 596 00bc 02       		.uleb128 0x2
+ 597 00bd 18       		.uleb128 0x18
+ 598 00be 00       		.byte	0
+ 599 00bf 00       		.byte	0
+ 600 00c0 0F       		.uleb128 0xf
+ 601 00c1 01       		.uleb128 0x1
+ 602 00c2 01       		.byte	0x1
+ 603 00c3 49       		.uleb128 0x49
+ 604 00c4 13       		.uleb128 0x13
+ 605 00c5 01       		.uleb128 0x1
+ 606 00c6 13       		.uleb128 0x13
+ 607 00c7 00       		.byte	0
+ 608 00c8 00       		.byte	0
+ 609 00c9 10       		.uleb128 0x10
+ 610 00ca 21       		.uleb128 0x21
+ 611 00cb 00       		.byte	0
+ 612 00cc 49       		.uleb128 0x49
+ 613 00cd 13       		.uleb128 0x13
+ 614 00ce 2F       		.uleb128 0x2f
+ 615 00cf 0B       		.uleb128 0xb
+ 616 00d0 00       		.byte	0
+ 617 00d1 00       		.byte	0
+ 618 00d2 11       		.uleb128 0x11
+ 619 00d3 2E       		.uleb128 0x2e
+ 620 00d4 00       		.byte	0
+ 621 00d5 3F       		.uleb128 0x3f
+ 622 00d6 19       		.uleb128 0x19
+ 623 00d7 3C       		.uleb128 0x3c
+ 624 00d8 19       		.uleb128 0x19
+ 625 00d9 6E       		.uleb128 0x6e
+ 626 00da 0E       		.uleb128 0xe
+ 627 00db 03       		.uleb128 0x3
+ 628 00dc 0E       		.uleb128 0xe
+ 629 00dd 3A       		.uleb128 0x3a
+ 630 00de 0B       		.uleb128 0xb
+ 631 00df 3B       		.uleb128 0x3b
+ 632 00e0 0B       		.uleb128 0xb
+ 633 00e1 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 13
+
+
+ 634 00e2 00       		.byte	0
+ 635 00e3 00       		.byte	0
+ 636              		.section	.debug_loc,"",%progbits
+ 637              	.Ldebug_loc0:
+ 638              	.LLST0:
+ 639 0000 14000000 		.4byte	.LVL2
+ 640 0004 17000000 		.4byte	.LVL3-1
+ 641 0008 0100     		.2byte	0x1
+ 642 000a 50       		.byte	0x50
+ 643 000b 00000000 		.4byte	0
+ 644 000f 00000000 		.4byte	0
+ 645              		.section	.debug_aranges,"",%progbits
+ 646 0000 1C000000 		.4byte	0x1c
+ 647 0004 0200     		.2byte	0x2
+ 648 0006 00000000 		.4byte	.Ldebug_info0
+ 649 000a 04       		.byte	0x4
+ 650 000b 00       		.byte	0
+ 651 000c 0000     		.2byte	0
+ 652 000e 0000     		.2byte	0
+ 653 0010 00000000 		.4byte	.LFB64
+ 654 0014 B0000000 		.4byte	.LFE64-.LFB64
+ 655 0018 00000000 		.4byte	0
+ 656 001c 00000000 		.4byte	0
+ 657              		.section	.debug_ranges,"",%progbits
+ 658              	.Ldebug_ranges0:
+ 659 0000 00000000 		.4byte	.LFB64
+ 660 0004 B0000000 		.4byte	.LFE64
+ 661 0008 00000000 		.4byte	0
+ 662 000c 00000000 		.4byte	0
+ 663              		.section	.debug_line,"",%progbits
+ 664              	.Ldebug_line0:
+ 665 0000 10020000 		.section	.debug_str,"MS",%progbits,1
+ 665      0200F001 
+ 665      00000201 
+ 665      FB0E0D00 
+ 665      01010101 
+ 666              	.LASF9:
+ 667 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 667      7433325F 
+ 667      7400
+ 668              	.LASF20:
+ 669 000a 736E7072 		.ascii	"snprintf\000"
+ 669      696E7466 
+ 669      00
+ 670              	.LASF18:
+ 671 0013 75617274 		.ascii	"uartBufferBattery\000"
+ 671      42756666 
+ 671      65724261 
+ 671      74746572 
+ 671      7900
+ 672              	.LASF11:
+ 673 0025 666C6F61 		.ascii	"float\000"
+ 673      7400
+ 674              	.LASF1:
+ 675 002b 756E7369 		.ascii	"unsigned char\000"
+ 675      676E6564 
+ 675      20636861 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 14
+
+
+ 675      7200
+ 676              	.LASF25:
+ 677 0039 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 677      43313120 
+ 677      352E342E 
+ 677      31203230 
+ 677      31363036 
+ 678 006c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 678      20726576 
+ 678      6973696F 
+ 678      6E203233 
+ 678      37373135 
+ 679 009f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 679      66756E63 
+ 679      74696F6E 
+ 679      2D736563 
+ 679      74696F6E 
+ 680              	.LASF5:
+ 681 00c7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 681      20756E73 
+ 681      69676E65 
+ 681      6420696E 
+ 681      7400
+ 682              	.LASF3:
+ 683 00d9 73686F72 		.ascii	"short unsigned int\000"
+ 683      7420756E 
+ 683      7369676E 
+ 683      65642069 
+ 683      6E7400
+ 684              	.LASF26:
+ 685 00ec 42617474 		.ascii	"BatterySensor.c\000"
+ 685      65727953 
+ 685      656E736F 
+ 685      722E6300 
+ 686              	.LASF17:
+ 687 00fc 766F6C74 		.ascii	"voltage\000"
+ 687      61676500 
+ 688              	.LASF16:
+ 689 0104 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 689      52784275 
+ 689      66666572 
+ 689      00
+ 690              	.LASF23:
+ 691 0111 4144435F 		.ascii	"ADC_SAR_B_IsEndConversion\000"
+ 691      5341525F 
+ 691      425F4973 
+ 691      456E6443 
+ 691      6F6E7665 
+ 692              	.LASF12:
+ 693 012b 646F7562 		.ascii	"double\000"
+ 693      6C6500
+ 694              	.LASF8:
+ 695 0132 756E7369 		.ascii	"unsigned int\000"
+ 695      676E6564 
+ 695      20696E74 
+ 695      00
+ 696              	.LASF19:
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 15
+
+
+ 697 013f 4144435F 		.ascii	"ADC_SAR_B_GetResult16\000"
+ 697      5341525F 
+ 697      425F4765 
+ 697      74526573 
+ 697      756C7431 
+ 698              	.LASF7:
+ 699 0155 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 699      206C6F6E 
+ 699      6720756E 
+ 699      7369676E 
+ 699      65642069 
+ 700              	.LASF29:
+ 701 016c 72657375 		.ascii	"result\000"
+ 701      6C7400
+ 702              	.LASF22:
+ 703 0173 5350495F 		.ascii	"SPI_Slave_WriteTxData\000"
+ 703      536C6176 
+ 703      655F5772 
+ 703      69746554 
+ 703      78446174 
+ 704              	.LASF10:
+ 705 0189 696E7433 		.ascii	"int32_t\000"
+ 705      325F7400 
+ 706              	.LASF15:
+ 707 0191 73697A65 		.ascii	"sizetype\000"
+ 707      74797065 
+ 707      00
+ 708              	.LASF28:
+ 709 019a 63686563 		.ascii	"checkBattery\000"
+ 709      6B426174 
+ 709      74657279 
+ 709      00
+ 710              	.LASF6:
+ 711 01a7 6C6F6E67 		.ascii	"long long int\000"
+ 711      206C6F6E 
+ 711      6720696E 
+ 711      7400
+ 712              	.LASF13:
+ 713 01b5 63686172 		.ascii	"char\000"
+ 713      00
+ 714              	.LASF2:
+ 715 01ba 73686F72 		.ascii	"short int\000"
+ 715      7420696E 
+ 715      7400
+ 716              	.LASF4:
+ 717 01c4 6C6F6E67 		.ascii	"long int\000"
+ 717      20696E74 
+ 717      00
+ 718              	.LASF27:
+ 719 01cd 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 719      73657273 
+ 719      5C6C6172 
+ 719      73686F6C 
+ 719      6D39325C 
+ 720 01fb 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\PSoC_SW_NOT_TESTED\\DC-Moto"
+ 720      656B7467 
+ 720      72757070 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccA27Ani.s 			page 16
+
+
+ 720      6531365C 
+ 720      49335052 
+ 721 022b 722D5057 		.ascii	"r-PWM.cydsn\000"
+ 721      4D2E6379 
+ 721      64736E00 
+ 722              	.LASF14:
+ 723 0237 6C6F6E67 		.ascii	"long double\000"
+ 723      20646F75 
+ 723      626C6500 
+ 724              	.LASF0:
+ 725 0243 7369676E 		.ascii	"signed char\000"
+ 725      65642063 
+ 725      68617200 
+ 726              	.LASF21:
+ 727 024f 55415254 		.ascii	"UART_1_PutString\000"
+ 727      5F315F50 
+ 727      75745374 
+ 727      72696E67 
+ 727      00
+ 728              	.LASF24:
+ 729 0260 43794465 		.ascii	"CyDelay\000"
+ 729      6C617900 
+ 730              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
