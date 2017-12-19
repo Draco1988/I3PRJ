@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccJj3Mi4.s 			page 1
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
    1              		.syntax unified
@@ -30,7 +34,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
   27 000c 40000000 		.4byte	.LASF14
   28 0010 0C       		.byte	0xc
   29 0011 1B000000 		.4byte	.LASF15
+<<<<<<< HEAD
   30 0015 55010000 		.4byte	.LASF16
+=======
+  30 0015 4B010000 		.4byte	.LASF16
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
   31 0019 00000000 		.4byte	.Ldebug_line0
   32 001d 02       		.uleb128 0x2
   33 001e 01       		.byte	0x1
@@ -43,7 +51,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
   40 002b 02       		.uleb128 0x2
   41 002c 02       		.byte	0x2
   42 002d 05       		.byte	0x5
+<<<<<<< HEAD
   43 002e 4B010000 		.4byte	.LASF2
+=======
+  43 002e C3010000 		.4byte	.LASF2
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
   44 0032 02       		.uleb128 0x2
   45 0033 02       		.byte	0x2
   46 0034 07       		.byte	0x7
@@ -58,7 +70,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
   55 0043 CE000000 		.4byte	.LASF5
   56 0047 02       		.uleb128 0x2
   57 0048 08       		.byte	0x8
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 2
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccJj3Mi4.s 			page 2
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   58 0049 05       		.byte	0x5
@@ -94,7 +110,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
   88 007f 02       		.uleb128 0x2
   89 0080 04       		.byte	0x4
   90 0081 07       		.byte	0x7
+<<<<<<< HEAD
   91 0082 C7010000 		.4byte	.LASF13
+=======
+  91 0082 CD010000 		.4byte	.LASF13
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
   92 0086 00       		.byte	0
   93              		.section	.debug_abbrev,"",%progbits
   94              	.Ldebug_abbrev0:
@@ -118,7 +138,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
  112 0011 00       		.byte	0
  113 0012 0B       		.uleb128 0xb
  114 0013 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 3
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccJj3Mi4.s 			page 3
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  115 0014 3E       		.uleb128 0x3e
@@ -178,7 +202,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
  153      352E342E 
  153      31203230 
  153      31363036 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 4
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccJj3Mi4.s 			page 4
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  154 0073 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
@@ -235,6 +263,7 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
  175 013f 6C6F6E67 		.ascii	"long double\000"
  175      20646F75 
  175      626C6500 
+<<<<<<< HEAD
  176              	.LASF2:
  177 014b 73686F72 		.ascii	"short int\000"
  177      7420696E 
@@ -260,6 +289,33 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccvMqIQt.s 			page 1
  181      7964736E 
  182              	.LASF13:
  183 01c7 73697A65 		.ascii	"sizetype\000"
+=======
+ 176              	.LASF16:
+ 177 014b 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 177      73657273 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccJj3Mi4.s 			page 5
+
+
+ 177      5C6C6172 
+ 177      73686F6C 
+ 177      6D39325C 
+ 178 0179 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\Motorcontrol\\03_DC_Motor_C"
+ 178      656B7467 
+ 178      72757070 
+ 178      6531365C 
+ 178      49335052 
+ 179 01a9 6F6E7472 		.ascii	"ontrol\\DC-Motor-PWM.cydsn\000"
+ 179      6F6C5C44 
+ 179      432D4D6F 
+ 179      746F722D 
+ 179      50574D2E 
+ 180              	.LASF2:
+ 181 01c3 73686F72 		.ascii	"short int\000"
+ 181      7420696E 
+ 181      7400
+ 182              	.LASF13:
+ 183 01cd 73697A65 		.ascii	"sizetype\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  183      74797065 
  183      00
  184              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

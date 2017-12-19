@@ -1,0 +1,17 @@
+--------------- Build Started: 12/14/2017 16:54:24 Project: DC-Motor-PWM, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\larsholm92\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\DC-Motor-PWM.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0025: error: No input on Instance "LEDB", terminal "oe_0".
+ * C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\TopDesign\TopDesign.cysch (Signal: Net_416)
+ * C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\TopDesign\TopDesign.cysch (Shape_95.1)
+ADD: sdb.M0050: error: Terminal "oe_0" requires connection when it is visible.
+ * C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\TopDesign\TopDesign.cysch (Signal: Net_416)
+ * C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\TopDesign\TopDesign.cysch (Shape_95.1)
+ADD: sdb.M0025: error: No input on Instance "LEDV", terminal "oe_0".
+ * C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\TopDesign\TopDesign.cysch (Signal: Net_417)
+ * C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\TopDesign\TopDesign.cysch (Shape_96.1)
+ADD: sdb.M0050: error: Terminal "oe_0" requires connection when it is visible.
+ * C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\TopDesign\TopDesign.cysch (Signal: Net_417)
+ * C:\Users\larsholm92\Documents\IKT\3. Semester\Projektgruppe16\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\TopDesign\TopDesign.cysch (Shape_96.1)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Build Failed: 12/14/2017 16:54:30 ---------------

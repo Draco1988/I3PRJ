@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 1
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
   28:Generated_Source\PSoC5/Clock_PWM_2.c **** 
   29:Generated_Source\PSoC5/Clock_PWM_2.c **** 
   30:Generated_Source\PSoC5/Clock_PWM_2.c **** /*******************************************************************************
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 2
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 2
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   31:Generated_Source\PSoC5/Clock_PWM_2.c **** * Function Name: Clock_PWM_2_Start
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
   54:Generated_Source\PSoC5/Clock_PWM_2.c **** * Function Name: Clock_PWM_2_Stop
   55:Generated_Source\PSoC5/Clock_PWM_2.c **** ********************************************************************************
   56:Generated_Source\PSoC5/Clock_PWM_2.c **** *
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 3
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 3
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   57:Generated_Source\PSoC5/Clock_PWM_2.c **** * Summary:
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
   80:Generated_Source\PSoC5/Clock_PWM_2.c **** 
   81:Generated_Source\PSoC5/Clock_PWM_2.c **** 
   82:Generated_Source\PSoC5/Clock_PWM_2.c **** /*******************************************************************************
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 4
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 4
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   83:Generated_Source\PSoC5/Clock_PWM_2.c **** * Function Name: Clock_PWM_2_StopBlock
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  111 0018 1370     		strb	r3, [r2]
  116:Generated_Source\PSoC5/Clock_PWM_2.c **** #endif /* Clock_PWM_2__CFG3 */
  117:Generated_Source\PSoC5/Clock_PWM_2.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 5
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 5
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  118:Generated_Source\PSoC5/Clock_PWM_2.c ****         /* Clear mask of bus clock. */
@@ -298,7 +318,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  136:Generated_Source\PSoC5/Clock_PWM_2.c ****         CY_SET_REG16(Clock_PWM_2_DIV_PTR, oldDivider);
  148              		.loc 1 136 0
  149 0056 9B33     		adds	r3, r3, #155
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 6
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 6
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  150 0058 1A80     		strh	r2, [r3]	@ movhi
@@ -358,7 +382,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  160:Generated_Source\PSoC5/Clock_PWM_2.c ****     {
  161:Generated_Source\PSoC5/Clock_PWM_2.c ****         Clock_PWM_2_CLKSTBY &= (uint8)(~Clock_PWM_2_CLKSTBY_MASK);
  181              		.loc 1 161 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 7
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 7
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  182 0002 064A     		ldr	r2, .L15
@@ -418,7 +446,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  189:Generated_Source\PSoC5/Clock_PWM_2.c **** * Returns:
  190:Generated_Source\PSoC5/Clock_PWM_2.c **** *  None
  191:Generated_Source\PSoC5/Clock_PWM_2.c **** *
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 8
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 8
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  192:Generated_Source\PSoC5/Clock_PWM_2.c **** *******************************************************************************/
@@ -478,7 +510,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  246:Generated_Source\PSoC5/Clock_PWM_2.c ****                     CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
  247:Generated_Source\PSoC5/Clock_PWM_2.c ****                     CLK_DIST_LD = CYCLK_LD_DISABLE|CYCLK_LD_SYNC_EN|CYCLK_LD_LOAD;
  248:Generated_Source\PSoC5/Clock_PWM_2.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 9
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 9
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  249:Generated_Source\PSoC5/Clock_PWM_2.c ****                     /* Wait for clock to be disabled */
@@ -538,7 +574,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  213              		@ link register save eliminated.
  299:Generated_Source\PSoC5/Clock_PWM_2.c ****     return CY_GET_REG16(Clock_PWM_2_DIV_PTR);
  214              		.loc 1 299 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 10
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 10
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  215 0000 014B     		ldr	r3, .L18
@@ -598,7 +638,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  235              		.loc 1 333 0
  236              		.cfi_startproc
  237              		@ args = 0, pretend = 0, frame = 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 11
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 11
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  238              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -658,7 +702,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  362:Generated_Source\PSoC5/Clock_PWM_2.c **** *
  363:Generated_Source\PSoC5/Clock_PWM_2.c **** * Returns:
  364:Generated_Source\PSoC5/Clock_PWM_2.c **** *  None
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 12
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 12
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  365:Generated_Source\PSoC5/Clock_PWM_2.c **** *
@@ -718,7 +766,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  388:Generated_Source\PSoC5/Clock_PWM_2.c **** uint8 Clock_PWM_2_GetModeRegister(void) 
  389:Generated_Source\PSoC5/Clock_PWM_2.c **** {
  295              		.loc 1 389 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 13
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 13
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  296              		.cfi_startproc
@@ -778,7 +830,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  419:Generated_Source\PSoC5/Clock_PWM_2.c **** void Clock_PWM_2_SetSourceRegister(uint8 clkSource) 
  420:Generated_Source\PSoC5/Clock_PWM_2.c **** {
  421:Generated_Source\PSoC5/Clock_PWM_2.c ****     uint16 currDiv = Clock_PWM_2_GetDividerRegister();
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 14
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 14
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  422:Generated_Source\PSoC5/Clock_PWM_2.c ****     uint8 oldSrc = Clock_PWM_2_GetSourceRegister();
@@ -838,7 +894,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  329              		.loc 1 467 0
  330 0004 00F00700 		and	r0, r0, #7
  331 0008 7047     		bx	lr
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 15
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 15
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  332              	.L31:
@@ -898,7 +958,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  379              		.loc 1 205 0 is_stmt 0 discriminator 1
  380 0020 00B1     		cbz	r0, .L35
  205:Generated_Source\PSoC5/Clock_PWM_2.c ****         {
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 16
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 16
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  381              		.loc 1 205 0 discriminator 2
@@ -958,7 +1022,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  425 0058 0C39     		subs	r1, r1, #12
  426 005a 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
  427 005c 02F07F02 		and	r2, r2, #127
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 17
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 17
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  428 0060 0A70     		strb	r2, [r1]
@@ -1018,7 +1086,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  472 00a4 00E0     		b	.L41
  473              	.L43:
  474 00a6 0122     		movs	r2, #1
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 18
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 18
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  475              	.L41:
@@ -1078,7 +1150,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  524              		.cfi_def_cfa_offset 16
  525              		.cfi_offset 3, -16
  526              		.cfi_offset 4, -12
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 19
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 19
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  527              		.cfi_offset 5, -8
@@ -1138,7 +1214,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  568              		.loc 1 438 0
  569 0036 03F0F803 		and	r3, r3, #248
  570 003a 1C43     		orrs	r4, r4, r3
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 20
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 20
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  571 003c 1470     		strb	r4, [r2]
@@ -1178,10 +1258,17 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  602 0006 00000000 		.4byte	.Ldebug_abbrev0
  603 000a 04       		.byte	0x4
  604 000b 01       		.uleb128 0x1
+<<<<<<< HEAD
  605 000c 4E020000 		.4byte	.LASF36
  606 0010 0C       		.byte	0xc
  607 0011 E0010000 		.4byte	.LASF37
  608 0015 DC020000 		.4byte	.LASF38
+=======
+ 605 000c C6020000 		.4byte	.LASF36
+ 606 0010 0C       		.byte	0xc
+ 607 0011 E0010000 		.4byte	.LASF37
+ 608 0015 4E020000 		.4byte	.LASF38
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  609 0019 00000000 		.4byte	.Ldebug_ranges0+0
  610 001d 00000000 		.4byte	0
  611 0021 00000000 		.4byte	.Ldebug_line0
@@ -1198,7 +1285,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  622 0035 05       		.byte	0x5
  623 0036 2C000000 		.4byte	.LASF2
  624 003a 02       		.uleb128 0x2
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 21
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 21
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  625 003b 02       		.byte	0x2
@@ -1258,7 +1349,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  679 00a4 05       		.uleb128 0x5
  680 00a5 6B000000 		.4byte	0x6b
  681 00a9 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 22
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 22
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  682 00aa 08000000 		.4byte	.LASF15
@@ -1318,7 +1413,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  736 0126 9D       		.byte	0x9d
  737 0127 6B000000 		.4byte	0x6b
  738 012b 01       		.uleb128 0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 23
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 23
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  739 012c 50       		.byte	0x50
@@ -1378,7 +1477,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  793 01ad 01       		.byte	0x1
  794 01ae D001     		.2byte	0x1d0
  795 01b0 6B000000 		.4byte	0x6b
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 24
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 24
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  796 01b4 00000000 		.4byte	.LFB10
@@ -1438,7 +1541,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  850 0235 A301     		.2byte	0x1a3
  851 0237 00000000 		.4byte	.LFB9
  852 023b 5C000000 		.4byte	.LFE9-.LFB9
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 25
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 25
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  853 023f 01       		.uleb128 0x1
@@ -1498,7 +1605,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  907 0017 0B       		.uleb128 0xb
  908 0018 3E       		.uleb128 0x3e
  909 0019 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 26
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 26
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  910 001a 03       		.uleb128 0x3
@@ -1558,7 +1669,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  964 0050 9742     		.uleb128 0x2117
  965 0052 19       		.uleb128 0x19
  966 0053 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 27
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 27
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  967 0054 00       		.byte	0
@@ -1618,7 +1733,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1021 008b 0E       		.uleb128 0xe
  1022 008c 3A       		.uleb128 0x3a
  1023 008d 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 28
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 28
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1024 008e 3B       		.uleb128 0x3b
@@ -1678,7 +1797,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1078 00c6 01       		.uleb128 0x1
  1079 00c7 13       		.uleb128 0x13
  1080 00c8 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 29
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 29
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1081 00c9 00       		.byte	0
@@ -1738,7 +1861,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1135 0101 00       		.byte	0
  1136 0102 11       		.uleb128 0x11
  1137 0103 2E       		.uleb128 0x2e
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 30
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 30
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1138 0104 01       		.byte	0x1
@@ -1798,7 +1925,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1192              	.LLST0:
  1193 0000 2A000000 		.4byte	.LVL0
  1194 0004 5A000000 		.4byte	.LVL1
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 31
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 31
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1195 0008 0100     		.2byte	0x1
@@ -1858,7 +1989,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1249 008b F3       		.byte	0xf3
  1250 008c 01       		.uleb128 0x1
  1251 008d 51       		.byte	0x51
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 32
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 32
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1252 008e 9F       		.byte	0x9f
@@ -1918,7 +2053,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1306 000a 04       		.byte	0x4
  1307 000b 00       		.byte	0
  1308 000c 0000     		.2byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 33
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 33
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1309 000e 0000     		.2byte	0
@@ -1978,7 +2117,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1362      02004800 
  1362      00000201 
  1362      FB0E0D00 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 34
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 34
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1362      01010101 
@@ -2038,7 +2181,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1389              	.LASF23:
  1390 00b6 436C6F63 		.ascii	"Clock_PWM_2_ClearModeRegister\000"
  1390      6B5F5057 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 35
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 35
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1390      4D5F325F 
@@ -2098,7 +2245,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1412      676E6564 
  1412      20696E74 
  1412      00
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 36
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 36
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1413              	.LASF3:
@@ -2158,11 +2309,16 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1438 023c 436C6F63 		.ascii	"Clock_PWM_2_Start\000"
  1438      6B5F5057 
  1438      4D5F325F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 37
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXKTgdi.s 			page 37
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1438      53746172 
  1438      7400
+<<<<<<< HEAD
  1439              	.LASF36:
  1440 024e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1440      43313120 
@@ -2195,4 +2351,38 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccLmTtzg.s 			page 1
  1446      6F722D50 
  1446      574D2E63 
  1446      7964736E 
+=======
+ 1439              	.LASF38:
+ 1440 024e 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 1440      73657273 
+ 1440      5C6C6172 
+ 1440      73686F6C 
+ 1440      6D39325C 
+ 1441 027c 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\Motorcontrol\\03_DC_Motor_C"
+ 1441      656B7467 
+ 1441      72757070 
+ 1441      6531365C 
+ 1441      49335052 
+ 1442 02ac 6F6E7472 		.ascii	"ontrol\\DC-Motor-PWM.cydsn\000"
+ 1442      6F6C5C44 
+ 1442      432D4D6F 
+ 1442      746F722D 
+ 1442      50574D2E 
+ 1443              	.LASF36:
+ 1444 02c6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1444      43313120 
+ 1444      352E342E 
+ 1444      31203230 
+ 1444      31363036 
+ 1445 02f9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1445      20726576 
+ 1445      6973696F 
+ 1445      6E203233 
+ 1445      37373135 
+ 1446 032c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1446      66756E63 
+ 1446      74696F6E 
+ 1446      2D736563 
+ 1446      74696F6E 
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1447              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

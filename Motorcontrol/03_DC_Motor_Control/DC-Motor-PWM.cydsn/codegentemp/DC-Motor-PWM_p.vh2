@@ -1,5 +1,9 @@
 -- Project:   DC-Motor-PWM
+<<<<<<< HEAD
 -- Generated: 12/12/2017 13:46:50
+=======
+-- Generated: 12/14/2017 18:01:13
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 -- PSoC Creator  4.1 Update 1
 
 ENTITY \DC-Motor-PWM\ IS

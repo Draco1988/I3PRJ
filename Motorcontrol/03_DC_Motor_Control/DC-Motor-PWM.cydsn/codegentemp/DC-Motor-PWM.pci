@@ -1,5 +1,9 @@
 # DC-Motor-PWM
+<<<<<<< HEAD
 # 2017-12-12 12:46:50Z
+=======
+# 2017-12-14 17:01:13Z
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0

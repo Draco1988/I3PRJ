@@ -1,0 +1,2391 @@
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ISR_SPI,"ax",%progbits
+  20              		.align	2
+  21              		.global	ISR_SPI
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	ISR_SPI, %function
+  25              	ISR_SPI:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        **** 
+  10:main.c        **** 
+  11:main.c        ****  * OPS PUMPE 40% pwm
+  12:main.c        ****  * ========================================
+  13:main.c        **** */
+  14:main.c        **** #include "project.h"
+  15:main.c        **** #include <CyLib.h>
+  16:main.c        **** #include <stdio.h>
+  17:main.c        **** #include <stdlib.h>
+  18:main.c        **** #include "Motor.h"
+  19:main.c        **** #include "BatterySensor.h"
+  20:main.c        **** #include "LoadCell.h"
+  21:main.c        **** 
+  22:main.c        **** #define LEFT 1u
+  23:main.c        **** #define RIGHT 2u
+  24:main.c        **** 
+  25:main.c        **** 
+  26:main.c        **** 
+  27:main.c        **** volatile uint8_t sensor = 0;
+  28:main.c        **** volatile uint8_t received = 0; //Varaible to store received data
+  29:main.c        **** volatile uint8_t intFlag = 0; //Variable to indicate if there have been an interrupt
+  30:main.c        **** 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 2
+
+
+  31:main.c        **** static uint8 sensorPushed = 0;
+  32:main.c        **** 
+  33:main.c        **** CY_ISR_PROTO(ISR_SPI); //Interrupt prototype
+  34:main.c        **** CY_ISR(ISR_SPI) //Interrupt service routine
+  35:main.c        **** {
+  28              		.loc 1 35 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  36:main.c        ****     received = SPI_Slave_ReadRxData(); //Storing the received data
+  36              		.loc 1 36 0
+  37 0002 FFF7FEFF 		bl	SPI_Slave_ReadRxData
+  38              	.LVL0:
+  39 0006 044B     		ldr	r3, .L3
+  40 0008 1870     		strb	r0, [r3]
+  37:main.c        ****     intFlag = 1; //Indicating that an interrupt has occurred
+  41              		.loc 1 37 0
+  42 000a 0122     		movs	r2, #1
+  43 000c 5A70     		strb	r2, [r3, #1]
+  38:main.c        ****     SPI_Slave_ClearRxBuffer(); //Clearing the RX buffer
+  44              		.loc 1 38 0
+  45 000e FFF7FEFF 		bl	SPI_Slave_ClearRxBuffer
+  46              	.LVL1:
+  39:main.c        ****     SPI_Slave_ClearFIFO(); //Clearing the FIFO register
+  47              		.loc 1 39 0
+  48 0012 FFF7FEFF 		bl	SPI_Slave_ClearFIFO
+  49              	.LVL2:
+  50 0016 08BD     		pop	{r3, pc}
+  51              	.L4:
+  52              		.align	2
+  53              	.L3:
+  54 0018 00000000 		.word	.LANCHOR0
+  55              		.cfi_endproc
+  56              	.LFE64:
+  57              		.size	ISR_SPI, .-ISR_SPI
+  58              		.section	.text.sensor_ISR,"ax",%progbits
+  59              		.align	2
+  60              		.global	sensor_ISR
+  61              		.thumb
+  62              		.thumb_func
+  63              		.type	sensor_ISR, %function
+  64              	sensor_ISR:
+  65              	.LFB65:
+  40:main.c        **** }
+  41:main.c        **** 
+  42:main.c        **** CY_ISR(sensor_ISR)
+  43:main.c        **** {
+  66              		.loc 1 43 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70 0000 08B5     		push	{r3, lr}
+  71              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 3
+
+
+  72              		.cfi_offset 3, -8
+  73              		.cfi_offset 14, -4
+  44:main.c        ****     if(!sensor)
+  74              		.loc 1 44 0
+  75 0002 0D4B     		ldr	r3, .L9
+  76 0004 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+  77 0006 13F0FF0F 		tst	r3, #255
+  78 000a 12D1     		bne	.L6
+  45:main.c        ****     {
+  46:main.c        ****     sensor = Pin_1_Read();
+  79              		.loc 1 46 0
+  80 000c FFF7FEFF 		bl	Pin_1_Read
+  81              	.LVL3:
+  82 0010 094B     		ldr	r3, .L9
+  83 0012 9870     		strb	r0, [r3, #2]
+  47:main.c        ****     UART_1_PutString("Flag bliver sat. Pin1\r\n");
+  84              		.loc 1 47 0
+  85 0014 0948     		ldr	r0, .L9+4
+  86 0016 FFF7FEFF 		bl	UART_1_PutString
+  87              	.LVL4:
+  48:main.c        ****      if(Pin_1_INTSTAT & (0x01 << Pin_1_SHIFT))
+  88              		.loc 1 48 0
+  89 001a 094B     		ldr	r3, .L9+8
+  90 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  91 001e 13F0010F 		tst	r3, #1
+  92 0022 03D0     		beq	.L7
+  49:main.c        ****     {
+  50:main.c        ****         sensorPushed = LEFT;
+  93              		.loc 1 50 0
+  94 0024 0122     		movs	r2, #1
+  95 0026 044B     		ldr	r3, .L9
+  96 0028 DA70     		strb	r2, [r3, #3]
+  97 002a 02E0     		b	.L6
+  98              	.L7:
+  51:main.c        ****     }
+  52:main.c        ****     else
+  53:main.c        ****     {
+  54:main.c        ****         sensorPushed = RIGHT;
+  99              		.loc 1 54 0
+ 100 002c 0222     		movs	r2, #2
+ 101 002e 024B     		ldr	r3, .L9
+ 102 0030 DA70     		strb	r2, [r3, #3]
+ 103              	.L6:
+  55:main.c        ****     }
+  56:main.c        ****     }
+  57:main.c        ****     
+  58:main.c        ****      Pin_1_ClearInterrupt(); // Clears interrupt, makes ready for new one
+ 104              		.loc 1 58 0
+ 105 0032 FFF7FEFF 		bl	Pin_1_ClearInterrupt
+ 106              	.LVL5:
+ 107 0036 08BD     		pop	{r3, pc}
+ 108              	.L10:
+ 109              		.align	2
+ 110              	.L9:
+ 111 0038 00000000 		.word	.LANCHOR0
+ 112 003c 00000000 		.word	.LC0
+ 113 0040 80450040 		.word	1073759616
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 4
+
+
+ 114              		.cfi_endproc
+ 115              	.LFE65:
+ 116              		.size	sensor_ISR, .-sensor_ISR
+ 117              		.section	.text.handleByteReceived,"ax",%progbits
+ 118              		.align	2
+ 119              		.global	handleByteReceived
+ 120              		.thumb
+ 121              		.thumb_func
+ 122              		.type	handleByteReceived, %function
+ 123              	handleByteReceived:
+ 124              	.LFB67:
+  59:main.c        ****     
+  60:main.c        **** }
+  61:main.c        **** 
+  62:main.c        **** CY_ISR_PROTO(ISR_UART_rx_handler);
+  63:main.c        **** void handleByteReceived(uint8_t byteReceived);
+  64:main.c        **** CY_ISR(ISR_UART_rx_handler)
+  65:main.c        **** {
+  66:main.c        **** 	//Read char from RX buffer and react
+  67:main.c        ****     uint8_t bytesToRead = UART_1_GetRxBufferSize();
+  68:main.c        ****     while (bytesToRead > 0)
+  69:main.c        ****     {
+  70:main.c        ****         uint8_t byteReceived = UART_1_ReadRxData();
+  71:main.c        ****         UART_1_WriteTxData(byteReceived); // echo back
+  72:main.c        ****         
+  73:main.c        ****         handleByteReceived(byteReceived);
+  74:main.c        ****         
+  75:main.c        ****         bytesToRead--;
+  76:main.c        ****     }
+  77:main.c        **** }
+  78:main.c        **** void handleByteReceived(uint8_t byteReceived)
+  79:main.c        **** {
+ 125              		.loc 1 79 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              	.LVL6:
+ 130 0000 08B5     		push	{r3, lr}
+ 131              		.cfi_def_cfa_offset 8
+ 132              		.cfi_offset 3, -8
+ 133              		.cfi_offset 14, -4
+  80:main.c        ****     switch(byteReceived)
+ 134              		.loc 1 80 0
+ 135 0002 3038     		subs	r0, r0, #48
+ 136              	.LVL7:
+ 137 0004 4728     		cmp	r0, #71
+ 138 0006 42D8     		bhi	.L11
+ 139 0008 DFE800F0 		tbb	[pc, r0]
+ 140              	.L14:
+ 141 000c 30       		.byte	(.L13-.L14)/2
+ 142 000d 2A       		.byte	(.L15-.L14)/2
+ 143 000e 2D       		.byte	(.L16-.L14)/2
+ 144 000f 41       		.byte	(.L11-.L14)/2
+ 145 0010 41       		.byte	(.L11-.L14)/2
+ 146 0011 41       		.byte	(.L11-.L14)/2
+ 147 0012 41       		.byte	(.L11-.L14)/2
+ 148 0013 41       		.byte	(.L11-.L14)/2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 5
+
+
+ 149 0014 41       		.byte	(.L11-.L14)/2
+ 150 0015 41       		.byte	(.L11-.L14)/2
+ 151 0016 41       		.byte	(.L11-.L14)/2
+ 152 0017 41       		.byte	(.L11-.L14)/2
+ 153 0018 41       		.byte	(.L11-.L14)/2
+ 154 0019 41       		.byte	(.L11-.L14)/2
+ 155 001a 41       		.byte	(.L11-.L14)/2
+ 156 001b 41       		.byte	(.L11-.L14)/2
+ 157 001c 41       		.byte	(.L11-.L14)/2
+ 158 001d 41       		.byte	(.L11-.L14)/2
+ 159 001e 41       		.byte	(.L11-.L14)/2
+ 160 001f 41       		.byte	(.L11-.L14)/2
+ 161 0020 41       		.byte	(.L11-.L14)/2
+ 162 0021 41       		.byte	(.L11-.L14)/2
+ 163 0022 41       		.byte	(.L11-.L14)/2
+ 164 0023 41       		.byte	(.L11-.L14)/2
+ 165 0024 41       		.byte	(.L11-.L14)/2
+ 166 0025 41       		.byte	(.L11-.L14)/2
+ 167 0026 41       		.byte	(.L11-.L14)/2
+ 168 0027 41       		.byte	(.L11-.L14)/2
+ 169 0028 41       		.byte	(.L11-.L14)/2
+ 170 0029 41       		.byte	(.L11-.L14)/2
+ 171 002a 41       		.byte	(.L11-.L14)/2
+ 172 002b 41       		.byte	(.L11-.L14)/2
+ 173 002c 41       		.byte	(.L11-.L14)/2
+ 174 002d 41       		.byte	(.L11-.L14)/2
+ 175 002e 41       		.byte	(.L11-.L14)/2
+ 176 002f 41       		.byte	(.L11-.L14)/2
+ 177 0030 41       		.byte	(.L11-.L14)/2
+ 178 0031 41       		.byte	(.L11-.L14)/2
+ 179 0032 41       		.byte	(.L11-.L14)/2
+ 180 0033 41       		.byte	(.L11-.L14)/2
+ 181 0034 41       		.byte	(.L11-.L14)/2
+ 182 0035 41       		.byte	(.L11-.L14)/2
+ 183 0036 41       		.byte	(.L11-.L14)/2
+ 184 0037 41       		.byte	(.L11-.L14)/2
+ 185 0038 41       		.byte	(.L11-.L14)/2
+ 186 0039 41       		.byte	(.L11-.L14)/2
+ 187 003a 41       		.byte	(.L11-.L14)/2
+ 188 003b 41       		.byte	(.L11-.L14)/2
+ 189 003c 41       		.byte	(.L11-.L14)/2
+ 190 003d 41       		.byte	(.L11-.L14)/2
+ 191 003e 41       		.byte	(.L11-.L14)/2
+ 192 003f 41       		.byte	(.L11-.L14)/2
+ 193 0040 41       		.byte	(.L11-.L14)/2
+ 194 0041 41       		.byte	(.L11-.L14)/2
+ 195 0042 41       		.byte	(.L11-.L14)/2
+ 196 0043 41       		.byte	(.L11-.L14)/2
+ 197 0044 33       		.byte	(.L17-.L14)/2
+ 198 0045 41       		.byte	(.L11-.L14)/2
+ 199 0046 41       		.byte	(.L11-.L14)/2
+ 200 0047 41       		.byte	(.L11-.L14)/2
+ 201 0048 41       		.byte	(.L11-.L14)/2
+ 202 0049 41       		.byte	(.L11-.L14)/2
+ 203 004a 41       		.byte	(.L11-.L14)/2
+ 204 004b 41       		.byte	(.L11-.L14)/2
+ 205 004c 41       		.byte	(.L11-.L14)/2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 6
+
+
+ 206 004d 24       		.byte	(.L18-.L14)/2
+ 207 004e 41       		.byte	(.L11-.L14)/2
+ 208 004f 41       		.byte	(.L11-.L14)/2
+ 209 0050 39       		.byte	(.L19-.L14)/2
+ 210 0051 41       		.byte	(.L11-.L14)/2
+ 211 0052 36       		.byte	(.L20-.L14)/2
+ 212 0053 27       		.byte	(.L21-.L14)/2
+ 213              		.p2align 1
+ 214              	.L18:
+  81:main.c        ****     {
+  82:main.c        ****         case 'q' :
+  83:main.c        ****         {
+  84:main.c        ****             decreaseSpeed();
+ 215              		.loc 1 84 0
+ 216 0054 FFF7FEFF 		bl	decreaseSpeed
+ 217              	.LVL8:
+  85:main.c        ****         }
+  86:main.c        ****         break;
+ 218              		.loc 1 86 0
+ 219 0058 08BD     		pop	{r3, pc}
+ 220              	.L21:
+  87:main.c        ****         case 'w' :
+  88:main.c        ****         {
+  89:main.c        ****             increaseSpeed();
+ 221              		.loc 1 89 0
+ 222 005a FFF7FEFF 		bl	increaseSpeed
+ 223              	.LVL9:
+  90:main.c        ****         }
+  91:main.c        ****         break;
+ 224              		.loc 1 91 0
+ 225 005e 08BD     		pop	{r3, pc}
+ 226              	.L15:
+  92:main.c        ****         case '1' :
+  93:main.c        ****         {
+  94:main.c        ****             driveForwards();
+ 227              		.loc 1 94 0
+ 228 0060 FFF7FEFF 		bl	driveForwards
+ 229              	.LVL10:
+  95:main.c        ****         }
+  96:main.c        ****         break;
+ 230              		.loc 1 96 0
+ 231 0064 08BD     		pop	{r3, pc}
+ 232              	.L16:
+  97:main.c        ****         case '2' :
+  98:main.c        ****         {
+  99:main.c        ****             driveBackwards();
+ 233              		.loc 1 99 0
+ 234 0066 FFF7FEFF 		bl	driveBackwards
+ 235              	.LVL11:
+ 100:main.c        ****         }
+ 101:main.c        ****         break;
+ 236              		.loc 1 101 0
+ 237 006a 08BD     		pop	{r3, pc}
+ 238              	.L13:
+ 102:main.c        ****         case '0' :
+ 103:main.c        ****         {
+ 104:main.c        ****             stop();
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 7
+
+
+ 239              		.loc 1 104 0
+ 240 006c FFF7FEFF 		bl	stop
+ 241              	.LVL12:
+ 105:main.c        ****             
+ 106:main.c        ****         }
+ 107:main.c        ****         break;
+ 242              		.loc 1 107 0
+ 243 0070 08BD     		pop	{r3, pc}
+ 244              	.L17:
+ 108:main.c        ****           break;
+ 109:main.c        ****         case 'h' :
+ 110:main.c        ****         {
+ 111:main.c        ****             turnLeft();
+ 245              		.loc 1 111 0
+ 246 0072 FFF7FEFF 		bl	turnLeft
+ 247              	.LVL13:
+ 112:main.c        ****             
+ 113:main.c        ****         }
+ 114:main.c        ****         break;
+ 248              		.loc 1 114 0
+ 249 0076 08BD     		pop	{r3, pc}
+ 250              	.L20:
+ 115:main.c        ****           break;
+ 116:main.c        ****         case 'v' :
+ 117:main.c        ****         {
+ 118:main.c        ****             turnRight();
+ 251              		.loc 1 118 0
+ 252 0078 FFF7FEFF 		bl	turnRight
+ 253              	.LVL14:
+ 119:main.c        ****             
+ 120:main.c        ****         }
+ 121:main.c        ****         break;
+ 254              		.loc 1 121 0
+ 255 007c 08BD     		pop	{r3, pc}
+ 256              	.L19:
+ 122:main.c        ****         case 't' :
+ 123:main.c        ****         {
+ 124:main.c        ****             if(ADC_SAR_V_IsEndConversion(ADC_SAR_V_WAIT_FOR_RESULT))
+ 257              		.loc 1 124 0
+ 258 007e 0020     		movs	r0, #0
+ 259 0080 FFF7FEFF 		bl	ADC_SAR_V_IsEndConversion
+ 260              	.LVL15:
+ 261 0084 18B1     		cbz	r0, .L11
+ 262              	.LVL16:
+ 263              	.LBB2:
+ 125:main.c        ****             {
+ 126:main.c        ****             int16_t offset = 0;
+ 127:main.c        ****             offset = ADC_SAR_V_GetResult16();
+ 264              		.loc 1 127 0
+ 265 0086 FFF7FEFF 		bl	ADC_SAR_V_GetResult16
+ 266              	.LVL17:
+ 128:main.c        ****             ADC_SAR_V_SetOffset(offset);
+ 267              		.loc 1 128 0
+ 268 008a FFF7FEFF 		bl	ADC_SAR_V_SetOffset
+ 269              	.LVL18:
+ 270              	.L11:
+ 271 008e 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 8
+
+
+ 272              	.LBE2:
+ 273              		.cfi_endproc
+ 274              	.LFE67:
+ 275              		.size	handleByteReceived, .-handleByteReceived
+ 276              		.section	.text.ISR_UART_rx_handler,"ax",%progbits
+ 277              		.align	2
+ 278              		.global	ISR_UART_rx_handler
+ 279              		.thumb
+ 280              		.thumb_func
+ 281              		.type	ISR_UART_rx_handler, %function
+ 282              	ISR_UART_rx_handler:
+ 283              	.LFB66:
+  65:main.c        **** 	//Read char from RX buffer and react
+ 284              		.loc 1 65 0
+ 285              		.cfi_startproc
+ 286              		@ args = 0, pretend = 0, frame = 0
+ 287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288 0000 38B5     		push	{r3, r4, r5, lr}
+ 289              		.cfi_def_cfa_offset 16
+ 290              		.cfi_offset 3, -16
+ 291              		.cfi_offset 4, -12
+ 292              		.cfi_offset 5, -8
+ 293              		.cfi_offset 14, -4
+  67:main.c        ****     while (bytesToRead > 0)
+ 294              		.loc 1 67 0
+ 295 0002 FFF7FEFF 		bl	UART_1_GetRxBufferSize
+ 296              	.LVL19:
+ 297 0006 0446     		mov	r4, r0
+ 298              	.LVL20:
+  68:main.c        ****     {
+ 299              		.loc 1 68 0
+ 300 0008 09E0     		b	.L24
+ 301              	.L25:
+ 302              	.LBB3:
+  70:main.c        ****         UART_1_WriteTxData(byteReceived); // echo back
+ 303              		.loc 1 70 0
+ 304 000a FFF7FEFF 		bl	UART_1_ReadRxData
+ 305              	.LVL21:
+ 306 000e 0546     		mov	r5, r0
+ 307              	.LVL22:
+  71:main.c        ****         
+ 308              		.loc 1 71 0
+ 309 0010 FFF7FEFF 		bl	UART_1_WriteTxData
+ 310              	.LVL23:
+  73:main.c        ****         
+ 311              		.loc 1 73 0
+ 312 0014 2846     		mov	r0, r5
+ 313 0016 FFF7FEFF 		bl	handleByteReceived
+ 314              	.LVL24:
+  75:main.c        ****     }
+ 315              		.loc 1 75 0
+ 316 001a 013C     		subs	r4, r4, #1
+ 317              	.LVL25:
+ 318 001c E4B2     		uxtb	r4, r4
+ 319              	.LVL26:
+ 320              	.L24:
+ 321              	.LBE3:
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 9
+
+
+  68:main.c        ****     {
+ 322              		.loc 1 68 0
+ 323 001e 002C     		cmp	r4, #0
+ 324 0020 F3D1     		bne	.L25
+  77:main.c        **** void handleByteReceived(uint8_t byteReceived)
+ 325              		.loc 1 77 0
+ 326 0022 38BD     		pop	{r3, r4, r5, pc}
+ 327              		.cfi_endproc
+ 328              	.LFE66:
+ 329              		.size	ISR_UART_rx_handler, .-ISR_UART_rx_handler
+ 330              		.section	.text.main,"ax",%progbits
+ 331              		.align	2
+ 332              		.global	main
+ 333              		.thumb
+ 334              		.thumb_func
+ 335              		.type	main, %function
+ 336              	main:
+ 337              	.LFB68:
+ 129:main.c        ****             }
+ 130:main.c        ****         }
+ 131:main.c        ****         default :
+ 132:main.c        ****         {
+ 133:main.c        ****             // nothing
+ 134:main.c        ****         }
+ 135:main.c        ****         break;
+ 136:main.c        ****     }
+ 137:main.c        **** }
+ 138:main.c        **** 
+ 139:main.c        **** 
+ 140:main.c        **** int main(void)
+ 141:main.c        **** {
+ 338              		.loc 1 141 0
+ 339              		.cfi_startproc
+ 340              		@ Volatile: function does not return.
+ 341              		@ args = 0, pretend = 0, frame = 0
+ 342              		@ frame_needed = 0, uses_anonymous_args = 0
+ 343 0000 08B5     		push	{r3, lr}
+ 344              		.cfi_def_cfa_offset 8
+ 345              		.cfi_offset 3, -8
+ 346              		.cfi_offset 14, -4
+ 142:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 347              		.loc 1 142 0
+ 348              		.syntax unified
+ 349              	@ 142 "main.c" 1
+ 350 0002 62B6     		CPSIE   i
+ 351              	@ 0 "" 2
+ 143:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+ 144:main.c        ****     isr_uart_rx_StartEx(ISR_UART_rx_handler);
+ 352              		.loc 1 144 0
+ 353              		.thumb
+ 354              		.syntax unified
+ 355 0004 2D48     		ldr	r0, .L32
+ 356 0006 FFF7FEFF 		bl	isr_uart_rx_StartEx
+ 357              	.LVL27:
+ 145:main.c        ****     isr_1_StartEx(sensor_ISR);
+ 358              		.loc 1 145 0
+ 359 000a 2D48     		ldr	r0, .L32+4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 10
+
+
+ 360 000c FFF7FEFF 		bl	isr_1_StartEx
+ 361              	.LVL28:
+ 146:main.c        ****     ISR_SPI_StartEx(ISR_SPI);
+ 362              		.loc 1 146 0
+ 363 0010 2C48     		ldr	r0, .L32+8
+ 364 0012 FFF7FEFF 		bl	ISR_SPI_StartEx
+ 365              	.LVL29:
+ 147:main.c        ****     UART_1_Start();
+ 366              		.loc 1 147 0
+ 367 0016 FFF7FEFF 		bl	UART_1_Start
+ 368              	.LVL30:
+ 148:main.c        ****     SPI_Slave_Start();
+ 369              		.loc 1 148 0
+ 370 001a FFF7FEFF 		bl	SPI_Slave_Start
+ 371              	.LVL31:
+ 149:main.c        ****     ADC_SAR_V_Start();
+ 372              		.loc 1 149 0
+ 373 001e FFF7FEFF 		bl	ADC_SAR_V_Start
+ 374              	.LVL32:
+ 150:main.c        ****     ADC_SAR_V_StartConvert();
+ 375              		.loc 1 150 0
+ 376 0022 FFF7FEFF 		bl	ADC_SAR_V_StartConvert
+ 377              	.LVL33:
+ 151:main.c        ****     ADC_SAR_B_Start();
+ 378              		.loc 1 151 0
+ 379 0026 FFF7FEFF 		bl	ADC_SAR_B_Start
+ 380              	.LVL34:
+ 152:main.c        ****     ADC_SAR_B_StartConvert();
+ 381              		.loc 1 152 0
+ 382 002a FFF7FEFF 		bl	ADC_SAR_B_StartConvert
+ 383              	.LVL35:
+ 153:main.c        ****     PWM_M1_Start();    //PWM Motor1 (1hjul)
+ 384              		.loc 1 153 0
+ 385 002e FFF7FEFF 		bl	PWM_M1_Start
+ 386              	.LVL36:
+ 154:main.c        ****     PWM_M2_Start();    //PWM Motor1 (1hjul)
+ 387              		.loc 1 154 0
+ 388 0032 FFF7FEFF 		bl	PWM_M2_Start
+ 389              	.LVL37:
+ 155:main.c        ****     PWM_M3_Start();   //PWM Motor2 (2jhul)
+ 390              		.loc 1 155 0
+ 391 0036 FFF7FEFF 		bl	PWM_M3_Start
+ 392              	.LVL38:
+ 156:main.c        ****     PWM_M4_Start();   //PWM Motor2 (2hjul)
+ 393              		.loc 1 156 0
+ 394 003a FFF7FEFF 		bl	PWM_M4_Start
+ 395              	.LVL39:
+ 157:main.c        ****     PWM_P_Start();
+ 396              		.loc 1 157 0
+ 397 003e FFF7FEFF 		bl	PWM_P_Start
+ 398              	.LVL40:
+ 158:main.c        ****     
+ 159:main.c        ****   
+ 160:main.c        ****     
+ 161:main.c        ****     
+ 162:main.c        ****     
+ 163:main.c        ****     UART_1_PutString("DC-Motor-PWM application started\r\n");
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 11
+
+
+ 399              		.loc 1 163 0
+ 400 0042 2148     		ldr	r0, .L32+12
+ 401 0044 FFF7FEFF 		bl	UART_1_PutString
+ 402              	.LVL41:
+ 164:main.c        ****     UART_1_PutString("0: Stop\r\n");
+ 403              		.loc 1 164 0
+ 404 0048 2048     		ldr	r0, .L32+16
+ 405 004a FFF7FEFF 		bl	UART_1_PutString
+ 406              	.LVL42:
+ 165:main.c        ****     UART_1_PutString("1: Drive forwards\r\n");
+ 407              		.loc 1 165 0
+ 408 004e 2048     		ldr	r0, .L32+20
+ 409 0050 FFF7FEFF 		bl	UART_1_PutString
+ 410              	.LVL43:
+ 166:main.c        ****     UART_1_PutString("2: Drive backwards\r\n");
+ 411              		.loc 1 166 0
+ 412 0054 1F48     		ldr	r0, .L32+24
+ 413 0056 FFF7FEFF 		bl	UART_1_PutString
+ 414              	.LVL44:
+ 167:main.c        ****     UART_1_PutString("q: Decrease speed\r\n");
+ 415              		.loc 1 167 0
+ 416 005a 1F48     		ldr	r0, .L32+28
+ 417 005c FFF7FEFF 		bl	UART_1_PutString
+ 418              	.LVL45:
+ 168:main.c        ****     UART_1_PutString("w: Increase speed\r\n");
+ 419              		.loc 1 168 0
+ 420 0060 1E48     		ldr	r0, .L32+32
+ 421 0062 FFF7FEFF 		bl	UART_1_PutString
+ 422              	.LVL46:
+ 169:main.c        ****     PWM_P_WriteCompare(80);
+ 423              		.loc 1 169 0
+ 424 0066 5020     		movs	r0, #80
+ 425 0068 FFF7FEFF 		bl	PWM_P_WriteCompare
+ 426              	.LVL47:
+ 170:main.c        ****     PWM_M1_WriteCompare(100);
+ 427              		.loc 1 170 0
+ 428 006c 6420     		movs	r0, #100
+ 429 006e FFF7FEFF 		bl	PWM_M1_WriteCompare
+ 430              	.LVL48:
+ 171:main.c        ****     PWM_M3_WriteCompare(100);
+ 431              		.loc 1 171 0
+ 432 0072 6420     		movs	r0, #100
+ 433 0074 FFF7FEFF 		bl	PWM_M3_WriteCompare
+ 434              	.LVL49:
+ 435              	.L30:
+ 172:main.c        ****     
+ 173:main.c        ****     for(;;)
+ 174:main.c        ****     {
+ 175:main.c        ****         //CyDelay(500);
+ 176:main.c        ****        
+ 177:main.c        ****         UART_1_PutString("Broomba run\r\n");
+ 436              		.loc 1 177 0
+ 437 0078 1948     		ldr	r0, .L32+36
+ 438 007a FFF7FEFF 		bl	UART_1_PutString
+ 439              	.LVL50:
+ 178:main.c        ****         if(sensorPushed == LEFT)
+ 440              		.loc 1 178 0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 12
+
+
+ 441 007e 194B     		ldr	r3, .L32+40
+ 442 0080 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 443 0082 012B     		cmp	r3, #1
+ 444 0084 05D1     		bne	.L28
+ 179:main.c        ****         {
+ 180:main.c        ****             turnLeft();
+ 445              		.loc 1 180 0
+ 446 0086 FFF7FEFF 		bl	turnLeft
+ 447              	.LVL51:
+ 181:main.c        ****             sensor = 0;
+ 448              		.loc 1 181 0
+ 449 008a 0022     		movs	r2, #0
+ 450 008c 154B     		ldr	r3, .L32+40
+ 451 008e 9A70     		strb	r2, [r3, #2]
+ 452 0090 06E0     		b	.L29
+ 453              	.L28:
+ 182:main.c        ****         } 
+ 183:main.c        ****         else if(sensorPushed == RIGHT)
+ 454              		.loc 1 183 0
+ 455 0092 022B     		cmp	r3, #2
+ 456 0094 04D1     		bne	.L29
+ 184:main.c        ****         {
+ 185:main.c        ****            turnRight();
+ 457              		.loc 1 185 0
+ 458 0096 FFF7FEFF 		bl	turnRight
+ 459              	.LVL52:
+ 186:main.c        ****             sensor = 0;
+ 460              		.loc 1 186 0
+ 461 009a 0022     		movs	r2, #0
+ 462 009c 114B     		ldr	r3, .L32+40
+ 463 009e 9A70     		strb	r2, [r3, #2]
+ 464              	.L29:
+ 187:main.c        ****         }
+ 188:main.c        ****         Pin_1_ClearInterrupt();
+ 465              		.loc 1 188 0
+ 466 00a0 FFF7FEFF 		bl	Pin_1_ClearInterrupt
+ 467              	.LVL53:
+ 189:main.c        ****         isr_1_ClearPending();
+ 468              		.loc 1 189 0
+ 469 00a4 FFF7FEFF 		bl	isr_1_ClearPending
+ 470              	.LVL54:
+ 190:main.c        ****         sensorPushed = 0;
+ 471              		.loc 1 190 0
+ 472 00a8 0022     		movs	r2, #0
+ 473 00aa 0E4B     		ldr	r3, .L32+40
+ 474 00ac DA70     		strb	r2, [r3, #3]
+ 191:main.c        ****         CyDelay(2000);
+ 475              		.loc 1 191 0
+ 476 00ae 4FF4FA60 		mov	r0, #2000
+ 477 00b2 FFF7FEFF 		bl	CyDelay
+ 478              	.LVL55:
+ 192:main.c        ****         
+ 193:main.c        ****         checkBattery();
+ 479              		.loc 1 193 0
+ 480 00b6 FFF7FEFF 		bl	checkBattery
+ 481              	.LVL56:
+ 194:main.c        ****         //checkLoad();
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 13
+
+
+ 195:main.c        ****     }
+ 482              		.loc 1 195 0
+ 483 00ba DDE7     		b	.L30
+ 484              	.L33:
+ 485              		.align	2
+ 486              	.L32:
+ 487 00bc 00000000 		.word	ISR_UART_rx_handler
+ 488 00c0 00000000 		.word	sensor_ISR
+ 489 00c4 00000000 		.word	ISR_SPI
+ 490 00c8 18000000 		.word	.LC1
+ 491 00cc 3C000000 		.word	.LC2
+ 492 00d0 48000000 		.word	.LC3
+ 493 00d4 5C000000 		.word	.LC4
+ 494 00d8 74000000 		.word	.LC5
+ 495 00dc 88000000 		.word	.LC6
+ 496 00e0 9C000000 		.word	.LC7
+ 497 00e4 00000000 		.word	.LANCHOR0
+ 498              		.cfi_endproc
+ 499              	.LFE68:
+ 500              		.size	main, .-main
+ 501              		.global	intFlag
+ 502              		.global	received
+ 503              		.global	sensor
+ 504              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 505              		.align	2
+ 506              	.LC0:
+ 507 0000 466C6167 		.ascii	"Flag bliver sat. Pin1\015\012\000"
+ 507      20626C69 
+ 507      76657220 
+ 507      7361742E 
+ 507      2050696E 
+ 508              	.LC1:
+ 509 0018 44432D4D 		.ascii	"DC-Motor-PWM application started\015\012\000"
+ 509      6F746F72 
+ 509      2D50574D 
+ 509      20617070 
+ 509      6C696361 
+ 510 003b 00       		.space	1
+ 511              	.LC2:
+ 512 003c 303A2053 		.ascii	"0: Stop\015\012\000"
+ 512      746F700D 
+ 512      0A00
+ 513 0046 0000     		.space	2
+ 514              	.LC3:
+ 515 0048 313A2044 		.ascii	"1: Drive forwards\015\012\000"
+ 515      72697665 
+ 515      20666F72 
+ 515      77617264 
+ 515      730D0A00 
+ 516              	.LC4:
+ 517 005c 323A2044 		.ascii	"2: Drive backwards\015\012\000"
+ 517      72697665 
+ 517      20626163 
+ 517      6B776172 
+ 517      64730D0A 
+ 518 0071 000000   		.space	3
+ 519              	.LC5:
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 14
+
+
+ 520 0074 713A2044 		.ascii	"q: Decrease speed\015\012\000"
+ 520      65637265 
+ 520      61736520 
+ 520      73706565 
+ 520      640D0A00 
+ 521              	.LC6:
+ 522 0088 773A2049 		.ascii	"w: Increase speed\015\012\000"
+ 522      6E637265 
+ 522      61736520 
+ 522      73706565 
+ 522      640D0A00 
+ 523              	.LC7:
+ 524 009c 42726F6F 		.ascii	"Broomba run\015\012\000"
+ 524      6D626120 
+ 524      72756E0D 
+ 524      0A00
+ 525              		.bss
+ 526              		.set	.LANCHOR0,. + 0
+ 527              		.type	received, %object
+ 528              		.size	received, 1
+ 529              	received:
+ 530 0000 00       		.space	1
+ 531              		.type	intFlag, %object
+ 532              		.size	intFlag, 1
+ 533              	intFlag:
+ 534 0001 00       		.space	1
+ 535              		.type	sensor, %object
+ 536              		.size	sensor, 1
+ 537              	sensor:
+ 538 0002 00       		.space	1
+ 539              		.type	sensorPushed, %object
+ 540              		.size	sensorPushed, 1
+ 541              	sensorPushed:
+ 542 0003 00       		.space	1
+ 543              		.text
+ 544              	.Letext0:
+ 545              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 546              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 547              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 548              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 549              		.file 6 "Generated_Source\\PSoC5/SPI_Slave.h"
+ 550              		.file 7 "Generated_Source\\PSoC5/Pin_1.h"
+ 551              		.file 8 "Generated_Source\\PSoC5/UART_1.h"
+ 552              		.file 9 "Generated_Source\\PSoC5/ADC_SAR_V.h"
+ 553              		.file 10 "Motor.h"
+ 554              		.file 11 "Generated_Source\\PSoC5/isr_uart_rx.h"
+ 555              		.file 12 "Generated_Source\\PSoC5/isr_1.h"
+ 556              		.file 13 "Generated_Source\\PSoC5/ISR_SPI.h"
+ 557              		.file 14 "Generated_Source\\PSoC5/ADC_SAR_B.h"
+ 558              		.file 15 "Generated_Source\\PSoC5/PWM_M1.h"
+ 559              		.file 16 "Generated_Source\\PSoC5/PWM_M2.h"
+ 560              		.file 17 "Generated_Source\\PSoC5/PWM_M3.h"
+ 561              		.file 18 "Generated_Source\\PSoC5/PWM_M4.h"
+ 562              		.file 19 "Generated_Source\\PSoC5/PWM_P.h"
+ 563              		.file 20 "Generated_Source\\PSoC5/CyLib.h"
+ 564              		.file 21 "BatterySensor.h"
+ 565              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 15
+
+
+ 566              	.Ldebug_info0:
+ 567 0000 5C060000 		.4byte	0x65c
+ 568 0004 0400     		.2byte	0x4
+ 569 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 570 000a 04       		.byte	0x4
+ 571 000b 01       		.uleb128 0x1
+ 572 000c 48040000 		.4byte	.LASF73
+ 573 0010 0C       		.byte	0xc
+ 574 0011 73030000 		.4byte	.LASF74
+ 575 0015 41020000 		.4byte	.LASF75
+ 576 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 577 001d 00000000 		.4byte	0
+ 578 0021 00000000 		.4byte	.Ldebug_line0
+ 579 0025 02       		.uleb128 0x2
+ 580 0026 01       		.byte	0x1
+ 581 0027 06       		.byte	0x6
+ 582 0028 F5010000 		.4byte	.LASF0
+ 583 002c 03       		.uleb128 0x3
+ 584 002d 71010000 		.4byte	.LASF2
+ 585 0031 02       		.byte	0x2
+ 586 0032 1D       		.byte	0x1d
+ 587 0033 37000000 		.4byte	0x37
+ 588 0037 02       		.uleb128 0x2
+ 589 0038 01       		.byte	0x1
+ 590 0039 08       		.byte	0x8
+ 591 003a C6010000 		.4byte	.LASF1
+ 592 003e 03       		.uleb128 0x3
+ 593 003f 25000000 		.4byte	.LASF3
+ 594 0043 02       		.byte	0x2
+ 595 0044 29       		.byte	0x29
+ 596 0045 49000000 		.4byte	0x49
+ 597 0049 02       		.uleb128 0x2
+ 598 004a 02       		.byte	0x2
+ 599 004b 05       		.byte	0x5
+ 600 004c 92000000 		.4byte	.LASF4
+ 601 0050 02       		.uleb128 0x2
+ 602 0051 02       		.byte	0x2
+ 603 0052 07       		.byte	0x7
+ 604 0053 53030000 		.4byte	.LASF5
+ 605 0057 03       		.uleb128 0x3
+ 606 0058 13040000 		.4byte	.LASF6
+ 607 005c 02       		.byte	0x2
+ 608 005d 3F       		.byte	0x3f
+ 609 005e 62000000 		.4byte	0x62
+ 610 0062 02       		.uleb128 0x2
+ 611 0063 04       		.byte	0x4
+ 612 0064 05       		.byte	0x5
+ 613 0065 61010000 		.4byte	.LASF7
+ 614 0069 02       		.uleb128 0x2
+ 615 006a 04       		.byte	0x4
+ 616 006b 07       		.byte	0x7
+ 617 006c 7F030000 		.4byte	.LASF8
+ 618 0070 02       		.uleb128 0x2
+ 619 0071 08       		.byte	0x8
+ 620 0072 05       		.byte	0x5
+ 621 0073 4B010000 		.4byte	.LASF9
+ 622 0077 02       		.uleb128 0x2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 16
+
+
+ 623 0078 08       		.byte	0x8
+ 624 0079 07       		.byte	0x7
+ 625 007a 01020000 		.4byte	.LASF10
+ 626 007e 04       		.uleb128 0x4
+ 627 007f 04       		.byte	0x4
+ 628 0080 05       		.byte	0x5
+ 629 0081 696E7400 		.ascii	"int\000"
+ 630 0085 02       		.uleb128 0x2
+ 631 0086 04       		.byte	0x4
+ 632 0087 07       		.byte	0x7
+ 633 0088 34020000 		.4byte	.LASF11
+ 634 008c 03       		.uleb128 0x3
+ 635 008d 1D040000 		.4byte	.LASF12
+ 636 0091 03       		.byte	0x3
+ 637 0092 18       		.byte	0x18
+ 638 0093 2C000000 		.4byte	0x2c
+ 639 0097 03       		.uleb128 0x3
+ 640 0098 22030000 		.4byte	.LASF13
+ 641 009c 03       		.byte	0x3
+ 642 009d 20       		.byte	0x20
+ 643 009e 3E000000 		.4byte	0x3e
+ 644 00a2 03       		.uleb128 0x3
+ 645 00a3 06030000 		.4byte	.LASF14
+ 646 00a7 03       		.byte	0x3
+ 647 00a8 2C       		.byte	0x2c
+ 648 00a9 57000000 		.4byte	0x57
+ 649 00ad 05       		.uleb128 0x5
+ 650 00ae F3000000 		.4byte	.LASF15
+ 651 00b2 04       		.byte	0x4
+ 652 00b3 9201     		.2byte	0x192
+ 653 00b5 37000000 		.4byte	0x37
+ 654 00b9 02       		.uleb128 0x2
+ 655 00ba 04       		.byte	0x4
+ 656 00bb 04       		.byte	0x4
+ 657 00bc 3A010000 		.4byte	.LASF16
+ 658 00c0 02       		.uleb128 0x2
+ 659 00c1 08       		.byte	0x8
+ 660 00c2 04       		.byte	0x4
+ 661 00c3 B4030000 		.4byte	.LASF17
+ 662 00c7 02       		.uleb128 0x2
+ 663 00c8 01       		.byte	0x1
+ 664 00c9 08       		.byte	0x8
+ 665 00ca 01030000 		.4byte	.LASF18
+ 666 00ce 05       		.uleb128 0x5
+ 667 00cf 7A030000 		.4byte	.LASF19
+ 668 00d3 04       		.byte	0x4
+ 669 00d4 3C02     		.2byte	0x23c
+ 670 00d6 DA000000 		.4byte	0xda
+ 671 00da 06       		.uleb128 0x6
+ 672 00db AD000000 		.4byte	0xad
+ 673 00df 02       		.uleb128 0x2
+ 674 00e0 08       		.byte	0x8
+ 675 00e1 04       		.byte	0x4
+ 676 00e2 BA010000 		.4byte	.LASF20
+ 677 00e6 02       		.uleb128 0x2
+ 678 00e7 04       		.byte	0x4
+ 679 00e8 07       		.byte	0x7
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 17
+
+
+ 680 00e9 63000000 		.4byte	.LASF21
+ 681 00ed 06       		.uleb128 0x6
+ 682 00ee 8C000000 		.4byte	0x8c
+ 683 00f2 07       		.uleb128 0x7
+ 684 00f3 2C020000 		.4byte	.LASF22
+ 685 00f7 01       		.byte	0x1
+ 686 00f8 22       		.byte	0x22
+ 687 00f9 00000000 		.4byte	.LFB64
+ 688 00fd 1C000000 		.4byte	.LFE64-.LFB64
+ 689 0101 01       		.uleb128 0x1
+ 690 0102 9C       		.byte	0x9c
+ 691 0103 23010000 		.4byte	0x123
+ 692 0107 08       		.uleb128 0x8
+ 693 0108 06000000 		.4byte	.LVL0
+ 694 010c B2040000 		.4byte	0x4b2
+ 695 0110 08       		.uleb128 0x8
+ 696 0111 12000000 		.4byte	.LVL1
+ 697 0115 BD040000 		.4byte	0x4bd
+ 698 0119 08       		.uleb128 0x8
+ 699 011a 16000000 		.4byte	.LVL2
+ 700 011e C8040000 		.4byte	0x4c8
+ 701 0122 00       		.byte	0
+ 702 0123 07       		.uleb128 0x7
+ 703 0124 C6020000 		.4byte	.LASF23
+ 704 0128 01       		.byte	0x1
+ 705 0129 2A       		.byte	0x2a
+ 706 012a 00000000 		.4byte	.LFB65
+ 707 012e 44000000 		.4byte	.LFE65-.LFB65
+ 708 0132 01       		.uleb128 0x1
+ 709 0133 9C       		.byte	0x9c
+ 710 0134 62010000 		.4byte	0x162
+ 711 0138 08       		.uleb128 0x8
+ 712 0139 10000000 		.4byte	.LVL3
+ 713 013d D3040000 		.4byte	0x4d3
+ 714 0141 09       		.uleb128 0x9
+ 715 0142 1A000000 		.4byte	.LVL4
+ 716 0146 DE040000 		.4byte	0x4de
+ 717 014a 58010000 		.4byte	0x158
+ 718 014e 0A       		.uleb128 0xa
+ 719 014f 01       		.uleb128 0x1
+ 720 0150 50       		.byte	0x50
+ 721 0151 05       		.uleb128 0x5
+ 722 0152 03       		.byte	0x3
+ 723 0153 00000000 		.4byte	.LC0
+ 724 0157 00       		.byte	0
+ 725 0158 08       		.uleb128 0x8
+ 726 0159 36000000 		.4byte	.LVL5
+ 727 015d E9040000 		.4byte	0x4e9
+ 728 0161 00       		.byte	0
+ 729 0162 07       		.uleb128 0x7
+ 730 0163 99010000 		.4byte	.LASF24
+ 731 0167 01       		.byte	0x1
+ 732 0168 4E       		.byte	0x4e
+ 733 0169 00000000 		.4byte	.LFB67
+ 734 016d 90000000 		.4byte	.LFE67-.LFB67
+ 735 0171 01       		.uleb128 0x1
+ 736 0172 9C       		.byte	0x9c
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 18
+
+
+ 737 0173 04020000 		.4byte	0x204
+ 738 0177 0B       		.uleb128 0xb
+ 739 0178 2D010000 		.4byte	.LASF28
+ 740 017c 01       		.byte	0x1
+ 741 017d 4E       		.byte	0x4e
+ 742 017e 8C000000 		.4byte	0x8c
+ 743 0182 00000000 		.4byte	.LLST0
+ 744 0186 0C       		.uleb128 0xc
+ 745 0187 86000000 		.4byte	.LBB2
+ 746 018b 0A000000 		.4byte	.LBE2-.LBB2
+ 747 018f B5010000 		.4byte	0x1b5
+ 748 0193 0D       		.uleb128 0xd
+ 749 0194 6A010000 		.4byte	.LASF26
+ 750 0198 01       		.byte	0x1
+ 751 0199 7E       		.byte	0x7e
+ 752 019a 97000000 		.4byte	0x97
+ 753 019e 21000000 		.4byte	.LLST1
+ 754 01a2 08       		.uleb128 0x8
+ 755 01a3 8A000000 		.4byte	.LVL17
+ 756 01a7 F4040000 		.4byte	0x4f4
+ 757 01ab 08       		.uleb128 0x8
+ 758 01ac 8E000000 		.4byte	.LVL18
+ 759 01b0 FF040000 		.4byte	0x4ff
+ 760 01b4 00       		.byte	0
+ 761 01b5 08       		.uleb128 0x8
+ 762 01b6 58000000 		.4byte	.LVL8
+ 763 01ba 0A050000 		.4byte	0x50a
+ 764 01be 08       		.uleb128 0x8
+ 765 01bf 5E000000 		.4byte	.LVL9
+ 766 01c3 15050000 		.4byte	0x515
+ 767 01c7 08       		.uleb128 0x8
+ 768 01c8 64000000 		.4byte	.LVL10
+ 769 01cc 20050000 		.4byte	0x520
+ 770 01d0 08       		.uleb128 0x8
+ 771 01d1 6A000000 		.4byte	.LVL11
+ 772 01d5 2B050000 		.4byte	0x52b
+ 773 01d9 08       		.uleb128 0x8
+ 774 01da 70000000 		.4byte	.LVL12
+ 775 01de 36050000 		.4byte	0x536
+ 776 01e2 08       		.uleb128 0x8
+ 777 01e3 76000000 		.4byte	.LVL13
+ 778 01e7 41050000 		.4byte	0x541
+ 779 01eb 08       		.uleb128 0x8
+ 780 01ec 7C000000 		.4byte	.LVL14
+ 781 01f0 4C050000 		.4byte	0x54c
+ 782 01f4 0E       		.uleb128 0xe
+ 783 01f5 84000000 		.4byte	.LVL15
+ 784 01f9 57050000 		.4byte	0x557
+ 785 01fd 0A       		.uleb128 0xa
+ 786 01fe 01       		.uleb128 0x1
+ 787 01ff 50       		.byte	0x50
+ 788 0200 01       		.uleb128 0x1
+ 789 0201 30       		.byte	0x30
+ 790 0202 00       		.byte	0
+ 791 0203 00       		.byte	0
+ 792 0204 07       		.uleb128 0x7
+ 793 0205 2F000000 		.4byte	.LASF25
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 19
+
+
+ 794 0209 01       		.byte	0x1
+ 795 020a 40       		.byte	0x40
+ 796 020b 00000000 		.4byte	.LFB66
+ 797 020f 24000000 		.4byte	.LFE66-.LFB66
+ 798 0213 01       		.uleb128 0x1
+ 799 0214 9C       		.byte	0x9c
+ 800 0215 7C020000 		.4byte	0x27c
+ 801 0219 0D       		.uleb128 0xd
+ 802 021a 91030000 		.4byte	.LASF27
+ 803 021e 01       		.byte	0x1
+ 804 021f 43       		.byte	0x43
+ 805 0220 8C000000 		.4byte	0x8c
+ 806 0224 40000000 		.4byte	.LLST2
+ 807 0228 0C       		.uleb128 0xc
+ 808 0229 0A000000 		.4byte	.LBB3
+ 809 022d 14000000 		.4byte	.LBE3-.LBB3
+ 810 0231 72020000 		.4byte	0x272
+ 811 0235 0D       		.uleb128 0xd
+ 812 0236 2D010000 		.4byte	.LASF28
+ 813 023a 01       		.byte	0x1
+ 814 023b 46       		.byte	0x46
+ 815 023c 8C000000 		.4byte	0x8c
+ 816 0240 5E000000 		.4byte	.LLST3
+ 817 0244 08       		.uleb128 0x8
+ 818 0245 0E000000 		.4byte	.LVL21
+ 819 0249 62050000 		.4byte	0x562
+ 820 024d 09       		.uleb128 0x9
+ 821 024e 14000000 		.4byte	.LVL23
+ 822 0252 6D050000 		.4byte	0x56d
+ 823 0256 61020000 		.4byte	0x261
+ 824 025a 0A       		.uleb128 0xa
+ 825 025b 01       		.uleb128 0x1
+ 826 025c 50       		.byte	0x50
+ 827 025d 02       		.uleb128 0x2
+ 828 025e 75       		.byte	0x75
+ 829 025f 00       		.sleb128 0
+ 830 0260 00       		.byte	0
+ 831 0261 0E       		.uleb128 0xe
+ 832 0262 1A000000 		.4byte	.LVL24
+ 833 0266 62010000 		.4byte	0x162
+ 834 026a 0A       		.uleb128 0xa
+ 835 026b 01       		.uleb128 0x1
+ 836 026c 50       		.byte	0x50
+ 837 026d 02       		.uleb128 0x2
+ 838 026e 75       		.byte	0x75
+ 839 026f 00       		.sleb128 0
+ 840 0270 00       		.byte	0
+ 841 0271 00       		.byte	0
+ 842 0272 08       		.uleb128 0x8
+ 843 0273 06000000 		.4byte	.LVL19
+ 844 0277 78050000 		.4byte	0x578
+ 845 027b 00       		.byte	0
+ 846 027c 0F       		.uleb128 0xf
+ 847 027d 8D000000 		.4byte	.LASF76
+ 848 0281 01       		.byte	0x1
+ 849 0282 8C       		.byte	0x8c
+ 850 0283 7E000000 		.4byte	0x7e
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 20
+
+
+ 851 0287 00000000 		.4byte	.LFB68
+ 852 028b E8000000 		.4byte	.LFE68-.LFB68
+ 853 028f 01       		.uleb128 0x1
+ 854 0290 9C       		.byte	0x9c
+ 855 0291 5D040000 		.4byte	0x45d
+ 856 0295 09       		.uleb128 0x9
+ 857 0296 0A000000 		.4byte	.LVL27
+ 858 029a 83050000 		.4byte	0x583
+ 859 029e AC020000 		.4byte	0x2ac
+ 860 02a2 0A       		.uleb128 0xa
+ 861 02a3 01       		.uleb128 0x1
+ 862 02a4 50       		.byte	0x50
+ 863 02a5 05       		.uleb128 0x5
+ 864 02a6 03       		.byte	0x3
+ 865 02a7 00000000 		.4byte	ISR_UART_rx_handler
+ 866 02ab 00       		.byte	0
+ 867 02ac 09       		.uleb128 0x9
+ 868 02ad 10000000 		.4byte	.LVL28
+ 869 02b1 8E050000 		.4byte	0x58e
+ 870 02b5 C3020000 		.4byte	0x2c3
+ 871 02b9 0A       		.uleb128 0xa
+ 872 02ba 01       		.uleb128 0x1
+ 873 02bb 50       		.byte	0x50
+ 874 02bc 05       		.uleb128 0x5
+ 875 02bd 03       		.byte	0x3
+ 876 02be 00000000 		.4byte	sensor_ISR
+ 877 02c2 00       		.byte	0
+ 878 02c3 09       		.uleb128 0x9
+ 879 02c4 16000000 		.4byte	.LVL29
+ 880 02c8 99050000 		.4byte	0x599
+ 881 02cc DA020000 		.4byte	0x2da
+ 882 02d0 0A       		.uleb128 0xa
+ 883 02d1 01       		.uleb128 0x1
+ 884 02d2 50       		.byte	0x50
+ 885 02d3 05       		.uleb128 0x5
+ 886 02d4 03       		.byte	0x3
+ 887 02d5 00000000 		.4byte	ISR_SPI
+ 888 02d9 00       		.byte	0
+ 889 02da 08       		.uleb128 0x8
+ 890 02db 1A000000 		.4byte	.LVL30
+ 891 02df A4050000 		.4byte	0x5a4
+ 892 02e3 08       		.uleb128 0x8
+ 893 02e4 1E000000 		.4byte	.LVL31
+ 894 02e8 AF050000 		.4byte	0x5af
+ 895 02ec 08       		.uleb128 0x8
+ 896 02ed 22000000 		.4byte	.LVL32
+ 897 02f1 BA050000 		.4byte	0x5ba
+ 898 02f5 08       		.uleb128 0x8
+ 899 02f6 26000000 		.4byte	.LVL33
+ 900 02fa C5050000 		.4byte	0x5c5
+ 901 02fe 08       		.uleb128 0x8
+ 902 02ff 2A000000 		.4byte	.LVL34
+ 903 0303 D0050000 		.4byte	0x5d0
+ 904 0307 08       		.uleb128 0x8
+ 905 0308 2E000000 		.4byte	.LVL35
+ 906 030c DB050000 		.4byte	0x5db
+ 907 0310 08       		.uleb128 0x8
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 21
+
+
+ 908 0311 32000000 		.4byte	.LVL36
+ 909 0315 E6050000 		.4byte	0x5e6
+ 910 0319 08       		.uleb128 0x8
+ 911 031a 36000000 		.4byte	.LVL37
+ 912 031e F1050000 		.4byte	0x5f1
+ 913 0322 08       		.uleb128 0x8
+ 914 0323 3A000000 		.4byte	.LVL38
+ 915 0327 FC050000 		.4byte	0x5fc
+ 916 032b 08       		.uleb128 0x8
+ 917 032c 3E000000 		.4byte	.LVL39
+ 918 0330 07060000 		.4byte	0x607
+ 919 0334 08       		.uleb128 0x8
+ 920 0335 42000000 		.4byte	.LVL40
+ 921 0339 12060000 		.4byte	0x612
+ 922 033d 09       		.uleb128 0x9
+ 923 033e 48000000 		.4byte	.LVL41
+ 924 0342 DE040000 		.4byte	0x4de
+ 925 0346 54030000 		.4byte	0x354
+ 926 034a 0A       		.uleb128 0xa
+ 927 034b 01       		.uleb128 0x1
+ 928 034c 50       		.byte	0x50
+ 929 034d 05       		.uleb128 0x5
+ 930 034e 03       		.byte	0x3
+ 931 034f 18000000 		.4byte	.LC1
+ 932 0353 00       		.byte	0
+ 933 0354 09       		.uleb128 0x9
+ 934 0355 4E000000 		.4byte	.LVL42
+ 935 0359 DE040000 		.4byte	0x4de
+ 936 035d 6B030000 		.4byte	0x36b
+ 937 0361 0A       		.uleb128 0xa
+ 938 0362 01       		.uleb128 0x1
+ 939 0363 50       		.byte	0x50
+ 940 0364 05       		.uleb128 0x5
+ 941 0365 03       		.byte	0x3
+ 942 0366 3C000000 		.4byte	.LC2
+ 943 036a 00       		.byte	0
+ 944 036b 09       		.uleb128 0x9
+ 945 036c 54000000 		.4byte	.LVL43
+ 946 0370 DE040000 		.4byte	0x4de
+ 947 0374 82030000 		.4byte	0x382
+ 948 0378 0A       		.uleb128 0xa
+ 949 0379 01       		.uleb128 0x1
+ 950 037a 50       		.byte	0x50
+ 951 037b 05       		.uleb128 0x5
+ 952 037c 03       		.byte	0x3
+ 953 037d 48000000 		.4byte	.LC3
+ 954 0381 00       		.byte	0
+ 955 0382 09       		.uleb128 0x9
+ 956 0383 5A000000 		.4byte	.LVL44
+ 957 0387 DE040000 		.4byte	0x4de
+ 958 038b 99030000 		.4byte	0x399
+ 959 038f 0A       		.uleb128 0xa
+ 960 0390 01       		.uleb128 0x1
+ 961 0391 50       		.byte	0x50
+ 962 0392 05       		.uleb128 0x5
+ 963 0393 03       		.byte	0x3
+ 964 0394 5C000000 		.4byte	.LC4
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 22
+
+
+ 965 0398 00       		.byte	0
+ 966 0399 09       		.uleb128 0x9
+ 967 039a 60000000 		.4byte	.LVL45
+ 968 039e DE040000 		.4byte	0x4de
+ 969 03a2 B0030000 		.4byte	0x3b0
+ 970 03a6 0A       		.uleb128 0xa
+ 971 03a7 01       		.uleb128 0x1
+ 972 03a8 50       		.byte	0x50
+ 973 03a9 05       		.uleb128 0x5
+ 974 03aa 03       		.byte	0x3
+ 975 03ab 74000000 		.4byte	.LC5
+ 976 03af 00       		.byte	0
+ 977 03b0 09       		.uleb128 0x9
+ 978 03b1 66000000 		.4byte	.LVL46
+ 979 03b5 DE040000 		.4byte	0x4de
+ 980 03b9 C7030000 		.4byte	0x3c7
+ 981 03bd 0A       		.uleb128 0xa
+ 982 03be 01       		.uleb128 0x1
+ 983 03bf 50       		.byte	0x50
+ 984 03c0 05       		.uleb128 0x5
+ 985 03c1 03       		.byte	0x3
+ 986 03c2 88000000 		.4byte	.LC6
+ 987 03c6 00       		.byte	0
+ 988 03c7 09       		.uleb128 0x9
+ 989 03c8 6C000000 		.4byte	.LVL47
+ 990 03cc 1D060000 		.4byte	0x61d
+ 991 03d0 DB030000 		.4byte	0x3db
+ 992 03d4 0A       		.uleb128 0xa
+ 993 03d5 01       		.uleb128 0x1
+ 994 03d6 50       		.byte	0x50
+ 995 03d7 02       		.uleb128 0x2
+ 996 03d8 08       		.byte	0x8
+ 997 03d9 50       		.byte	0x50
+ 998 03da 00       		.byte	0
+ 999 03db 09       		.uleb128 0x9
+ 1000 03dc 72000000 		.4byte	.LVL48
+ 1001 03e0 28060000 		.4byte	0x628
+ 1002 03e4 EF030000 		.4byte	0x3ef
+ 1003 03e8 0A       		.uleb128 0xa
+ 1004 03e9 01       		.uleb128 0x1
+ 1005 03ea 50       		.byte	0x50
+ 1006 03eb 02       		.uleb128 0x2
+ 1007 03ec 08       		.byte	0x8
+ 1008 03ed 64       		.byte	0x64
+ 1009 03ee 00       		.byte	0
+ 1010 03ef 09       		.uleb128 0x9
+ 1011 03f0 78000000 		.4byte	.LVL49
+ 1012 03f4 33060000 		.4byte	0x633
+ 1013 03f8 03040000 		.4byte	0x403
+ 1014 03fc 0A       		.uleb128 0xa
+ 1015 03fd 01       		.uleb128 0x1
+ 1016 03fe 50       		.byte	0x50
+ 1017 03ff 02       		.uleb128 0x2
+ 1018 0400 08       		.byte	0x8
+ 1019 0401 64       		.byte	0x64
+ 1020 0402 00       		.byte	0
+ 1021 0403 09       		.uleb128 0x9
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 23
+
+
+ 1022 0404 7E000000 		.4byte	.LVL50
+ 1023 0408 DE040000 		.4byte	0x4de
+ 1024 040c 1A040000 		.4byte	0x41a
+ 1025 0410 0A       		.uleb128 0xa
+ 1026 0411 01       		.uleb128 0x1
+ 1027 0412 50       		.byte	0x50
+ 1028 0413 05       		.uleb128 0x5
+ 1029 0414 03       		.byte	0x3
+ 1030 0415 9C000000 		.4byte	.LC7
+ 1031 0419 00       		.byte	0
+ 1032 041a 08       		.uleb128 0x8
+ 1033 041b 8A000000 		.4byte	.LVL51
+ 1034 041f 41050000 		.4byte	0x541
+ 1035 0423 08       		.uleb128 0x8
+ 1036 0424 9A000000 		.4byte	.LVL52
+ 1037 0428 4C050000 		.4byte	0x54c
+ 1038 042c 08       		.uleb128 0x8
+ 1039 042d A4000000 		.4byte	.LVL53
+ 1040 0431 E9040000 		.4byte	0x4e9
+ 1041 0435 08       		.uleb128 0x8
+ 1042 0436 A8000000 		.4byte	.LVL54
+ 1043 043a 3E060000 		.4byte	0x63e
+ 1044 043e 09       		.uleb128 0x9
+ 1045 043f B6000000 		.4byte	.LVL55
+ 1046 0443 49060000 		.4byte	0x649
+ 1047 0447 53040000 		.4byte	0x453
+ 1048 044b 0A       		.uleb128 0xa
+ 1049 044c 01       		.uleb128 0x1
+ 1050 044d 50       		.byte	0x50
+ 1051 044e 03       		.uleb128 0x3
+ 1052 044f 0A       		.byte	0xa
+ 1053 0450 D007     		.2byte	0x7d0
+ 1054 0452 00       		.byte	0
+ 1055 0453 08       		.uleb128 0x8
+ 1056 0454 BA000000 		.4byte	.LVL56
+ 1057 0458 54060000 		.4byte	0x654
+ 1058 045c 00       		.byte	0
+ 1059 045d 10       		.uleb128 0x10
+ 1060 045e AB020000 		.4byte	.LASF29
+ 1061 0462 01       		.byte	0x1
+ 1062 0463 1F       		.byte	0x1f
+ 1063 0464 AD000000 		.4byte	0xad
+ 1064 0468 05       		.uleb128 0x5
+ 1065 0469 03       		.byte	0x3
+ 1066 046a 03000000 		.4byte	sensorPushed
+ 1067 046e 11       		.uleb128 0x11
+ 1068 046f 3B040000 		.4byte	.LASF30
+ 1069 0473 05       		.byte	0x5
+ 1070 0474 9606     		.2byte	0x696
+ 1071 0476 7A040000 		.4byte	0x47a
+ 1072 047a 06       		.uleb128 0x6
+ 1073 047b A2000000 		.4byte	0xa2
+ 1074 047f 12       		.uleb128 0x12
+ 1075 0480 D8000000 		.4byte	.LASF31
+ 1076 0484 01       		.byte	0x1
+ 1077 0485 1B       		.byte	0x1b
+ 1078 0486 ED000000 		.4byte	0xed
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 24
+
+
+ 1079 048a 05       		.uleb128 0x5
+ 1080 048b 03       		.byte	0x3
+ 1081 048c 00000000 		.4byte	sensor
+ 1082 0490 12       		.uleb128 0x12
+ 1083 0491 F6030000 		.4byte	.LASF32
+ 1084 0495 01       		.byte	0x1
+ 1085 0496 1C       		.byte	0x1c
+ 1086 0497 ED000000 		.4byte	0xed
+ 1087 049b 05       		.uleb128 0x5
+ 1088 049c 03       		.byte	0x3
+ 1089 049d 00000000 		.4byte	received
+ 1090 04a1 12       		.uleb128 0x12
+ 1091 04a2 59010000 		.4byte	.LASF33
+ 1092 04a6 01       		.byte	0x1
+ 1093 04a7 1D       		.byte	0x1d
+ 1094 04a8 ED000000 		.4byte	0xed
+ 1095 04ac 05       		.uleb128 0x5
+ 1096 04ad 03       		.byte	0x3
+ 1097 04ae 00000000 		.4byte	intFlag
+ 1098 04b2 13       		.uleb128 0x13
+ 1099 04b3 00000000 		.4byte	.LASF34
+ 1100 04b7 00000000 		.4byte	.LASF34
+ 1101 04bb 06       		.byte	0x6
+ 1102 04bc 57       		.byte	0x57
+ 1103 04bd 13       		.uleb128 0x13
+ 1104 04be DD010000 		.4byte	.LASF35
+ 1105 04c2 DD010000 		.4byte	.LASF35
+ 1106 04c6 06       		.byte	0x6
+ 1107 04c7 5A       		.byte	0x5a
+ 1108 04c8 13       		.uleb128 0x13
+ 1109 04c9 FF030000 		.4byte	.LASF36
+ 1110 04cd FF030000 		.4byte	.LASF36
+ 1111 04d1 06       		.byte	0x6
+ 1112 04d2 63       		.byte	0x63
+ 1113 04d3 13       		.uleb128 0x13
+ 1114 04d4 40010000 		.4byte	.LASF37
+ 1115 04d8 40010000 		.4byte	.LASF37
+ 1116 04dc 07       		.byte	0x7
+ 1117 04dd 29       		.byte	0x29
+ 1118 04de 13       		.uleb128 0x13
+ 1119 04df BB030000 		.4byte	.LASF38
+ 1120 04e3 BB030000 		.4byte	.LASF38
+ 1121 04e7 08       		.byte	0x8
+ 1122 04e8 8B       		.byte	0x8b
+ 1123 04e9 13       		.uleb128 0x13
+ 1124 04ea D1020000 		.4byte	.LASF39
+ 1125 04ee D1020000 		.4byte	.LASF39
+ 1126 04f2 07       		.byte	0x7
+ 1127 04f3 2B       		.byte	0x2b
+ 1128 04f4 13       		.uleb128 0x13
+ 1129 04f5 E6020000 		.4byte	.LASF40
+ 1130 04f9 E6020000 		.4byte	.LASF40
+ 1131 04fd 09       		.byte	0x9
+ 1132 04fe 3B       		.byte	0x3b
+ 1133 04ff 13       		.uleb128 0x13
+ 1134 0500 0E030000 		.4byte	.LASF41
+ 1135 0504 0E030000 		.4byte	.LASF41
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 25
+
+
+ 1136 0508 09       		.byte	0x9
+ 1137 0509 3D       		.byte	0x3d
+ 1138 050a 13       		.uleb128 0x13
+ 1139 050b F1040000 		.4byte	.LASF42
+ 1140 050f F1040000 		.4byte	.LASF42
+ 1141 0513 0A       		.byte	0xa
+ 1142 0514 0D       		.byte	0xd
+ 1143 0515 13       		.uleb128 0x13
+ 1144 0516 B8020000 		.4byte	.LASF43
+ 1145 051a B8020000 		.4byte	.LASF43
+ 1146 051e 0A       		.byte	0xa
+ 1147 051f 0E       		.byte	0xe
+ 1148 0520 13       		.uleb128 0x13
+ 1149 0521 AC010000 		.4byte	.LASF44
+ 1150 0525 AC010000 		.4byte	.LASF44
+ 1151 0529 0A       		.byte	0xa
+ 1152 052a 0F       		.byte	0xf
+ 1153 052b 13       		.uleb128 0x13
+ 1154 052c C9000000 		.4byte	.LASF45
+ 1155 0530 C9000000 		.4byte	.LASF45
+ 1156 0534 0A       		.byte	0xa
+ 1157 0535 10       		.byte	0x10
+ 1158 0536 13       		.uleb128 0x13
+ 1159 0537 FC020000 		.4byte	.LASF46
+ 1160 053b FC020000 		.4byte	.LASF46
+ 1161 053f 0A       		.byte	0xa
+ 1162 0540 11       		.byte	0x11
+ 1163 0541 13       		.uleb128 0x13
+ 1164 0542 D4010000 		.4byte	.LASF47
+ 1165 0546 D4010000 		.4byte	.LASF47
+ 1166 054a 0A       		.byte	0xa
+ 1167 054b 13       		.byte	0x13
+ 1168 054c 13       		.uleb128 0x13
+ 1169 054d 25040000 		.4byte	.LASF48
+ 1170 0551 25040000 		.4byte	.LASF48
+ 1171 0555 0A       		.byte	0xa
+ 1172 0556 12       		.byte	0x12
+ 1173 0557 13       		.uleb128 0x13
+ 1174 0558 13010000 		.4byte	.LASF49
+ 1175 055c 13010000 		.4byte	.LASF49
+ 1176 0560 09       		.byte	0x9
+ 1177 0561 39       		.byte	0x39
+ 1178 0562 13       		.uleb128 0x13
+ 1179 0563 41030000 		.4byte	.LASF50
+ 1180 0567 41030000 		.4byte	.LASF50
+ 1181 056b 08       		.byte	0x8
+ 1182 056c 6F       		.byte	0x6f
+ 1183 056d 13       		.uleb128 0x13
+ 1184 056e E3030000 		.4byte	.LASF51
+ 1185 0572 E3030000 		.4byte	.LASF51
+ 1186 0576 08       		.byte	0x8
+ 1187 0577 88       		.byte	0x88
+ 1188 0578 13       		.uleb128 0x13
+ 1189 0579 9D030000 		.4byte	.LASF52
+ 1190 057d 9D030000 		.4byte	.LASF52
+ 1191 0581 08       		.byte	0x8
+ 1192 0582 73       		.byte	0x73
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 26
+
+
+ 1193 0583 13       		.uleb128 0x13
+ 1194 0584 6C000000 		.4byte	.LASF53
+ 1195 0588 6C000000 		.4byte	.LASF53
+ 1196 058c 0B       		.byte	0xb
+ 1197 058d 18       		.byte	0x18
+ 1198 058e 13       		.uleb128 0x13
+ 1199 058f 8B010000 		.4byte	.LASF54
+ 1200 0593 8B010000 		.4byte	.LASF54
+ 1201 0597 0C       		.byte	0xc
+ 1202 0598 18       		.byte	0x18
+ 1203 0599 13       		.uleb128 0x13
+ 1204 059a 43000000 		.4byte	.LASF55
+ 1205 059e 43000000 		.4byte	.LASF55
+ 1206 05a2 0D       		.byte	0xd
+ 1207 05a3 18       		.byte	0x18
+ 1208 05a4 13       		.uleb128 0x13
+ 1209 05a5 06010000 		.4byte	.LASF56
+ 1210 05a9 06010000 		.4byte	.LASF56
+ 1211 05ad 08       		.byte	0x8
+ 1212 05ae 54       		.byte	0x54
+ 1213 05af 13       		.uleb128 0x13
+ 1214 05b0 7B010000 		.4byte	.LASF57
+ 1215 05b4 7B010000 		.4byte	.LASF57
+ 1216 05b8 06       		.byte	0x6
+ 1217 05b9 46       		.byte	0x46
+ 1218 05ba 13       		.uleb128 0x13
+ 1219 05bb 53000000 		.4byte	.LASF58
+ 1220 05bf 53000000 		.4byte	.LASF58
+ 1221 05c3 09       		.byte	0x9
+ 1222 05c4 34       		.byte	0x34
+ 1223 05c5 13       		.uleb128 0x13
+ 1224 05c6 CC030000 		.4byte	.LASF59
+ 1225 05ca CC030000 		.4byte	.LASF59
+ 1226 05ce 09       		.byte	0x9
+ 1227 05cf D1       		.byte	0xd1
+ 1228 05d0 13       		.uleb128 0x13
+ 1229 05d1 15000000 		.4byte	.LASF60
+ 1230 05d5 15000000 		.4byte	.LASF60
+ 1231 05d9 0E       		.byte	0xe
+ 1232 05da 34       		.byte	0x34
+ 1233 05db 13       		.uleb128 0x13
+ 1234 05dc 2A030000 		.4byte	.LASF61
+ 1235 05e0 2A030000 		.4byte	.LASF61
+ 1236 05e4 0E       		.byte	0xe
+ 1237 05e5 D1       		.byte	0xd1
+ 1238 05e6 13       		.uleb128 0x13
+ 1239 05e7 9C000000 		.4byte	.LASF62
+ 1240 05eb 9C000000 		.4byte	.LASF62
+ 1241 05ef 0F       		.byte	0xf
+ 1242 05f0 92       		.byte	0x92
+ 1243 05f1 13       		.uleb128 0x13
+ 1244 05f2 66030000 		.4byte	.LASF63
+ 1245 05f6 66030000 		.4byte	.LASF63
+ 1246 05fa 10       		.byte	0x10
+ 1247 05fb 92       		.byte	0x92
+ 1248 05fc 13       		.uleb128 0x13
+ 1249 05fd F9000000 		.4byte	.LASF64
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 27
+
+
+ 1250 0601 F9000000 		.4byte	.LASF64
+ 1251 0605 11       		.byte	0x11
+ 1252 0606 92       		.byte	0x92
+ 1253 0607 13       		.uleb128 0x13
+ 1254 0608 A9000000 		.4byte	.LASF65
+ 1255 060c A9000000 		.4byte	.LASF65
+ 1256 0610 12       		.byte	0x12
+ 1257 0611 92       		.byte	0x92
+ 1258 0612 13       		.uleb128 0x13
+ 1259 0613 2F040000 		.4byte	.LASF66
+ 1260 0617 2F040000 		.4byte	.LASF66
+ 1261 061b 13       		.byte	0x13
+ 1262 061c 92       		.byte	0x92
+ 1263 061d 13       		.uleb128 0x13
+ 1264 061e DE040000 		.4byte	.LASF67
+ 1265 0622 DE040000 		.4byte	.LASF67
+ 1266 0626 13       		.byte	0x13
+ 1267 0627 C3       		.byte	0xc3
+ 1268 0628 13       		.uleb128 0x13
+ 1269 0629 18020000 		.4byte	.LASF68
+ 1270 062d 18020000 		.4byte	.LASF68
+ 1271 0631 0F       		.byte	0xf
+ 1272 0632 C3       		.byte	0xc3
+ 1273 0633 13       		.uleb128 0x13
+ 1274 0634 DF000000 		.4byte	.LASF69
+ 1275 0638 DF000000 		.4byte	.LASF69
+ 1276 063c 11       		.byte	0x11
+ 1277 063d C3       		.byte	0xc3
+ 1278 063e 13       		.uleb128 0x13
+ 1279 063f B6000000 		.4byte	.LASF70
+ 1280 0643 B6000000 		.4byte	.LASF70
+ 1281 0647 0C       		.byte	0xc
+ 1282 0648 28       		.byte	0x28
+ 1283 0649 13       		.uleb128 0x13
+ 1284 064a D6040000 		.4byte	.LASF71
+ 1285 064e D6040000 		.4byte	.LASF71
+ 1286 0652 14       		.byte	0x14
+ 1287 0653 76       		.byte	0x76
+ 1288 0654 13       		.uleb128 0x13
+ 1289 0655 80000000 		.4byte	.LASF72
+ 1290 0659 80000000 		.4byte	.LASF72
+ 1291 065d 15       		.byte	0x15
+ 1292 065e 0E       		.byte	0xe
+ 1293 065f 00       		.byte	0
+ 1294              		.section	.debug_abbrev,"",%progbits
+ 1295              	.Ldebug_abbrev0:
+ 1296 0000 01       		.uleb128 0x1
+ 1297 0001 11       		.uleb128 0x11
+ 1298 0002 01       		.byte	0x1
+ 1299 0003 25       		.uleb128 0x25
+ 1300 0004 0E       		.uleb128 0xe
+ 1301 0005 13       		.uleb128 0x13
+ 1302 0006 0B       		.uleb128 0xb
+ 1303 0007 03       		.uleb128 0x3
+ 1304 0008 0E       		.uleb128 0xe
+ 1305 0009 1B       		.uleb128 0x1b
+ 1306 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 28
+
+
+ 1307 000b 55       		.uleb128 0x55
+ 1308 000c 17       		.uleb128 0x17
+ 1309 000d 11       		.uleb128 0x11
+ 1310 000e 01       		.uleb128 0x1
+ 1311 000f 10       		.uleb128 0x10
+ 1312 0010 17       		.uleb128 0x17
+ 1313 0011 00       		.byte	0
+ 1314 0012 00       		.byte	0
+ 1315 0013 02       		.uleb128 0x2
+ 1316 0014 24       		.uleb128 0x24
+ 1317 0015 00       		.byte	0
+ 1318 0016 0B       		.uleb128 0xb
+ 1319 0017 0B       		.uleb128 0xb
+ 1320 0018 3E       		.uleb128 0x3e
+ 1321 0019 0B       		.uleb128 0xb
+ 1322 001a 03       		.uleb128 0x3
+ 1323 001b 0E       		.uleb128 0xe
+ 1324 001c 00       		.byte	0
+ 1325 001d 00       		.byte	0
+ 1326 001e 03       		.uleb128 0x3
+ 1327 001f 16       		.uleb128 0x16
+ 1328 0020 00       		.byte	0
+ 1329 0021 03       		.uleb128 0x3
+ 1330 0022 0E       		.uleb128 0xe
+ 1331 0023 3A       		.uleb128 0x3a
+ 1332 0024 0B       		.uleb128 0xb
+ 1333 0025 3B       		.uleb128 0x3b
+ 1334 0026 0B       		.uleb128 0xb
+ 1335 0027 49       		.uleb128 0x49
+ 1336 0028 13       		.uleb128 0x13
+ 1337 0029 00       		.byte	0
+ 1338 002a 00       		.byte	0
+ 1339 002b 04       		.uleb128 0x4
+ 1340 002c 24       		.uleb128 0x24
+ 1341 002d 00       		.byte	0
+ 1342 002e 0B       		.uleb128 0xb
+ 1343 002f 0B       		.uleb128 0xb
+ 1344 0030 3E       		.uleb128 0x3e
+ 1345 0031 0B       		.uleb128 0xb
+ 1346 0032 03       		.uleb128 0x3
+ 1347 0033 08       		.uleb128 0x8
+ 1348 0034 00       		.byte	0
+ 1349 0035 00       		.byte	0
+ 1350 0036 05       		.uleb128 0x5
+ 1351 0037 16       		.uleb128 0x16
+ 1352 0038 00       		.byte	0
+ 1353 0039 03       		.uleb128 0x3
+ 1354 003a 0E       		.uleb128 0xe
+ 1355 003b 3A       		.uleb128 0x3a
+ 1356 003c 0B       		.uleb128 0xb
+ 1357 003d 3B       		.uleb128 0x3b
+ 1358 003e 05       		.uleb128 0x5
+ 1359 003f 49       		.uleb128 0x49
+ 1360 0040 13       		.uleb128 0x13
+ 1361 0041 00       		.byte	0
+ 1362 0042 00       		.byte	0
+ 1363 0043 06       		.uleb128 0x6
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 29
+
+
+ 1364 0044 35       		.uleb128 0x35
+ 1365 0045 00       		.byte	0
+ 1366 0046 49       		.uleb128 0x49
+ 1367 0047 13       		.uleb128 0x13
+ 1368 0048 00       		.byte	0
+ 1369 0049 00       		.byte	0
+ 1370 004a 07       		.uleb128 0x7
+ 1371 004b 2E       		.uleb128 0x2e
+ 1372 004c 01       		.byte	0x1
+ 1373 004d 3F       		.uleb128 0x3f
+ 1374 004e 19       		.uleb128 0x19
+ 1375 004f 03       		.uleb128 0x3
+ 1376 0050 0E       		.uleb128 0xe
+ 1377 0051 3A       		.uleb128 0x3a
+ 1378 0052 0B       		.uleb128 0xb
+ 1379 0053 3B       		.uleb128 0x3b
+ 1380 0054 0B       		.uleb128 0xb
+ 1381 0055 27       		.uleb128 0x27
+ 1382 0056 19       		.uleb128 0x19
+ 1383 0057 11       		.uleb128 0x11
+ 1384 0058 01       		.uleb128 0x1
+ 1385 0059 12       		.uleb128 0x12
+ 1386 005a 06       		.uleb128 0x6
+ 1387 005b 40       		.uleb128 0x40
+ 1388 005c 18       		.uleb128 0x18
+ 1389 005d 9742     		.uleb128 0x2117
+ 1390 005f 19       		.uleb128 0x19
+ 1391 0060 01       		.uleb128 0x1
+ 1392 0061 13       		.uleb128 0x13
+ 1393 0062 00       		.byte	0
+ 1394 0063 00       		.byte	0
+ 1395 0064 08       		.uleb128 0x8
+ 1396 0065 898201   		.uleb128 0x4109
+ 1397 0068 00       		.byte	0
+ 1398 0069 11       		.uleb128 0x11
+ 1399 006a 01       		.uleb128 0x1
+ 1400 006b 31       		.uleb128 0x31
+ 1401 006c 13       		.uleb128 0x13
+ 1402 006d 00       		.byte	0
+ 1403 006e 00       		.byte	0
+ 1404 006f 09       		.uleb128 0x9
+ 1405 0070 898201   		.uleb128 0x4109
+ 1406 0073 01       		.byte	0x1
+ 1407 0074 11       		.uleb128 0x11
+ 1408 0075 01       		.uleb128 0x1
+ 1409 0076 31       		.uleb128 0x31
+ 1410 0077 13       		.uleb128 0x13
+ 1411 0078 01       		.uleb128 0x1
+ 1412 0079 13       		.uleb128 0x13
+ 1413 007a 00       		.byte	0
+ 1414 007b 00       		.byte	0
+ 1415 007c 0A       		.uleb128 0xa
+ 1416 007d 8A8201   		.uleb128 0x410a
+ 1417 0080 00       		.byte	0
+ 1418 0081 02       		.uleb128 0x2
+ 1419 0082 18       		.uleb128 0x18
+ 1420 0083 9142     		.uleb128 0x2111
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 30
+
+
+ 1421 0085 18       		.uleb128 0x18
+ 1422 0086 00       		.byte	0
+ 1423 0087 00       		.byte	0
+ 1424 0088 0B       		.uleb128 0xb
+ 1425 0089 05       		.uleb128 0x5
+ 1426 008a 00       		.byte	0
+ 1427 008b 03       		.uleb128 0x3
+ 1428 008c 0E       		.uleb128 0xe
+ 1429 008d 3A       		.uleb128 0x3a
+ 1430 008e 0B       		.uleb128 0xb
+ 1431 008f 3B       		.uleb128 0x3b
+ 1432 0090 0B       		.uleb128 0xb
+ 1433 0091 49       		.uleb128 0x49
+ 1434 0092 13       		.uleb128 0x13
+ 1435 0093 02       		.uleb128 0x2
+ 1436 0094 17       		.uleb128 0x17
+ 1437 0095 00       		.byte	0
+ 1438 0096 00       		.byte	0
+ 1439 0097 0C       		.uleb128 0xc
+ 1440 0098 0B       		.uleb128 0xb
+ 1441 0099 01       		.byte	0x1
+ 1442 009a 11       		.uleb128 0x11
+ 1443 009b 01       		.uleb128 0x1
+ 1444 009c 12       		.uleb128 0x12
+ 1445 009d 06       		.uleb128 0x6
+ 1446 009e 01       		.uleb128 0x1
+ 1447 009f 13       		.uleb128 0x13
+ 1448 00a0 00       		.byte	0
+ 1449 00a1 00       		.byte	0
+ 1450 00a2 0D       		.uleb128 0xd
+ 1451 00a3 34       		.uleb128 0x34
+ 1452 00a4 00       		.byte	0
+ 1453 00a5 03       		.uleb128 0x3
+ 1454 00a6 0E       		.uleb128 0xe
+ 1455 00a7 3A       		.uleb128 0x3a
+ 1456 00a8 0B       		.uleb128 0xb
+ 1457 00a9 3B       		.uleb128 0x3b
+ 1458 00aa 0B       		.uleb128 0xb
+ 1459 00ab 49       		.uleb128 0x49
+ 1460 00ac 13       		.uleb128 0x13
+ 1461 00ad 02       		.uleb128 0x2
+ 1462 00ae 17       		.uleb128 0x17
+ 1463 00af 00       		.byte	0
+ 1464 00b0 00       		.byte	0
+ 1465 00b1 0E       		.uleb128 0xe
+ 1466 00b2 898201   		.uleb128 0x4109
+ 1467 00b5 01       		.byte	0x1
+ 1468 00b6 11       		.uleb128 0x11
+ 1469 00b7 01       		.uleb128 0x1
+ 1470 00b8 31       		.uleb128 0x31
+ 1471 00b9 13       		.uleb128 0x13
+ 1472 00ba 00       		.byte	0
+ 1473 00bb 00       		.byte	0
+ 1474 00bc 0F       		.uleb128 0xf
+ 1475 00bd 2E       		.uleb128 0x2e
+ 1476 00be 01       		.byte	0x1
+ 1477 00bf 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 31
+
+
+ 1478 00c0 19       		.uleb128 0x19
+ 1479 00c1 03       		.uleb128 0x3
+ 1480 00c2 0E       		.uleb128 0xe
+ 1481 00c3 3A       		.uleb128 0x3a
+ 1482 00c4 0B       		.uleb128 0xb
+ 1483 00c5 3B       		.uleb128 0x3b
+ 1484 00c6 0B       		.uleb128 0xb
+ 1485 00c7 27       		.uleb128 0x27
+ 1486 00c8 19       		.uleb128 0x19
+ 1487 00c9 49       		.uleb128 0x49
+ 1488 00ca 13       		.uleb128 0x13
+ 1489 00cb 8701     		.uleb128 0x87
+ 1490 00cd 19       		.uleb128 0x19
+ 1491 00ce 11       		.uleb128 0x11
+ 1492 00cf 01       		.uleb128 0x1
+ 1493 00d0 12       		.uleb128 0x12
+ 1494 00d1 06       		.uleb128 0x6
+ 1495 00d2 40       		.uleb128 0x40
+ 1496 00d3 18       		.uleb128 0x18
+ 1497 00d4 9742     		.uleb128 0x2117
+ 1498 00d6 19       		.uleb128 0x19
+ 1499 00d7 01       		.uleb128 0x1
+ 1500 00d8 13       		.uleb128 0x13
+ 1501 00d9 00       		.byte	0
+ 1502 00da 00       		.byte	0
+ 1503 00db 10       		.uleb128 0x10
+ 1504 00dc 34       		.uleb128 0x34
+ 1505 00dd 00       		.byte	0
+ 1506 00de 03       		.uleb128 0x3
+ 1507 00df 0E       		.uleb128 0xe
+ 1508 00e0 3A       		.uleb128 0x3a
+ 1509 00e1 0B       		.uleb128 0xb
+ 1510 00e2 3B       		.uleb128 0x3b
+ 1511 00e3 0B       		.uleb128 0xb
+ 1512 00e4 49       		.uleb128 0x49
+ 1513 00e5 13       		.uleb128 0x13
+ 1514 00e6 02       		.uleb128 0x2
+ 1515 00e7 18       		.uleb128 0x18
+ 1516 00e8 00       		.byte	0
+ 1517 00e9 00       		.byte	0
+ 1518 00ea 11       		.uleb128 0x11
+ 1519 00eb 34       		.uleb128 0x34
+ 1520 00ec 00       		.byte	0
+ 1521 00ed 03       		.uleb128 0x3
+ 1522 00ee 0E       		.uleb128 0xe
+ 1523 00ef 3A       		.uleb128 0x3a
+ 1524 00f0 0B       		.uleb128 0xb
+ 1525 00f1 3B       		.uleb128 0x3b
+ 1526 00f2 05       		.uleb128 0x5
+ 1527 00f3 49       		.uleb128 0x49
+ 1528 00f4 13       		.uleb128 0x13
+ 1529 00f5 3F       		.uleb128 0x3f
+ 1530 00f6 19       		.uleb128 0x19
+ 1531 00f7 3C       		.uleb128 0x3c
+ 1532 00f8 19       		.uleb128 0x19
+ 1533 00f9 00       		.byte	0
+ 1534 00fa 00       		.byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 32
+
+
+ 1535 00fb 12       		.uleb128 0x12
+ 1536 00fc 34       		.uleb128 0x34
+ 1537 00fd 00       		.byte	0
+ 1538 00fe 03       		.uleb128 0x3
+ 1539 00ff 0E       		.uleb128 0xe
+ 1540 0100 3A       		.uleb128 0x3a
+ 1541 0101 0B       		.uleb128 0xb
+ 1542 0102 3B       		.uleb128 0x3b
+ 1543 0103 0B       		.uleb128 0xb
+ 1544 0104 49       		.uleb128 0x49
+ 1545 0105 13       		.uleb128 0x13
+ 1546 0106 3F       		.uleb128 0x3f
+ 1547 0107 19       		.uleb128 0x19
+ 1548 0108 02       		.uleb128 0x2
+ 1549 0109 18       		.uleb128 0x18
+ 1550 010a 00       		.byte	0
+ 1551 010b 00       		.byte	0
+ 1552 010c 13       		.uleb128 0x13
+ 1553 010d 2E       		.uleb128 0x2e
+ 1554 010e 00       		.byte	0
+ 1555 010f 3F       		.uleb128 0x3f
+ 1556 0110 19       		.uleb128 0x19
+ 1557 0111 3C       		.uleb128 0x3c
+ 1558 0112 19       		.uleb128 0x19
+ 1559 0113 6E       		.uleb128 0x6e
+ 1560 0114 0E       		.uleb128 0xe
+ 1561 0115 03       		.uleb128 0x3
+ 1562 0116 0E       		.uleb128 0xe
+ 1563 0117 3A       		.uleb128 0x3a
+ 1564 0118 0B       		.uleb128 0xb
+ 1565 0119 3B       		.uleb128 0x3b
+ 1566 011a 0B       		.uleb128 0xb
+ 1567 011b 00       		.byte	0
+ 1568 011c 00       		.byte	0
+ 1569 011d 00       		.byte	0
+ 1570              		.section	.debug_loc,"",%progbits
+ 1571              	.Ldebug_loc0:
+ 1572              	.LLST0:
+ 1573 0000 00000000 		.4byte	.LVL6
+ 1574 0004 04000000 		.4byte	.LVL7
+ 1575 0008 0100     		.2byte	0x1
+ 1576 000a 50       		.byte	0x50
+ 1577 000b 04000000 		.4byte	.LVL7
+ 1578 000f 90000000 		.4byte	.LFE67
+ 1579 0013 0400     		.2byte	0x4
+ 1580 0015 F3       		.byte	0xf3
+ 1581 0016 01       		.uleb128 0x1
+ 1582 0017 50       		.byte	0x50
+ 1583 0018 9F       		.byte	0x9f
+ 1584 0019 00000000 		.4byte	0
+ 1585 001d 00000000 		.4byte	0
+ 1586              	.LLST1:
+ 1587 0021 86000000 		.4byte	.LVL16
+ 1588 0025 8A000000 		.4byte	.LVL17
+ 1589 0029 0200     		.2byte	0x2
+ 1590 002b 30       		.byte	0x30
+ 1591 002c 9F       		.byte	0x9f
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 33
+
+
+ 1592 002d 8A000000 		.4byte	.LVL17
+ 1593 0031 8D000000 		.4byte	.LVL18-1
+ 1594 0035 0100     		.2byte	0x1
+ 1595 0037 50       		.byte	0x50
+ 1596 0038 00000000 		.4byte	0
+ 1597 003c 00000000 		.4byte	0
+ 1598              	.LLST2:
+ 1599 0040 08000000 		.4byte	.LVL20
+ 1600 0044 1C000000 		.4byte	.LVL25
+ 1601 0048 0100     		.2byte	0x1
+ 1602 004a 54       		.byte	0x54
+ 1603 004b 1E000000 		.4byte	.LVL26
+ 1604 004f 24000000 		.4byte	.LFE66
+ 1605 0053 0100     		.2byte	0x1
+ 1606 0055 54       		.byte	0x54
+ 1607 0056 00000000 		.4byte	0
+ 1608 005a 00000000 		.4byte	0
+ 1609              	.LLST3:
+ 1610 005e 10000000 		.4byte	.LVL22
+ 1611 0062 1E000000 		.4byte	.LVL26
+ 1612 0066 0100     		.2byte	0x1
+ 1613 0068 55       		.byte	0x55
+ 1614 0069 00000000 		.4byte	0
+ 1615 006d 00000000 		.4byte	0
+ 1616              		.section	.debug_aranges,"",%progbits
+ 1617 0000 3C000000 		.4byte	0x3c
+ 1618 0004 0200     		.2byte	0x2
+ 1619 0006 00000000 		.4byte	.Ldebug_info0
+ 1620 000a 04       		.byte	0x4
+ 1621 000b 00       		.byte	0
+ 1622 000c 0000     		.2byte	0
+ 1623 000e 0000     		.2byte	0
+ 1624 0010 00000000 		.4byte	.LFB64
+ 1625 0014 1C000000 		.4byte	.LFE64-.LFB64
+ 1626 0018 00000000 		.4byte	.LFB65
+ 1627 001c 44000000 		.4byte	.LFE65-.LFB65
+ 1628 0020 00000000 		.4byte	.LFB67
+ 1629 0024 90000000 		.4byte	.LFE67-.LFB67
+ 1630 0028 00000000 		.4byte	.LFB66
+ 1631 002c 24000000 		.4byte	.LFE66-.LFB66
+ 1632 0030 00000000 		.4byte	.LFB68
+ 1633 0034 E8000000 		.4byte	.LFE68-.LFB68
+ 1634 0038 00000000 		.4byte	0
+ 1635 003c 00000000 		.4byte	0
+ 1636              		.section	.debug_ranges,"",%progbits
+ 1637              	.Ldebug_ranges0:
+ 1638 0000 00000000 		.4byte	.LFB64
+ 1639 0004 1C000000 		.4byte	.LFE64
+ 1640 0008 00000000 		.4byte	.LFB65
+ 1641 000c 44000000 		.4byte	.LFE65
+ 1642 0010 00000000 		.4byte	.LFB67
+ 1643 0014 90000000 		.4byte	.LFE67
+ 1644 0018 00000000 		.4byte	.LFB66
+ 1645 001c 24000000 		.4byte	.LFE66
+ 1646 0020 00000000 		.4byte	.LFB68
+ 1647 0024 E8000000 		.4byte	.LFE68
+ 1648 0028 00000000 		.4byte	0
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 34
+
+
+ 1649 002c 00000000 		.4byte	0
+ 1650              		.section	.debug_line,"",%progbits
+ 1651              	.Ldebug_line0:
+ 1652 0000 C1020000 		.section	.debug_str,"MS",%progbits,1
+ 1652      02001D02 
+ 1652      00000201 
+ 1652      FB0E0D00 
+ 1652      01010101 
+ 1653              	.LASF34:
+ 1654 0000 5350495F 		.ascii	"SPI_Slave_ReadRxData\000"
+ 1654      536C6176 
+ 1654      655F5265 
+ 1654      61645278 
+ 1654      44617461 
+ 1655              	.LASF60:
+ 1656 0015 4144435F 		.ascii	"ADC_SAR_B_Start\000"
+ 1656      5341525F 
+ 1656      425F5374 
+ 1656      61727400 
+ 1657              	.LASF3:
+ 1658 0025 5F5F696E 		.ascii	"__int16_t\000"
+ 1658      7431365F 
+ 1658      7400
+ 1659              	.LASF25:
+ 1660 002f 4953525F 		.ascii	"ISR_UART_rx_handler\000"
+ 1660      55415254 
+ 1660      5F72785F 
+ 1660      68616E64 
+ 1660      6C657200 
+ 1661              	.LASF55:
+ 1662 0043 4953525F 		.ascii	"ISR_SPI_StartEx\000"
+ 1662      5350495F 
+ 1662      53746172 
+ 1662      74457800 
+ 1663              	.LASF58:
+ 1664 0053 4144435F 		.ascii	"ADC_SAR_V_Start\000"
+ 1664      5341525F 
+ 1664      565F5374 
+ 1664      61727400 
+ 1665              	.LASF21:
+ 1666 0063 73697A65 		.ascii	"sizetype\000"
+ 1666      74797065 
+ 1666      00
+ 1667              	.LASF53:
+ 1668 006c 6973725F 		.ascii	"isr_uart_rx_StartEx\000"
+ 1668      75617274 
+ 1668      5F72785F 
+ 1668      53746172 
+ 1668      74457800 
+ 1669              	.LASF72:
+ 1670 0080 63686563 		.ascii	"checkBattery\000"
+ 1670      6B426174 
+ 1670      74657279 
+ 1670      00
+ 1671              	.LASF76:
+ 1672 008d 6D61696E 		.ascii	"main\000"
+ 1672      00
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 35
+
+
+ 1673              	.LASF4:
+ 1674 0092 73686F72 		.ascii	"short int\000"
+ 1674      7420696E 
+ 1674      7400
+ 1675              	.LASF62:
+ 1676 009c 50574D5F 		.ascii	"PWM_M1_Start\000"
+ 1676      4D315F53 
+ 1676      74617274 
+ 1676      00
+ 1677              	.LASF65:
+ 1678 00a9 50574D5F 		.ascii	"PWM_M4_Start\000"
+ 1678      4D345F53 
+ 1678      74617274 
+ 1678      00
+ 1679              	.LASF70:
+ 1680 00b6 6973725F 		.ascii	"isr_1_ClearPending\000"
+ 1680      315F436C 
+ 1680      65617250 
+ 1680      656E6469 
+ 1680      6E6700
+ 1681              	.LASF45:
+ 1682 00c9 64726976 		.ascii	"driveBackwards\000"
+ 1682      65426163 
+ 1682      6B776172 
+ 1682      647300
+ 1683              	.LASF31:
+ 1684 00d8 73656E73 		.ascii	"sensor\000"
+ 1684      6F7200
+ 1685              	.LASF69:
+ 1686 00df 50574D5F 		.ascii	"PWM_M3_WriteCompare\000"
+ 1686      4D335F57 
+ 1686      72697465 
+ 1686      436F6D70 
+ 1686      61726500 
+ 1687              	.LASF15:
+ 1688 00f3 75696E74 		.ascii	"uint8\000"
+ 1688      3800
+ 1689              	.LASF64:
+ 1690 00f9 50574D5F 		.ascii	"PWM_M3_Start\000"
+ 1690      4D335F53 
+ 1690      74617274 
+ 1690      00
+ 1691              	.LASF56:
+ 1692 0106 55415254 		.ascii	"UART_1_Start\000"
+ 1692      5F315F53 
+ 1692      74617274 
+ 1692      00
+ 1693              	.LASF49:
+ 1694 0113 4144435F 		.ascii	"ADC_SAR_V_IsEndConversion\000"
+ 1694      5341525F 
+ 1694      565F4973 
+ 1694      456E6443 
+ 1694      6F6E7665 
+ 1695              	.LASF28:
+ 1696 012d 62797465 		.ascii	"byteReceived\000"
+ 1696      52656365 
+ 1696      69766564 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 36
+
+
+ 1696      00
+ 1697              	.LASF16:
+ 1698 013a 666C6F61 		.ascii	"float\000"
+ 1698      7400
+ 1699              	.LASF37:
+ 1700 0140 50696E5F 		.ascii	"Pin_1_Read\000"
+ 1700      315F5265 
+ 1700      616400
+ 1701              	.LASF9:
+ 1702 014b 6C6F6E67 		.ascii	"long long int\000"
+ 1702      206C6F6E 
+ 1702      6720696E 
+ 1702      7400
+ 1703              	.LASF33:
+ 1704 0159 696E7446 		.ascii	"intFlag\000"
+ 1704      6C616700 
+ 1705              	.LASF7:
+ 1706 0161 6C6F6E67 		.ascii	"long int\000"
+ 1706      20696E74 
+ 1706      00
+ 1707              	.LASF26:
+ 1708 016a 6F666673 		.ascii	"offset\000"
+ 1708      657400
+ 1709              	.LASF2:
+ 1710 0171 5F5F7569 		.ascii	"__uint8_t\000"
+ 1710      6E74385F 
+ 1710      7400
+ 1711              	.LASF57:
+ 1712 017b 5350495F 		.ascii	"SPI_Slave_Start\000"
+ 1712      536C6176 
+ 1712      655F5374 
+ 1712      61727400 
+ 1713              	.LASF54:
+ 1714 018b 6973725F 		.ascii	"isr_1_StartEx\000"
+ 1714      315F5374 
+ 1714      61727445 
+ 1714      7800
+ 1715              	.LASF24:
+ 1716 0199 68616E64 		.ascii	"handleByteReceived\000"
+ 1716      6C654279 
+ 1716      74655265 
+ 1716      63656976 
+ 1716      656400
+ 1717              	.LASF44:
+ 1718 01ac 64726976 		.ascii	"driveForwards\000"
+ 1718      65466F72 
+ 1718      77617264 
+ 1718      7300
+ 1719              	.LASF20:
+ 1720 01ba 6C6F6E67 		.ascii	"long double\000"
+ 1720      20646F75 
+ 1720      626C6500 
+ 1721              	.LASF1:
+ 1722 01c6 756E7369 		.ascii	"unsigned char\000"
+ 1722      676E6564 
+ 1722      20636861 
+ 1722      7200
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 37
+
+
+ 1723              	.LASF47:
+ 1724 01d4 7475726E 		.ascii	"turnLeft\000"
+ 1724      4C656674 
+ 1724      00
+ 1725              	.LASF35:
+ 1726 01dd 5350495F 		.ascii	"SPI_Slave_ClearRxBuffer\000"
+ 1726      536C6176 
+ 1726      655F436C 
+ 1726      65617252 
+ 1726      78427566 
+ 1727              	.LASF0:
+ 1728 01f5 7369676E 		.ascii	"signed char\000"
+ 1728      65642063 
+ 1728      68617200 
+ 1729              	.LASF10:
+ 1730 0201 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1730      206C6F6E 
+ 1730      6720756E 
+ 1730      7369676E 
+ 1730      65642069 
+ 1731              	.LASF68:
+ 1732 0218 50574D5F 		.ascii	"PWM_M1_WriteCompare\000"
+ 1732      4D315F57 
+ 1732      72697465 
+ 1732      436F6D70 
+ 1732      61726500 
+ 1733              	.LASF22:
+ 1734 022c 4953525F 		.ascii	"ISR_SPI\000"
+ 1734      53504900 
+ 1735              	.LASF11:
+ 1736 0234 756E7369 		.ascii	"unsigned int\000"
+ 1736      676E6564 
+ 1736      20696E74 
+ 1736      00
+ 1737              	.LASF75:
+ 1738 0241 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 1738      73657273 
+ 1738      5C6C6172 
+ 1738      73686F6C 
+ 1738      6D39325C 
+ 1739 026f 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\PSoC_SW_NOT_TESTED\\DC-Moto"
+ 1739      656B7467 
+ 1739      72757070 
+ 1739      6531365C 
+ 1739      49335052 
+ 1740 029f 722D5057 		.ascii	"r-PWM.cydsn\000"
+ 1740      4D2E6379 
+ 1740      64736E00 
+ 1741              	.LASF29:
+ 1742 02ab 73656E73 		.ascii	"sensorPushed\000"
+ 1742      6F725075 
+ 1742      73686564 
+ 1742      00
+ 1743              	.LASF43:
+ 1744 02b8 696E6372 		.ascii	"increaseSpeed\000"
+ 1744      65617365 
+ 1744      53706565 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 38
+
+
+ 1744      6400
+ 1745              	.LASF23:
+ 1746 02c6 73656E73 		.ascii	"sensor_ISR\000"
+ 1746      6F725F49 
+ 1746      535200
+ 1747              	.LASF39:
+ 1748 02d1 50696E5F 		.ascii	"Pin_1_ClearInterrupt\000"
+ 1748      315F436C 
+ 1748      65617249 
+ 1748      6E746572 
+ 1748      72757074 
+ 1749              	.LASF40:
+ 1750 02e6 4144435F 		.ascii	"ADC_SAR_V_GetResult16\000"
+ 1750      5341525F 
+ 1750      565F4765 
+ 1750      74526573 
+ 1750      756C7431 
+ 1751              	.LASF46:
+ 1752 02fc 73746F70 		.ascii	"stop\000"
+ 1752      00
+ 1753              	.LASF18:
+ 1754 0301 63686172 		.ascii	"char\000"
+ 1754      00
+ 1755              	.LASF14:
+ 1756 0306 696E7433 		.ascii	"int32_t\000"
+ 1756      325F7400 
+ 1757              	.LASF41:
+ 1758 030e 4144435F 		.ascii	"ADC_SAR_V_SetOffset\000"
+ 1758      5341525F 
+ 1758      565F5365 
+ 1758      744F6666 
+ 1758      73657400 
+ 1759              	.LASF13:
+ 1760 0322 696E7431 		.ascii	"int16_t\000"
+ 1760      365F7400 
+ 1761              	.LASF61:
+ 1762 032a 4144435F 		.ascii	"ADC_SAR_B_StartConvert\000"
+ 1762      5341525F 
+ 1762      425F5374 
+ 1762      61727443 
+ 1762      6F6E7665 
+ 1763              	.LASF50:
+ 1764 0341 55415254 		.ascii	"UART_1_ReadRxData\000"
+ 1764      5F315F52 
+ 1764      65616452 
+ 1764      78446174 
+ 1764      6100
+ 1765              	.LASF5:
+ 1766 0353 73686F72 		.ascii	"short unsigned int\000"
+ 1766      7420756E 
+ 1766      7369676E 
+ 1766      65642069 
+ 1766      6E7400
+ 1767              	.LASF63:
+ 1768 0366 50574D5F 		.ascii	"PWM_M2_Start\000"
+ 1768      4D325F53 
+ 1768      74617274 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 39
+
+
+ 1768      00
+ 1769              	.LASF74:
+ 1770 0373 6D61696E 		.ascii	"main.c\000"
+ 1770      2E6300
+ 1771              	.LASF19:
+ 1772 037a 72656738 		.ascii	"reg8\000"
+ 1772      00
+ 1773              	.LASF8:
+ 1774 037f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1774      20756E73 
+ 1774      69676E65 
+ 1774      6420696E 
+ 1774      7400
+ 1775              	.LASF27:
+ 1776 0391 62797465 		.ascii	"bytesToRead\000"
+ 1776      73546F52 
+ 1776      65616400 
+ 1777              	.LASF52:
+ 1778 039d 55415254 		.ascii	"UART_1_GetRxBufferSize\000"
+ 1778      5F315F47 
+ 1778      65745278 
+ 1778      42756666 
+ 1778      65725369 
+ 1779              	.LASF17:
+ 1780 03b4 646F7562 		.ascii	"double\000"
+ 1780      6C6500
+ 1781              	.LASF38:
+ 1782 03bb 55415254 		.ascii	"UART_1_PutString\000"
+ 1782      5F315F50 
+ 1782      75745374 
+ 1782      72696E67 
+ 1782      00
+ 1783              	.LASF59:
+ 1784 03cc 4144435F 		.ascii	"ADC_SAR_V_StartConvert\000"
+ 1784      5341525F 
+ 1784      565F5374 
+ 1784      61727443 
+ 1784      6F6E7665 
+ 1785              	.LASF51:
+ 1786 03e3 55415254 		.ascii	"UART_1_WriteTxData\000"
+ 1786      5F315F57 
+ 1786      72697465 
+ 1786      54784461 
+ 1786      746100
+ 1787              	.LASF32:
+ 1788 03f6 72656365 		.ascii	"received\000"
+ 1788      69766564 
+ 1788      00
+ 1789              	.LASF36:
+ 1790 03ff 5350495F 		.ascii	"SPI_Slave_ClearFIFO\000"
+ 1790      536C6176 
+ 1790      655F436C 
+ 1790      65617246 
+ 1790      49464F00 
+ 1791              	.LASF6:
+ 1792 0413 5F5F696E 		.ascii	"__int32_t\000"
+ 1792      7433325F 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccXj1XmK.s 			page 40
+
+
+ 1792      7400
+ 1793              	.LASF12:
+ 1794 041d 75696E74 		.ascii	"uint8_t\000"
+ 1794      385F7400 
+ 1795              	.LASF48:
+ 1796 0425 7475726E 		.ascii	"turnRight\000"
+ 1796      52696768 
+ 1796      7400
+ 1797              	.LASF66:
+ 1798 042f 50574D5F 		.ascii	"PWM_P_Start\000"
+ 1798      505F5374 
+ 1798      61727400 
+ 1799              	.LASF30:
+ 1800 043b 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1800      52784275 
+ 1800      66666572 
+ 1800      00
+ 1801              	.LASF73:
+ 1802 0448 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1802      43313120 
+ 1802      352E342E 
+ 1802      31203230 
+ 1802      31363036 
+ 1803 047b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1803      20726576 
+ 1803      6973696F 
+ 1803      6E203233 
+ 1803      37373135 
+ 1804 04ae 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1804      66756E63 
+ 1804      74696F6E 
+ 1804      2D736563 
+ 1804      74696F6E 
+ 1805              	.LASF71:
+ 1806 04d6 43794465 		.ascii	"CyDelay\000"
+ 1806      6C617900 
+ 1807              	.LASF67:
+ 1808 04de 50574D5F 		.ascii	"PWM_P_WriteCompare\000"
+ 1808      505F5772 
+ 1808      69746543 
+ 1808      6F6D7061 
+ 1808      726500
+ 1809              	.LASF42:
+ 1810 04f1 64656372 		.ascii	"decreaseSpeed\000"
+ 1810      65617365 
+ 1810      53706565 
+ 1810      6400
+ 1811              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 1
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
   28:Generated_Source\PSoC5/Pin_PWM_P.c **** *
   29:Generated_Source\PSoC5/Pin_PWM_P.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/Pin_PWM_P.c **** *  and shifting the bits appropriately. 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 2
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 2
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   31:Generated_Source\PSoC5/Pin_PWM_P.c **** *
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
   52              		.size	Pin_PWM_P_Write, .-Pin_PWM_P_Write
   53              		.section	.text.Pin_PWM_P_SetDriveMode,"ax",%progbits
   54              		.align	2
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 3
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 3
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   55              		.global	Pin_PWM_P_SetDriveMode
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
   77 0012 00BF     		.align	2
   78              	.L5:
   79 0014 03500040 		.word	1073762307
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 4
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 4
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   80              		.cfi_endproc
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  110              		.align	2
  111              		.global	Pin_PWM_P_ReadDataReg
  112              		.thumb
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 5
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 5
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  113              		.thumb_func
@@ -298,15 +318,25 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  139              	.Ldebug_info0:
  140 0000 1B010000 		.4byte	0x11b
  141 0004 0400     		.2byte	0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 6
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 6
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  142 0006 00000000 		.4byte	.Ldebug_abbrev0
  143 000a 04       		.byte	0x4
  144 000b 01       		.uleb128 0x1
+<<<<<<< HEAD
  145 000c 97000000 		.4byte	.LASF20
  146 0010 0C       		.byte	0xc
  147 0011 03020000 		.4byte	.LASF21
+=======
+ 145 000c 9D000000 		.4byte	.LASF20
+ 146 0010 0C       		.byte	0xc
+ 147 0011 09020000 		.4byte	.LASF21
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  148 0015 00000000 		.4byte	.LASF22
  149 0019 00000000 		.4byte	.Ldebug_ranges0+0
  150 001d 00000000 		.4byte	0
@@ -314,6 +344,7 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  152 0025 02       		.uleb128 0x2
  153 0026 01       		.byte	0x1
  154 0027 06       		.byte	0x6
+<<<<<<< HEAD
  155 0028 E7010000 		.4byte	.LASF0
  156 002c 02       		.uleb128 0x2
  157 002d 01       		.byte	0x1
@@ -343,6 +374,37 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  181 0057 08       		.byte	0x8
  182 0058 07       		.byte	0x7
  183 0059 79010000 		.4byte	.LASF7
+=======
+ 155 0028 ED010000 		.4byte	.LASF0
+ 156 002c 02       		.uleb128 0x2
+ 157 002d 01       		.byte	0x1
+ 158 002e 08       		.byte	0x8
+ 159 002f 8F000000 		.4byte	.LASF1
+ 160 0033 02       		.uleb128 0x2
+ 161 0034 02       		.byte	0x2
+ 162 0035 05       		.byte	0x5
+ 163 0036 C5010000 		.4byte	.LASF2
+ 164 003a 02       		.uleb128 0x2
+ 165 003b 02       		.byte	0x2
+ 166 003c 07       		.byte	0x7
+ 167 003d 42010000 		.4byte	.LASF3
+ 168 0041 02       		.uleb128 0x2
+ 169 0042 04       		.byte	0x4
+ 170 0043 05       		.byte	0x5
+ 171 0044 E4010000 		.4byte	.LASF4
+ 172 0048 02       		.uleb128 0x2
+ 173 0049 04       		.byte	0x4
+ 174 004a 07       		.byte	0x7
+ 175 004b 30010000 		.4byte	.LASF5
+ 176 004f 02       		.uleb128 0x2
+ 177 0050 08       		.byte	0x8
+ 178 0051 05       		.byte	0x5
+ 179 0052 B2010000 		.4byte	.LASF6
+ 180 0056 02       		.uleb128 0x2
+ 181 0057 08       		.byte	0x8
+ 182 0058 07       		.byte	0x7
+ 183 0059 7F010000 		.4byte	.LASF7
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  184 005d 03       		.uleb128 0x3
  185 005e 04       		.byte	0x4
  186 005f 05       		.byte	0x5
@@ -350,14 +412,21 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  188 0064 02       		.uleb128 0x2
  189 0065 04       		.byte	0x4
  190 0066 07       		.byte	0x7
+<<<<<<< HEAD
  191 0067 6C010000 		.4byte	.LASF8
  192 006b 04       		.uleb128 0x4
  193 006c C9010000 		.4byte	.LASF12
+=======
+ 191 0067 72010000 		.4byte	.LASF8
+ 192 006b 04       		.uleb128 0x4
+ 193 006c CF010000 		.4byte	.LASF12
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  194 0070 02       		.byte	0x2
  195 0071 9201     		.2byte	0x192
  196 0073 2C000000 		.4byte	0x2c
  197 0077 02       		.uleb128 0x2
  198 0078 04       		.byte	0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 7
 
 
@@ -373,13 +442,34 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  208 0088 BA010000 		.4byte	.LASF11
  209 008c 04       		.uleb128 0x4
  210 008d 25010000 		.4byte	.LASF13
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 7
+
+
+ 199 0079 04       		.byte	0x4
+ 200 007a 89000000 		.4byte	.LASF9
+ 201 007e 02       		.uleb128 0x2
+ 202 007f 08       		.byte	0x8
+ 203 0080 04       		.byte	0x4
+ 204 0081 55010000 		.4byte	.LASF10
+ 205 0085 02       		.uleb128 0x2
+ 206 0086 01       		.byte	0x1
+ 207 0087 08       		.byte	0x8
+ 208 0088 C0010000 		.4byte	.LASF11
+ 209 008c 04       		.uleb128 0x4
+ 210 008d 2B010000 		.4byte	.LASF13
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  211 0091 02       		.byte	0x2
  212 0092 3C02     		.2byte	0x23c
  213 0094 98000000 		.4byte	0x98
  214 0098 05       		.uleb128 0x5
  215 0099 6B000000 		.4byte	0x6b
  216 009d 06       		.uleb128 0x6
+<<<<<<< HEAD
  217 009e F3010000 		.4byte	.LASF14
+=======
+ 217 009e F9010000 		.4byte	.LASF14
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  218 00a2 01       		.byte	0x1
  219 00a3 39       		.byte	0x39
  220 00a4 00000000 		.4byte	.LFB0
@@ -388,13 +478,21 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  223 00ad 9C       		.byte	0x9c
  224 00ae CF000000 		.4byte	0xcf
  225 00b2 07       		.uleb128 0x7
+<<<<<<< HEAD
  226 00b3 72000000 		.4byte	.LASF16
+=======
+ 226 00b3 78000000 		.4byte	.LASF16
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  227 00b7 01       		.byte	0x1
  228 00b8 39       		.byte	0x39
  229 00b9 6B000000 		.4byte	0x6b
  230 00bd 00000000 		.4byte	.LLST0
  231 00c1 08       		.uleb128 0x8
+<<<<<<< HEAD
  232 00c2 78000000 		.4byte	.LASF23
+=======
+ 232 00c2 7E000000 		.4byte	.LASF23
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  233 00c6 01       		.byte	0x1
  234 00c7 3B       		.byte	0x3b
  235 00c8 6B000000 		.4byte	0x6b
@@ -402,7 +500,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  237 00cd 53       		.byte	0x53
  238 00ce 00       		.byte	0
  239 00cf 06       		.uleb128 0x6
+<<<<<<< HEAD
  240 00d0 95010000 		.4byte	.LASF15
+=======
+ 240 00d0 9B010000 		.4byte	.LASF15
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  241 00d4 01       		.byte	0x1
  242 00d5 5A       		.byte	0x5a
  243 00d6 00000000 		.4byte	.LFB1
@@ -411,17 +513,28 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  246 00df 9C       		.byte	0x9c
  247 00e0 F4000000 		.4byte	0xf4
  248 00e4 07       		.uleb128 0x7
+<<<<<<< HEAD
  249 00e5 90010000 		.4byte	.LASF17
+=======
+ 249 00e5 96010000 		.4byte	.LASF17
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  250 00e9 01       		.byte	0x1
  251 00ea 5A       		.byte	0x5a
  252 00eb 6B000000 		.4byte	0x6b
  253 00ef 21000000 		.4byte	.LLST1
  254 00f3 00       		.byte	0
  255 00f4 09       		.uleb128 0x9
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 8
 
 
  256 00f5 CF010000 		.4byte	.LASF18
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 8
+
+
+ 256 00f5 D5010000 		.4byte	.LASF18
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  257 00f9 01       		.byte	0x1
  258 00fa 71       		.byte	0x71
  259 00fb 6B000000 		.4byte	0x6b
@@ -430,7 +543,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  262 0107 01       		.uleb128 0x1
  263 0108 9C       		.byte	0x9c
  264 0109 09       		.uleb128 0x9
+<<<<<<< HEAD
  265 010a 56010000 		.4byte	.LASF19
+=======
+ 265 010a 5C010000 		.4byte	.LASF19
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  266 010e 01       		.byte	0x1
  267 010f 8D       		.byte	0x8d
  268 0110 6B000000 		.4byte	0x6b
@@ -478,7 +595,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  310 0022 0B       		.uleb128 0xb
  311 0023 3E       		.uleb128 0x3e
  312 0024 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 9
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 9
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  313 0025 03       		.uleb128 0x3
@@ -538,7 +659,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  367 005c 3A       		.uleb128 0x3a
  368 005d 0B       		.uleb128 0xb
  369 005e 3B       		.uleb128 0x3b
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 10
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 10
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  370 005f 0B       		.uleb128 0xb
@@ -598,7 +723,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  424 000a 50       		.byte	0x50
  425 000b 0A000000 		.4byte	.LVL2
  426 000f 18000000 		.4byte	.LFE0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 11
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 11
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  427 0013 0400     		.2byte	0x4
@@ -658,11 +787,16 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  480      02004600 
  480      00000201 
  480      FB0E0D00 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 12
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 12
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  480      01010101 
  481              	.LASF22:
+<<<<<<< HEAD
  482 0000 433A5C55 		.ascii	"C:\\Users\\Parwe\\Desktop\\IKT\\3. Semester\\Semest"
  482      73657273 
  482      5C506172 
@@ -690,78 +824,161 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  490      7400
  491              	.LASF1:
  492 0089 756E7369 		.ascii	"unsigned char\000"
+=======
+ 482 0000 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 482      73657273 
+ 482      5C6C6172 
+ 482      73686F6C 
+ 482      6D39325C 
+ 483 002e 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\Motorcontrol\\03_DC_Motor_C"
+ 483      656B7467 
+ 483      72757070 
+ 483      6531365C 
+ 483      49335052 
+ 484 005e 6F6E7472 		.ascii	"ontrol\\DC-Motor-PWM.cydsn\000"
+ 484      6F6C5C44 
+ 484      432D4D6F 
+ 484      746F722D 
+ 484      50574D2E 
+ 485              	.LASF16:
+ 486 0078 76616C75 		.ascii	"value\000"
+ 486      6500
+ 487              	.LASF23:
+ 488 007e 73746174 		.ascii	"staticBits\000"
+ 488      69634269 
+ 488      747300
+ 489              	.LASF9:
+ 490 0089 666C6F61 		.ascii	"float\000"
+ 490      7400
+ 491              	.LASF1:
+ 492 008f 756E7369 		.ascii	"unsigned char\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  492      676E6564 
  492      20636861 
  492      7200
  493              	.LASF20:
+<<<<<<< HEAD
  494 0097 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+=======
+ 494 009d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  494      43313120 
  494      352E342E 
  494      31203230 
  494      31363036 
+<<<<<<< HEAD
  495 00ca 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+=======
+ 495 00d0 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  495      20726576 
  495      6973696F 
  495      6E203233 
  495      37373135 
+<<<<<<< HEAD
  496 00fd 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+=======
+ 496 0103 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  496      66756E63 
  496      74696F6E 
  496      2D736563 
  496      74696F6E 
  497              	.LASF13:
+<<<<<<< HEAD
  498 0125 72656738 		.ascii	"reg8\000"
  498      00
  499              	.LASF5:
  500 012a 6C6F6E67 		.ascii	"long unsigned int\000"
+=======
+ 498 012b 72656738 		.ascii	"reg8\000"
+ 498      00
+ 499              	.LASF5:
+ 500 0130 6C6F6E67 		.ascii	"long unsigned int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  500      20756E73 
  500      69676E65 
  500      6420696E 
  500      7400
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 13
 
 
  501              	.LASF3:
  502 013c 73686F72 		.ascii	"short unsigned int\000"
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 13
+
+
+ 501              	.LASF3:
+ 502 0142 73686F72 		.ascii	"short unsigned int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  502      7420756E 
  502      7369676E 
  502      65642069 
  502      6E7400
  503              	.LASF10:
+<<<<<<< HEAD
  504 014f 646F7562 		.ascii	"double\000"
  504      6C6500
  505              	.LASF19:
  506 0156 50696E5F 		.ascii	"Pin_PWM_P_ReadDataReg\000"
+=======
+ 504 0155 646F7562 		.ascii	"double\000"
+ 504      6C6500
+ 505              	.LASF19:
+ 506 015c 50696E5F 		.ascii	"Pin_PWM_P_ReadDataReg\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  506      50574D5F 
  506      505F5265 
  506      61644461 
  506      74615265 
  507              	.LASF8:
+<<<<<<< HEAD
  508 016c 756E7369 		.ascii	"unsigned int\000"
+=======
+ 508 0172 756E7369 		.ascii	"unsigned int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  508      676E6564 
  508      20696E74 
  508      00
  509              	.LASF7:
+<<<<<<< HEAD
  510 0179 6C6F6E67 		.ascii	"long long unsigned int\000"
+=======
+ 510 017f 6C6F6E67 		.ascii	"long long unsigned int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  510      206C6F6E 
  510      6720756E 
  510      7369676E 
  510      65642069 
  511              	.LASF17:
+<<<<<<< HEAD
  512 0190 6D6F6465 		.ascii	"mode\000"
  512      00
  513              	.LASF15:
  514 0195 50696E5F 		.ascii	"Pin_PWM_P_SetDriveMode\000"
+=======
+ 512 0196 6D6F6465 		.ascii	"mode\000"
+ 512      00
+ 513              	.LASF15:
+ 514 019b 50696E5F 		.ascii	"Pin_PWM_P_SetDriveMode\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  514      50574D5F 
  514      505F5365 
  514      74447269 
  514      76654D6F 
  515              	.LASF6:
+<<<<<<< HEAD
  516 01ac 6C6F6E67 		.ascii	"long long int\000"
+=======
+ 516 01b2 6C6F6E67 		.ascii	"long long int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  516      206C6F6E 
  516      6720696E 
  516      7400
  517              	.LASF11:
+<<<<<<< HEAD
  518 01ba 63686172 		.ascii	"char\000"
  518      00
  519              	.LASF2:
@@ -773,27 +990,57 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 1
  522      3800
  523              	.LASF18:
  524 01cf 50696E5F 		.ascii	"Pin_PWM_P_Read\000"
+=======
+ 518 01c0 63686172 		.ascii	"char\000"
+ 518      00
+ 519              	.LASF2:
+ 520 01c5 73686F72 		.ascii	"short int\000"
+ 520      7420696E 
+ 520      7400
+ 521              	.LASF12:
+ 522 01cf 75696E74 		.ascii	"uint8\000"
+ 522      3800
+ 523              	.LASF18:
+ 524 01d5 50696E5F 		.ascii	"Pin_PWM_P_Read\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  524      50574D5F 
  524      505F5265 
  524      616400
  525              	.LASF4:
+<<<<<<< HEAD
  526 01de 6C6F6E67 		.ascii	"long int\000"
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\cciukPcd.s 			page 14
+=======
+ 526 01e4 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccPGH77W.s 			page 14
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  526      20696E74 
  526      00
  527              	.LASF0:
+<<<<<<< HEAD
  528 01e7 7369676E 		.ascii	"signed char\000"
  528      65642063 
  528      68617200 
  529              	.LASF14:
  530 01f3 50696E5F 		.ascii	"Pin_PWM_P_Write\000"
+=======
+ 528 01ed 7369676E 		.ascii	"signed char\000"
+ 528      65642063 
+ 528      68617200 
+ 529              	.LASF14:
+ 530 01f9 50696E5F 		.ascii	"Pin_PWM_P_Write\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  530      50574D5F 
  530      505F5772 
  530      69746500 
  531              	.LASF21:
+<<<<<<< HEAD
  532 0203 47656E65 		.ascii	"Generated_Source\\PSoC5\\Pin_PWM_P.c\000"
+=======
+ 532 0209 47656E65 		.ascii	"Generated_Source\\PSoC5\\Pin_PWM_P.c\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  532      72617465 
  532      645F536F 
  532      75726365 

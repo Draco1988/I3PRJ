@@ -1,0 +1,7 @@
+C:\Users\chris\Documents\3. Semester\Projekt\I3PRJ\PSoC_SW_NOT_TESTED\DC-Motor-PWM.cydsn\DC-Motor-PWM.cyprj|456b797f-9c97-4e06-bda8-42294431a50e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|aa4b4ca7-7aca-40ca-aa4d-49d163bcfb2a
+C:\Users\chris\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|f541040e-f18a-47c8-bb5e-bf04ed0b9b7e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|90581467-0450-469d-882b-f090511213b3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|2117e312-08e3-4d04-8b6f-8f698fff24f9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|5675012c-9c06-4319-83e3-4e799fabcf1a
+C:\Users\chris\Documents\3. Semester\Projekt\I3PRJ\PSoC_SW_NOT_TESTED\Stepper_Motor.cydsn\Stepper_Motor.cyprj|4818cb4a-a007-41b0-b09e-fe165f84d18b

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccqrNF8W.s 			page 1
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
   28:Generated_Source\PSoC5/ADC_SAR_1_INT.c **** 
   29:Generated_Source\PSoC5/ADC_SAR_1_INT.c **** /* `#END`  */
   30:Generated_Source\PSoC5/ADC_SAR_1_INT.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 2
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccqrNF8W.s 			page 2
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   31:Generated_Source\PSoC5/ADC_SAR_1_INT.c **** #if(ADC_SAR_1_IRQ_REMOVE == 0u)
@@ -101,9 +109,15 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
   43 0006 00000000 		.4byte	.Ldebug_abbrev0
   44 000a 04       		.byte	0x4
   45 000b 01       		.uleb128 0x1
+<<<<<<< HEAD
   46 000c 86000000 		.4byte	.LASF12
   47 0010 0C       		.byte	0xc
   48 0011 77010000 		.4byte	.LASF13
+=======
+  46 000c 8C000000 		.4byte	.LASF12
+  47 0010 0C       		.byte	0xc
+  48 0011 7D010000 		.4byte	.LASF13
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
   49 0015 00000000 		.4byte	.LASF14
   50 0019 00000000 		.4byte	.Ldebug_ranges0+0
   51 001d 00000000 		.4byte	0
@@ -111,6 +125,7 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
   53 0025 02       		.uleb128 0x2
   54 0026 01       		.byte	0x1
   55 0027 06       		.byte	0x6
+<<<<<<< HEAD
   56 0028 B1010000 		.4byte	.LASF0
   57 002c 02       		.uleb128 0x2
   58 002d 01       		.byte	0x1
@@ -143,6 +158,40 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
   82 0057 08       		.byte	0x8
   83 0058 07       		.byte	0x7
   84 0059 4D010000 		.4byte	.LASF7
+=======
+  56 0028 B7010000 		.4byte	.LASF0
+  57 002c 02       		.uleb128 0x2
+  58 002d 01       		.byte	0x1
+  59 002e 08       		.byte	0x8
+  60 002f 7E000000 		.4byte	.LASF1
+  61 0033 02       		.uleb128 0x2
+  62 0034 02       		.byte	0x2
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccqrNF8W.s 			page 3
+
+
+  63 0035 05       		.byte	0x5
+  64 0036 A4010000 		.4byte	.LASF2
+  65 003a 02       		.uleb128 0x2
+  66 003b 02       		.byte	0x2
+  67 003c 07       		.byte	0x7
+  68 003d 2C010000 		.4byte	.LASF3
+  69 0041 02       		.uleb128 0x2
+  70 0042 04       		.byte	0x4
+  71 0043 05       		.byte	0x5
+  72 0044 AE010000 		.4byte	.LASF4
+  73 0048 02       		.uleb128 0x2
+  74 0049 04       		.byte	0x4
+  75 004a 07       		.byte	0x7
+  76 004b 1A010000 		.4byte	.LASF5
+  77 004f 02       		.uleb128 0x2
+  78 0050 08       		.byte	0x8
+  79 0051 05       		.byte	0x5
+  80 0052 6A010000 		.4byte	.LASF6
+  81 0056 02       		.uleb128 0x2
+  82 0057 08       		.byte	0x8
+  83 0058 07       		.byte	0x7
+  84 0059 53010000 		.4byte	.LASF7
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
   85 005d 03       		.uleb128 0x3
   86 005e 04       		.byte	0x4
   87 005f 05       		.byte	0x5
@@ -150,6 +199,7 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
   89 0064 02       		.uleb128 0x2
   90 0065 04       		.byte	0x4
   91 0066 07       		.byte	0x7
+<<<<<<< HEAD
   92 0067 40010000 		.4byte	.LASF8
   93 006b 02       		.uleb128 0x2
   94 006c 04       		.byte	0x4
@@ -165,6 +215,23 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
  104 007c 72010000 		.4byte	.LASF11
  105 0080 04       		.uleb128 0x4
  106 0081 BD010000 		.4byte	.LASF15
+=======
+  92 0067 46010000 		.4byte	.LASF8
+  93 006b 02       		.uleb128 0x2
+  94 006c 04       		.byte	0x4
+  95 006d 04       		.byte	0x4
+  96 006e 78000000 		.4byte	.LASF9
+  97 0072 02       		.uleb128 0x2
+  98 0073 08       		.byte	0x8
+  99 0074 04       		.byte	0x4
+ 100 0075 3F010000 		.4byte	.LASF10
+ 101 0079 02       		.uleb128 0x2
+ 102 007a 01       		.byte	0x1
+ 103 007b 08       		.byte	0x8
+ 104 007c 78010000 		.4byte	.LASF11
+ 105 0080 04       		.uleb128 0x4
+ 106 0081 C3010000 		.4byte	.LASF15
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  107 0085 01       		.byte	0x1
  108 0086 33       		.byte	0x33
  109 0087 00000000 		.4byte	.LFB0
@@ -178,7 +245,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
  117 0001 11       		.uleb128 0x11
  118 0002 01       		.byte	0x1
  119 0003 25       		.uleb128 0x25
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 4
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccqrNF8W.s 			page 4
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  120 0004 0E       		.uleb128 0xe
@@ -238,7 +309,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
  174 003a 40       		.uleb128 0x40
  175 003b 18       		.uleb128 0x18
  176 003c 9742     		.uleb128 0x2117
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 5
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccqrNF8W.s 			page 5
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  177 003e 19       		.uleb128 0x19
@@ -271,6 +346,7 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
  201      FB0E0D00 
  201      01010101 
  202              	.LASF14:
+<<<<<<< HEAD
  203 0000 433A5C55 		.ascii	"C:\\Users\\Parwe\\Desktop\\IKT\\3. Semester\\Semest"
  203      73657273 
  203      5C506172 
@@ -291,69 +367,137 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
  207      7400
  208              	.LASF1:
  209 0078 756E7369 		.ascii	"unsigned char\000"
+=======
+ 203 0000 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 203      73657273 
+ 203      5C6C6172 
+ 203      73686F6C 
+ 203      6D39325C 
+ 204 002e 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\Motorcontrol\\03_DC_Motor_C"
+ 204      656B7467 
+ 204      72757070 
+ 204      6531365C 
+ 204      49335052 
+ 205 005e 6F6E7472 		.ascii	"ontrol\\DC-Motor-PWM.cydsn\000"
+ 205      6F6C5C44 
+ 205      432D4D6F 
+ 205      746F722D 
+ 205      50574D2E 
+ 206              	.LASF9:
+ 207 0078 666C6F61 		.ascii	"float\000"
+ 207      7400
+ 208              	.LASF1:
+ 209 007e 756E7369 		.ascii	"unsigned char\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  209      676E6564 
  209      20636861 
  209      7200
  210              	.LASF12:
+<<<<<<< HEAD
  211 0086 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  211      43313120 
  211      352E342E 
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 6
+=======
+ 211 008c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 211      43313120 
+ 211      352E342E 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccqrNF8W.s 			page 6
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  211      31203230 
  211      31363036 
+<<<<<<< HEAD
  212 00b9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+=======
+ 212 00bf 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  212      20726576 
  212      6973696F 
  212      6E203233 
  212      37373135 
+<<<<<<< HEAD
  213 00ec 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+=======
+ 213 00f2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  213      66756E63 
  213      74696F6E 
  213      2D736563 
  213      74696F6E 
  214              	.LASF5:
+<<<<<<< HEAD
  215 0114 6C6F6E67 		.ascii	"long unsigned int\000"
+=======
+ 215 011a 6C6F6E67 		.ascii	"long unsigned int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  215      20756E73 
  215      69676E65 
  215      6420696E 
  215      7400
  216              	.LASF3:
+<<<<<<< HEAD
  217 0126 73686F72 		.ascii	"short unsigned int\000"
+=======
+ 217 012c 73686F72 		.ascii	"short unsigned int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  217      7420756E 
  217      7369676E 
  217      65642069 
  217      6E7400
  218              	.LASF10:
+<<<<<<< HEAD
  219 0139 646F7562 		.ascii	"double\000"
  219      6C6500
  220              	.LASF8:
  221 0140 756E7369 		.ascii	"unsigned int\000"
+=======
+ 219 013f 646F7562 		.ascii	"double\000"
+ 219      6C6500
+ 220              	.LASF8:
+ 221 0146 756E7369 		.ascii	"unsigned int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  221      676E6564 
  221      20696E74 
  221      00
  222              	.LASF7:
+<<<<<<< HEAD
  223 014d 6C6F6E67 		.ascii	"long long unsigned int\000"
+=======
+ 223 0153 6C6F6E67 		.ascii	"long long unsigned int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  223      206C6F6E 
  223      6720756E 
  223      7369676E 
  223      65642069 
  224              	.LASF6:
+<<<<<<< HEAD
  225 0164 6C6F6E67 		.ascii	"long long int\000"
+=======
+ 225 016a 6C6F6E67 		.ascii	"long long int\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  225      206C6F6E 
  225      6720696E 
  225      7400
  226              	.LASF11:
+<<<<<<< HEAD
  227 0172 63686172 		.ascii	"char\000"
  227      00
  228              	.LASF13:
  229 0177 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_SAR_1_INT.c\000"
+=======
+ 227 0178 63686172 		.ascii	"char\000"
+ 227      00
+ 228              	.LASF13:
+ 229 017d 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_SAR_1_INT.c\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  229      72617465 
  229      645F536F 
  229      75726365 
  229      5C50536F 
  230              	.LASF2:
+<<<<<<< HEAD
  231 019e 73686F72 		.ascii	"short int\000"
  231      7420696E 
  231      7400
@@ -370,6 +514,24 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccUOfSaS.s 			page 1
  235      68617200 
  236              	.LASF15:
  237 01bd 4144435F 		.ascii	"ADC_SAR_1_ISR\000"
+=======
+ 231 01a4 73686F72 		.ascii	"short int\000"
+ 231      7420696E 
+ 231      7400
+ 232              	.LASF4:
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\ccqrNF8W.s 			page 7
+
+
+ 233 01ae 6C6F6E67 		.ascii	"long int\000"
+ 233      20696E74 
+ 233      00
+ 234              	.LASF0:
+ 235 01b7 7369676E 		.ascii	"signed char\000"
+ 235      65642063 
+ 235      68617200 
+ 236              	.LASF15:
+ 237 01c3 4144435F 		.ascii	"ADC_SAR_1_ISR\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  237      5341525F 
  237      315F4953 
  237      5200

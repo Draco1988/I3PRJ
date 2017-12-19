@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 1
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
   29:Generated_Source\PSoC5/ADC_SAR_1.c **** static void ADC_SAR_1_CalcGain(uint8 resolution);
   30:Generated_Source\PSoC5/ADC_SAR_1.c **** 
   31:Generated_Source\PSoC5/ADC_SAR_1.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 2
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 2
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   32:Generated_Source\PSoC5/ADC_SAR_1.c **** /***************************************
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
   86:Generated_Source\PSoC5/ADC_SAR_1.c **** 
   87:Generated_Source\PSoC5/ADC_SAR_1.c **** /*******************************************************************************
   88:Generated_Source\PSoC5/ADC_SAR_1.c **** * Function Name: ADC_SAR_1_Init
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 3
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 3
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   89:Generated_Source\PSoC5/ADC_SAR_1.c **** ********************************************************************************
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  143:Generated_Source\PSoC5/ADC_SAR_1.c **** void ADC_SAR_1_Enable(void)
  144:Generated_Source\PSoC5/ADC_SAR_1.c **** {
  145:Generated_Source\PSoC5/ADC_SAR_1.c ****     uint8 tmpReg;
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 4
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 4
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  146:Generated_Source\PSoC5/ADC_SAR_1.c ****     uint8 enableInterrupts;
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  200:Generated_Source\PSoC5/ADC_SAR_1.c ****         ADC_SAR_1_SAR_CSR5_REG |= ADC_SAR_1_SAR_SEL_CSEL_DFT_CHAR;
  201:Generated_Source\PSoC5/ADC_SAR_1.c ****     #else /* for <500ksps */
  202:Generated_Source\PSoC5/ADC_SAR_1.c ****         ADC_SAR_1_SAR_CSR5_REG &= (uint8)~ADC_SAR_1_SAR_SEL_CSEL_DFT_CHAR;
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 5
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 5
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  203:Generated_Source\PSoC5/ADC_SAR_1.c ****     #endif /* ADC_SAR_1_HIGH_POWER_PULSE == 0u */
@@ -298,7 +318,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  257:Generated_Source\PSoC5/ADC_SAR_1.c ****     /* Disable the SAR ADC in Standby Power Mode */
  258:Generated_Source\PSoC5/ADC_SAR_1.c ****     ADC_SAR_1_STBY_PWRMGR_SAR_REG &= (uint8)~ADC_SAR_1_STBY_PWR_SAR_EN;
  259:Generated_Source\PSoC5/ADC_SAR_1.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 6
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 6
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  260:Generated_Source\PSoC5/ADC_SAR_1.c ****     /* This is only valid if there is an internal clock */
@@ -358,7 +382,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  314:Generated_Source\PSoC5/ADC_SAR_1.c **** *  10 ->    RES10
  315:Generated_Source\PSoC5/ADC_SAR_1.c **** *  8  ->    RES8
  316:Generated_Source\PSoC5/ADC_SAR_1.c **** *
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 7
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 7
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  317:Generated_Source\PSoC5/ADC_SAR_1.c **** * Return:
@@ -418,7 +446,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  371:Generated_Source\PSoC5/ADC_SAR_1.c **** 
  372:Generated_Source\PSoC5/ADC_SAR_1.c ****     /*******************************************************************************
  373:Generated_Source\PSoC5/ADC_SAR_1.c ****     * Function Name: ADC_SAR_1_StartConvert
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 8
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 8
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  374:Generated_Source\PSoC5/ADC_SAR_1.c ****     ********************************************************************************
@@ -478,7 +510,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  428:Generated_Source\PSoC5/ADC_SAR_1.c ****     *  Stops ADC conversion in Free Running mode.
  429:Generated_Source\PSoC5/ADC_SAR_1.c ****     *
  430:Generated_Source\PSoC5/ADC_SAR_1.c ****     * Side Effects:
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 9
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 9
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  431:Generated_Source\PSoC5/ADC_SAR_1.c ****     *  In Software Trigger sample mode, this function sets a software version of the
@@ -538,7 +574,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  485:Generated_Source\PSoC5/ADC_SAR_1.c ****     {
  486:Generated_Source\PSoC5/ADC_SAR_1.c ****         /* wait one ADC clock to let the EOC status bit release */
  487:Generated_Source\PSoC5/ADC_SAR_1.c ****         CyDelayUs(1u);
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 10
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 10
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  488:Generated_Source\PSoC5/ADC_SAR_1.c ****         /* Do the unconditional read operation of the CSR1 register to make sure the EOC bit has be
@@ -598,7 +638,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  542:Generated_Source\PSoC5/ADC_SAR_1.c **** * Global Variables:
  543:Generated_Source\PSoC5/ADC_SAR_1.c **** *  ADC_SAR_1_shift - used to convert the ADC counts to the 2s
  544:Generated_Source\PSoC5/ADC_SAR_1.c **** *  compliment form.
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 11
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 11
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  545:Generated_Source\PSoC5/ADC_SAR_1.c **** *
@@ -658,7 +702,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  599:Generated_Source\PSoC5/ADC_SAR_1.c **** *  uint8: resolution
  600:Generated_Source\PSoC5/ADC_SAR_1.c **** *
  601:Generated_Source\PSoC5/ADC_SAR_1.c **** * Return:
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 12
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 12
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  602:Generated_Source\PSoC5/ADC_SAR_1.c **** *  None.
@@ -718,7 +766,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  633:Generated_Source\PSoC5/ADC_SAR_1.c ****                  (ADC_SAR_1_DEFAULT_RANGE == ADC_SAR_1__VSSA_TO_VDDA) || \
  634:Generated_Source\PSoC5/ADC_SAR_1.c ****                  (ADC_SAR_1_DEFAULT_RANGE == ADC_SAR_1__VSSA_TO_VDAC)) )
  635:Generated_Source\PSoC5/ADC_SAR_1.c ****                 diff_zero = ADC_SAR_1_SAR_DIFF_SHIFT >> 2u;
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 13
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 13
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  636:Generated_Source\PSoC5/ADC_SAR_1.c ****             #endif /* End ADC_SAR_1_DEFAULT_RANGE */
@@ -778,7 +830,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
   78              		.loc 1 659 0
   79 003c 064A     		ldr	r2, .L9+4
   80              	.LVL7:
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 14
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 14
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
   81 003e 82FB0302 		smull	r0, r2, r2, r3
@@ -838,7 +894,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  126 000a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  127 000c 43F00203 		orr	r3, r3, #2
  128 0010 1370     		strb	r3, [r2]
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 15
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 15
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  153:Generated_Source\PSoC5/ADC_SAR_1.c **** 
@@ -898,7 +958,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  173 005c 053B     		subs	r3, r3, #5
  174 005e 1A70     		strb	r2, [r3]
  218:Generated_Source\PSoC5/ADC_SAR_1.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 16
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 16
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  175              		.loc 1 218 0
@@ -958,7 +1022,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  251:Generated_Source\PSoC5/ADC_SAR_1.c **** 
  224              		.loc 1 251 0
  225 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 17
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 17
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  226              	.LVL18:
@@ -1018,7 +1086,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  273              		.cfi_startproc
  274              		@ args = 0, pretend = 0, frame = 0
  275              		@ frame_needed = 0, uses_anonymous_args = 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 18
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 18
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  276              		@ link register save eliminated.
@@ -1078,7 +1150,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  348:Generated_Source\PSoC5/ADC_SAR_1.c ****             break;
  325              		.loc 1 348 0
  326 0012 C422     		movs	r2, #196
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 19
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 19
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  327 0014 07E0     		b	.L24
@@ -1138,7 +1214,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  373              		.loc 1 107 0
  374              		.cfi_startproc
  375              		@ args = 0, pretend = 0, frame = 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 20
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 20
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  376              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1198,7 +1278,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  424              	ADC_SAR_1_Start:
  425              	.LFB0:
   75:Generated_Source\PSoC5/ADC_SAR_1.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 21
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 21
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  426              		.loc 1 75 0
@@ -1258,7 +1342,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  474 0008 1370     		strb	r3, [r2]
  475 000a 7047     		bx	lr
  476              	.L43:
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 22
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 22
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  477              		.align	2
@@ -1318,7 +1406,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  527              		.loc 1 481 0 discriminator 2
  528 0002 074B     		ldr	r3, .L52
  529 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 23
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 23
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  530              	.LVL39:
@@ -1378,7 +1470,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  576 0006 1088     		ldrh	r0, [r2]
  577 0008 00B2     		sxth	r0, r0
  578 000a 181A     		subs	r0, r3, r0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 24
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 24
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  523:Generated_Source\PSoC5/ADC_SAR_1.c **** 
@@ -1438,7 +1534,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  628              		.thumb_func
  629              		.type	ADC_SAR_1_SetOffset, %function
  630              	ADC_SAR_1_SetOffset:
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 25
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 25
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  631              	.LFB11:
@@ -1498,7 +1598,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  691:Generated_Source\PSoC5/ADC_SAR_1.c **** *******************************************************************************/
  692:Generated_Source\PSoC5/ADC_SAR_1.c **** void ADC_SAR_1_SetGain(int16 adcGain)
  693:Generated_Source\PSoC5/ADC_SAR_1.c **** {
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 26
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 26
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  657              		.loc 1 693 0
@@ -1558,7 +1662,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  720:Generated_Source\PSoC5/ADC_SAR_1.c **** {
  685              		.loc 1 720 0
  686              		.cfi_startproc
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 27
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 27
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  687              		@ args = 0, pretend = 0, frame = 0
@@ -1618,7 +1726,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  717              		.cfi_def_cfa_offset 4
  718              		.cfi_offset 4, -4
  745:Generated_Source\PSoC5/ADC_SAR_1.c ****     int16 mVolts;
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 28
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 28
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  746:Generated_Source\PSoC5/ADC_SAR_1.c ****     int32 countsPer10Volt;
@@ -1678,7 +1790,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  757 0038 04EBD470 		add	r0, r4, r4, lsr #31
  758 003c 4010     		asrs	r0, r0, #1
  759 003e 4042     		negs	r0, r0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 29
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 29
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  760              	.L73:
@@ -1738,7 +1854,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  784:Generated_Source\PSoC5/ADC_SAR_1.c **** *******************************************************************************/
  785:Generated_Source\PSoC5/ADC_SAR_1.c **** int32 ADC_SAR_1_CountsTo_uVolts(int16 adcCounts)
  786:Generated_Source\PSoC5/ADC_SAR_1.c **** {
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 30
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 30
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  791              		.loc 1 786 0
@@ -1798,7 +1918,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  805:Generated_Source\PSoC5/ADC_SAR_1.c ****     uVolts = (( (int64)adcCounts * ADC_SAR_1_10UV_COUNTS ) / countsPer10Volt);
  827              		.loc 1 805 0
  828 0022 24B2     		sxth	r4, r4
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 31
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 31
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  829 0024 E517     		asrs	r5, r4, #31
@@ -1858,7 +1982,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  829:Generated_Source\PSoC5/ADC_SAR_1.c **** float32 ADC_SAR_1_CountsTo_Volts(int16 adcCounts)
  830:Generated_Source\PSoC5/ADC_SAR_1.c **** {
  860              		.loc 1 830 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 32
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 32
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  861              		.cfi_startproc
@@ -1918,7 +2046,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  899              	.LVL67:
  900 0028 0849     		ldr	r1, .L87+12
  901 002a FFF7FEFF 		bl	__aeabi_fmul
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 33
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 33
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  902              	.LVL68:
@@ -1972,13 +2104,21 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  947 000c B0020000 		.4byte	.LASF66
  948 0010 0C       		.byte	0xc
  949 0011 5F030000 		.4byte	.LASF67
+<<<<<<< HEAD
  950 0015 0C040000 		.4byte	.LASF68
+=======
+ 950 0015 D8030000 		.4byte	.LASF68
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  951 0019 00000000 		.4byte	.Ldebug_ranges0+0
  952 001d 00000000 		.4byte	0
  953 0021 00000000 		.4byte	.Ldebug_line0
  954 0025 02       		.uleb128 0x2
  955 0026 04       		.byte	0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 34
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 34
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  956 0027 05       		.byte	0x5
@@ -2038,7 +2178,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1010 0088 48000000 		.4byte	0x48
  1011 008c 04       		.uleb128 0x4
  1012 008d 00000000 		.4byte	.LASF13
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 35
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 35
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1013 0091 02       		.byte	0x2
@@ -2055,7 +2199,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1024 00aa 9501     		.2byte	0x195
  1025 00ac 41000000 		.4byte	0x41
  1026 00b0 04       		.uleb128 0x4
+<<<<<<< HEAD
  1027 00b1 90040000 		.4byte	.LASF16
+=======
+ 1027 00b1 96040000 		.4byte	.LASF16
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1028 00b5 02       		.byte	0x2
  1029 00b6 9601     		.2byte	0x196
  1030 00b8 4F000000 		.4byte	0x4f
@@ -2098,7 +2246,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1067 010c 8C000000 		.4byte	0x8c
  1068 0110 04       		.uleb128 0x4
  1069 0111 59010000 		.4byte	.LASF24
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 36
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 36
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1070 0115 02       		.byte	0x2
@@ -2147,7 +2299,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1113 0177 9C       		.byte	0x9c
  1114 0178 C7010000 		.4byte	0x1c7
  1115 017c 0C       		.uleb128 0xc
+<<<<<<< HEAD
  1116 017d C7040000 		.4byte	.LASF26
+=======
+ 1116 017d CD040000 		.4byte	.LASF26
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1117 0181 01       		.byte	0x1
  1118 0182 91       		.byte	0x91
  1119 0183 80000000 		.4byte	0x80
@@ -2158,7 +2314,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1124 0191 92       		.byte	0x92
  1125 0192 80000000 		.4byte	0x80
  1126 0196 98000000 		.4byte	.LLST3
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 37
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 37
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1127 019a 0D       		.uleb128 0xd
@@ -2186,7 +2346,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1149 01c5 00       		.byte	0
  1150 01c6 00       		.byte	0
  1151 01c7 0B       		.uleb128 0xb
+<<<<<<< HEAD
  1152 01c8 DE040000 		.4byte	.LASF29
+=======
+ 1152 01c8 E4040000 		.4byte	.LASF29
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1153 01cc 01       		.byte	0x1
  1154 01cd F8       		.byte	0xf8
  1155 01ce 00000000 		.4byte	.LFB3
@@ -2208,7 +2372,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1171 01f9 93050000 		.4byte	0x593
  1172 01fd 00       		.byte	0
  1173 01fe 0F       		.uleb128 0xf
+<<<<<<< HEAD
  1174 01ff F9030000 		.4byte	.LASF30
+=======
+ 1174 01ff 71040000 		.4byte	.LASF30
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1175 0203 01       		.byte	0x1
  1176 0204 2201     		.2byte	0x122
  1177 0206 00000000 		.4byte	.LFB4
@@ -2218,7 +2386,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1181 0210 35020000 		.4byte	0x235
  1182 0214 07       		.uleb128 0x7
  1183 0215 3B020000 		.4byte	.LASF32
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 38
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 38
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1184 0219 01       		.byte	0x1
@@ -2226,7 +2398,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1186 021c 80000000 		.4byte	0x80
  1187 0220 BE000000 		.4byte	.LLST5
  1188 0224 08       		.uleb128 0x8
+<<<<<<< HEAD
  1189 0225 C7040000 		.4byte	.LASF26
+=======
+ 1189 0225 CD040000 		.4byte	.LASF26
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1190 0229 01       		.byte	0x1
  1191 022a 2401     		.2byte	0x124
  1192 022c 80000000 		.4byte	0x80
@@ -2248,7 +2424,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1208 0253 80000000 		.4byte	0x80
  1209 0257 0E010000 		.4byte	.LLST7
  1210 025b 08       		.uleb128 0x8
+<<<<<<< HEAD
  1211 025c C7040000 		.4byte	.LASF26
+=======
+ 1211 025c CD040000 		.4byte	.LASF26
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1212 0260 01       		.byte	0x1
  1213 0261 5601     		.2byte	0x156
  1214 0263 80000000 		.4byte	0x80
@@ -2278,7 +2458,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1238 0290 3E010000 		.4byte	.LASF34
  1239 0294 01       		.byte	0x1
  1240 0295 6A       		.byte	0x6a
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 39
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 39
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1241 0296 00000000 		.4byte	.LFB1
@@ -2338,7 +2522,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1295 02f9 00000000 		.4byte	.LFB0
  1296 02fd 1C000000 		.4byte	.LFE0-.LFB0
  1297 0301 01       		.uleb128 0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 40
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 40
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1298 0302 9C       		.byte	0x9c
@@ -2351,7 +2539,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1305 0315 67010000 		.4byte	0x167
  1306 0319 00       		.byte	0
  1307 031a 10       		.uleb128 0x10
+<<<<<<< HEAD
  1308 031b B0040000 		.4byte	.LASF36
+=======
+ 1308 031b B6040000 		.4byte	.LASF36
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1309 031f 01       		.byte	0x1
  1310 0320 9101     		.2byte	0x191
  1311 0322 00000000 		.4byte	.LFB6
@@ -2367,7 +2559,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1321 033c 01       		.uleb128 0x1
  1322 033d 9C       		.byte	0x9c
  1323 033e 11       		.uleb128 0x11
+<<<<<<< HEAD
  1324 033f DF030000 		.4byte	.LASF40
+=======
+ 1324 033f 57040000 		.4byte	.LASF40
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1325 0343 01       		.byte	0x1
  1326 0344 DB01     		.2byte	0x1db
  1327 0346 80000000 		.4byte	0x80
@@ -2383,7 +2579,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1337 0360 80000000 		.4byte	0x80
  1338 0364 75010000 		.4byte	.LLST9
  1339 0368 08       		.uleb128 0x8
+<<<<<<< HEAD
  1340 0369 D8030000 		.4byte	.LASF39
+=======
+ 1340 0369 50040000 		.4byte	.LASF39
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1341 036d 01       		.byte	0x1
  1342 036e DD01     		.2byte	0x1dd
  1343 0370 80000000 		.4byte	0x80
@@ -2398,7 +2598,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1352 0385 31       		.byte	0x31
  1353 0386 00       		.byte	0
  1354 0387 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 41
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 41
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1355 0388 12       		.uleb128 0x12
@@ -2445,7 +2649,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1396 03ec 50       		.byte	0x50
  1397 03ed 00       		.byte	0
  1398 03ee 0F       		.uleb128 0xf
+<<<<<<< HEAD
  1399 03ef 7E040000 		.4byte	.LASF44
+=======
+ 1399 03ef 84040000 		.4byte	.LASF44
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1400 03f3 01       		.byte	0x1
  1401 03f4 B402     		.2byte	0x2b4
  1402 03f6 00000000 		.4byte	.LFB13
@@ -2458,7 +2666,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1409 0409 01       		.byte	0x1
  1410 040a B402     		.2byte	0x2b4
  1411 040c B0000000 		.4byte	0xb0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 42
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 42
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1412 0410 C0010000 		.4byte	.LLST12
@@ -2518,7 +2730,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1466 048f 00000000 		.4byte	.LFB16
  1467 0493 48000000 		.4byte	.LFE16-.LFB16
  1468 0497 01       		.uleb128 0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 43
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 43
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1469 0498 9C       		.byte	0x9c
@@ -2578,7 +2794,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1523 051a 80000000 		.4byte	0x80
  1524 051e 05       		.uleb128 0x5
  1525 051f 03       		.byte	0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 44
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 44
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1526 0520 00000000 		.4byte	ADC_SAR_1_initVar
@@ -2601,7 +2821,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1543 0546 03       		.byte	0x3
  1544 0547 00000000 		.4byte	ADC_SAR_1_countsPerVolt
  1545 054b 18       		.uleb128 0x18
+<<<<<<< HEAD
  1546 054c 96040000 		.4byte	.LASF57
+=======
+ 1546 054c 9C040000 		.4byte	.LASF57
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1547 0550 01       		.byte	0x1
  1548 0551 26       		.byte	0x26
  1549 0552 5C050000 		.4byte	0x55c
@@ -2611,7 +2835,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1553 055c 05       		.uleb128 0x5
  1554 055d BC000000 		.4byte	0xbc
  1555 0561 18       		.uleb128 0x18
+<<<<<<< HEAD
  1556 0562 CE040000 		.4byte	.LASF58
+=======
+ 1556 0562 D4040000 		.4byte	.LASF58
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  1557 0566 01       		.byte	0x1
  1558 0567 27       		.byte	0x27
  1559 0568 35050000 		.4byte	0x535
@@ -2638,7 +2866,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1580 0598 1C000000 		.4byte	.LASF62
  1581 059c 03       		.byte	0x3
  1582 059d 7E       		.byte	0x7e
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 45
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 45
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1583 059e 19       		.uleb128 0x19
@@ -2698,7 +2930,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1637 0024 0B       		.uleb128 0xb
  1638 0025 03       		.uleb128 0x3
  1639 0026 0E       		.uleb128 0xe
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 46
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 46
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1640 0027 00       		.byte	0
@@ -2758,7 +2994,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1694 005e 49       		.uleb128 0x49
  1695 005f 13       		.uleb128 0x13
  1696 0060 02       		.uleb128 0x2
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 47
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 47
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1697 0061 17       		.uleb128 0x17
@@ -2818,7 +3058,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1751 009c 18       		.uleb128 0x18
  1752 009d 9742     		.uleb128 0x2117
  1753 009f 19       		.uleb128 0x19
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 48
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 48
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1754 00a0 01       		.uleb128 0x1
@@ -2878,7 +3122,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1808 00da 12       		.uleb128 0x12
  1809 00db 06       		.uleb128 0x6
  1810 00dc 40       		.uleb128 0x40
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 49
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 49
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1811 00dd 18       		.uleb128 0x18
@@ -2938,7 +3186,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1865 0116 13       		.uleb128 0x13
  1866 0117 00       		.byte	0
  1867 0118 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 50
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 50
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1868 0119 12       		.uleb128 0x12
@@ -2998,7 +3250,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1922 0150 00       		.byte	0
  1923 0151 15       		.uleb128 0x15
  1924 0152 34       		.uleb128 0x34
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 51
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 51
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1925 0153 00       		.byte	0
@@ -3058,7 +3314,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  1979 018a 34       		.uleb128 0x34
  1980 018b 00       		.byte	0
  1981 018c 03       		.uleb128 0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 52
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 52
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  1982 018d 0E       		.uleb128 0xe
@@ -3118,7 +3378,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2036 0030 50       		.byte	0x50
  2037 0031 9F       		.byte	0x9f
  2038 0032 00000000 		.4byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 53
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 53
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2039 0036 00000000 		.4byte	0
@@ -3178,7 +3442,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2093 00be 00000000 		.4byte	.LVL20
  2094 00c2 00000000 		.4byte	.LVL20
  2095 00c6 0100     		.2byte	0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 54
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 54
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2096 00c8 50       		.byte	0x50
@@ -3238,7 +3506,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2150 0140 00000000 		.4byte	0
  2151 0144 00000000 		.4byte	0
  2152              	.LLST8:
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 55
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 55
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2153 0148 16000000 		.4byte	.LVL25
@@ -3298,7 +3570,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2207 01ca 50       		.byte	0x50
  2208 01cb 04000000 		.4byte	.LVL46
  2209 01cf 10000000 		.4byte	.LFE13
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 56
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 56
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2210 01d3 0400     		.2byte	0x4
@@ -3358,7 +3634,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2264 0261 0100     		.2byte	0x1
  2265 0263 50       		.byte	0x50
  2266 0264 22000000 		.4byte	.LVL66
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 57
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 57
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2267 0268 27000000 		.4byte	.LVL67-1
@@ -3418,7 +3698,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2321 0088 00000000 		.4byte	.LFB15
  2322 008c 58000000 		.4byte	.LFE15-.LFB15
  2323 0090 00000000 		.4byte	.LFB16
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 58
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 58
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2324 0094 48000000 		.4byte	.LFE16-.LFB16
@@ -3478,7 +3762,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2373      313600
  2374              	.LASF70:
  2375 0007 4144435F 		.ascii	"ADC_SAR_1_GetResult8\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 59
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 59
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2375      5341525F 
@@ -3538,7 +3826,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2399 00a9 43794465 		.ascii	"CyDelayUs\000"
  2399      6C617955 
  2399      7300
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 60
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 60
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2400              	.LASF20:
@@ -3598,7 +3890,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2425 014d 696E7438 		.ascii	"int8\000"
  2425      00
  2426              	.LASF49:
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 61
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 61
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2427 0152 6D566F6C 		.ascii	"mVolts\000"
@@ -3658,7 +3954,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2450              	.LASF64:
  2451 0212 4379496E 		.ascii	"CyIntSetPriority\000"
  2451      74536574 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 62
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 62
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2451      5072696F 
@@ -3718,7 +4018,11 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2475      352E342E 
  2475      31203230 
  2475      31363036 
+<<<<<<< HEAD
 ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 63
+=======
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 63
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
 
 
  2476 02e3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
@@ -3775,6 +4079,7 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2495      74657272 
  2495      75707473 
  2495      00
+<<<<<<< HEAD
  2496              	.LASF39:
  2497 03d8 73746174 		.ascii	"status\000"
  2497      757300
@@ -3811,26 +4116,76 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
  2505      7964736E 
  2506              	.LASF44:
  2507 047e 4144435F 		.ascii	"ADC_SAR_1_SetGain\000"
+=======
+ 2496              	.LASF68:
+ 2497 03d8 433A5C55 		.ascii	"C:\\Users\\larsholm92\\Documents\\IKT\\3. Semester\\"
+ 2497      73657273 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 64
+
+
+ 2497      5C6C6172 
+ 2497      73686F6C 
+ 2497      6D39325C 
+ 2498 0406 50726F6A 		.ascii	"Projektgruppe16\\I3PRJ\\Motorcontrol\\03_DC_Motor_C"
+ 2498      656B7467 
+ 2498      72757070 
+ 2498      6531365C 
+ 2498      49335052 
+ 2499 0436 6F6E7472 		.ascii	"ontrol\\DC-Motor-PWM.cydsn\000"
+ 2499      6F6C5C44 
+ 2499      432D4D6F 
+ 2499      746F722D 
+ 2499      50574D2E 
+ 2500              	.LASF39:
+ 2501 0450 73746174 		.ascii	"status\000"
+ 2501      757300
+ 2502              	.LASF40:
+ 2503 0457 4144435F 		.ascii	"ADC_SAR_1_IsEndConversion\000"
+ 2503      5341525F 
+ 2503      315F4973 
+ 2503      456E6443 
+ 2503      6F6E7665 
+ 2504              	.LASF30:
+ 2505 0471 4144435F 		.ascii	"ADC_SAR_1_SetPower\000"
+ 2505      5341525F 
+ 2505      315F5365 
+ 2505      74506F77 
+ 2505      657200
+ 2506              	.LASF44:
+ 2507 0484 4144435F 		.ascii	"ADC_SAR_1_SetGain\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  2507      5341525F 
  2507      315F5365 
  2507      74476169 
  2507      6E00
  2508              	.LASF16:
+<<<<<<< HEAD
  2509 0490 696E7431 		.ascii	"int16\000"
  2509      3600
  2510              	.LASF57:
  2511 0496 4144435F 		.ascii	"ADC_SAR_1_countsPer10Volt\000"
+=======
+ 2509 0496 696E7431 		.ascii	"int16\000"
+ 2509      3600
+ 2510              	.LASF57:
+ 2511 049c 4144435F 		.ascii	"ADC_SAR_1_countsPer10Volt\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  2511      5341525F 
  2511      315F636F 
  2511      756E7473 
  2511      50657231 
  2512              	.LASF36:
+<<<<<<< HEAD
  2513 04b0 4144435F 		.ascii	"ADC_SAR_1_StartConvert\000"
+=======
+ 2513 04b6 4144435F 		.ascii	"ADC_SAR_1_StartConvert\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  2513      5341525F 
  2513      315F5374 
  2513      61727443 
  2513      6F6E7665 
  2514              	.LASF26:
+<<<<<<< HEAD
  2515 04c7 746D7052 		.ascii	"tmpReg\000"
  2515      656700
  2516              	.LASF58:
@@ -3843,6 +4198,20 @@ ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccB3wGl0.s 			page 1
 
  2518              	.LASF29:
  2519 04de 4144435F 		.ascii	"ADC_SAR_1_Stop\000"
+=======
+ 2515 04cd 746D7052 		.ascii	"tmpReg\000"
+ 2515      656700
+ 2516              	.LASF58:
+ 2517 04d4 4144435F 		.ascii	"ADC_SAR_1_shift\000"
+ 2517      5341525F 
+ 2517      315F7368 
+ 2517      69667400 
+ARM GAS  C:\Users\LARSHO~1\AppData\Local\Temp\cc7xcEoo.s 			page 65
+
+
+ 2518              	.LASF29:
+ 2519 04e4 4144435F 		.ascii	"ADC_SAR_1_Stop\000"
+>>>>>>> 36cba4adfce8973d2bf72218469bf707296cd4fc
  2519      5341525F 
  2519      315F5374 
  2519      6F7000
