@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Scale\Scale\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Scale\Scale\Scale.cydwr\Pins">
 <ExpandedNodeIds>
 <v>Scale</v>
 <v>Scale\Scale</v>
@@ -196,8 +196,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Scale.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Scale.cydsn\main.c" />
+<name v=".\Scale.cydsn\Scale.cydwr" />
+<name v=".\Scale.cydsn\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -205,7 +206,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="886, 611" SelectedTabbedMdiWindow="c71d69d5-7dfa-41a4-bbd1-1053db8778cb"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b475ac85-09cd-4000-9e79-7db17c2c0b98" /><DocumentWindow Key="C:\Users\Parwe\Desktop\A D D A lab - Handin_Lab-Handi......ns 50_attempt_2017-10-04-15-35-34_Lab-MotorControl-Group50 (1)\04_Scale\Scale.cydsn\TopDesign\TopDesign.cysch" Guid="da0b4c5d-e218-40ca-9f08-f491013aa228" /><DocumentWindow Key="C:\Users\Parwe\Desktop\A D D A lab - Handin_Lab-Handi......ns 50_attempt_2017-10-04-15-35-34_Lab-MotorControl-Group50 (1)\04_Scale\Scale.cydsn\main.c" Guid="c71d69d5-7dfa-41a4-bbd1-1053db8778cb" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1139, 611" SelectedTabbedMdiWindow="8ce408ec-ba78-496c-932d-fd58607e5060"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b475ac85-09cd-4000-9e79-7db17c2c0b98" /><DocumentWindow Key="C:\Users\Parwe\Desktop\IKT\3. Semester\Semesterprojekt3\I3PRJ\Loadcell\04_Scale\Scale.cydsn\main.c" Guid="51178cd9-4b55-4faa-8202-be6725ce2a30" /><DocumentWindow Key="C:\Users\Parwe\Desktop\IKT\3. Semester\Semesterprojekt3\I3PRJ\Loadcell\04_Scale\Scale.cydsn\Scale.cydwr" Guid="8ce408ec-ba78-496c-932d-fd58607e5060" /><DocumentWindow Key="C:\Users\Parwe\Desktop\IKT\3. Semester\Semesterprojekt3\I3PRJ\Loadcell\04_Scale\Scale.cydsn\TopDesign\TopDesign.cysch" Guid="a9b0a7cb-d937-417d-a80b-a1a390fc9ca2" /><ToolWindow Key="Output Window Plugin:7305390e-eabe-4963-b21f-3a0f11b4b1d5:Output Window" Guid="0a402c23-73c0-4bc5-9729-ec0bd6212f23" /><ToolWindow Key="CyNoticeWindow:44d3d453-9474-4f2b-b928-4356f496bef0:Notice Window" Guid="9c7b1db7-baba-4fcf-8135-70e8c698abd4" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

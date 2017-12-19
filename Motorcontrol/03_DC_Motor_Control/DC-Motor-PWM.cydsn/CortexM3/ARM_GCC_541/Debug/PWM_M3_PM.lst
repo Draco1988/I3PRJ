@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
   28:Generated_Source\PSoC5/PWM_M3_PM.c **** *  Saves the current user configuration of the component.
   29:Generated_Source\PSoC5/PWM_M3_PM.c **** *
   30:Generated_Source\PSoC5/PWM_M3_PM.c **** * Parameters:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 2
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 2
 
 
   31:Generated_Source\PSoC5/PWM_M3_PM.c **** *  None
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
   64:Generated_Source\PSoC5/PWM_M3_PM.c ****             PWM_M3_backup.PWMControlRegister = PWM_M3_ReadControlRegister();
   49              		.loc 1 64 0
   50 0016 FFF7FEFF 		bl	PWM_M3_ReadControlRegister
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 3
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 3
 
 
   51              	.LVL2:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
   92:Generated_Source\PSoC5/PWM_M3_PM.c ****                 PWM_M3_WritePeriod(PWM_M3_backup.PWMPeriod);
   78              		.loc 1 92 0
   79 0002 074C     		ldr	r4, .L7
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 4
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 4
 
 
   80 0004 A078     		ldrb	r0, [r4, #2]	@ zero_extendqisi2
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  115:Generated_Source\PSoC5/PWM_M3_PM.c **** 
  116:Generated_Source\PSoC5/PWM_M3_PM.c **** 
  117:Generated_Source\PSoC5/PWM_M3_PM.c **** /*******************************************************************************
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 5
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 5
 
 
  118:Generated_Source\PSoC5/PWM_M3_PM.c **** * Function Name: PWM_M3_Sleep
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  148:Generated_Source\PSoC5/PWM_M3_PM.c ****         }
  149:Generated_Source\PSoC5/PWM_M3_PM.c ****     #endif /* (PWM_M3_UseControl) */
  150:Generated_Source\PSoC5/PWM_M3_PM.c **** 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 6
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 6
 
 
  151:Generated_Source\PSoC5/PWM_M3_PM.c ****     /* Stop component */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  161              		@ args = 0, pretend = 0, frame = 0
  162              		@ frame_needed = 0, uses_anonymous_args = 0
  163 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 7
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 7
 
 
  164              		.cfi_def_cfa_offset 8
@@ -409,48 +409,48 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  201 0006 00000000 		.4byte	.Ldebug_abbrev0
  202 000a 04       		.byte	0x4
  203 000b 01       		.uleb128 0x1
- 204 000c A8000000 		.4byte	.LASF34
+ 204 000c 0D010000 		.4byte	.LASF34
  205 0010 0C       		.byte	0xc
- 206 0011 36010000 		.4byte	.LASF35
- 207 0015 D3010000 		.4byte	.LASF36
+ 206 0011 9B010000 		.4byte	.LASF35
+ 207 0015 07000000 		.4byte	.LASF36
  208 0019 00000000 		.4byte	.Ldebug_ranges0+0
  209 001d 00000000 		.4byte	0
  210 0021 00000000 		.4byte	.Ldebug_line0
  211 0025 02       		.uleb128 0x2
  212 0026 01       		.byte	0x1
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 8
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 8
 
 
  213 0027 06       		.byte	0x6
- 214 0028 DB020000 		.4byte	.LASF0
+ 214 0028 EE020000 		.4byte	.LASF0
  215 002c 02       		.uleb128 0x2
  216 002d 01       		.byte	0x1
  217 002e 08       		.byte	0x8
- 218 002f 9A000000 		.4byte	.LASF1
+ 218 002f FF000000 		.4byte	.LASF1
  219 0033 02       		.uleb128 0x2
  220 0034 02       		.byte	0x2
  221 0035 05       		.byte	0x5
- 222 0036 93020000 		.4byte	.LASF2
+ 222 0036 A6020000 		.4byte	.LASF2
  223 003a 02       		.uleb128 0x2
  224 003b 02       		.byte	0x2
  225 003c 07       		.byte	0x7
- 226 003d 2D000000 		.4byte	.LASF3
+ 226 003d 9F000000 		.4byte	.LASF3
  227 0041 02       		.uleb128 0x2
  228 0042 04       		.byte	0x4
  229 0043 05       		.byte	0x5
- 230 0044 C6020000 		.4byte	.LASF4
+ 230 0044 D9020000 		.4byte	.LASF4
  231 0048 02       		.uleb128 0x2
  232 0049 04       		.byte	0x4
  233 004a 07       		.byte	0x7
- 234 004b 59010000 		.4byte	.LASF5
+ 234 004b BE010000 		.4byte	.LASF5
  235 004f 02       		.uleb128 0x2
  236 0050 08       		.byte	0x8
  237 0051 05       		.byte	0x5
- 238 0052 6B020000 		.4byte	.LASF6
+ 238 0052 7E020000 		.4byte	.LASF6
  239 0056 02       		.uleb128 0x2
  240 0057 08       		.byte	0x8
  241 0058 07       		.byte	0x7
- 242 0059 32020000 		.4byte	.LASF7
+ 242 0059 45020000 		.4byte	.LASF7
  243 005d 03       		.uleb128 0x3
  244 005e 04       		.byte	0x4
  245 005f 05       		.byte	0x5
@@ -458,27 +458,27 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  247 0064 02       		.uleb128 0x2
  248 0065 04       		.byte	0x4
  249 0066 07       		.byte	0x7
- 250 0067 40000000 		.4byte	.LASF8
+ 250 0067 38020000 		.4byte	.LASF8
  251 006b 04       		.uleb128 0x4
- 252 006c 6B010000 		.4byte	.LASF12
+ 252 006c D0010000 		.4byte	.LASF12
  253 0070 02       		.byte	0x2
  254 0071 9201     		.2byte	0x192
  255 0073 2C000000 		.4byte	0x2c
  256 0077 02       		.uleb128 0x2
  257 0078 04       		.byte	0x4
  258 0079 04       		.byte	0x4
- 259 007a 94000000 		.4byte	.LASF9
+ 259 007a F9000000 		.4byte	.LASF9
  260 007e 02       		.uleb128 0x2
  261 007f 08       		.byte	0x8
  262 0080 04       		.byte	0x4
- 263 0081 B1010000 		.4byte	.LASF10
+ 263 0081 16020000 		.4byte	.LASF10
  264 0085 02       		.uleb128 0x2
  265 0086 01       		.byte	0x1
  266 0087 08       		.byte	0x8
- 267 0088 8E020000 		.4byte	.LASF11
+ 267 0088 A1020000 		.4byte	.LASF11
  268 008c 04       		.uleb128 0x4
- 269 008d 5D020000 		.4byte	.LASF13
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 9
+ 269 008d 70020000 		.4byte	.LASF13
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 9
 
 
  270 0091 02       		.byte	0x2
@@ -489,18 +489,18 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  275 009d 02       		.uleb128 0x2
  276 009e 08       		.byte	0x8
  277 009f 04       		.byte	0x4
- 278 00a0 CF020000 		.4byte	.LASF14
+ 278 00a0 E2020000 		.4byte	.LASF14
  279 00a4 02       		.uleb128 0x2
  280 00a5 04       		.byte	0x4
  281 00a6 07       		.byte	0x7
- 282 00a7 62020000 		.4byte	.LASF15
+ 282 00a7 75020000 		.4byte	.LASF15
  283 00ab 06       		.uleb128 0x6
  284 00ac 05       		.byte	0x5
  285 00ad 03       		.byte	0x3
  286 00ae 6B       		.byte	0x6b
  287 00af F0000000 		.4byte	0xf0
  288 00b3 07       		.uleb128 0x7
- 289 00b4 B7020000 		.4byte	.LASF16
+ 289 00b4 CA020000 		.4byte	.LASF16
  290 00b8 03       		.byte	0x3
  291 00b9 6E       		.byte	0x6e
  292 00ba 6B000000 		.4byte	0x6b
@@ -512,33 +512,33 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  298 00c6 6B000000 		.4byte	0x6b
  299 00ca 01       		.byte	0x1
  300 00cb 07       		.uleb128 0x7
- 301 00cc 07000000 		.4byte	.LASF18
+ 301 00cc 79000000 		.4byte	.LASF18
  302 00d0 03       		.byte	0x3
  303 00d1 73       		.byte	0x73
  304 00d2 6B000000 		.4byte	0x6b
  305 00d6 02       		.byte	0x2
  306 00d7 07       		.uleb128 0x7
- 307 00d8 E7020000 		.4byte	.LASF19
+ 307 00d8 FA020000 		.4byte	.LASF19
  308 00dc 03       		.byte	0x3
  309 00dd 76       		.byte	0x76
  310 00de 6B000000 		.4byte	0x6b
  311 00e2 03       		.byte	0x3
  312 00e3 07       		.uleb128 0x7
- 313 00e4 7E010000 		.4byte	.LASF20
+ 313 00e4 E3010000 		.4byte	.LASF20
  314 00e8 03       		.byte	0x3
  315 00e9 86       		.byte	0x86
  316 00ea 6B000000 		.4byte	0x6b
  317 00ee 04       		.byte	0x4
  318 00ef 00       		.byte	0
  319 00f0 08       		.uleb128 0x8
- 320 00f1 49020000 		.4byte	.LASF21
+ 320 00f1 5C020000 		.4byte	.LASF21
  321 00f5 03       		.byte	0x3
  322 00f6 8B       		.byte	0x8b
  323 00f7 AB000000 		.4byte	0xab
  324 00fb 09       		.uleb128 0x9
- 325 00fc 82000000 		.4byte	.LASF22
+ 325 00fc E7000000 		.4byte	.LASF22
  326 0100 01       		.byte	0x1
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 10
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 10
 
 
  327 0101 2A       		.byte	0x2a
@@ -558,7 +558,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  341 0127 D4010000 		.4byte	0x1d4
  342 012b 00       		.byte	0
  343 012c 09       		.uleb128 0x9
- 344 012d 79020000 		.4byte	.LASF23
+ 344 012d 8C020000 		.4byte	.LASF23
  345 0131 01       		.byte	0x1
  346 0132 58       		.byte	0x58
  347 0133 00000000 		.4byte	.LFB1
@@ -577,7 +577,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  360 0158 F5010000 		.4byte	0x1f5
  361 015c 00       		.byte	0
  362 015d 09       		.uleb128 0x9
- 363 015e 71010000 		.4byte	.LASF24
+ 363 015e D6010000 		.4byte	.LASF24
  364 0162 01       		.byte	0x1
  365 0163 88       		.byte	0x88
  366 0164 00000000 		.4byte	.LFB2
@@ -593,12 +593,12 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  376 0180 FB000000 		.4byte	0xfb
  377 0184 00       		.byte	0
  378 0185 09       		.uleb128 0x9
- 379 0186 91010000 		.4byte	.LASF25
+ 379 0186 F6010000 		.4byte	.LASF25
  380 018a 01       		.byte	0x1
  381 018b B2       		.byte	0xb2
  382 018c 00000000 		.4byte	.LFB3
  383 0190 18000000 		.4byte	.LFE3-.LFB3
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 11
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 11
 
 
  384 0194 01       		.uleb128 0x1
@@ -612,7 +612,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  392 01a8 0B020000 		.4byte	0x20b
  393 01ac 00       		.byte	0
  394 01ad 0B       		.uleb128 0xb
- 395 01ae A9020000 		.4byte	.LASF37
+ 395 01ae BC020000 		.4byte	.LASF37
  396 01b2 01       		.byte	0x1
  397 01b3 14       		.byte	0x14
  398 01b4 F0000000 		.4byte	0xf0
@@ -620,45 +620,45 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  400 01b9 03       		.byte	0x3
  401 01ba 00000000 		.4byte	PWM_M3_backup
  402 01be 0C       		.uleb128 0xc
- 403 01bf 9F010000 		.4byte	.LASF26
- 404 01c3 9F010000 		.4byte	.LASF26
+ 403 01bf 04020000 		.4byte	.LASF26
+ 404 01c3 04020000 		.4byte	.LASF26
  405 01c7 03       		.byte	0x3
  406 01c8 C0       		.byte	0xc0
  407 01c9 0C       		.uleb128 0xc
- 408 01ca FA020000 		.4byte	.LASF27
- 409 01ce FA020000 		.4byte	.LASF27
+ 408 01ca 0D030000 		.4byte	.LASF27
+ 409 01ce 0D030000 		.4byte	.LASF27
  410 01d2 03       		.byte	0x3
  411 01d3 B3       		.byte	0xb3
  412 01d4 0C       		.uleb128 0xc
- 413 01d5 B8010000 		.4byte	.LASF28
- 414 01d9 B8010000 		.4byte	.LASF28
+ 413 01d5 1D020000 		.4byte	.LASF28
+ 414 01d9 1D020000 		.4byte	.LASF28
  415 01dd 03       		.byte	0x3
  416 01de 9D       		.byte	0x9d
  417 01df 0C       		.uleb128 0xc
- 418 01e0 61000000 		.4byte	.LASF29
- 419 01e4 61000000 		.4byte	.LASF29
+ 418 01e0 C6000000 		.4byte	.LASF29
+ 419 01e4 C6000000 		.4byte	.LASF29
  420 01e8 03       		.byte	0x3
  421 01e9 BE       		.byte	0xbe
  422 01ea 0C       		.uleb128 0xc
- 423 01eb 4D000000 		.4byte	.LASF30
- 424 01ef 4D000000 		.4byte	.LASF30
+ 423 01eb B2000000 		.4byte	.LASF30
+ 424 01ef B2000000 		.4byte	.LASF30
  425 01f3 03       		.byte	0x3
  426 01f4 BA       		.byte	0xba
  427 01f5 0C       		.uleb128 0xc
- 428 01f6 11000000 		.4byte	.LASF31
- 429 01fa 11000000 		.4byte	.LASF31
+ 428 01f6 83000000 		.4byte	.LASF31
+ 429 01fa 83000000 		.4byte	.LASF31
  430 01fe 03       		.byte	0x3
  431 01ff 9E       		.byte	0x9e
  432 0200 0C       		.uleb128 0xc
- 433 0201 9D020000 		.4byte	.LASF32
- 434 0205 9D020000 		.4byte	.LASF32
+ 433 0201 B0020000 		.4byte	.LASF32
+ 434 0205 B0020000 		.4byte	.LASF32
  435 0209 03       		.byte	0x3
  436 020a 93       		.byte	0x93
  437 020b 0C       		.uleb128 0xc
- 438 020c 74000000 		.4byte	.LASF33
- 439 0210 74000000 		.4byte	.LASF33
+ 438 020c D9000000 		.4byte	.LASF33
+ 439 0210 D9000000 		.4byte	.LASF33
  440 0214 03       		.byte	0x3
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 12
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 12
 
 
  441 0215 DB       		.byte	0xdb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  495 0032 49       		.uleb128 0x49
  496 0033 13       		.uleb128 0x13
  497 0034 00       		.byte	0
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 13
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 13
 
 
  498 0035 00       		.byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  552 006b 03       		.uleb128 0x3
  553 006c 0E       		.uleb128 0xe
  554 006d 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 14
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 14
 
 
  555 006e 0B       		.uleb128 0xb
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  609 00a7 3B       		.uleb128 0x3b
  610 00a8 0B       		.uleb128 0xb
  611 00a9 00       		.byte	0
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 15
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 15
 
 
  612 00aa 00       		.byte	0
@@ -883,215 +883,219 @@ ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 1
  647              	.LASF17:
  648 0000 50574D55 		.ascii	"PWMUdb\000"
  648      646200
- 649              	.LASF18:
- 650 0007 50574D50 		.ascii	"PWMPeriod\000"
- 650      6572696F 
- 650      6400
- 651              	.LASF31:
- 652 0011 50574D5F 		.ascii	"PWM_M3_WriteControlRegister\000"
- 652      4D335F57 
- 652      72697465 
- 652      436F6E74 
- 652      726F6C52 
- 653              	.LASF3:
- 654 002d 73686F72 		.ascii	"short unsigned int\000"
- 654      7420756E 
- 654      7369676E 
- 654      65642069 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 16
+ 649              	.LASF36:
+ 650 0007 433A5C55 		.ascii	"C:\\Users\\Parwe\\Desktop\\IKT\\3. Semester\\Semest"
+ 650      73657273 
+ 650      5C506172 
+ 650      77655C44 
+ 650      65736B74 
+ 651 0034 65727072 		.ascii	"erprojekt3\\I3PRJ\\Motorcontrol\\03_DC_Motor_Contro"
+ 651      6F6A656B 
+ 651      74335C49 
+ 651      3350524A 
+ 651      5C4D6F74 
+ 652 0064 6C5C4443 		.ascii	"l\\DC-Motor-PWM.cydsn\000"
+ 652      2D4D6F74 
+ 652      6F722D50 
+ 652      574D2E63 
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 16
 
 
- 654      6E7400
- 655              	.LASF8:
- 656 0040 756E7369 		.ascii	"unsigned int\000"
- 656      676E6564 
- 656      20696E74 
- 656      00
- 657              	.LASF30:
- 658 004d 50574D5F 		.ascii	"PWM_M3_WriteCounter\000"
- 658      4D335F57 
- 658      72697465 
- 658      436F756E 
- 658      74657200 
- 659              	.LASF29:
- 660 0061 50574D5F 		.ascii	"PWM_M3_WritePeriod\000"
+ 652      7964736E 
+ 653              	.LASF18:
+ 654 0079 50574D50 		.ascii	"PWMPeriod\000"
+ 654      6572696F 
+ 654      6400
+ 655              	.LASF31:
+ 656 0083 50574D5F 		.ascii	"PWM_M3_WriteControlRegister\000"
+ 656      4D335F57 
+ 656      72697465 
+ 656      436F6E74 
+ 656      726F6C52 
+ 657              	.LASF3:
+ 658 009f 73686F72 		.ascii	"short unsigned int\000"
+ 658      7420756E 
+ 658      7369676E 
+ 658      65642069 
+ 658      6E7400
+ 659              	.LASF30:
+ 660 00b2 50574D5F 		.ascii	"PWM_M3_WriteCounter\000"
  660      4D335F57 
  660      72697465 
- 660      50657269 
- 660      6F6400
- 661              	.LASF33:
- 662 0074 50574D5F 		.ascii	"PWM_M3_Enable\000"
- 662      4D335F45 
- 662      6E61626C 
- 662      6500
- 663              	.LASF22:
- 664 0082 50574D5F 		.ascii	"PWM_M3_SaveConfig\000"
- 664      4D335F53 
- 664      61766543 
- 664      6F6E6669 
- 664      6700
- 665              	.LASF9:
- 666 0094 666C6F61 		.ascii	"float\000"
- 666      7400
- 667              	.LASF1:
- 668 009a 756E7369 		.ascii	"unsigned char\000"
- 668      676E6564 
- 668      20636861 
- 668      7200
- 669              	.LASF34:
- 670 00a8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 670      43313120 
- 670      352E342E 
- 670      31203230 
- 670      31363036 
- 671 00db 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 671      20726576 
- 671      6973696F 
- 671      6E203233 
- 671      37373135 
- 672 010e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 672      66756E63 
- 672      74696F6E 
- 672      2D736563 
- 672      74696F6E 
- 673              	.LASF35:
- 674 0136 47656E65 		.ascii	"Generated_Source\\PSoC5\\PWM_M3_PM.c\000"
- 674      72617465 
- 674      645F536F 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 17
+ 660      436F756E 
+ 660      74657200 
+ 661              	.LASF29:
+ 662 00c6 50574D5F 		.ascii	"PWM_M3_WritePeriod\000"
+ 662      4D335F57 
+ 662      72697465 
+ 662      50657269 
+ 662      6F6400
+ 663              	.LASF33:
+ 664 00d9 50574D5F 		.ascii	"PWM_M3_Enable\000"
+ 664      4D335F45 
+ 664      6E61626C 
+ 664      6500
+ 665              	.LASF22:
+ 666 00e7 50574D5F 		.ascii	"PWM_M3_SaveConfig\000"
+ 666      4D335F53 
+ 666      61766543 
+ 666      6F6E6669 
+ 666      6700
+ 667              	.LASF9:
+ 668 00f9 666C6F61 		.ascii	"float\000"
+ 668      7400
+ 669              	.LASF1:
+ 670 00ff 756E7369 		.ascii	"unsigned char\000"
+ 670      676E6564 
+ 670      20636861 
+ 670      7200
+ 671              	.LASF34:
+ 672 010d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 672      43313120 
+ 672      352E342E 
+ 672      31203230 
+ 672      31363036 
+ 673 0140 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 673      20726576 
+ 673      6973696F 
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 17
 
 
- 674      75726365 
- 674      5C50536F 
- 675              	.LASF5:
- 676 0159 6C6F6E67 		.ascii	"long unsigned int\000"
- 676      20756E73 
- 676      69676E65 
- 676      6420696E 
- 676      7400
- 677              	.LASF12:
- 678 016b 75696E74 		.ascii	"uint8\000"
- 678      3800
- 679              	.LASF24:
- 680 0171 50574D5F 		.ascii	"PWM_M3_Sleep\000"
- 680      4D335F53 
- 680      6C656570 
- 680      00
- 681              	.LASF20:
- 682 017e 50574D43 		.ascii	"PWMControlRegister\000"
- 682      6F6E7472 
- 682      6F6C5265 
- 682      67697374 
- 682      657200
- 683              	.LASF25:
- 684 0191 50574D5F 		.ascii	"PWM_M3_Wakeup\000"
- 684      4D335F57 
- 684      616B6575 
- 684      7000
- 685              	.LASF26:
- 686 019f 50574D5F 		.ascii	"PWM_M3_ReadPeriod\000"
- 686      4D335F52 
- 686      65616450 
- 686      6572696F 
- 686      6400
- 687              	.LASF10:
- 688 01b1 646F7562 		.ascii	"double\000"
- 688      6C6500
- 689              	.LASF28:
- 690 01b8 50574D5F 		.ascii	"PWM_M3_ReadControlRegister\000"
- 690      4D335F52 
- 690      65616443 
- 690      6F6E7472 
- 690      6F6C5265 
- 691              	.LASF36:
- 692 01d3 433A5C55 		.ascii	"C:\\Users\\chris\\Documents\\3. Semester\\I3GFV\\Mo"
- 692      73657273 
- 692      5C636872 
- 692      69735C44 
- 692      6F63756D 
- 693 0200 746F7263 		.ascii	"torcontrol\\03_DC_Motor_Control\\DC-Motor-PWM.cydsn"
- 693      6F6E7472 
- 693      6F6C5C30 
- 693      335F4443 
- 693      5F4D6F74 
- 694 0231 00       		.ascii	"\000"
+ 673      6E203233 
+ 673      37373135 
+ 674 0173 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 674      66756E63 
+ 674      74696F6E 
+ 674      2D736563 
+ 674      74696F6E 
+ 675              	.LASF35:
+ 676 019b 47656E65 		.ascii	"Generated_Source\\PSoC5\\PWM_M3_PM.c\000"
+ 676      72617465 
+ 676      645F536F 
+ 676      75726365 
+ 676      5C50536F 
+ 677              	.LASF5:
+ 678 01be 6C6F6E67 		.ascii	"long unsigned int\000"
+ 678      20756E73 
+ 678      69676E65 
+ 678      6420696E 
+ 678      7400
+ 679              	.LASF12:
+ 680 01d0 75696E74 		.ascii	"uint8\000"
+ 680      3800
+ 681              	.LASF24:
+ 682 01d6 50574D5F 		.ascii	"PWM_M3_Sleep\000"
+ 682      4D335F53 
+ 682      6C656570 
+ 682      00
+ 683              	.LASF20:
+ 684 01e3 50574D43 		.ascii	"PWMControlRegister\000"
+ 684      6F6E7472 
+ 684      6F6C5265 
+ 684      67697374 
+ 684      657200
+ 685              	.LASF25:
+ 686 01f6 50574D5F 		.ascii	"PWM_M3_Wakeup\000"
+ 686      4D335F57 
+ 686      616B6575 
+ 686      7000
+ 687              	.LASF26:
+ 688 0204 50574D5F 		.ascii	"PWM_M3_ReadPeriod\000"
+ 688      4D335F52 
+ 688      65616450 
+ 688      6572696F 
+ 688      6400
+ 689              	.LASF10:
+ 690 0216 646F7562 		.ascii	"double\000"
+ 690      6C6500
+ 691              	.LASF28:
+ 692 021d 50574D5F 		.ascii	"PWM_M3_ReadControlRegister\000"
+ 692      4D335F52 
+ 692      65616443 
+ 692      6F6E7472 
+ 692      6F6C5265 
+ 693              	.LASF8:
+ 694 0238 756E7369 		.ascii	"unsigned int\000"
+ 694      676E6564 
+ 694      20696E74 
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 18
+
+
+ 694      00
  695              	.LASF7:
- 696 0232 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 696 0245 6C6F6E67 		.ascii	"long long unsigned int\000"
  696      206C6F6E 
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 18
-
-
  696      6720756E 
  696      7369676E 
  696      65642069 
  697              	.LASF21:
- 698 0249 50574D5F 		.ascii	"PWM_M3_backupStruct\000"
+ 698 025c 50574D5F 		.ascii	"PWM_M3_backupStruct\000"
  698      4D335F62 
  698      61636B75 
  698      70537472 
  698      75637400 
  699              	.LASF13:
- 700 025d 72656738 		.ascii	"reg8\000"
+ 700 0270 72656738 		.ascii	"reg8\000"
  700      00
  701              	.LASF15:
- 702 0262 73697A65 		.ascii	"sizetype\000"
+ 702 0275 73697A65 		.ascii	"sizetype\000"
  702      74797065 
  702      00
  703              	.LASF6:
- 704 026b 6C6F6E67 		.ascii	"long long int\000"
+ 704 027e 6C6F6E67 		.ascii	"long long int\000"
  704      206C6F6E 
  704      6720696E 
  704      7400
  705              	.LASF23:
- 706 0279 50574D5F 		.ascii	"PWM_M3_RestoreConfig\000"
+ 706 028c 50574D5F 		.ascii	"PWM_M3_RestoreConfig\000"
  706      4D335F52 
  706      6573746F 
  706      7265436F 
  706      6E666967 
  707              	.LASF11:
- 708 028e 63686172 		.ascii	"char\000"
+ 708 02a1 63686172 		.ascii	"char\000"
  708      00
  709              	.LASF2:
- 710 0293 73686F72 		.ascii	"short int\000"
+ 710 02a6 73686F72 		.ascii	"short int\000"
  710      7420696E 
  710      7400
  711              	.LASF32:
- 712 029d 50574D5F 		.ascii	"PWM_M3_Stop\000"
+ 712 02b0 50574D5F 		.ascii	"PWM_M3_Stop\000"
  712      4D335F53 
  712      746F7000 
  713              	.LASF37:
- 714 02a9 50574D5F 		.ascii	"PWM_M3_backup\000"
+ 714 02bc 50574D5F 		.ascii	"PWM_M3_backup\000"
  714      4D335F62 
  714      61636B75 
  714      7000
  715              	.LASF16:
- 716 02b7 50574D45 		.ascii	"PWMEnableState\000"
+ 716 02ca 50574D45 		.ascii	"PWMEnableState\000"
  716      6E61626C 
  716      65537461 
  716      746500
  717              	.LASF4:
- 718 02c6 6C6F6E67 		.ascii	"long int\000"
+ 718 02d9 6C6F6E67 		.ascii	"long int\000"
  718      20696E74 
  718      00
  719              	.LASF14:
- 720 02cf 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\Parwe\AppData\Local\Temp\ccA0M1fH.s 			page 19
+
+
+ 720 02e2 6C6F6E67 		.ascii	"long double\000"
  720      20646F75 
  720      626C6500 
  721              	.LASF0:
-ARM GAS  C:\Users\chris\AppData\Local\Temp\ccFc7VDa.s 			page 19
-
-
- 722 02db 7369676E 		.ascii	"signed char\000"
+ 722 02ee 7369676E 		.ascii	"signed char\000"
  722      65642063 
  722      68617200 
  723              	.LASF19:
- 724 02e7 496E7465 		.ascii	"InterruptMaskValue\000"
+ 724 02fa 496E7465 		.ascii	"InterruptMaskValue\000"
  724      72727570 
  724      744D6173 
  724      6B56616C 
  724      756500
  725              	.LASF27:
- 726 02fa 50574D5F 		.ascii	"PWM_M3_ReadCounter\000"
+ 726 030d 50574D5F 		.ascii	"PWM_M3_ReadCounter\000"
  726      4D335F52 
  726      65616443 
  726      6F756E74 

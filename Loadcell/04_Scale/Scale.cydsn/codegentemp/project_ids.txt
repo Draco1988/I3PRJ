@@ -1,6 +1,6 @@
-C:\Users\Parwe\Desktop\A D D A lab - Handin_Lab-Handi......ns 50_attempt_2017-10-04-15-35-34_Lab-MotorControl-Group50 (1)\04_Scale\Scale.cydsn\Scale.cyprj|9ac1bc67-75ec-493f-a179-e4ddc830f0ad
-C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a2f076c7-086b-4eee-8fb1-dbac4c6ec25a
-C:\Users\Parwe\OneDrive\Dokumenter\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|620b398b-9c09-453f-9625-05a024c5bee3
-C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9374d4f3-818b-4617-aeae-8926b188d469
-C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|d04a1237-e2c6-4382-b9f8-63bc484edce0
-C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|adcd26ad-a8e3-444d-8c20-08c9271bf767
+C:\Users\Parwe\Desktop\IKT\3. Semester\Semesterprojekt3\I3PRJ\Loadcell\04_Scale\Scale.cydsn\Scale.cyprj|5c7da92b-7e23-4322-b107-6e4e082ee7a5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|914fbed6-0bd2-4c2d-8e8d-1e554413a40a
+C:\Users\Parwe\OneDrive\Dokumenter\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|42d7e1b9-fa87-49af-a941-87db89575780
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|3f5611d1-5af5-406b-b12c-281d9f3b2b07
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8b65bab8-dd66-4ea4-b356-efac2abd743e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|4f61e0a8-b1b2-42c0-89db-c4e3b8e878fb

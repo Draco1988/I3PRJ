@@ -1640,4 +1640,4 @@ END GROUP
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(C:\Users\Parwe\Desktop\A D D A lab - Handin_Lab-Handi......ns 50_attempt_2017-10-04-15-35-34_Lab-MotorControl-Group50 (1)\04_Scale\Scale.cydsn\CortexM3\ARM_GCC_541\Debug\Scale.elf elf32-littlearm)
+OUTPUT(C:\Users\Parwe\Desktop\IKT\3. Semester\Semesterprojekt3\I3PRJ\Loadcell\04_Scale\Scale.cydsn\CortexM3\ARM_GCC_541\Debug\Scale.elf elf32-littlearm)

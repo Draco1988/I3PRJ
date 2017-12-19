@@ -2,7 +2,7 @@
 --	Conversion of Scale.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Nov 28 08:53:56 2017
+--	Tue Dec 12 11:45:48 2017
 --
 
 USE cypress.cypress.all;

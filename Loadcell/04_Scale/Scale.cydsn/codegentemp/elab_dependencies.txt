@@ -1,4 +1,4 @@
-C:\Users\Parwe\Desktop\A D D A lab - Handin_Lab-Handi......ns 50_attempt_2017-10-04-15-35-34_Lab-MotorControl-Group50 (1)\04_Scale\Scale.cydsn\TopDesign\TopDesign.cysch
+C:\Users\Parwe\Desktop\IKT\3. Semester\Semesterprojekt3\I3PRJ\Loadcell\04_Scale\Scale.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\UART_v2_50\UART_v2_50.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\UART_v2_50\UART_v2_50.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\UART_v2_50\UART_v2_50.pdf
@@ -166,7 +166,7 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrim
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.pdf
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\Custom\custom.cs
-C:\Users\Parwe\Desktop\A D D A lab - Handin_Lab-Handi......ns 50_attempt_2017-10-04-15-35-34_Lab-MotorControl-Group50 (1)\04_Scale\Scale.cydsn\Scale.cydwr
+C:\Users\Parwe\Desktop\IKT\3. Semester\Semesterprojekt3\I3PRJ\Loadcell\04_Scale\Scale.cydsn\Scale.cydwr
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cm3gcc.ld
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\Cm3RealView.scat
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\Cm3Start.c

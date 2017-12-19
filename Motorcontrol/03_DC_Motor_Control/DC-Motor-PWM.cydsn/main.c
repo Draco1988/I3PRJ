@@ -187,9 +187,9 @@ void decreaseSpeed()
 
     if (forward == 1)
     {
-        //PWM_M1_WriteCompare(speed);
-        //PWM_M3_WriteCompare(speed);
-        PWM_P_WriteCompare(speed);
+        PWM_M1_WriteCompare(speed);
+        PWM_M3_WriteCompare(speed);
+        //PWM_P_WriteCompare(speed);
     }
     else
     {
@@ -208,14 +208,14 @@ void increaseSpeed()
 	}
     if (forward == 1)
     {
-//        PWM_M3_WriteCompare(speed);
-//        PWM_M1_WriteCompare(speed); 
-        PWM_P_WriteCompare(speed);
+          PWM_M3_WriteCompare(speed);
+          PWM_M1_WriteCompare(speed); 
+        //PWM_P_WriteCompare(speed);
     }
     else
     {
-        //PWM_M2_WriteCompare(speed);
-        //PWM_M4_WriteCompare(speed);//Increase compare variable to increase speed
+        PWM_M2_WriteCompare(speed);
+        PWM_M4_WriteCompare(speed);//Increase compare variable to increase speed
     }
 }
 
@@ -276,7 +276,7 @@ int main(void)
     UART_1_PutString("2: Drive backwards\r\n");
     UART_1_PutString("q: Decrease speed\r\n");
     UART_1_PutString("w: Increase speed\r\n");
-     PWM_P_WriteCompare(60);
+     //PWM_P_WriteCompare(60);
 
     for(;;)
     {
